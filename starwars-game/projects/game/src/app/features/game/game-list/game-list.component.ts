@@ -9,12 +9,13 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent implements OnInit {
-  public games$!: Observable<GameDto[]>;
+  games: GameDto[] = [];
+  searchItem = '';
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.games$ = this.gameService.getAll(150000);
+    this.gameService.getAll(3).subscribe(items => this.games = items);
   }
 
 }

@@ -1,0 +1,8 @@
+<tr >
+  <td>
+    {{ item.title}} {{runChangeDetection}}
+  </td>
+  <td [gameBoolToColor]="item.success">
+    {{ item.success | boolToText}}
+  </td>
+</tr>
