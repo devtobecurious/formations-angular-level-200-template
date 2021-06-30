@@ -32,8 +32,8 @@
                       <td>
                         {{ item.title}}
                       </td>
-                      <td>
-                        {{ item.success }}
+                      <td [gameBoolToColor]="item.success">
+                        {{ item.success | boolToText}}
                       </td>
                     </tr>
                   </tbody>
