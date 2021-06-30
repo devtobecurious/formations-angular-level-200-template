@@ -73,7 +73,8 @@
               "browserTarget": "game:build:production"
             },
             "development": {
-              "browserTarget": "game:build:development"
+              "browserTarget": "game:build:development",
+              "proxyConfig": "projects/game/src/proxies/proxy.conf.json"
             }
           },
           "defaultConfiguration": "development"

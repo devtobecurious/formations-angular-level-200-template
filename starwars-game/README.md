@@ -5,6 +5,9 @@ This project was generated with [Angular CLI](https://github.com/angular/angular
 ## Dependencies
 https://raw.githubusercontent.com/StartBootstrap/startbootstrap-sb-admin-2/master/css/sb-admin-2.css 
 
+in global
+https://pm2.keymetrics.io/
+
 
 ## Development server
 
