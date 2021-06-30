@@ -24,7 +24,9 @@
             "tsConfig": "projects/game/tsconfig.app.json",
             "assets": [
               "projects/game/src/favicon.ico",
-              "projects/game/src/assets"
+              "projects/game/src/assets",
+              "projects/game/src/assets/img",
+              "projects/game/src/assets/vendor"
             ],
             "styles": [
               "projects/game/src/styles.css"
