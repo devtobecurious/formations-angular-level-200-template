@@ -5,7 +5,7 @@ import { GameDto } from '../../../core/models/game.dto';
   selector: 'game-game-row',
   templateUrl: './game-row.component.html',
   styleUrls: ['./game-row.component.css'],
-  changeDetection: ChangeDetectionStrategy.OnPush
+  // changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameRowComponent implements OnInit {
   @Input() item!: GameDto;
