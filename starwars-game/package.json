@@ -5,8 +5,9 @@
     "ng": "ng",
 
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
+
     "prestart": "npm run start:api",
-    "start": "ng serve",
+    "start": "ng serve -o",
 
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
