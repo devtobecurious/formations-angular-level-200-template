@@ -1,6 +1,18 @@
 
 <h1>Star wars game</h1>
 
-<game-profile></game-profile>
+<game-observables-zoom></game-observables-zoom>
+
+<h2>Peoples</h2>
+
+<div *ngIf="people$ | async as peoples">
+  {{ peoples | json }}
+</div>
+
+<div *ngFor="let item of people$ | async">
+  {{ item | json }}
+
+  <input type="radio">
+</div>
 
 <router-outlet></router-outlet>

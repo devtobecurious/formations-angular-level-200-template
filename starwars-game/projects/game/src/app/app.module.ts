@@ -13,10 +13,12 @@ import { PlayerModule } from './features/player/player.module';
 import { ProfileService } from './features/player/services/profile.service';
 import { Profile2Module } from './features/profile2/profile2.module';
 import { SidePartModule } from './shared/modules/side-part/side-part.module';
+import { ObservablesZoomComponent } from './shared/components/observables-zoom/observables-zoom.component';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    ObservablesZoomComponent
   ],
   imports: [
     BrowserModule,
