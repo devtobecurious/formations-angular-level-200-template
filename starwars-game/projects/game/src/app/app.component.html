@@ -15,4 +15,11 @@
   <input type="radio">
 </div>
 
+<h2>Enemies</h2>
+<div *ngFor="let item of enemies$ | async">
+  {{ item.libelle }}
+</div>
+
+<button (click)="addNewFakeEnemy()">Maj list</button>
+
 <router-outlet></router-outlet>
