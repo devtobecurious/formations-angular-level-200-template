@@ -20,11 +20,14 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   ngOnInit() {
-    this.people$ = this.peopleService.getAll();
+    //this.people$ = this.peopleService.getAll();
 
     this.peopleService.getAll()
     .pipe(takeUntil(this.endOfObservable$))
     .subscribe(items => this.items = items);
+
+    this.people$ = this.peopleService.getAll()
+    .pipe(takeUntil(this.endOfObservable$));
   }
 
   ngOnDestroy() {

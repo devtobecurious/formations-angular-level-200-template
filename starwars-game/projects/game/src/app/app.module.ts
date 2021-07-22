@@ -14,6 +14,8 @@ import { ProfileService } from './features/player/services/profile.service';
 import { Profile2Module } from './features/profile2/profile2.module';
 import { SidePartModule } from './shared/modules/side-part/side-part.module';
 import { ObservablesZoomComponent } from './shared/components/observables-zoom/observables-zoom.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,10 @@ import { ObservablesZoomComponent } from './shared/components/observables-zoom/o
     HttpClientModule,
     GameModule,
     PlayerModule,
-    SidePartModule
+    SidePartModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [
 
