@@ -1,29 +1,17 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
-import { delay } from 'rxjs/operators';
+import { delay, tap } from 'rxjs/operators';
 import { EnemyDTO } from '../../../core/models/enemy.dto';
 
-@Injectable({
-  providedIn: 'root'
-})
+@Injectable()
 export class EnemyService {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<EnemyDTO[]> {
-    return of([
-      {
-            id: Math.random() * 100,
-            libelle: 'Test' + Math.random(),
-            life: 100,
-            xp: 100
-      },
-      {
-        id: Math.random() * 100,
-        libelle: 'Test' + Math.random(),
-        life: 100,
-        xp: 100
-      }
-    ]).pipe(delay(1000))
+    return this.httpClient.get<EnemyDTO[]>('api/lesenemies').pipe(
+      tap(item => console.info(item))
+    );
   }
 }
