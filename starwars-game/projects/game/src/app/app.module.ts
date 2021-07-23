@@ -16,6 +16,8 @@ import { SidePartModule } from './shared/modules/side-part/side-part.module';
 import { ObservablesZoomComponent } from './shared/components/observables-zoom/observables-zoom.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { EnemyEffects } from './features/enemy/store/effects/enemy.effects';
 
 @NgModule({
   declarations: [
@@ -31,7 +33,10 @@ import { reducers, metaReducers } from './reducers';
     SidePartModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    EffectsModule.forRoot([
+      EnemyEffects
+    ])
   ],
   providers: [
 

@@ -4,7 +4,7 @@ import { Observable, Subject } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { EnemyDTO } from './core/models/enemy.dto';
 import { PersonDTO } from './core/models/person.dto';
-import { miseAJourListEnemiesAction } from './features/enemy/store/actions/enemy.actions';
+import { demandeRemplissageListEnemiesAction } from './features/enemy/store/actions/enemy.actions';
 import { selectAllEnemies, selectEnemiesALive } from './features/enemy/store/selectors/enemy.selectors';
 import { PeopleService } from './features/people/services/people.service';
 import { ProfileService } from './features/player/services/profile.service';
@@ -55,6 +55,6 @@ export class AppComponent implements OnInit, OnDestroy {
   }
 
   addNewFakeEnemy() {
-    this.store.dispatch(miseAJourListEnemiesAction());
+    this.store.dispatch(demandeRemplissageListEnemiesAction());
   }
 }

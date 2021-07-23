@@ -5,3 +5,4 @@ const selectionState = (state: ApplicationState) => state.enemies;
 
 export const selectAllEnemies = createSelector(selectionState, state => state.items);
 export const selectEnemiesALive = createSelector(selectAllEnemies, items => items.filter(item => item.life > 0));
+
