@@ -8,6 +8,8 @@ import { delay, map, mergeMap, tap } from 'rxjs/operators';
   styleUrls: ['./observables-zoom.component.css']
 })
 export class ObservablesZoomComponent implements OnInit {
+  @Input() nbReplayer = 1;
+
 
   constructor() { }
 

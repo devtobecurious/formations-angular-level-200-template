@@ -28,6 +28,10 @@ export class AppComponent implements OnInit, OnDestroy {
               private store: Store<ApplicationState>) {
   }
 
+  appel() {
+    console.warn('APPEL');
+  }
+
   ngOnInit() {
     this.enemies$ = this.store.pipe(
       select(selectAllEnemies)
