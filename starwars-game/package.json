@@ -1,14 +1,22 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
+  "config": {
+    "mavariable": "1"
+  },
   "scripts": {
     "ng": "ng",
-
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
+
     "prestart": "npm run start:api",
     "start": "ng serve",
 
+    "ah:que:johhy": "echo 'ah que johny'",
+
+    "prebuild": "npm run ah:que:johny && echo 'atchoum'",
     "build": "ng build",
+    "postbuild": "echo 'ah que enfin coucou'",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
