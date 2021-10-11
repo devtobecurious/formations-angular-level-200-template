@@ -2,8 +2,12 @@
 
 {{ calculer() }}
 
-<form action="">
+{{ user | json }}
+
+<form action="post">
   <input type="text" name="surname">
-  <input type="text" name="surname">
+  <input type="number" name="xp" [(ngModel)]="user.xp">
   <input type="text">
+
+  <button (click)="save()">Save</button>
 </form>
