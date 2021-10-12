@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { TestService } from './shared/services/test.service';
 
 @Component({
   selector: 'game-root',
@@ -7,4 +8,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  /**
+   *
+   */
+  constructor(private test: TestService) {
+
+  }
 }
