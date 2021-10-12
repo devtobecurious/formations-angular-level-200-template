@@ -54,6 +54,11 @@
                 },
 
                 {
+                  "replace": "projects/game/src/environments/logger.ts",
+                  "with": "projects/game/src/environments/logger.prod.ts"
+                },
+
+                {
                   "replace": "projects/game/src/environments/api.ts",
                   "with": "projects/game/src/environments/api.prod.ts"
                 }
