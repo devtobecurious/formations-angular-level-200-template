@@ -11,6 +11,7 @@ import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
 import { UserModule } from './features/user/user.module';
 import { ListProfileComponent } from './features/user-test/list-profile/list-profile.component';
+import { EnemyModule } from './features/enemy/enemy.module';
 
 @NgModule({
   declarations: [
@@ -23,7 +24,8 @@ import { ListProfileComponent } from './features/user-test/list-profile/list-pro
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    UserModule
+    UserModule,
+    EnemyModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

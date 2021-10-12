@@ -19,5 +19,4 @@ export class ListEnemiesComponent implements OnInit {
   ngOnInit(): void {
     this.service.getAll().subscribe(items => this.enemies = items);
   }
-
 }

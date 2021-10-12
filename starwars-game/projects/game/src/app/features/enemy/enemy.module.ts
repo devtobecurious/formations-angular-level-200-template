@@ -10,6 +10,9 @@ import { ListEnemiesComponent } from './list-enemies/list-enemies.component';
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ListEnemiesComponent
   ]
 })
 export class EnemyModule { }
