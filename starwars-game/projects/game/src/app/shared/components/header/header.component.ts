@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ApplicationState } from '../../../reducers';
 import { SearchService } from '../../services/search.service';
 
 @Component({
@@ -8,6 +9,7 @@ import { SearchService } from '../../services/search.service';
 })
 export class HeaderComponent implements OnInit {
   searchItem = '';
+  private stat !: ApplicationState;
 
   constructor(private searchService: SearchService) { }
 

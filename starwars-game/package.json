@@ -7,16 +7,12 @@
   "scripts": {
     "ng": "ng",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-
     "prestart": "npm run start:api",
     "start": "ng serve",
-
     "ah:que:johhy": "echo 'ah que johny'",
-
     "prebuild": "npm run ah:que:johny && echo 'atchoum'",
     "build": "ng build",
     "postbuild": "echo 'ah que enfin coucou'",
-
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -30,6 +26,7 @@
     "@angular/platform-browser": "~12.0.1",
     "@angular/platform-browser-dynamic": "~12.0.1",
     "@angular/router": "~12.0.1",
+    "@ngrx/store": "^12.4.0",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

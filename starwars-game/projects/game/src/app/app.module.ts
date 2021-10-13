@@ -16,6 +16,8 @@ import { TestModule } from './features/tests/test/test.module';
 import { TestService } from './shared/services/test.service';
 import { ObservableComponent } from './shared/components/observable/observable.component';
 import { FormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({
   declarations: [
@@ -32,7 +34,10 @@ import { FormsModule } from '@angular/forms';
     GameModule,
     UserModule,
     EnemyModule,
-    TestModule
+    TestModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [
     TestService
