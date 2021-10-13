@@ -16,11 +16,14 @@ export class ObservableComponent implements OnInit, OnDestroy {
 
 
   ngOnInit(): void {
+
+    const randValue = Math.random() * 100;
+
     this.droides$ = new Observable(observer => {
       observer.next([
         'droide' +  (Math.random() * 100),
         'droide' +  (Math.random() * 100),
-        'droide' +  (Math.random() * 100)
+        'droide' +  randValue
       ]);
 
       setTimeout(() => {
