@@ -14,12 +14,14 @@ import { ListProfileComponent } from './features/user-test/list-profile/list-pro
 import { EnemyModule } from './features/enemy/enemy.module';
 import { TestModule } from './features/tests/test/test.module';
 import { TestService } from './shared/services/test.service';
+import { ObservableComponent } from './shared/components/observable/observable.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    ObservableComponent
   ],
   imports: [
     BrowserModule,
