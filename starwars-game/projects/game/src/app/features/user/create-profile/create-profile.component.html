@@ -1,0 +1,33 @@
+<form [formGroup]="profileForm">
+  <div class="row">
+
+    <div class="col">
+      <label for="">Prénom</label>
+      <input type="number" name="surname" class="field" formControlName="surname">
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button (click)="save()">Créer</button>
+    </div>
+  </div>
+</form>
+
+<!-- <form action="">
+  <div class="row">
+
+    <div class="col">
+      <label for="">Prénom</label>
+      <input type="number" required name="surname" class="field" [(ngModel)]="user.surname">
+
+    </div>
+  </div>
+
+  <div class="row">
+    <div class="col">
+      <button>Créer</button>
+    </div>
+  </div>
+</form> -->
