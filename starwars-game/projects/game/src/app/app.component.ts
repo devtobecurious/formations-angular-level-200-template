@@ -21,4 +21,9 @@ export class AppComponent implements OnInit {
   ngOnInit(): void {
     this.profileService.getAll().subscribe(item => this.users = item);
   }
+
+  generateTitle() {
+    console.info('generateTitle');
+    return 'Hello';
+  }
 }

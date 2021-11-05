@@ -1,12 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, OnDestroy, OnInit } from '@angular/core';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'game-rxjs-discover',
   templateUrl: './rxjs-discover.component.html',
   styleUrls: ['./rxjs-discover.component.css']
 })
-export class RxjsDiscoverComponent implements OnInit {
+export class RxjsDiscoverComponent implements OnInit, OnDestroy {
+  private subscription = new Subscription();
 
   constructor() { }
 
@@ -24,12 +25,15 @@ export class RxjsDiscoverComponent implements OnInit {
     callApi.then(item => console.info('promise', item)).then(item => console.info('?', item));
     callApi.then(item => console.info('promise', item));
 
+
     // OBSERVABLES____
 
     const callApi$ = new Observable(observer => {
       console.info('ah que coucou $$$', Math.random() * 100);
 
       observer.next('1. yoo !');
+
+      // observer.error(new Error('Fail'));
 
       observer.complete();
       observer.next('10. yoo !');
@@ -41,12 +45,18 @@ export class RxjsDiscoverComponent implements OnInit {
       }, 0);
     });
 
-    callApi$.subscribe();
+    let uneSubscribe = callApi$.subscribe();
+    this.subscription.add(uneSubscribe);
+
     callApi$.subscribe(item => console.info('obs', item),
-                        null,
-                        () => console.warn('this is the end'));
+      err => console.info(err),
+      () => console.warn('this is the end'));
 
     console.info('_____________________');
+  }
+
+  ngOnDestroy() {
+    this.subscription.unsubscribe();
   }
 
 }

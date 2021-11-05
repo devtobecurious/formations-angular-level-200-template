@@ -1,3 +1,4 @@
+import { FormsModule } from '@angular/forms';
 import { environment } from './../../../mobile-game/src/environments/environment';
 import { LoggerService, Logger2 } from './shared/services/logger.service';
 import { UserModule } from './features/user/user.module';
@@ -16,6 +17,9 @@ import { ProfileService } from './features/user/services/profile.service';
 import { TestOneComponent } from './shared/test-one/test-one.component';
 import { ChildOneComponent } from './shared/child-one/child-one.component';
 import { RxjsDiscoverComponent } from './shared/rxjs-discover/rxjs-discover.component';
+import { RxjsPipeAsyncComponent } from './shared/rxjs-pipe-async/rxjs-pipe-async.component';
+import { ConcatMergeMapComponent } from './shared/concat-merge-map/concat-merge-map.component';
+import { CountClickComponent } from './shared/count-click/count-click.component';
 
 const initializeApp = () => {
   return new Promise((resolve, reject) => {
@@ -31,12 +35,16 @@ const initializeApp = () => {
     SideBarComponent,
     TestOneComponent,
     ChildOneComponent,
-    RxjsDiscoverComponent
+    RxjsDiscoverComponent,
+    RxjsPipeAsyncComponent,
+    ConcatMergeMapComponent,
+    CountClickComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    FormsModule,
     GameModule,
     UserModule
   ],
