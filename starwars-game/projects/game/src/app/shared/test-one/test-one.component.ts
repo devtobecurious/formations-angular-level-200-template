@@ -1,3 +1,4 @@
+import { LoggerService } from './../services/logger.service';
 import { ProfileService } from './../../features/user/services/profile.service';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,9 +10,11 @@ import { Component, OnInit } from '@angular/core';
 })
 export class TestOneComponent implements OnInit {
 
-  constructor(private service: ProfileService) { }
+  constructor(private service: ProfileService,
+             private logger: LoggerService) { }
 
   ngOnInit(): void {
+    this.logger.log('Yahoo');
   }
 
 }

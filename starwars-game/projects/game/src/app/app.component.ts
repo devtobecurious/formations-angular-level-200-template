@@ -9,13 +9,14 @@ import { UserBis } from './core/models/user';
 })
 export class AppComponent implements OnInit {
   title = 'game';
+  displayKey = '';
   users: UserBis[] = [];
 
   /**
    *
    */
   constructor(private profileService: ProfileService) {
-
+    this.displayKey = this.profileService.key.toString();
   }
   ngOnInit(): void {
     this.profileService.getAll().subscribe(item => this.users = item);

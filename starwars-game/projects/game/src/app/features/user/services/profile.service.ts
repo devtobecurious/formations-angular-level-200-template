@@ -1,3 +1,4 @@
+import { logger } from './../../../../environments/logger-one';
 import { Observable } from 'rxjs';
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
@@ -16,9 +17,13 @@ export declare type ApiResult = {
   providedIn: null
 })
 export class ProfileService {
+    key !: number;
+
   constructor(private httpCLient: HttpClient) {
     console.info('I am alive !!!');
+    this.key = Math.random() * 100;
 
+    logger.log('Ca logg');
   }
 
   getAll(): Observable<UserBis[]> {

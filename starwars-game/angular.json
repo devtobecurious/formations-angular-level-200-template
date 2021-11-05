@@ -49,6 +49,11 @@
               ],
               "fileReplacements": [
                 {
+                  "replace": "projects/game/src/environments/logger-one.ts",
+                  "with": "projects/game/src/environments/logger-one.prod.ts"
+                },
+
+                {
                   "replace": "projects/game/src/environments/environment.ts",
                   "with": "projects/game/src/environments/environment.prod.ts"
                 },
