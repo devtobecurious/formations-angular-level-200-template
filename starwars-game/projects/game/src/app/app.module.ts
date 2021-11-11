@@ -1,8 +1,9 @@
+import { AppTranslateModule } from './app-translate.module';
 import { FormsModule } from '@angular/forms';
 import { environment } from './../../../mobile-game/src/environments/environment';
 import { LoggerService, Logger2 } from './shared/services/logger.service';
 import { UserModule } from './features/user/user.module';
-import { HttpClientModule } from '@angular/common/http';
+import { HttpClient, HttpClientModule } from '@angular/common/http';
 import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -20,6 +21,8 @@ import { RxjsDiscoverComponent } from './shared/rxjs-discover/rxjs-discover.comp
 import { RxjsPipeAsyncComponent } from './shared/rxjs-pipe-async/rxjs-pipe-async.component';
 import { ConcatMergeMapComponent } from './shared/concat-merge-map/concat-merge-map.component';
 import { CountClickComponent } from './shared/count-click/count-click.component';
+import { TranslateLoader, TranslateModule } from '@ngx-translate/core';
+import { TranslateHttpLoader } from '@ngx-translate/http-loader';
 
 const initializeApp = () => {
   return new Promise((resolve, reject) => {
@@ -27,6 +30,8 @@ const initializeApp = () => {
     resolve('v1.1');
   });
 }
+
+
 
 @NgModule({
   declarations: [
@@ -44,8 +49,9 @@ const initializeApp = () => {
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    AppTranslateModule,
     FormsModule,
-    GameModule,
+    // GameModule,
     UserModule
   ],
   providers: [

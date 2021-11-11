@@ -1,6 +1,7 @@
 import { ProfileService } from './features/user/services/profile.service';
 import { Component, OnInit } from '@angular/core';
 import { UserBis } from './core/models/user';
+import { TranslateService } from '@ngx-translate/core';
 
 @Component({
   selector: 'game-root',
@@ -15,8 +16,11 @@ export class AppComponent implements OnInit {
   /**
    *
    */
-  constructor(private profileService: ProfileService) {
+  constructor(private profileService: ProfileService,
+              private translateService: TranslateService) {
     this.displayKey = this.profileService.key.toString();
+
+    this.translateService.use('en');
   }
   ngOnInit(): void {
     this.profileService.getAll().subscribe(item => this.users = item);

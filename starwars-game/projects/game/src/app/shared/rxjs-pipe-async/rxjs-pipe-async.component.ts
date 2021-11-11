@@ -5,7 +5,7 @@ import { takeUntil, tap } from 'rxjs/operators';
 @Component({
   selector: 'game-rxjs-pipe-async',
   templateUrl: './rxjs-pipe-async.component.html',
-  styleUrls: ['./rxjs-pipe-async.component.css']
+  styleUrls: ['./rxjs-pipe-async.component.css'],
 })
 export class RxjsPipeAsyncComponent implements OnInit, OnDestroy {
   statResult$ !: Observable<number[]>;

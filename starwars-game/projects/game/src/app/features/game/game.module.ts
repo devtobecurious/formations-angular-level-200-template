@@ -7,6 +7,7 @@ import { BoolToColorDirective } from '../../shared/directives/bool-to-color.dire
 import { GameTableComponent } from './game-table/game-table.component';
 import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
+import { GameRoutingModule } from './game-routing.module';
 
 
 
@@ -20,7 +21,8 @@ import { FormsModule } from '@angular/forms';
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    GameRoutingModule
   ],
   providers: [
     GameService
