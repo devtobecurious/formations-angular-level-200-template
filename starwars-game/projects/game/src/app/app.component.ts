@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy } from '@angular/compiler/src/core';
 import { Component } from '@angular/core';
+import { ServiceUnService } from './shared/services/service-un.service';
 
 @Component({
   selector: 'game-root',
@@ -9,6 +10,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  constructor(private service: ServiceUnService) {}
 
   displayH2() {
     console.info('je suis appelé');
