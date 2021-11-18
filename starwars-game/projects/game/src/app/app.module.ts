@@ -12,6 +12,7 @@ import { BoolToColorDirective } from './shared/directives/bool-to-color.directiv
 import { FormsModule } from '@angular/forms';
 import { ServiceUnService } from './shared/services/service-un.service';
 import { HeadModule } from './shared/components/head/head.module';
+import { PeopleModule } from './features/people/people.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +27,8 @@ import { HeadModule } from './shared/components/head/head.module';
     HttpClientModule,
     FormsModule,
     GameModule,
-    HeadModule
+    HeadModule,
+    PeopleModule
   ],
   providers: [
     // ServiceUnService
