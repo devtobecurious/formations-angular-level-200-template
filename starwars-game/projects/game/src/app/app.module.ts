@@ -13,12 +13,16 @@ import { FormsModule } from '@angular/forms';
 import { ServiceUnService } from './shared/services/service-un.service';
 import { HeadModule } from './shared/components/head/head.module';
 import { PeopleModule } from './features/people/people.module';
+import { ModelsAndInterfacesComponent } from './shared/components/models-and-interfaces/models-and-interfaces.component';
+import { DiscoverObservablesComponent } from './shared/components/discover-observables/discover-observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideBarComponent,
+    ModelsAndInterfacesComponent,
+    DiscoverObservablesComponent
    // HeadComponent
   ],
   imports: [

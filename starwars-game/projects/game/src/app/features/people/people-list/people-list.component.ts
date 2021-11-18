@@ -13,6 +13,7 @@ export class PeopleListComponent implements OnInit {
 
   ngOnInit(): void {
     this.service.getAll().subscribe(items => console.info(items));
+    //this.service.getAll().subscribe(items => console.info(items));
   }
 
 }
