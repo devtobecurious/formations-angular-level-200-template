@@ -15,6 +15,7 @@ import { HeadModule } from './shared/components/head/head.module';
 import { PeopleModule } from './features/people/people.module';
 import { ModelsAndInterfacesComponent } from './shared/components/models-and-interfaces/models-and-interfaces.component';
 import { DiscoverObservablesComponent } from './shared/components/discover-observables/discover-observables.component';
+import { OperatorsComponent } from './shared/components/operators/operators.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DiscoverObservablesComponent } from './shared/components/discover-obser
     HeaderComponent,
     SideBarComponent,
     ModelsAndInterfacesComponent,
-    DiscoverObservablesComponent
+    DiscoverObservablesComponent,
+    OperatorsComponent
    // HeadComponent
   ],
   imports: [

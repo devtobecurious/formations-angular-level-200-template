@@ -1,1 +1,13 @@
 <p>discover-observables works!</p>
+
+<h2>Counter</h2>
+<div>{{ (counter$ | async)?.id }}</div>
+<div>JAMAIS !! 2° subscribe ici {{ (counter$ | async)?.matricule }}</div>
+
+<ng-container *ngIf="counter$ | async as droide">
+  <div>{{ droide.id }}</div>
+  <div>{{ droide.matricule }}</div>
+</ng-container>
+
+
+
