@@ -1,0 +1,28 @@
+{
+  "root": "apps/starwars-game-e2e",
+  "sourceRoot": "apps/starwars-game-e2e/src",
+  "projectType": "application",
+  "targets": {
+    "e2e": {
+      "executor": "@nrwl/cypress:cypress",
+      "options": {
+        "cypressConfig": "apps/starwars-game-e2e/cypress.json",
+        "devServerTarget": "starwars-game:serve:development"
+      },
+      "configurations": {
+        "production": {
+          "devServerTarget": "starwars-game:serve:production"
+        }
+      }
+    },
+    "lint": {
+      "executor": "@nrwl/linter:eslint",
+      "outputs": ["{options.outputFile}"],
+      "options": {
+        "lintFilePatterns": ["apps/starwars-game-e2e/**/*.{js,ts}"]
+      }
+    }
+  },
+  "tags": [],
+  "implicitDependencies": ["starwars-game"]
+}
