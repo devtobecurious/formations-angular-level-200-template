@@ -1,12 +1,18 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
+
   "scripts": {
     "ng": "ng",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
+
     "prestart": "npm run start:api",
-    "start": "ng serve",
+    "start": "ng serve -o",
+
+    "prebuild": "echo 'avant ?'",
     "build": "ng build",
+    "postbuild": "echo 'apres ?'",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

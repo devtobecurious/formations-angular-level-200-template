@@ -9,12 +9,14 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
+import { TestCompComponent } from './shared/components/test-comp/test-comp.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    TestCompComponent
   ],
   imports: [
     BrowserModule,

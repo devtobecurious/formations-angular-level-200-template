@@ -12,7 +12,7 @@
       },
       "root": "projects/game",
       "sourceRoot": "projects/game/src",
-      "prefix": "game",
+      "prefix": "gameSW",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
