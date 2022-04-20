@@ -1,0 +1,8 @@
+<h1>Parent</h1>
+
+{{ childs | json }}
+
+<div *ngFor="let item of childs">
+  <app-dark-side-child-one [item]="item"></app-dark-side-child-one>
+  <app-dark-side-child-two [item]="item"></app-dark-side-child-two>
+</div>
