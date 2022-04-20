@@ -10,6 +10,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
 import { TestCompComponent } from './shared/components/test-comp/test-comp.component';
+import { PlayerModule } from './features/player/player.module';
+import { GridModule } from './shared/modules/components/grid/grid.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +24,9 @@ import { TestCompComponent } from './shared/components/test-comp/test-comp.compo
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GameModule
+    GameModule,
+    PlayerModule,
+    GridModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
