@@ -10,12 +10,14 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
 import { SearchModule } from './shared/components/ui/search/search-item/search-item.component';
+import { ObservablesComponent } from './shared/components/observables/observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
