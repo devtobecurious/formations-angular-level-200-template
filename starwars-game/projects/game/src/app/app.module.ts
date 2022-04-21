@@ -12,13 +12,16 @@ import { BoolToColorDirective } from './shared/directives/bool-to-color.directiv
 import { TestCompComponent } from './shared/components/test-comp/test-comp.component';
 import { PlayerModule } from './features/player/player.module';
 import { GridModule } from './shared/modules/components/grid/grid.module';
+import { ObservablesComponent } from './shared/components/observables/observables.component';
+import { SearchModule } from './shared/components/ui/search/search-item/search-item.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
     SideBarComponent,
-    TestCompComponent
+    TestCompComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
@@ -26,6 +29,7 @@ import { GridModule } from './shared/modules/components/grid/grid.module';
     HttpClientModule,
     GameModule,
     PlayerModule,
+    SearchModule,
     GridModule
   ],
   providers: [],
