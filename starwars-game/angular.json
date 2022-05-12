@@ -73,13 +73,16 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
+          "options": {
+            "browserTarget": "game:build",
+            "proxyConfig": "projects/game/src/proxies/proxy.conf.json"
+          },
           "configurations": {
             "production": {
               "browserTarget": "game:build:production"
             },
             "development": {
-              "browserTarget": "game:build:development",
-              "proxyConfig": "projects/game/src/proxies/proxy.conf.json"
+              "browserTarget": "game:build:development"
             }
           },
           "defaultConfiguration": "development"
