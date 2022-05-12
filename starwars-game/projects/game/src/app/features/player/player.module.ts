@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { CreateProfileComponent, CreateProfileModule } from './create-profile/create-profile.component';
 import { PlayerService } from './services/player.service';
+import { PlayerRoutingModule } from './player-routing.module';
 
 
 
@@ -11,7 +12,8 @@ import { PlayerService } from './services/player.service';
   ],
   imports: [
     CommonModule,
-    CreateProfileModule
+    CreateProfileModule,
+    PlayerRoutingModule
   ],
   exports: [
     //CreateProfileComponent

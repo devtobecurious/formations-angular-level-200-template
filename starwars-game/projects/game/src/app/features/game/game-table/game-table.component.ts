@@ -5,7 +5,7 @@ import { GameDto } from '../../../core/models/game.dto';
   selector: 'game-table',
   templateUrl: './game-table.component.html',
   styleUrls: ['./game-table.component.css'],
-//   changeDetection: ChangeDetectionStrategy.OnPush
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameTableComponent implements OnInit {
   @Input() games: GameDto[] = [];
@@ -15,6 +15,7 @@ export class GameTableComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
-
+  displayLog() {
+    console.log('log view game table');
+  }
 }

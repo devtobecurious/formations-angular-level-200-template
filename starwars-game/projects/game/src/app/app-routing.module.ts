@@ -10,7 +10,7 @@ const routes: Routes = [
   },
   {
     path: 'player',
-    component: CreateProfileComponent
+    loadChildren: () => import('./features/player/player.module').then(m => m.PlayerModule)
   }
 ];
 

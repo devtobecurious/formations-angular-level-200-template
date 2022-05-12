@@ -28,7 +28,7 @@ import { SearchModule } from './shared/components/ui/search/search-item/search-i
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    PlayerModule,
+    // PlayerModule,
     SearchModule,
     GridModule
   ],
