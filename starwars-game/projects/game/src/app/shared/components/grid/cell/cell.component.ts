@@ -1,19 +1,24 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
 
 @Component({
   selector: 'game-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class CellComponent implements OnInit {
 
   @Input() item !: TileCell;
 
-  constructor() { }
+
 
   ngOnInit(): void {
+
+  }
+
+  logView() {
+    console.info('CellComponent');
   }
 
   clickTile(item: TileCell, cell: HTMLDivElement) {

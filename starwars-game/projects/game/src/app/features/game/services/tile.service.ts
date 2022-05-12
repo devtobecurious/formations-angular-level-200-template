@@ -11,7 +11,7 @@ export class TileService {
   tiles: Tile[] = [];
 
   constructor(private httpClient: HttpClient) {
-    for (let index = 0; index < 256; index++) {
+    for (let index = 0; index < 255; index++) {
       this.tiles.push({
         isRevealed: false,
         value: Math.floor(Math.random() * 100),

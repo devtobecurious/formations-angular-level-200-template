@@ -5,7 +5,7 @@
     "ng": "ng",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
 
-    "start": "ng serve --proxy-config projects/game/src/proxies/proxy.conf.json --verbose",
+    "start": "ng serve --proxy-config projects/game/src/proxies/proxy.conf.json ",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

@@ -1,11 +1,11 @@
-import { Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, Tile, TileCell } from './models';
 
 @Component({
   selector: 'game-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
-  encapsulation: ViewEncapsulation.None,
+  encapsulation: ViewEncapsulation.None
 })
 export class GridComponent implements OnInit {
 
@@ -17,21 +17,19 @@ export class GridComponent implements OnInit {
 
       return cell;
     });
-
-//    this.cdRef.detectChanges();
   };
   cells: TileCell[] = [];
 
- // constructor(private readonly cdRef: ChangeDetectorRef) { }
 
   ngOnInit(): void {
-   // this.cdRef.detach();
   }
 
   logView() {
-    console.info('view');
+    console.info('GridComponent');
   }
 
+  onClick() {
+  }
 
   trackByFn(index: number, item: TileCell) {
     return item.id;
