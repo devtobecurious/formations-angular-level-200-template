@@ -1,0 +1,137 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "the-game": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/the-game",
+      "sourceRoot": "projects/the-game/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/the-game",
+            "index": "projects/the-game/src/index.html",
+            "main": "projects/the-game/src/main.ts",
+            "polyfills": "projects/the-game/src/polyfills.ts",
+            "tsConfig": "projects/the-game/tsconfig.app.json",
+            "assets": [
+              "projects/the-game/src/favicon.ico",
+              "projects/the-game/src/assets"
+            ],
+            "styles": [
+              "projects/the-game/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/the-game/src/environments/environment.ts",
+                  "with": "projects/the-game/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "the-game:build:production"
+            },
+            "development": {
+              "browserTarget": "the-game:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "the-game:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/the-game/src/test.ts",
+            "polyfills": "projects/the-game/src/polyfills.ts",
+            "tsConfig": "projects/the-game/tsconfig.spec.json",
+            "karmaConfig": "projects/the-game/karma.conf.js",
+            "assets": [
+              "projects/the-game/src/favicon.ico",
+              "projects/the-game/src/assets"
+            ],
+            "styles": [
+              "projects/the-game/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "the-game-lib": {
+      "projectType": "library",
+      "root": "projects/the-game-lib",
+      "sourceRoot": "projects/the-game-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/the-game-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/the-game-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/the-game-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/the-game-lib/src/test.ts",
+            "tsConfig": "projects/the-game-lib/tsconfig.spec.json",
+            "karmaConfig": "projects/the-game-lib/karma.conf.js"
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "the-game"
+}

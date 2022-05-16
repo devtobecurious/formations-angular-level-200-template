@@ -3,33 +3,31 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "game": {
+    "monprojet": {
       "projectType": "application",
       "schematics": {
         "@schematics/angular:application": {
           "strict": true
         }
       },
-      "root": "projects/game",
-      "sourceRoot": "projects/game/src",
-      "prefix": "game",
+      "root": "",
+      "sourceRoot": "src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/game",
-            "index": "projects/game/src/index.html",
-            "main": "projects/game/src/main.ts",
-            "polyfills": "projects/game/src/polyfills.ts",
-            "tsConfig": "projects/game/tsconfig.app.json",
+            "outputPath": "dist/monprojet",
+            "index": "src/index.html",
+            "main": "src/main.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.app.json",
             "assets": [
-              "projects/game/src/favicon.ico",
-              "projects/game/src/assets",
-              "projects/game/src/assets/img",
-              "projects/game/src/assets/vendor"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "projects/game/src/styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           },
@@ -39,7 +37,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "5mb"
+                  "maximumError": "1mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -49,13 +47,8 @@
               ],
               "fileReplacements": [
                 {
-                  "replace": "projects/game/src/environments/environment.ts",
-                  "with": "projects/game/src/environments/environment.prod.ts"
-                },
-
-                {
-                  "replace": "projects/game/src/environments/api.ts",
-                  "with": "projects/game/src/environments/api.prod.ts"
+                  "replace": "src/environments/environment.ts",
+                  "with": "src/environments/environment.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -73,16 +66,12 @@
         },
         "serve": {
           "builder": "@angular-devkit/build-angular:dev-server",
-          "options": {
-            "browserTarget": "game:build",
-            "proxyConfig": "projects/game/src/proxies/proxy.conf.json"
-          },
           "configurations": {
             "production": {
-              "browserTarget": "game:build:production"
+              "browserTarget": "monprojet:build:production"
             },
             "development": {
-              "browserTarget": "game:build:development"
+              "browserTarget": "monprojet:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -90,22 +79,22 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "game:build"
+            "browserTarget": "monprojet:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/game/src/test.ts",
-            "polyfills": "projects/game/src/polyfills.ts",
-            "tsConfig": "projects/game/tsconfig.spec.json",
-            "karmaConfig": "projects/game/karma.conf.js",
+            "main": "src/test.ts",
+            "polyfills": "src/polyfills.ts",
+            "tsConfig": "tsconfig.spec.json",
+            "karmaConfig": "karma.conf.js",
             "assets": [
-              "projects/game/src/favicon.ico",
-              "projects/game/src/assets"
+              "src/favicon.ico",
+              "src/assets"
             ],
             "styles": [
-              "projects/game/src/styles.css"
+              "src/styles.css"
             ],
             "scripts": []
           }
@@ -211,5 +200,5 @@
       }
     }
   },
-  "defaultProject": "game"
+  "defaultProject": "monprojet"
 }

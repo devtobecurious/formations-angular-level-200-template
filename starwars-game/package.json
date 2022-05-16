@@ -5,8 +5,16 @@
     "ng": "ng",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
 
+    "presalut": "echo '-' ",
+    "salut": "echo 'salut'",
+    "postsalut": "echo 'ca va ?'",
+
+    "prestart": "npm run start:api",
     "start": "ng serve --proxy-config projects/game/src/proxies/proxy.conf.json ",
+
     "build": "ng build",
+    "postbuild": "echo 'cest la fin'",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
