@@ -1,13 +1,15 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { LoggerService } from '../../services/logger.service';
 import { changeStateCell, Tile, TileCell } from './models';
 
 @Component({
   selector: 'game-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class GridComponent implements OnInit {
+export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 
   @Input() set tiles(values: Tile[]) {
     this.cells = values.map(tile => {
@@ -17,15 +19,28 @@ export class GridComponent implements OnInit {
 
       return cell;
     });
+
+    this.cdr.detectChanges();
   };
   cells: TileCell[] = [];
 
+  constructor(private logger: LoggerService, private readonly cdr: ChangeDetectorRef) {}
+
+  ngAfterContentInit(): void {
+
+  }
+
+  ngAfterViewInit(): void {
+
+  }
+
 
   ngOnInit(): void {
+    this.cdr.detach();
   }
 
   logView() {
-    console.info('GridComponent');
+    this.logger.log('GridComponent');
   }
 
   onClick() {

@@ -53,4 +53,50 @@ calculate(monPlayer);
 calculate(unYoda);
 
 
+// Ne sert qu'à la compilation
+type Person = {
+  surname: string
+};
 
+type Admin = Person & {
+  name: string,
+  role: string
+};
+
+const person: Person = {
+  surname: 'Lannister'
+};
+
+const admin: Admin = {
+  name: '???',
+  role: 'Jedi',
+  surname: 'Yoda'
+};
+
+const validateRole = (person: Person) => {
+  console.info(this);
+};
+
+validateRole(person);
+validateRole(admin);
+
+// Ne sert qu'à la compilation
+type AdminNullable = Admin | null | undefined;
+
+type JediType = "Jedi" | "Sith";
+
+const jedi: JediType = "Sith";
+
+const giveRole = (person: AdminNullable) => {
+  if (typeof(person) !== 'undefined' && person !== null) {
+    validateRole(person);
+  }
+
+  if (person) {
+    validateRole(person);
+  }
+
+  if (!! person) {
+    validateRole(person);
+  }
+}

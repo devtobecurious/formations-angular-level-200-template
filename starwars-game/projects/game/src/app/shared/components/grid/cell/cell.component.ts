@@ -6,14 +6,18 @@ import { changeStateCell, TileCell } from '../models';
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css'],
   encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit {
 
   @Input() item !: TileCell;
 
+  constructor(private cdr: ChangeDetectorRef) {
 
+  }
 
   ngOnInit(): void {
+
 
   }
 

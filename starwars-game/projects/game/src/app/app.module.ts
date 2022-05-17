@@ -9,19 +9,25 @@ import { PlayerModule } from './features/player/player.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
+import { ExampleLifecycleComponent } from './shared/components/example-lifecycle/example-lifecycle.component';
+import { TopbarSearchModule } from './shared/ui/components/topbar-search/topbar-search.component';
+import { ObservablesComponent } from './shared/components/observables/observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    ExampleLifecycleComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    PlayerModule
+    PlayerModule,
+    TopbarSearchModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
