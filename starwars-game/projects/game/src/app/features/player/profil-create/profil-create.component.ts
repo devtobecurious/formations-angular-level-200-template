@@ -5,14 +5,14 @@ import { PlayerService } from '../services/player.service';
 @Component({
   selector: 'game-profil-create',
   templateUrl: './profil-create.component.html',
-  styleUrls: ['./profil-create.component.css']
+  styleUrls: ['./profil-create.component.css'],
+  providers: []
 })
 export class ProfilCreateComponent implements OnInit {
 
   constructor(private service: PlayerService) { }
 
   ngOnInit(): void {
-
   }
 
   toClick() {

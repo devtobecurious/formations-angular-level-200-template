@@ -8,8 +8,12 @@ import { Observable } from 'rxjs';
   providedIn: 'root'
 })
 export class PlayerService {
+  id : number;
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private httpClient: HttpClient) {
+    this.id = Math.floor(Math.random() * 100);
+    console.info('PlayerService constructor', this.id);
+  }
 
   save(player: {surname: string, typeForce: string, weapon: string, picture: string}): Observable<{surname: string, typeForce: string, weapon: string, picture: string}> {
     console.log('save player', player);

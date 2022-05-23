@@ -7,6 +7,8 @@ import { BoolToColorDirective } from '../../shared/directives/bool-to-color.dire
 import { GameTableComponent } from './game-table/game-table.component';
 import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
+import { NewOneComponent } from './new-one/new-one.component';
+import { GridModule } from '../../shared/components/grid/grid.module';
 
 
 
@@ -16,17 +18,20 @@ import { FormsModule } from '@angular/forms';
     BoolToTextPipe,
     BoolToColorDirective,
     GameTableComponent,
-    GameRowComponent
+    GameRowComponent,
+    NewOneComponent
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    GridModule
   ],
   providers: [
     GameService
   ],
   exports: [
-    GameListComponent
+    GameListComponent,
+    NewOneComponent
   ]
 })
 export class GameModule { }

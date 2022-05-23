@@ -11,6 +11,8 @@ import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
 import { SearchModule } from './shared/components/ui/search/search-item/search-item.component';
 import { PlayerModule } from './features/player/player.module';
+import { PlayerService } from './features/player/services/player.service';
+import { GridModule } from './shared/components/grid/grid.module';
 
 @NgModule({
   declarations: [
@@ -26,7 +28,9 @@ import { PlayerModule } from './features/player/player.module';
     SearchModule,
     PlayerModule
   ],
-  providers: [],
+  providers: [
+     // PlayerService
+  ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })
 export class AppModule { }
