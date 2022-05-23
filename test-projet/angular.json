@@ -1,0 +1,204 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "app-one": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-one",
+      "sourceRoot": "projects/app-one/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-one",
+            "index": "projects/app-one/src/index.html",
+            "main": "projects/app-one/src/main.ts",
+            "polyfills": "projects/app-one/src/polyfills.ts",
+            "tsConfig": "projects/app-one/tsconfig.app.json",
+            "assets": [
+              "projects/app-one/src/favicon.ico",
+              "projects/app-one/src/assets"
+            ],
+            "styles": [
+              "projects/app-one/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-one/src/environments/environment.ts",
+                  "with": "projects/app-one/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-one:build:production"
+            },
+            "development": {
+              "browserTarget": "app-one:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-one:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-one/src/test.ts",
+            "polyfills": "projects/app-one/src/polyfills.ts",
+            "tsConfig": "projects/app-one/tsconfig.spec.json",
+            "karmaConfig": "projects/app-one/karma.conf.js",
+            "assets": [
+              "projects/app-one/src/favicon.ico",
+              "projects/app-one/src/assets"
+            ],
+            "styles": [
+              "projects/app-one/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "app-two": {
+      "projectType": "application",
+      "schematics": {
+        "@schematics/angular:application": {
+          "strict": true
+        }
+      },
+      "root": "projects/app-two",
+      "sourceRoot": "projects/app-two/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/app-two",
+            "index": "projects/app-two/src/index.html",
+            "main": "projects/app-two/src/main.ts",
+            "polyfills": "projects/app-two/src/polyfills.ts",
+            "tsConfig": "projects/app-two/tsconfig.app.json",
+            "assets": [
+              "projects/app-two/src/favicon.ico",
+              "projects/app-two/src/assets"
+            ],
+            "styles": [
+              "projects/app-two/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/app-two/src/environments/environment.ts",
+                  "with": "projects/app-two/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "app-two:build:production"
+            },
+            "development": {
+              "browserTarget": "app-two:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "app-two:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/app-two/src/test.ts",
+            "polyfills": "projects/app-two/src/polyfills.ts",
+            "tsConfig": "projects/app-two/tsconfig.spec.json",
+            "karmaConfig": "projects/app-two/karma.conf.js",
+            "assets": [
+              "projects/app-two/src/favicon.ico",
+              "projects/app-two/src/assets"
+            ],
+            "styles": [
+              "projects/app-two/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    }
+  },
+  "defaultProject": "app-one"
+}

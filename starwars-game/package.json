@@ -3,9 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
+    "start:api": "pm2 start ../api/long-api/game-api/bin/www",
+
     "prestart": "npm run start:api",
     "start": "ng serve",
+
+    "prequi": "echo 'pas la bonne heure'",
+    "qui": "echo 'Qui est-ce ?'",
+    "postqui": "echo 'snorki",
+
+    "prebonjour": "npm run qui",
+    "bonjour": "echo 'Bonjour'",
+
+
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

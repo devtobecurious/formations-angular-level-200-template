@@ -10,6 +10,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { BoolToTextPipe } from './shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from './shared/directives/bool-to-color.directive';
 import { SearchModule } from './shared/components/ui/search/search-item/search-item.component';
+import { PlayerModule } from './features/player/player.module';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { SearchModule } from './shared/components/ui/search/search-item/search-i
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    SearchModule
+    SearchModule,
+    PlayerModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
