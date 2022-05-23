@@ -1,0 +1,7 @@
+{{ logView() }}
+
+<button (click)="onClick()">Trigger change detection</button>
+
+<div class="mastermind">
+  <game-cell *ngFor="let item of cells; trackBy: trackByFn" [item]="item" ></game-cell>
+</div>
