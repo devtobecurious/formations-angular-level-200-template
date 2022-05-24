@@ -17,8 +17,11 @@ export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 
       return cell;
     });
+    //this.cdr.detectChanges();
   };
   cells: TileCell[] = [];
+
+  constructor(private cdr: ChangeDetectorRef) {}
 
   ngAfterContentInit(): void {
 
@@ -30,6 +33,8 @@ export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 
 
   ngOnInit(): void {
+    //this.cdr.detach();
+
   }
 
   logView() {
