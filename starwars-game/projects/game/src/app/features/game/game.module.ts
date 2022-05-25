@@ -9,6 +9,7 @@ import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
 import { NewOneComponent } from './new-one/new-one.component';
 import { GridModule } from '../../shared/components/grid/grid.module';
+import { ObservablesComponent } from '../../shared/components/observables/observables.component';
 
 
 
@@ -19,7 +20,8 @@ import { GridModule } from '../../shared/components/grid/grid.module';
     BoolToColorDirective,
     GameTableComponent,
     GameRowComponent,
-    NewOneComponent
+    NewOneComponent,
+    ObservablesComponent
   ],
   imports: [
     CommonModule,

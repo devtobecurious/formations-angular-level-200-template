@@ -10,12 +10,14 @@ import { TreeGameModule } from './features/tree-game/tree-game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { ClockModule } from './shared/ui/components/clock/clock.module';
+import { TopSearchModule } from './shared/ui/components/top-search/top-search.component';
+import { ObservablesComponent } from './shared/components/observables/observables.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
   ],
   imports: [
     BrowserModule,
@@ -24,7 +26,8 @@ import { ClockModule } from './shared/ui/components/clock/clock.module';
     GameModule,
     PlayerModule,
     ClockModule,
-    TreeGameModule
+    TreeGameModule,
+    TopSearchModule
   ],
   providers: [
      // PlayerService
