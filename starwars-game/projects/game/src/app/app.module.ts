@@ -12,17 +12,19 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { ClockModule } from './shared/ui/components/clock/clock.module';
 import { TopSearchModule } from './shared/ui/components/top-search/top-search.component';
 import { ObservablesComponent } from './shared/components/observables/observables.component';
+import { GridCustomComponent } from './shared/ui/components/grid-custom/grid-custom.component';
+import { RowCustomComponent } from './shared/ui/components/grid-custom/row-custom/row-custom.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent,
+    SideBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
+
     GameModule,
     PlayerModule,
     ClockModule,

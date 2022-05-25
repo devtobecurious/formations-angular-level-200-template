@@ -2,6 +2,7 @@ import { CommonModule } from '@angular/common';
 import { Component, NgModule, OnInit } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SearchService } from './search.service';
+import { HttpClientModule } from '@angular/common/http';
 
 export type SearchType = {
   value: string
@@ -32,7 +33,8 @@ export class TopSearchComponent implements OnInit {
   ],
   imports: [
     CommonModule,
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   exports: [
     TopSearchComponent

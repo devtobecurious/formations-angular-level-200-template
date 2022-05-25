@@ -10,6 +10,8 @@ import { FormsModule } from '@angular/forms';
 import { NewOneComponent } from './new-one/new-one.component';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { ObservablesComponent } from '../../shared/components/observables/observables.component';
+import { GridCustomComponent } from '../../shared/ui/components/grid-custom/grid-custom.component';
+import { RowCustomComponent } from '../../shared/ui/components/grid-custom/row-custom/row-custom.component';
 
 
 
@@ -21,7 +23,9 @@ import { ObservablesComponent } from '../../shared/components/observables/observ
     GameTableComponent,
     GameRowComponent,
     NewOneComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    GridCustomComponent,
+    RowCustomComponent
   ],
   imports: [
     CommonModule,
