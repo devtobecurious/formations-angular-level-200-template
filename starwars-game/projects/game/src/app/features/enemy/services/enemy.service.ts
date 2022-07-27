@@ -4,7 +4,9 @@ import { Observable, of } from 'rxjs';
 import { delay, tap } from 'rxjs/operators';
 import { EnemyDTO } from '../../../core/models/enemy.dto';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class EnemyService {
 
   constructor(private httpClient: HttpClient) { }

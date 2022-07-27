@@ -1,6 +1,14 @@
 
 <h1>Star wars game</h1>
 
+<h2>Login</h2>
+<form  [formGroup]="loginForm">
+  <input type="text" name="login" formControlName="login" >
+  <input type="text" name="password" formControlName="password">
+  <input type="text" name="service" formControlName="service">
+  <button [disabled]="loginForm.valid"></button>
+</form>
+
 {{ appel() }}
 
 <game-observables-zoom [nbReplayer]="3"></game-observables-zoom>
