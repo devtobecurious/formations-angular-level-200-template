@@ -1,9 +1,19 @@
-<game-input-text></game-input-text>
-<game-input-text-deux></game-input-text-deux>
+<form>
+  {{ items | json}}
+  <select>
+    <option *ngFor="let item of peoples$ | async" value="{{item.surname}}">{{ item.surname }}</option>
+  </select>
 
-<div class="input-group mb-3">
-  <span class="input-group-text" id="basic-addon1">@</span>
-  <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
-</div>
+  <game-input-text-deux></game-input-text-deux>
+
+  <div class="input-group mb-3">
+    <span class="input-group-text" id="basic-addon1">@</span>
+    <input type="text" class="form-control" placeholder="Username" aria-label="Username" aria-describedby="basic-addon1">
+  </div>
+
+  <button type="button" class="btn btn-primary" (click)="save()">Sauvegarder</button>
+</form>
+
+
 
 
