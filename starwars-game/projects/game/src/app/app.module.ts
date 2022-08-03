@@ -8,9 +8,11 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { TestComponent } from './features/test/test.component';
 import { TestTimerComponent } from './features/timers/test-timer/test-timer.component';
+import { UneDecouverteModule } from './features/une-decouverte/une-decouverte.module';
 import { UserModule } from './features/user/user.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { SearchService } from './shared/services/search.service';
 
 
 @NgModule({
@@ -23,13 +25,17 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    UneDecouverteModule,
     FormsModule,
     GameModule,
     UserModule,
     TestComponent,
     TestTimerComponent
   ],
-  providers: [],
+  providers: [
+    // SearchService
+    // { provide: SearchService, useClass: SearchService }
+  ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })
 export class AppModule { }

@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
-import { hightlight } from 'src/shared/tools/hightlight';
+import { hightlight } from '../../../shared/tools/hightlight';
 
 @Component({
   selector: 'app-two',
   templateUrl: './two.component.html',
   styleUrls: ['./two.component.css'],
-  changeDetection: ChangeDetectionStrategy.Default // Put push to see the changes
+  changeDetection: ChangeDetectionStrategy.OnPush // Put push to see the changes
 })
 export class TwoComponent implements OnInit {
 
