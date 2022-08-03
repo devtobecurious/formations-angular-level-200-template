@@ -3,6 +3,8 @@ import { CommonModule } from '@angular/common';
 import { ProfileComponent } from './profile/profile.component';
 import { InputTextModule } from '../../shared/ui/components/input-text/input-text.component';
 import { InputTextDeuxComponent } from '../../shared/ui/components/input-text-deux/input-text-deux.component';
+import { RouterModule } from '@angular/router';
+import { GameService } from '../game/services/game.service';
 
 
 
@@ -13,10 +15,14 @@ import { InputTextDeuxComponent } from '../../shared/ui/components/input-text-de
   imports: [
     CommonModule,
     InputTextModule,
-    InputTextDeuxComponent
+    InputTextDeuxComponent,
+    RouterModule.forChild([ { path: 'profile', component: ProfileComponent } ])
   ],
   exports: [
     ProfileComponent
-  ]
+  ],
+  // providers: [
+  //   GameService
+  // ]
 })
 export class UserModule { }

@@ -7,7 +7,7 @@ export interface Log {
 }
 
 export class ApiLoggerService implements Log {
-  constructor(private http: HttpClient) { }
+  constructor() { }
 
   log(message: string, ...optionalParams: any[]): void {
     console.warn('ApiLoggerService: ' + message);
@@ -16,8 +16,8 @@ export class ApiLoggerService implements Log {
 
 @Injectable({
   providedIn: 'root',
-  useClass: environment.production ? ApiLoggerService : LoggerService
-  // useFactory: () => { return environment.production ? new ApiLoggerService() : new LoggerService();}
+  // useClass: environment.production ? LoggerService : ApiLoggerService
+  useFactory: () => { return environment.production ? new ApiLoggerService() : new LoggerService();}
 })
 export class LoggerService implements Log {
 

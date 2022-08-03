@@ -5,12 +5,10 @@ import { NewOneComponent } from './features/game/new-one/new-one.component';
 
 const routes: Routes = [{
   path: 'games',
-  component: GameListComponent
+  loadChildren: () => import('./features/game/game.module').then(m => m.GameModule)
 },
-{
-  path: 'new-game',
-  component: NewOneComponent
-}];
+
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

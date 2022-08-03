@@ -5,7 +5,7 @@ import { changeStateCell, TileCell } from '../models';
   selector: 'game-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
 })
 export class CellComponent implements OnInit {
 

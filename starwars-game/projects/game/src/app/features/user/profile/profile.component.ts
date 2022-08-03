@@ -3,13 +3,17 @@ import { Observable, Subject, Subscription } from 'rxjs';
 import { takeUntil } from 'rxjs/operators';
 import { People } from '../../../core/models/people';
 import { User } from '../../../core/models/user';
+import { GameService } from '../../game/services/game.service';
 import { PeopleService } from '../services/people.service';
 import { UserService } from '../services/user.service';
 
 @Component({
   selector: 'game-profile',
   templateUrl: './profile.component.html',
-  styleUrls: ['./profile.component.css']
+  styleUrls: ['./profile.component.css'],
+  providers: [
+
+  ]
 })
 export class ProfileComponent implements OnDestroy {
   user !: User;
@@ -20,7 +24,9 @@ export class ProfileComponent implements OnDestroy {
 
 // @Output()retour = new EventEmitter();
 
-  constructor(private service: UserService, private peopleService: PeopleService) { }
+  constructor(private service: UserService,
+              private peopleService: PeopleService,
+              private gameService: GameService) { } // just à but didactique :D
 
   ngOnInit(): void {
     this.peoples$ = this.peopleService.getAll();
