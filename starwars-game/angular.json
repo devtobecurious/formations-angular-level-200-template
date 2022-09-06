@@ -60,6 +60,34 @@
               ],
               "outputHashing": "all"
             },
+
+            "staging": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/game/src/environments/environment.ts",
+                  "with": "projects/game/src/environments/environment.staging.ts"
+                },
+
+                {
+                  "replace": "projects/game/src/environments/api.ts",
+                  "with": "projects/game/src/environments/api.staging.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+
             "development": {
               "buildOptimizer": false,
               "optimization": false,

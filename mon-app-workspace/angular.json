@@ -1,0 +1,226 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "amazon-like": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/amazon-like",
+      "sourceRoot": "projects/amazon-like/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/amazon-like",
+            "index": "projects/amazon-like/src/index.html",
+            "main": "projects/amazon-like/src/main.ts",
+            "polyfills": "projects/amazon-like/src/polyfills.ts",
+            "tsConfig": "projects/amazon-like/tsconfig.app.json",
+            "assets": [
+              "projects/amazon-like/src/favicon.ico",
+              "projects/amazon-like/src/assets"
+            ],
+            "styles": [
+              "projects/amazon-like/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/amazon-like/src/environments/environment.ts",
+                  "with": "projects/amazon-like/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "amazon-like:build:production"
+            },
+            "development": {
+              "browserTarget": "amazon-like:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "amazon-like:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/amazon-like/src/test.ts",
+            "polyfills": "projects/amazon-like/src/polyfills.ts",
+            "tsConfig": "projects/amazon-like/tsconfig.spec.json",
+            "karmaConfig": "projects/amazon-like/karma.conf.js",
+            "assets": [
+              "projects/amazon-like/src/favicon.ico",
+              "projects/amazon-like/src/assets"
+            ],
+            "styles": [
+              "projects/amazon-like/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "fnac-like": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/fnac-like",
+      "sourceRoot": "projects/fnac-like/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/fnac-like",
+            "index": "projects/fnac-like/src/index.html",
+            "main": "projects/fnac-like/src/main.ts",
+            "polyfills": "projects/fnac-like/src/polyfills.ts",
+            "tsConfig": "projects/fnac-like/tsconfig.app.json",
+            "assets": [
+              "projects/fnac-like/src/favicon.ico",
+              "projects/fnac-like/src/assets"
+            ],
+            "styles": [
+              "projects/fnac-like/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/fnac-like/src/environments/environment.ts",
+                  "with": "projects/fnac-like/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "fnac-like:build:production"
+            },
+            "development": {
+              "browserTarget": "fnac-like:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "fnac-like:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/fnac-like/src/test.ts",
+            "polyfills": "projects/fnac-like/src/polyfills.ts",
+            "tsConfig": "projects/fnac-like/tsconfig.spec.json",
+            "karmaConfig": "projects/fnac-like/karma.conf.js",
+            "assets": [
+              "projects/fnac-like/src/favicon.ico",
+              "projects/fnac-like/src/assets"
+            ],
+            "styles": [
+              "projects/fnac-like/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "une-library": {
+      "projectType": "library",
+      "root": "projects/une-library",
+      "sourceRoot": "projects/une-library/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/une-library/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/une-library/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/une-library/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/une-library/src/test.ts",
+            "tsConfig": "projects/une-library/tsconfig.spec.json",
+            "karmaConfig": "projects/une-library/karma.conf.js"
+          }
+        }
+      }
+    }
+  }
+}
