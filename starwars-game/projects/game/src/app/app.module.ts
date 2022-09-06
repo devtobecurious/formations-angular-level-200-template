@@ -9,7 +9,7 @@ import { GameModule } from './features/game/game.module';
 import { ProfileModule } from './features/profile/profile.module';
 import { FormFieldBisComponent } from './shared/components/form-field-bis/form-field-bis.component';
 import { FormFieldModule } from './shared/components/form-field/form-field.component';
-import { HeaderComponent } from './shared/components/header/header.component';
+import { HeaderComponent, SearchModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { LoggerService } from './shared/services/logger.service';
 
@@ -17,13 +17,13 @@ import { LoggerService } from './shared/services/logger.service';
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
     SideBarComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SearchModule,
     FeaturesModule,
     // FormFieldModule,
     // FormFieldBisComponent
