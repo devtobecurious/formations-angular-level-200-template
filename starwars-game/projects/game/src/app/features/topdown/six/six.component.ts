@@ -1,5 +1,5 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { hightlight } from 'src/shared/tools/hightlight';
+import { hightlight } from '../../../shared/tools/hightlight';
 
 @Component({
   selector: 'app-six',

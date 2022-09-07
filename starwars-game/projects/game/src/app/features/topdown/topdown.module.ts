@@ -28,9 +28,6 @@ import { TopDownRoutingModule } from './top-down-routing.module';
   imports: [
     CommonModule,
     TopDownRoutingModule
-  ],
-  exports: [
-    ChangeDetectionComponent
   ]
 })
 export class TopdownModule { }

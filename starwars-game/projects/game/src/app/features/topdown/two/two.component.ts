@@ -1,5 +1,6 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, ElementRef, OnInit } from '@angular/core';
-import { hightlight } from 'src/shared/tools/hightlight';
+import { hightlight } from '../../../shared/tools/hightlight';
+
 
 @Component({
   selector: 'app-two',
@@ -12,7 +13,9 @@ export class TwoComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  constructor(private el: ElementRef, public cd: ChangeDetectorRef) {}
+  constructor(private el: ElementRef, public cd: ChangeDetectorRef) {
+    // cd.detach();
+  }
 
   cdCheck() {
     hightlight(this.el);

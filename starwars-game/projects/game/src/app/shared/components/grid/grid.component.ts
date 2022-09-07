@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, AfterViewInit, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, Tile, TileCell } from './models';
 
 @Component({

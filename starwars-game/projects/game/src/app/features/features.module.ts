@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { GameModule } from './game/game.module';
 import { ProfileModule } from './profile/profile.module';
 import { LoggerService } from '../shared/services/logger.service';
+import { TopdownModule } from './topdown/topdown.module';
 
 
 
@@ -11,7 +12,8 @@ import { LoggerService } from '../shared/services/logger.service';
   imports: [
     CommonModule,
     GameModule,
-    ProfileModule
+    ProfileModule,
+    TopdownModule
   ],
   exports: [],
   providers: [

@@ -1,10 +1,13 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
+import { StatListComponent } from './stat-list/stat-list.component';
 
 
 
 @NgModule({
-  declarations: [],
+  declarations: [
+    StatListComponent
+  ],
   imports: [
     CommonModule
   ]

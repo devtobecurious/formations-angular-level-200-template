@@ -1,10 +1,12 @@
 import { Component, ElementRef, OnInit } from '@angular/core';
-import { hightlight } from 'src/shared/tools/hightlight';
+import { hightlight } from '../../../shared/tools/hightlight';
+
 
 @Component({
   selector: 'app-three',
   templateUrl: './three.component.html',
-  styleUrls: ['./three.component.css']
+  styleUrls: ['./three.component.css'],
+  
 })
 export class ThreeComponent implements OnInit {
 

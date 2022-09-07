@@ -6,7 +6,7 @@ import { ApplicationRef, Component, EventEmitter, OnInit, Output } from '@angula
   styleUrls: ['./change-detection.component.css']
 })
 export class ChangeDetectionComponent implements OnInit {
-  @Output() eventla = new EventEmitter()
+  @Output() eventla = new EventEmitter();
 
 
   constructor(public app: ApplicationRef) { }

@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { LoggerService } from './shared/services/logger.service';
+import { PlayerComponent } from 'playerLib';
 
 @Component({
   selector: 'game-root',

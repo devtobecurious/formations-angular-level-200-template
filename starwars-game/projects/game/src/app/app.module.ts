@@ -13,6 +13,8 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { LoggerService } from './shared/services/logger.service';
 import { ObservablesComponent } from './shared/components/observables/observables.component';
+import { GameObservableMapsComponent } from './shared/components/game-observable-maps/game-observable-maps.component';
+
 
 
 @NgModule({
@@ -20,7 +22,8 @@ import { ObservablesComponent } from './shared/components/observables/observable
     AppComponent,
     HeaderComponent,
     SideBarComponent,
-    ObservablesComponent
+    ObservablesComponent,
+    GameObservableMapsComponent,
   ],
   imports: [
     BrowserModule,
