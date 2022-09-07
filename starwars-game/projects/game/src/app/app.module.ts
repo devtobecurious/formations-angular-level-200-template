@@ -12,13 +12,15 @@ import { FormFieldModule } from './shared/components/form-field/form-field.compo
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { LoggerService } from './shared/services/logger.service';
+import { ObservablesComponent } from './shared/components/observables/observables.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    ObservablesComponent
   ],
   imports: [
     BrowserModule,
