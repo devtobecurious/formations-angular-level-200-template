@@ -1,8 +1,17 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
+
+  "config": {
+  },
+
   "scripts": {
     "ng": "ng",
+
+    "prehello": "echo '?'",
+    "hello": "echo 'hello'",
+    "posthello":  "./test.sh",
+
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
     "start": "ng serve",
