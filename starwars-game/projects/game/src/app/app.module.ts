@@ -10,13 +10,15 @@ import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { PreLoadingStrategy } from './shared/tools/routing/pre-loading-strategy';
 import { CheckBoxComponent } from './shared/ui/components/check-box/check-box.component';
+import { ObservablesAndPromisesComponent } from './shared/tutos/observables-and-promises/observables-and-promises.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    ObservablesAndPromisesComponent
   ],
   imports: [
     BrowserModule,
