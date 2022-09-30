@@ -1,17 +1,12 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
-
-  "config": {
-  },
-
+  "config": {},
   "scripts": {
     "ng": "ng",
-
     "prehello": "echo '?'",
     "hello": "echo 'hello'",
-    "posthello":  "./test.sh",
-
+    "posthello": "./test.sh",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
     "start": "ng serve",
@@ -29,6 +24,8 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@ngrx/effects": "^14.3.1",
+    "@ngrx/store": "^14.3.1",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
@@ -37,6 +34,7 @@
     "@angular-devkit/build-angular": "^14.1.0",
     "@angular/cli": "^14.1.0",
     "@angular/compiler-cli": "^14.1.0",
+    "@ngrx/schematics": "^14.3.1",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",

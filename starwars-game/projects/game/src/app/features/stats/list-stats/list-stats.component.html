@@ -1,3 +1,24 @@
+<h1>Statistiques du jeu</h1>
+
 <table class="table">
-  <tr *ngFor="let item of items"></tr>
+  <thead>
+    <tr>
+      <th>
+        Date
+      </th>
+      <th>
+        Titre
+      </th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor="let item of stats$ | async">
+      <td>
+        {{ item.dateGame | date }}
+      </td>
+      <td>
+        {{ item.value }}
+      </td>
+    </tr>
+  </tbody>
 </table>
