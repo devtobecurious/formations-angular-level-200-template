@@ -7,21 +7,27 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { SearchComponent } from './shared/ui/components/search/search.component';
+import { SearchService } from './shared/ui/components/search/search.service';
+import { GridSpecialComponent } from './shared/ui/components/grid-special/grid-special.component';
+import { RowSpecialComponent } from './shared/ui/components/row-special/row-special.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    GridSpecialComponent,
+    RowSpecialComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SearchComponent,
     GameModule
   ],
-  providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })
 export class AppModule { }

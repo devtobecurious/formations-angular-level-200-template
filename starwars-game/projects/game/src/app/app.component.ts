@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone } from '@angular/core';
 
 @Component({
   selector: 'game-root',
@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  constructor(private zone: NgZone) {
+    this.zone.runOutsideAngular(() => {
+
+    })
+  }
 }

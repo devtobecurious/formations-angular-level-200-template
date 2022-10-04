@@ -2,6 +2,11 @@
   "name": "starwars-game",
   "version": "0.0.0",
   "license": "MIT",
+
+  "config": {
+    "port": 4201
+  },
+
   "scripts": {
     "ng": "ng",
 
@@ -12,7 +17,7 @@
     "johny:dev": "echo 'ah que johny'",
     "postjohny:dev": "echo 'optic 2000!'",
 
-    "start:api": "pm2 start ../api/long-api/game-api/bin/www -r",
+    "start:api": "pm2 start ../api/long-api/game-api/bin/www -f",
     "prestart": "npm run start:api",
     "start": "ng serve -o",
     "build": "ng build",
