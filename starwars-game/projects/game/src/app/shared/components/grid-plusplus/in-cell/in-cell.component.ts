@@ -11,10 +11,10 @@ export class InCellComponent implements OnInit {
 
   constructor(public config: GridConfigService) {
     console.info('1', this.config.tailleH2);
-    this.tailleH2 = this.config.tailleH2;
   }
 
   ngOnInit(): void {
+    this.config.tailleH2.subscribe(item => this.tailleH2 = item);
   }
 
 }

@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
 import { GridConfigService } from '../services/grid-config.service';
 
 @Component({
@@ -9,7 +9,7 @@ import { GridConfigService } from '../services/grid-config.service';
     GridConfigService
   ]
 })
-export class InGridComponent implements OnInit {
+export class InGridComponent implements OnInit, OnChanges {
   @Input() nbEnfants = 5;
 
   private _tailleH2 !: number;
@@ -17,6 +17,7 @@ export class InGridComponent implements OnInit {
   @Input() set tailleH2(value: number)
   {
     this._tailleH2 = value;
+    this.config.tailleH2.next(value);
     console.info('SET TAILLE H2');
   }
   get tailleH2(): number {
@@ -24,14 +25,15 @@ export class InGridComponent implements OnInit {
   }
 
   constructor(public config: GridConfigService) {
-    this.config.tailleH2 = this.tailleH2;
+
     console.info('0', this.config.tailleH2);
+  }
+  ngOnChanges(changes: SimpleChanges): void {
+    console.log(changes);
   }
 
   ngOnInit(): void {
-    console.info(this.tailleH2);
 
-    console.info(this.config.tailleH2);
   }
 
 }
