@@ -7,12 +7,14 @@ import { ConfigService } from '../config.service';
   styleUrls: ['./row-special.component.css']
 })
 export class RowSpecialComponent implements OnInit {
+ // tailleH2 !: number;
 
-  constructor(private config: ConfigService) {
+  constructor(public config: ConfigService) {
     console.info('enfant', config.tailleH2);
   }
 
   ngOnInit(): void {
+    // this.config.state.subscribe(item => this.tailleH2 = item);
   }
 
 }

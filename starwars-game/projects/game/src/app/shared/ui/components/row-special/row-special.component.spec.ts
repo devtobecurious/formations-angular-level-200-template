@@ -1,4 +1,4 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import { ComponentFixture, TestBed, waitForAsync } from '@angular/core/testing';
 
 import { RowSpecialComponent } from './row-special.component';
 
@@ -6,7 +6,7 @@ describe('RowSpecialComponent', () => {
   let component: RowSpecialComponent;
   let fixture: ComponentFixture<RowSpecialComponent>;
 
-  beforeEach(async () => {
+  beforeEach( async () => {
     await TestBed.configureTestingModule({
       declarations: [ RowSpecialComponent ]
     })

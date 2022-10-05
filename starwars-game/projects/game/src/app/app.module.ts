@@ -11,6 +11,7 @@ import { SearchComponent } from './shared/ui/components/search/search.component'
 import { SearchService } from './shared/ui/components/search/search.service';
 import { GridSpecialComponent } from './shared/ui/components/grid-special/grid-special.component';
 import { RowSpecialComponent } from './shared/ui/components/row-special/row-special.component';
+import { MesObservablesComponent } from './shared/discover/mes-observables/mes-observables.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { RowSpecialComponent } from './shared/ui/components/row-special/row-spec
     AppRoutingModule,
     HttpClientModule,
     SearchComponent,
+    MesObservablesComponent,
     GameModule
   ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
