@@ -12,6 +12,10 @@ import { SearchService } from './shared/ui/components/search/search.service';
 import { GridSpecialComponent } from './shared/ui/components/grid-special/grid-special.component';
 import { RowSpecialComponent } from './shared/ui/components/row-special/row-special.component';
 import { MesObservablesComponent } from './shared/discover/mes-observables/mes-observables.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { StatisticsToApiEffect } from './features/stats/store/effects';
 
 
 @NgModule({
@@ -28,7 +32,13 @@ import { MesObservablesComponent } from './shared/discover/mes-observables/mes-o
     HttpClientModule,
     SearchComponent,
     MesObservablesComponent,
-    GameModule
+    GameModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    }),
+    EffectsModule.forRoot([
+      StatisticsToApiEffect
+    ])
   ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })
