@@ -1,0 +1,132 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "monapp": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/monapp",
+      "sourceRoot": "projects/monapp/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/monapp",
+            "index": "projects/monapp/src/index.html",
+            "main": "projects/monapp/src/main.ts",
+            "polyfills": "projects/monapp/src/polyfills.ts",
+            "tsConfig": "projects/monapp/tsconfig.app.json",
+            "assets": [
+              "projects/monapp/src/favicon.ico",
+              "projects/monapp/src/assets"
+            ],
+            "styles": [
+              "projects/monapp/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "fileReplacements": [
+                {
+                  "replace": "projects/monapp/src/environments/environment.ts",
+                  "with": "projects/monapp/src/environments/environment.prod.ts"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "monapp:build:production"
+            },
+            "development": {
+              "browserTarget": "monapp:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "monapp:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/monapp/src/test.ts",
+            "polyfills": "projects/monapp/src/polyfills.ts",
+            "tsConfig": "projects/monapp/tsconfig.spec.json",
+            "karmaConfig": "projects/monapp/karma.conf.js",
+            "assets": [
+              "projects/monapp/src/favicon.ico",
+              "projects/monapp/src/assets"
+            ],
+            "styles": [
+              "projects/monapp/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "malib": {
+      "projectType": "library",
+      "root": "projects/malib",
+      "sourceRoot": "projects/malib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/malib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/malib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/malib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "main": "projects/malib/src/test.ts",
+            "tsConfig": "projects/malib/tsconfig.spec.json",
+            "karmaConfig": "projects/malib/karma.conf.js"
+          }
+        }
+      }
+    }
+  }
+}

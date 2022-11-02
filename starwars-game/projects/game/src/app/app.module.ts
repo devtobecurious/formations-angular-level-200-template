@@ -1,3 +1,5 @@
+import { DiscoverObsComponent } from './shared/training/discover-obs/discover-obs.component';
+import { UserModule } from './features/user/user.module';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +21,9 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GameModule
+    GameModule,
+    DiscoverObsComponent
+    // UserModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
