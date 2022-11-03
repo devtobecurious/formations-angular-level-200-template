@@ -2,6 +2,9 @@
   "name": "starwars-game",
   "version": "0.0.0",
   "scripts": {
+    "prejohny": "echo 'ohhhh'",
+    "johny": "echo 'ah que",
+    "postjohny": "echo 'optic 2000'",
     "ng": "ng",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
@@ -20,6 +23,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@ngrx/store": "^14.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

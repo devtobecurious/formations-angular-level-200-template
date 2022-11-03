@@ -5,7 +5,8 @@ import { changeStateCell, TileCell } from '../models';
   selector: 'game-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit {
 
@@ -21,7 +22,7 @@ export class CellComponent implements OnInit {
   }
 
   clickTile(item: TileCell, cell: HTMLDivElement) {
-    changeStateCell(item, ! item.isRevealed, true);
+    changeStateCell(item, !item.isRevealed, true);
     this.appearValueOnCell(item, cell);
   }
 
