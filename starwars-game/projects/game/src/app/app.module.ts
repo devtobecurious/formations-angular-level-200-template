@@ -8,7 +8,10 @@ import { GameModule } from './features/game/game.module';
 import { UserModule } from './features/user/user.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { ObsAndPromiseComponent } from './shared/learn/obs-and-promise/obs-and-promise.component';
 import { TextAndLabelComponent } from './shared/ui/components/text-and-label/text-and-label.component';
+import { ContainerConfigService } from './shared/ui/div-container/container-config.service';
+import { DivContainerComponent } from './shared/ui/div-container/div-container.component';
 
 
 
@@ -23,10 +26,9 @@ import { TextAndLabelComponent } from './shared/ui/components/text-and-label/tex
     AppRoutingModule,
     HttpClientModule,
     GameModule,
+    ObsAndPromiseComponent,
+    DivContainerComponent
     // UserModule
-  ],
-  providers: [
-
   ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })
