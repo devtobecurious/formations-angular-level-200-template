@@ -1,0 +1,164 @@
+{
+  "$schema": "./node_modules/@angular/cli/lib/config/schema.json",
+  "version": 1,
+  "newProjectRoot": "projects",
+  "projects": {
+    "une-appli": {
+      "projectType": "application",
+      "schematics": {},
+      "root": "projects/une-appli",
+      "sourceRoot": "projects/une-appli/src",
+      "prefix": "app",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:browser",
+          "options": {
+            "outputPath": "dist/une-appli",
+            "index": "projects/une-appli/src/index.html",
+            "main": "projects/une-appli/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/une-appli/tsconfig.app.json",
+            "assets": [
+              "projects/une-appli/src/favicon.ico",
+              "projects/une-appli/src/assets"
+            ],
+            "styles": [
+              "projects/une-appli/src/styles.css"
+            ],
+            "scripts": []
+          },
+          "configurations": {
+            "production": {
+              "budgets": [
+                {
+                  "type": "initial",
+                  "maximumWarning": "500kb",
+                  "maximumError": "1mb"
+                },
+                {
+                  "type": "anyComponentStyle",
+                  "maximumWarning": "2kb",
+                  "maximumError": "4kb"
+                }
+              ],
+              "outputHashing": "all"
+            },
+            "development": {
+              "buildOptimizer": false,
+              "optimization": false,
+              "vendorChunk": true,
+              "extractLicenses": false,
+              "sourceMap": true,
+              "namedChunks": true
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "serve": {
+          "builder": "@angular-devkit/build-angular:dev-server",
+          "configurations": {
+            "production": {
+              "browserTarget": "une-appli:build:production"
+            },
+            "development": {
+              "browserTarget": "une-appli:build:development"
+            }
+          },
+          "defaultConfiguration": "development"
+        },
+        "extract-i18n": {
+          "builder": "@angular-devkit/build-angular:extract-i18n",
+          "options": {
+            "browserTarget": "une-appli:build"
+          }
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/une-appli/tsconfig.spec.json",
+            "assets": [
+              "projects/une-appli/src/favicon.ico",
+              "projects/une-appli/src/assets"
+            ],
+            "styles": [
+              "projects/une-appli/src/styles.css"
+            ],
+            "scripts": []
+          }
+        }
+      }
+    },
+    "ma-lib": {
+      "projectType": "library",
+      "root": "projects/ma-lib",
+      "sourceRoot": "projects/ma-lib/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ma-lib/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ma-lib/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ma-lib/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ma-lib/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "ma-lib-two": {
+      "projectType": "library",
+      "root": "projects/ma-lib-two",
+      "sourceRoot": "projects/ma-lib-two/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/ma-lib-two/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/ma-lib-two/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/ma-lib-two/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/ma-lib-two/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    }
+  }
+}

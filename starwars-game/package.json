@@ -1,11 +1,25 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
+
+  "config": {},
   "scripts": {
     "ng": "ng",
-    "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
+
+    "preahque": "echo 'koko'",
+    "ahque": "echo 'ah que '",
+
+    "prejohny": "echo 'hmmmm ...'",
+    "johny": "npm run ahque",
+    "postjohny": "echo 'optic 2000'",
+
+
+    "start:api": "pm2 start -f ../api/long-api/game-api/bin/www",
+
     "prestart": "npm run start:api",
     "start": "ng serve",
+
+
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
