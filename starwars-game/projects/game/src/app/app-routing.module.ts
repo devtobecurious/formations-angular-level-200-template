@@ -22,7 +22,7 @@ const routes: Routes = [{
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: ! environment.production, preloadingStrategy: LazyPreloadStrategy })],
+  imports: [RouterModule.forRoot(routes, { enableTracing: environment.production, preloadingStrategy: LazyPreloadStrategy })],
   exports: [RouterModule],
   providers: [
     LazyPreloadStrategy

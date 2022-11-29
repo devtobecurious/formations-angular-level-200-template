@@ -9,18 +9,24 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { LabelTextboxComponent } from './shared/components/label-textbox/label-textbox.component';
+import { SearchComponent } from './shared/ui/search/search.component';
+import { DiscoverObservableComponent } from './shared/learning/discover-observable/discover-observable.component';
+import { TimerComponent } from './shared/components/timer/timer.component';
 
 
 @NgModule({
   declarations: [
     AppComponent,
     HeaderComponent,
-    SideBarComponent
+    SideBarComponent,
+    DiscoverObservableComponent,
+    TimerComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
+    SearchComponent,
     GameModule
   ],
   providers: [],

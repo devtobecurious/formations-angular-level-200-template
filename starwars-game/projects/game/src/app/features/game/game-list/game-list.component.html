@@ -21,7 +21,7 @@
             </div>
           </div>
           <div class="row">
-            <div class="col-sm-12">
+            <div class="col-sm-12" *ngIf="games$ | async as games">
               <game-table [games]="games"></game-table>
             </div>
           </div>
