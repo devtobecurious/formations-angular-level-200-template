@@ -1,25 +1,17 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
-
   "config": {},
   "scripts": {
     "ng": "ng",
-
     "preahque": "echo 'koko'",
     "ahque": "echo 'ah que '",
-
     "prejohny": "echo 'hmmmm ...'",
     "johny": "npm run ahque",
     "postjohny": "echo 'optic 2000'",
-
-
     "start:api": "pm2 start -f ../api/long-api/game-api/bin/www",
-
     "prestart": "npm run start:api",
     "start": "ng serve",
-
-
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -34,6 +26,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@ngrx/store": "^14.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

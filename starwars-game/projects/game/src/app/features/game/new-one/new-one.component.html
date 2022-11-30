@@ -1,1 +1,12 @@
+<!-- <button (click)="start()">On démarre la partie</button> -->
+
+<label> Titre de la partie : <input [(ngModel)]="game.title">
+<button (click)="startBis()">On démarre la partie !</button>
+
+<div>
+  Toutes les parties
+  <span *ngFor="let item of allGames$ | async">{{ item.title }}<br></span>
+</div>
+
+
 <game-grid [tiles]="tiles"></game-grid>

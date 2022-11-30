@@ -13,6 +13,8 @@ import { SearchComponent } from './shared/ui/search/search.component';
 import { DiscoverObservableComponent } from './shared/learning/discover-observable/discover-observable.component';
 import { TimerComponent } from './shared/components/timer/timer.component';
 import { GridContainerModule } from './shared/ui/grid-container/grid-container.module';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -29,7 +31,10 @@ import { GridContainerModule } from './shared/ui/grid-container/grid-container.m
     HttpClientModule,
     SearchComponent,
     GameModule,
-    GridContainerModule
+    GridContainerModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

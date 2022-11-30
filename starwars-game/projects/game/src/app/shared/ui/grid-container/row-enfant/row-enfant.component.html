@@ -1,1 +1,3 @@
-<p>row-enfant works!</p>
+<div *ngIf="config$ | async as config">
+  <h2 >{{config.h2.size }}</h2>
+</div>
