@@ -12,6 +12,7 @@ import { LabelTextboxComponent } from './shared/components/label-textbox/label-t
 import { SearchComponent } from './shared/ui/search/search.component';
 import { DiscoverObservableComponent } from './shared/learning/discover-observable/discover-observable.component';
 import { TimerComponent } from './shared/components/timer/timer.component';
+import { GridContainerModule } from './shared/ui/grid-container/grid-container.module';
 
 
 @NgModule({
@@ -27,7 +28,8 @@ import { TimerComponent } from './shared/components/timer/timer.component';
     AppRoutingModule,
     HttpClientModule,
     SearchComponent,
-    GameModule
+    GameModule,
+    GridContainerModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
