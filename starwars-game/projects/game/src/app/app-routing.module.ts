@@ -18,7 +18,7 @@ const routes: Routes = [{
   path: 'profile',
   loadChildren: () => import('../app/features/profile/profile.module').then(item => item.ProfileModule),
   data: {
-    isPreload: true
+    isPreload: environment.production
   }
 }
 ];
