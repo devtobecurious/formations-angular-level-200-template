@@ -1,11 +1,22 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
+
+
   "scripts": {
     "ng": "ng",
+
+    "preemmm": "echo 'Optic 2000'",
+    "emmm": "echo 'ah emmm'",
+    "postemmm": "echo '....'",
+
+    "prejohny": "npm run emmm",
+    "johny": "echo 'ah que coucou'",
+    "postjohny": "echo 'Optic 2000 !!'",
+
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
-    "start": "ng serve",
+    "start": "ng serve -o --port=4201",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
