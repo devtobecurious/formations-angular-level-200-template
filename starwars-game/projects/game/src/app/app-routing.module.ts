@@ -20,7 +20,15 @@ const routes: Routes = [{
   data: {
     isPreload: environment.production
   }
-}
+},
+{
+  path: 'profile-deux',
+  loadChildren: () => import('../app/features/profile-deux/profile.module').then(item => item.ProfileDeuxModule),
+  data: {
+    isPreload: environment.production
+  }
+},
+
 ];
 
 @NgModule({

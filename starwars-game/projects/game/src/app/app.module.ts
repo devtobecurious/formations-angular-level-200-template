@@ -9,6 +9,7 @@ import { ProfileModule } from './features/profile/profile.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { SharedModule } from './shared/shared/shared.module';
+import { SearchComponent } from './shared/ui/search/search.component';
 
 
 @NgModule({
@@ -23,6 +24,7 @@ import { SharedModule } from './shared/shared/shared.module';
     HttpClientModule,
     SharedModule,
     GameModule,
+    SearchComponent // normalement, a mettre dans un HeaderComponent Standalone
     // ProfileModule
   ],
   providers: [],
