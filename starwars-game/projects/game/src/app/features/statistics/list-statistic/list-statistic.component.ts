@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Statistic, StatsService } from '../service/stats.service';
 
 @Component({
   selector: 'game-list-statistic',
@@ -8,9 +9,9 @@ import { Component, OnInit } from '@angular/core';
 export class ListStatisticComponent implements OnInit {
   // items = ['', '']; Etape 1
   // items : string[] | undefined;
-  items !: string[];
+  items: Statistic[] = [];
 
-  constructor() {
+  constructor(private readonly service: StatsService) {
   }
 
   ngOnInit(): void {
@@ -18,6 +19,7 @@ export class ListStatisticComponent implements OnInit {
     // if(typeof(this.items) !== 'undefined') {
 
     // }
+    this.service.getAll().subscribe(items => this.items = items);
   }
 
 }
