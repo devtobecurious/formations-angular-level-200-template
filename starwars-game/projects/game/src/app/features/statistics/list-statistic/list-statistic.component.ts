@@ -19,7 +19,10 @@ export class ListStatisticComponent implements OnInit {
     // if(typeof(this.items) !== 'undefined') {
 
     // }
-    this.service.getAll().subscribe(items => this.items = items);
+    this.service.getAll().subscribe(items =>
+      this.items = items
+      //this.monautreService.getAll().subscribe();
+    );
   }
 
 }

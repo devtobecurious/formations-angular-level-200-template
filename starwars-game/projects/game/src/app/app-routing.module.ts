@@ -32,7 +32,7 @@ const routes: Routes = [{
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { enableTracing: ! environment.production,
+  imports: [RouterModule.forRoot(routes, { enableTracing: false,
                                            preloadingStrategy: WithDataConfigPreloadingStrategy })],
   exports: [RouterModule],
   providers: [
