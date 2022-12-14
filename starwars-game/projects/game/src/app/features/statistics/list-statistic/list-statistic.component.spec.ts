@@ -1,3 +1,5 @@
+import { HttpClient, HttpClientModule } from '@angular/common/http';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 import { Observable, of } from 'rxjs';
 import { StatsDatalayerService } from '../service/stats-datalayer.service';
@@ -14,6 +16,7 @@ const fakeService: IGetAllStats = {
 fdescribe('ListStatisticComponent', () => {
   let component: ListStatisticComponent;
   let fixture: ComponentFixture<ListStatisticComponent>;
+  let mock: HttpTestingController;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
@@ -21,13 +24,17 @@ fdescribe('ListStatisticComponent', () => {
       providers: [
         // { provide: StatsService, useValue: fakeService }
         StatsService,
-        { provide: StatsDatalayerService, useValue: fakeService }
-
+        // { provide: StatsDatalayerService, useValue: fakeService }
+        StatsDatalayerService
       ],
-      imports: []
+      imports: [
+       // HttpClientModule
+       HttpClientTestingModule
+      ]
     })
     .compileComponents();
 
+    mock = TestBed.inject(HttpTestingController);
     fixture = TestBed.createComponent(ListStatisticComponent);
     component = fixture.componentInstance;
     // fixture.detectChanges();
@@ -42,9 +49,14 @@ fdescribe('ListStatisticComponent', () => {
   it('should get 2 rows of statistics', () => {
     // Arrange
     // component.items = ['', ''];
+    fixture.detectChanges(); // Je passe dans le ngoninit, donc j'appelle le subscribe
+    const fakeRequest = mock.expectOne('monurl'); // ainsi la requête http est lancée
+    expect(fakeRequest.request.method).toBe('GET');
 
+    fakeRequest.flush([{}, {}]); // Cette ligne déclenche le callback dans le subscribe
+
+    fixture.detectChanges(); // Enfin, active le ngfor
     // Act
-    fixture.detectChanges();
 
     const dom = fixture.nativeElement;
     const table = dom.querySelector('table.table');

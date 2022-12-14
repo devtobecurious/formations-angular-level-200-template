@@ -1,3 +1,4 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
 import { IGetAllStats, Statistic } from './stats.service';
@@ -7,9 +8,9 @@ import { IGetAllStats, Statistic } from './stats.service';
 })
 export class StatsDatalayerService implements IGetAllStats {
 
-  constructor() { }
+  constructor(private httpClient: HttpClient) { }
 
   getAll(): Observable<Statistic[]> {
-    throw new Error('Method not implemented.');
+    return this.httpClient.get<Statistic[]>('monurl');
   }
 }
