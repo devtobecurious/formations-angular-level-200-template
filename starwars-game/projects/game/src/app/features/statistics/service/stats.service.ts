@@ -4,6 +4,7 @@ import { filter } from 'rxjs/operators';
 import { StatsDatalayerService } from './stats-datalayer.service';
 
 export type Statistic = {
+  year: number
 }
 
 export interface IGetAllStats {
@@ -11,7 +12,7 @@ export interface IGetAllStats {
 }
 
 @Injectable({
-  providedIn: null
+  providedIn: 'root'
 })
 export class StatsService implements IGetAllStats {
 

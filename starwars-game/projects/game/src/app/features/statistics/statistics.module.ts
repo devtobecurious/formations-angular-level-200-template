@@ -10,6 +10,9 @@ import { ListStatisticComponent } from './list-statistic/list-statistic.componen
   ],
   imports: [
     CommonModule
+  ],
+  exports: [
+    ListStatisticComponent
   ]
 })
 export class StatisticsModule { }

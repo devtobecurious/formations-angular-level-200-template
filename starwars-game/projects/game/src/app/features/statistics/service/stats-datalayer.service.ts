@@ -4,7 +4,7 @@ import { Observable } from 'rxjs';
 import { IGetAllStats, Statistic } from './stats.service';
 
 @Injectable({
-  providedIn: null
+  providedIn: 'root'
 })
 export class StatsDatalayerService implements IGetAllStats {
 

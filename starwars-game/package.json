@@ -1,19 +1,14 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
-
-
   "scripts": {
     "ng": "ng",
-
     "preemmm": "echo 'Optic 2000'",
     "emmm": "echo 'ah emmm'",
     "postemmm": "echo '....'",
-
     "prejohny": "npm run emmm",
     "johny": "echo 'ah que coucou'",
     "postjohny": "echo 'Optic 2000 !!'",
-
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
     "start": "ng serve -o --port=4201",
@@ -31,6 +26,7 @@
     "@angular/platform-browser": "^14.1.0",
     "@angular/platform-browser-dynamic": "^14.1.0",
     "@angular/router": "^14.1.0",
+    "@ngrx/store": "^14.3.2",
     "rxjs": "~6.6.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"
