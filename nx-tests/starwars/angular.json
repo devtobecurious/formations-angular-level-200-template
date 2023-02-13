@@ -1,7 +1,0 @@
-{
-  "version": 2,
-  "projects": {
-    "starwars-game": "apps/starwars-game",
-    "starwars-game-e2e": "apps/starwars-game-e2e"
-  }
-}
