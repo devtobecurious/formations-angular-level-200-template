@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { ProfileModule } from './features/profile/profile.module';
 
 
 @NgModule({

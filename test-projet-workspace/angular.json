@@ -3,33 +3,29 @@
   "version": 1,
   "newProjectRoot": "projects",
   "projects": {
-    "game": {
+    "mon-application": {
       "projectType": "application",
-      "schematics": {
-        "@schematics/angular:application": {
-          "strict": true
-        }
-      },
-      "root": "projects/game",
-      "sourceRoot": "projects/game/src",
-      "prefix": "game",
+      "schematics": {},
+      "root": "projects/mon-application",
+      "sourceRoot": "projects/mon-application/src",
+      "prefix": "app",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:browser",
           "options": {
-            "outputPath": "dist/game",
-            "index": "projects/game/src/index.html",
-            "main": "projects/game/src/main.ts",
-            "polyfills": "projects/game/src/polyfills.ts",
-            "tsConfig": "projects/game/tsconfig.app.json",
+            "outputPath": "dist/mon-application",
+            "index": "projects/mon-application/src/index.html",
+            "main": "projects/mon-application/src/main.ts",
+            "polyfills": [
+              "zone.js"
+            ],
+            "tsConfig": "projects/mon-application/tsconfig.app.json",
             "assets": [
-              "projects/game/src/favicon.ico",
-              "projects/game/src/assets",
-              "projects/game/src/assets/img",
-              "projects/game/src/assets/vendor"
+              "projects/mon-application/src/favicon.ico",
+              "projects/mon-application/src/assets"
             ],
             "styles": [
-              "projects/game/src/styles.css"
+              "projects/mon-application/src/styles.css"
             ],
             "scripts": []
           },
@@ -45,17 +41,6 @@
                   "type": "anyComponentStyle",
                   "maximumWarning": "2kb",
                   "maximumError": "4kb"
-                }
-              ],
-              "fileReplacements": [
-                {
-                  "replace": "projects/game/src/environments/environment.ts",
-                  "with": "projects/game/src/environments/environment.prod.ts"
-                },
-
-                {
-                  "replace": "projects/game/src/environments/api.ts",
-                  "with": "projects/game/src/environments/api.prod.ts"
                 }
               ],
               "outputHashing": "all"
@@ -75,11 +60,10 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "game:build:production"
+              "browserTarget": "mon-application:build:production"
             },
             "development": {
-              "browserTarget": "game:build:development",
-              "proxyConfig": "projects/game/src/proxies/proxy.conf.json"
+              "browserTarget": "mon-application:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,45 +71,46 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "game:build"
+            "browserTarget": "mon-application:build"
           }
         },
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "main": "projects/game/src/test.ts",
-            "polyfills": "projects/game/src/polyfills.ts",
-            "tsConfig": "projects/game/tsconfig.spec.json",
-            "karmaConfig": "projects/game/karma.conf.js",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ],
+            "tsConfig": "projects/mon-application/tsconfig.spec.json",
             "assets": [
-              "projects/game/src/favicon.ico",
-              "projects/game/src/assets"
+              "projects/mon-application/src/favicon.ico",
+              "projects/mon-application/src/assets"
             ],
             "styles": [
-              "projects/game/src/styles.css"
+              "projects/mon-application/src/styles.css"
             ],
             "scripts": []
           }
         }
       }
     },
-    "jedi": {
+    "test-lib": {
       "projectType": "library",
-      "root": "projects/jedi",
-      "sourceRoot": "projects/jedi/src",
+      "root": "projects/test-lib",
+      "sourceRoot": "projects/test-lib/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/jedi/ng-package.json"
+            "project": "projects/test-lib/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/jedi/tsconfig.lib.prod.json"
+              "tsConfig": "projects/test-lib/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/jedi/tsconfig.lib.json"
+              "tsConfig": "projects/test-lib/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -133,7 +118,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/jedi/tsconfig.spec.json",
+            "tsConfig": "projects/test-lib/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

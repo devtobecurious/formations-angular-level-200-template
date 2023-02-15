@@ -6,13 +6,10 @@
     "outDir": "./dist/out-tsc",
     "forceConsistentCasingInFileNames": true,
     "strict": true,
+    "noImplicitOverride": true,
+    "noPropertyAccessFromIndexSignature": true,
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
-    "paths": {
-      "jedi": [
-        "dist/jedi"
-      ]
-    },
     "sourceMap": true,
     "declaration": false,
     "downlevelIteration": true,
@@ -20,12 +17,17 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "target": "ES2022",
-    "module": "es2020",
+    "module": "ES2022",
+    "useDefineForClassFields": false,
+    "paths": {
+      "ma-lib": [
+        "dist/test-lib"
+      ]
+    },
     "lib": [
-      "es2018",
+      "ES2022",
       "dom"
-    ],
-    "useDefineForClassFields": false
+    ]
   },
   "angularCompilerOptions": {
     "enableI18nLegacyMessageIdFormat": false,
