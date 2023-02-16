@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ApplicationRef, Component } from '@angular/core';
 
 @Component({
   selector: 'game-root',
@@ -7,4 +7,11 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  constructor(private readonly application: ApplicationRef) {
+  }
+
+  refreshAll(): void {
+    this.application.tick();
+  }
 }

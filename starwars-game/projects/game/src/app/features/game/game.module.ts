@@ -9,6 +9,7 @@ import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { NewOneComponent } from './new-one/new-one.component';
+import { CapitalizeFirstCharPipe } from '../../shared/tools/ui/capitalize-first-char.pipe';
 
 
 
@@ -24,7 +25,8 @@ import { NewOneComponent } from './new-one/new-one.component';
   imports: [
     CommonModule,
     FormsModule,
-    GridModule
+    GridModule,
+    CapitalizeFirstCharPipe // c'est une SPAM
   ],
   providers: [
     GameService

@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { ProfileModule } from './features/profile/profile.module';
+import { CapitalizeFirstCharPipe } from './shared/tools/ui/capitalize-first-char.pipe';
 
 
 @NgModule({
@@ -23,6 +24,6 @@ import { ProfileModule } from './features/profile/profile.module';
     GameModule
   ],
   providers: [],
-  bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
+  bootstrap: [AppComponent, HeaderComponent, SideBarComponent] // Treenodes initiaux => detect changes séparés
 })
 export class AppModule { }

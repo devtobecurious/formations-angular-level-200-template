@@ -14,6 +14,21 @@ export class GameListComponent implements OnInit {
 
   constructor(private gameService: GameService) { }
 
+  logView(): void {
+    console.info('GameListComponent');
+  }
+
+  capitalizeFirstChar(value: string): string {
+    // soit je memoize le résultat
+    // soit je vais lui préférer une Pipe
+    return value.charAt(0).toUpperCase() + value.slice(1);
+  }
+
+  get computed(): number {
+    console.info('GameListComponent, computed');
+    return 2 * 2; // pas de calcul lourd ! => ici chercher à memoizer !
+  }
+
   ngOnInit(): void {
     this.gameService.getAll(3).subscribe(items => this.games = items);
   }
