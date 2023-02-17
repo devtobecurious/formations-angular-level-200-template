@@ -10,6 +10,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { ProfileModule } from './features/profile/profile.module';
 import { CapitalizeFirstCharPipe } from './shared/tools/ui/capitalize-first-char.pipe';
 import { AutourObservableComponent } from './learnings/autour-observable/autour-observable.component';
+import { SearchService } from './shared/components/search/services/search.service';
 
 
 @NgModule({
@@ -26,7 +27,9 @@ import { AutourObservableComponent } from './learnings/autour-observable/autour-
     GameModule,
     AutourObservableComponent
   ],
-  providers: [],
+  providers: [
+
+  ],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent] // Treenodes initiaux => detect changes séparés
 })
 export class AppModule { }
