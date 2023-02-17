@@ -1,8 +1,11 @@
 import { Component, OnInit, inject } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchService } from '../../../shared/components/search/services/search.service';
+import { Store, select } from '@ngrx/store';
+import { ApplicationState } from '../../../reducers';
+import { selectAllGames, selectAllSuccessGames } from '../store/selectors';
 
 @Component({
   selector: 'game-game-list',
@@ -14,7 +17,8 @@ export class GameListComponent implements OnInit {
   games: GameDto[] = [];
   searchItem = '';
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService,
+              private readonly store: Store<ApplicationState>) { }
 
   logView(): void {
     console.info('GameListComponent');
@@ -32,11 +36,22 @@ export class GameListComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.searchService.stateReadonly.subscribe(searchItem => {
-      this.gameService.getAll(3).subscribe(items => this.games = items);
-    });
+    // this.searchService.stateReadonly.subscribe(searchItem => {
+    //   this.gameService.getAll(3).subscribe(items => this.games = items);
+    // });
 
+    // va etre déporter dans l'effect
+    // this.searchService.stateReadonly.pipe(
+    //   switchMap(item => this.gameService.getAll(3))
+    // ).subscribe(items => this.games = items);
 
+    // à mettre dans mon business service !
+    this.store
+    .pipe(
+      select(selectAllGames)
+      //select(selectAllSuccessGames)
+    )
+    .subscribe(items => this.games = items);
   }
 
 }

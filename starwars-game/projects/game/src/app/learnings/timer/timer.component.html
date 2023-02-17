@@ -1,0 +1,9 @@
+<button #start>Start</button>
+
+<div *ngIf="onClick$ | async as pointer">
+  {{ pointer }}
+</div>
+
+<div *ngIf="timerApresTraitement$ | async as tick">
+  {{ tick }}
+</div>
