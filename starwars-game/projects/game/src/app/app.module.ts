@@ -9,6 +9,7 @@ import { HeaderComponent, HeaderComponentModule } from './shared/components/head
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { ProfileModule } from './features/profile/profile.module';
 import { CapitalizeFirstCharPipe } from './shared/tools/ui/capitalize-first-char.pipe';
+import { AutourObservableComponent } from './learnings/autour-observable/autour-observable.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { CapitalizeFirstCharPipe } from './shared/tools/ui/capitalize-first-char
     HttpClientModule,
     // HeaderComponent, seuls les standalone sont à importer
     HeaderComponentModule,
-    GameModule
+    GameModule,
+    AutourObservableComponent
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent] // Treenodes initiaux => detect changes séparés
