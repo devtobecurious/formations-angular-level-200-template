@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { GameDto } from "../../../core/models/game.dto";
-import { addGameAction } from "./actions";
+import { addGameAction, deleteLastGamesAction } from "./actions";
 
 // 1. Etat => un type donné
 export interface GameState {
@@ -27,6 +27,15 @@ export const gameReducer = createReducer(
     // };
     const game = action.item;
     cloneState.items.push(game);
+
+    return cloneState;
+  }),
+  on(deleteLastGamesAction, (state, action) => {
+    const cloneState: GameState = { items: [... state.items] };
+
+    for(let i=0; i < action.nb; i ++) {
+      cloneState.items.pop();
+    }
 
     return cloneState;
   })

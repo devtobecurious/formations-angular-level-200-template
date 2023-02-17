@@ -6,6 +6,7 @@ import { SearchService } from '../../../shared/components/search/services/search
 import { Store, select } from '@ngrx/store';
 import { ApplicationState } from '../../../reducers';
 import { selectAllGames, selectAllSuccessGames } from '../store/selectors';
+import { deleteLastGamesAction } from '../store/actions';
 
 @Component({
   selector: 'game-game-list',
@@ -54,4 +55,7 @@ export class GameListComponent implements OnInit {
     .subscribe(items => this.games = items);
   }
 
+  deleteGames(nb: number): void {
+    this.store.dispatch(deleteLastGamesAction({ nb }));
+  }
 }
