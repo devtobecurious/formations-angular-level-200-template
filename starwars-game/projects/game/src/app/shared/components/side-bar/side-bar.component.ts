@@ -1,15 +1,17 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 
 @Component({
   selector: 'game-side-bar',
   templateUrl: './side-bar.component.html',
   styleUrls: ['./side-bar.component.css']
 })
-export class SideBarComponent implements OnInit {
+export class SideBarComponent {
+}
 
-  constructor() { }
 
-  ngOnInit(): void {
-  }
-
+@NgModule({
+  declarations: [SideBarComponent],
+  exports: [SideBarComponent]
+})
+export class SideBarModule {
 }
