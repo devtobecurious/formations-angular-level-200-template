@@ -1,19 +1,17 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
-import { GameListComponent } from './features/game/game-list/game-list.component';
-import { NewOneComponent } from './features/game/new-one/new-one.component';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { environment } from '../environments/environment';
+import { CustomLazyLoadingStrategy } from './shared/tools/routing';
 
 const routes: Routes = [{
   path: 'games',
-  component: GameListComponent
-},
-{
-  path: 'new-game',
-  component: NewOneComponent
+  loadChildren: () => import('./features/game/game.module').then(item => item.GameModule),
+  data: { preload: true}
 }];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
+  imports: [RouterModule.forRoot(routes, { enableTracing: !environment.production,
+                                           preloadingStrategy: CustomLazyLoadingStrategy })],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }

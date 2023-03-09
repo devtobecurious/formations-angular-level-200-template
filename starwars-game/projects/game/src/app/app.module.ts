@@ -20,7 +20,7 @@ import { PopinComponent } from './shared/ui/popin/popin.component';
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GameModule,
+    // GameModule, => car va etre lazy loadé
     PopinComponent
   ],
   providers: [],

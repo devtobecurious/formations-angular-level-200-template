@@ -9,6 +9,7 @@ import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { NewOneComponent } from './new-one/new-one.component';
+import { GameRoutingModule } from './game-routing.module';
 
 
 
@@ -23,6 +24,7 @@ import { NewOneComponent } from './new-one/new-one.component';
   ],
   imports: [
     CommonModule,
+    GameRoutingModule,
     FormsModule,
     GridModule
   ],
