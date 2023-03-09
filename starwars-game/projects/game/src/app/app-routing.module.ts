@@ -12,6 +12,9 @@ const routes: Routes = [{
 @NgModule({
   imports: [RouterModule.forRoot(routes, { enableTracing: !environment.production,
                                            preloadingStrategy: CustomLazyLoadingStrategy })],
+  providers: [
+    CustomLazyLoadingStrategy
+  ],
   exports: [RouterModule]
 })
 export class AppRoutingModule { }
