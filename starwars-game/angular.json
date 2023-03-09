@@ -52,7 +52,6 @@
                   "replace": "projects/game/src/environments/environment.ts",
                   "with": "projects/game/src/environments/environment.prod.ts"
                 },
-
                 {
                   "replace": "projects/game/src/environments/api.ts",
                   "with": "projects/game/src/environments/api.prod.ts"
@@ -106,8 +105,22 @@
             ],
             "scripts": []
           }
+        },
+        "lint": {
+          "builder": "@angular-eslint/builder:lint",
+          "options": {
+            "lintFilePatterns": [
+              "projects/game/**/*.ts",
+              "projects/game/**/*.html"
+            ]
+          }
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@angular-eslint/schematics"
+    ]
   }
 }

@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { PopinComponent } from './shared/ui/popin/popin.component';
 
 
 @NgModule({
@@ -19,7 +20,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GameModule
+    GameModule,
+    PopinComponent
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
