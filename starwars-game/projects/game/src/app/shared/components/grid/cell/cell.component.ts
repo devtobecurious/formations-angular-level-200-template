@@ -1,20 +1,19 @@
 import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
+import { GridService } from '../services/grid.service';
 
 @Component({
   selector: 'game-cell',
   templateUrl: './cell.component.html',
   styleUrls: ['./cell.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CellComponent implements OnInit {
+export class CellComponent {
 
   @Input() item !: TileCell;
 
-  ngOnInit(): void {
-
-
-  }
+  constructor(private readonly gridService: GridService) {}
 
   logView() {
     console.info('CellComponent');

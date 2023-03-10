@@ -10,6 +10,8 @@ import { SideBarComponent, SideBarModule } from './shared/components/side-bar/si
 import { PopinComponent } from './shared/ui/popin/popin.component';
 import { AutourObservablesComponent } from './features/learnings/autour-observables/autour-observables.component';
 import { TimerComponent } from './features/learnings/timer/timer.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -25,7 +27,10 @@ import { TimerComponent } from './features/learnings/timer/timer.component';
     // GameModule, => car va etre lazy loadé
     PopinComponent,
     AutourObservablesComponent,
-    TimerComponent
+    TimerComponent,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

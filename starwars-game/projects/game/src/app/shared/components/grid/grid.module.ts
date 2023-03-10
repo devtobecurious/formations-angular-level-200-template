@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridComponent } from './grid.component';
 import { CellComponent } from './cell/cell.component';
+import { GridService } from './services/grid.service';
 
 
 
@@ -17,6 +18,7 @@ import { CellComponent } from './cell/cell.component';
     GridComponent
   ],
   providers: [
+
   ]
 })
 export class GridModule { }
