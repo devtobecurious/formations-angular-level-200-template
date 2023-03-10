@@ -9,6 +9,7 @@ import { HeaderComponent, HeaderModule } from './shared/components/header/header
 import { SideBarComponent, SideBarModule } from './shared/components/side-bar/side-bar.component';
 import { PopinComponent } from './shared/ui/popin/popin.component';
 import { AutourObservablesComponent } from './features/learnings/autour-observables/autour-observables.component';
+import { TimerComponent } from './features/learnings/timer/timer.component';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { AutourObservablesComponent } from './features/learnings/autour-observab
     SideBarModule,
     // GameModule, => car va etre lazy loadé
     PopinComponent,
-    AutourObservablesComponent
+    AutourObservablesComponent,
+    TimerComponent
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
