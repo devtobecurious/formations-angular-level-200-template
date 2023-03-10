@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
+import { RouterModule } from '@angular/router';
 
 @Component({
   selector: 'game-side-bar',
@@ -11,6 +12,9 @@ export class SideBarComponent {
 
 @NgModule({
   declarations: [SideBarComponent],
+  imports: [
+    RouterModule
+  ],
   exports: [SideBarComponent]
 })
 export class SideBarModule {

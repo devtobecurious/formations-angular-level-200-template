@@ -1,4 +1,5 @@
 import { Component, NgModule } from '@angular/core';
+import { SearchModule } from '../search/search.component';
 
 @Component({
   // standalone: true,
@@ -13,6 +14,9 @@ export class HeaderComponent {
 
 @NgModule({
   declarations: [HeaderComponent],
+  imports: [
+    SearchModule
+  ],
   exports: [HeaderComponent]
 })
 export class HeaderModule {

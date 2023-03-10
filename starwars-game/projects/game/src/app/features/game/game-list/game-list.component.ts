@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
+import { SearchService } from '../../../shared/components/search/services';
 
 @Component({
   selector: 'game-game-list',
@@ -12,10 +13,14 @@ export class GameListComponent implements OnInit {
   games: GameDto[] = [];
   searchItem = '';
 
-  constructor(private gameService: GameService) { }
+  constructor(private gameService: GameService,
+              private readonly searchService: SearchService) { }
 
   ngOnInit(): void {
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    this.searchService.asObservable.subscribe(item => {
+      this.gameService.getAll(item.value, 3).subscribe(items => this.games = items);
+    });
+
   }
 
 }

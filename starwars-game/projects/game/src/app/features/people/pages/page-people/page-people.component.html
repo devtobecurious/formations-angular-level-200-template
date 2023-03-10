@@ -1,0 +1,6 @@
+<!-- Technique 01 et 02 -->
+<game-list-people [items]="people"></game-list-people>
+
+<div *ngIf="people$ | async as persons">
+  <game-list-people [items]="persons"></game-list-people>
+</div>
