@@ -1,0 +1,16 @@
+{
+  "name": "startwars-lib",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "tsc": "tsc",
+    "tsc:init": "tsc --init"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^5.0.4"
+  }
+}
