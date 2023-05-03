@@ -1,3 +1,4 @@
+import { ObservableVsPromiseComponent } from './learnings/observable-vs-promise/observable-vs-promise.component';
 import { HttpClientModule } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
@@ -19,7 +20,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
-    GameModule
+    GameModule,
+    ObservableVsPromiseComponent
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

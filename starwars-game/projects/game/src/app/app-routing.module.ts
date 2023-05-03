@@ -24,7 +24,7 @@ const routes: Routes = [{
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-    enableTracing: isDevMode(),
+    enableTracing: !isDevMode(),
     preloadingStrategy: WithFlagLazyLoadingModuleStrategy
   })],
   exports: [RouterModule],
