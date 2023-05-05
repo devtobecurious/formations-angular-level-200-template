@@ -8,12 +8,17 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { SearchComponent } from './shared/ui/search/search.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from '../store';
+import { EffectsModule } from '@ngrx/effects';
+import { GamesEffect } from './features/game/store/effects';
 
 
 @NgModule({
   declarations: [
     AppComponent,
-    HeaderComponent,
+    HeaderComponent, // devrait etre un scam
     SideBarComponent
   ],
   imports: [
@@ -21,7 +26,12 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    ObservableVsPromiseComponent
+    SearchComponent,
+    ObservableVsPromiseComponent,
+    StoreModule.forRoot(reducers, {}),
+    EffectsModule.forRoot([
+      GamesEffect
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

@@ -1,7 +1,13 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { selectAllGamesSuccess } from './../store/selectors/index';
+import { Component, inject, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
+import { Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
+import { factorySearchService } from '../../../shared/ui/search/services';
+import { GameBusiness } from '../services/game.business';
 import { GameService } from '../services/game.service';
+import { requestToLoadAllGamesAction } from '../store/actions';
+import { selectAllGames } from '../store/selectors';
 
 @Component({
   selector: 'game-game-list',
@@ -9,13 +15,28 @@ import { GameService } from '../services/game.service';
   styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent implements OnInit {
-  games: GameDto[] = [];
+  // games: GameDto[] = [];
   searchItem = '';
+  //private readonly searchService = factorySearchService();
+
+  // games$ = this.searchService.asObservable.pipe(
+  //   switchMap(item => this.gameService.getAll(item.value, 3))
+  // );
+
+  // games$ = inject(GameBusiness).searchAll();
+  private readonly store = inject(Store);
+  games$ = this.store.pipe(select(selectAllGamesSuccess));
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    this.store.dispatch(requestToLoadAllGamesAction());
+    // this.searchService.asObservable.subscribe(item => {
+    //   this.gameService.getAll(3).subscribe(items => this.games = items);
+    // });
+    // this.searchService.asObservable.pipe(
+    //   switchMap(item => this.gameService.getAll(item.value, 3))
+    // ).subscribe(items => this.games = items);
   }
 
 }
