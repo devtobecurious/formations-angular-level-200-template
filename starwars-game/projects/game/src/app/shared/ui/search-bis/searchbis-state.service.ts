@@ -2,7 +2,6 @@ import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SearchItem } from './models';
 import { environment } from 'projects/game/src/environments/environment';
-import { error } from 'console';
 import { HttpClient } from '@angular/common/http';
 
 export interface SearchStateService {

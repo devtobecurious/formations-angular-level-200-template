@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { SearchBisComponent } from './shared/ui/search-bis/search-bis.component';
+import { DiscoverObsComponent } from './learnings/discover-obs/discover-obs.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { SearchBisComponent } from './shared/ui/search-bis/search-bis.component'
     AppRoutingModule,
     HttpClientModule,
     GameModule,
-    SearchBisComponent
+    SearchBisComponent,
+    DiscoverObsComponent
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
