@@ -15,7 +15,8 @@ function getSearchService() {
 @Component({
   selector: 'game-game-list',
   templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.css']
+  styleUrls: ['./game-list.component.css'],
+  animations: []
 })
 export class GameListComponent {
   // games: GameDto[] = [];
