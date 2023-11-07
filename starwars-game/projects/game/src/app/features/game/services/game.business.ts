@@ -20,7 +20,7 @@ const enAttendantLaFinService: GetAllGames = {
 
 @Injectable({
   providedIn: 'root',
-  useValue: enAttendantLaFinService
+  //useValue: enAttendantLaFinService
 })
 export class GameBusiness implements GetAllGames {
   private dataLayer = inject(GameService);
@@ -30,9 +30,9 @@ export class GameBusiness implements GetAllGames {
   getAll(): Observable<GameDto[]> {
     this.logger.log('Oops oublié de finir la méthode');
 
-    throw new Error('Not implemented');
-    // return this.dataLayer.getAll(10).pipe(
-    //   shareReplay(1)
-    // );
+    //throw new Error('Not implemented');
+    return this.dataLayer.getAll(10).pipe(
+      shareReplay(1)
+    );
   }
 }
