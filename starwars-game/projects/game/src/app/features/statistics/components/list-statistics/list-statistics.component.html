@@ -1,0 +1,8 @@
+<table>
+  <tr *ngFor="let item of stats$ | async stats">
+    <td>{{ item.annee }}</td>
+    <td>{{ item.mois }}</td>
+    <td>{{ item.nbPartiesGagnees }}</td>
+    <td>{{ item.nbPartiesPerdues }}</td>
+  </tr>
+</table>
