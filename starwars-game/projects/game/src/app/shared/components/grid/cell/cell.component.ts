@@ -1,5 +1,6 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation, inject } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
+import { ConfigStyleService } from '../services/config-style.service';
 
 @Component({
   selector: 'game-cell',
@@ -9,6 +10,8 @@ import { changeStateCell, TileCell } from '../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit, OnChanges {
+  styleService = inject(ConfigStyleService);
+
   ngOnChanges(changes: SimpleChanges): void {
     console.info('changes', changes);
   }
@@ -16,7 +19,7 @@ export class CellComponent implements OnInit, OnChanges {
   @Input() item !: TileCell;
 
   ngOnInit(): void {
-
+    this.styleService.store.asObservable().subscribe(item => {});
 
   }
 
