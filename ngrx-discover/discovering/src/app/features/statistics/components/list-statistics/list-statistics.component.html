@@ -1,0 +1,7 @@
+<p>list-statistics works!</p>
+
+<button (click)="dispachData()">Retour api</button>
+
+<div *ngFor="let item of stats$ | async stats">
+  {{item.annee}}
+</div>
