@@ -11,4 +11,8 @@ import { StatisticsBusiness } from '../../services/statistics.business';
 })
 export class ListStatisticsComponent {
   stats$ = inject(StatisticsBusiness).getAll();
+
+  ngOnInit(): void {
+    this.stats$.subscribe();
+  }
 }
