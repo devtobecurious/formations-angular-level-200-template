@@ -10,4 +10,7 @@ export type RetourApiStats = {
 export const mettreAJourStateDepuisRetourApi = createAction('[EFFECT - REDUCER] - Update stats state', props<RetourApiStats>());
 
 
-export const avecErreurMettreAJourStateDepuisRetourApi = createAction('[EFFECT - REDUCER] - ERREUR API');
+export type OnError = {
+  error: any
+}
+export const avecErreurMettreAJourStateDepuisRetourApi = createAction('[EFFECT - REDUCER] - ERREUR API', props<OnError>());

@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { Statistics } from "../models";
-import { mettreAJourStateDepuisRetourApi } from "./actions";
+import { avecErreurMettreAJourStateDepuisRetourApi, mettreAJourStateDepuisRetourApi } from "./actions";
 
 // 1. Créer le state
 export interface StatisticsState {
@@ -22,6 +22,14 @@ export const statisticsReducer = createReducer(
     const newState: StatisticsState = {
       items: action.statistics, // on ne sait pas d'ou elles viennent, mais on sait qu'elles(les stats) sont dans l'action
       state: 'loaded'
+    }
+
+    return newState;
+  }),
+  on(avecErreurMettreAJourStateDepuisRetourApi, (state, action) => {
+    const newState: StatisticsState = {
+      items: state.items, // on ne sait pas d'ou elles viennent, mais on sait qu'elles(les stats) sont dans l'action
+      state: 'with-error'
     }
 
     return newState;

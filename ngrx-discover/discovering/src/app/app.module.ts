@@ -6,6 +6,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { metaReducers, reducers } from './reducers';
 import { ListStatisticsComponent } from './features/statistics/components/list-statistics/list-statistics.component';
+import { EffectsModule } from '@ngrx/effects';
 
 @NgModule({
   declarations: [
@@ -17,7 +18,10 @@ import { ListStatisticsComponent } from './features/statistics/components/list-s
     StoreModule.forRoot(reducers, {
       metaReducers
     }),
-    ListStatisticsComponent
+    ListStatisticsComponent,
+    EffectsModule.forRoot([
+
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent]

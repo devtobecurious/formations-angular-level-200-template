@@ -10,3 +10,5 @@ export const recupererToutesLesStatsSelector = createSelector(recupererEtat, sta
 export const recupererStatsAnneeEnCours = createSelector(recupererToutesLesStatsSelector, items => items.filter(item => item.annee === (new Date()).getFullYear()));
 
 export const recupererEtatEnProbleme = createSelector(recupererEtat, state => state.state != 'loaded');
+
+export const recupererStatutErreur = createSelector(recupererEtat, state => state.state == 'with-error');

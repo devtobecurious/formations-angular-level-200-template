@@ -4,7 +4,7 @@ import { Statistics } from '../../models';
 import { Store, select } from '@ngrx/store';
 import { ApplicationState } from 'src/app/reducers';
 import { demandePourRecupererLesStatsDepuisApiAction, mettreAJourStateDepuisRetourApi } from '../../store/actions';
-import { recupererStatsAnneeEnCours } from '../../store/selectors';
+import { recupererStatsAnneeEnCours, recupererStatutErreur } from '../../store/selectors';
 
 @Component({
   selector: 'app-list-statistics',
@@ -17,9 +17,10 @@ export class ListStatisticsComponent {
   private store = inject(Store<ApplicationState>);
   // stats: Statistics = [];
   stats$ = this.store.pipe(select(recupererStatsAnneeEnCours));
+  onErrors$ = this.store.pipe(select(recupererStatutErreur))
 
   dispachData(): void {
-   // this.store.dispatch(demandePourRecupererLesStatsDepuisApiAction());
-    this.store.dispatch(mettreAJourStateDepuisRetourApi({ statistics: [{ annee: 2023, mois: 11, nbPartiesGagnees: 1, nbPartiesPerdues: 2 }] }));
+   this.store.dispatch(demandePourRecupererLesStatsDepuisApiAction());
+    // pour test : this.store.dispatch(mettreAJourStateDepuisRetourApi({ statistics: [{ annee: 2023, mois: 11, nbPartiesGagnees: 1, nbPartiesPerdues: 2 }] }));
   }
 }
