@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { ApplicationRef, Component, inject } from '@angular/core';
 
 @Component({
   selector: 'game-root',
@@ -7,4 +7,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+  application = inject(ApplicationRef);
+
+  launchTick(): void {
+    this.application.tick();
+  }
 }

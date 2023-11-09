@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 import { concatMap, fromEvent, interval, map, mergeMap, switchMap, take } from 'rxjs';
@@ -10,17 +10,27 @@ import { concatMap, fromEvent, interval, map, mergeMap, switchMap, take } from '
 })
 export class NewOneComponent implements OnInit {
   tiles: Tile[] = [];
+  private changeDetector = inject(ChangeDetectorRef);
   @ViewChild("startBtn", {static: true}) button !: ElementRef<HTMLButtonElement>;
 
   constructor(private tileService: TileService) { }
+
+  launchTick(): void {
+    this.changeDetector.detectChanges();
+  }
 
   maFonction(): void {
     console.info('Ma fonction');
   }
 
   ngOnInit(): void {
+    this.changeDetector.detach();
+
     this.tileService.loadAll()
-    .subscribe(tiles => this.tiles = tiles);
+    .subscribe(tiles => {
+      this.tiles = tiles;
+      this.changeDetector.reattach();
+    });
 
     const parent$ = fromEvent(this.button.nativeElement, 'click');
     // timer$.subscribe(item => {
