@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderComponentModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { RappelsObsVsPromiseComponent } from './learnings/rappels-obs-vs-promise/rappels-obs-vs-promise.component';
+import { ZoneAndCoComponent } from './learning/zone-and-co/zone-and-co.component';
 
 
 @NgModule({
@@ -21,7 +22,8 @@ import { RappelsObsVsPromiseComponent } from './learnings/rappels-obs-vs-promise
     HttpClientModule,
     HeaderComponentModule,
     GameModule,
-    RappelsObsVsPromiseComponent
+    RappelsObsVsPromiseComponent,
+    ZoneAndCoComponent
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
