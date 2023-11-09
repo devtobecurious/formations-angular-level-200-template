@@ -1,1 +1,8 @@
-<p>list-game works!</p>
+<!-- {{
+  bs.value
+}} -->
+
+{{ store().prenom }}
+ {{ store().prenom }} <!-- Ici, je ne réxécute pas l'abonnement (donc la fonction), c'est la dernière valeur setter -->
+
+ <button (click)="update()">Mettre la personne</button>
