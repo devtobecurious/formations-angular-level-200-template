@@ -1,6 +1,6 @@
 import { Injectable, inject } from "@angular/core";
 import { GameInfra } from "./game.infra";
-import { Observable, mergeMap } from "rxjs";
+import { Observable, filter, mergeMap } from "rxjs";
 import { GameDto } from "../../../core/models/game.dto";
 import { SearchStoreService } from "../../../shared/components/search/services";
 
