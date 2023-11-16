@@ -4,7 +4,7 @@ import { Stats } from "../models";
 
 //#region Helpers
 export interface GetAll<T> {
-  getAll(): Observable<T>;
+  getAll(filter: string): Observable<T>;
 }
 
 /**
@@ -14,13 +14,16 @@ export interface GetAllStats extends GetAll<Stats> {
   /**
    *
    */
-  getAll(): Observable<Stats>;
+  getAll(filter: string): Observable<Stats>;
 }
 //#endregion
 
 const fakeStatsService: GetAllStats = {
-    getAll: () => {
-      const fakeResult: Stats = [{ annee: 2023, mois: 1, nbPartiesGagnees: 50, nbPartiesPerdues: 0 }]
+    getAll: (filter: string) => {
+      let fakeResult: Stats = [{ annee: 2023, mois: 1, nbPartiesGagnees: 50, nbPartiesPerdues: 0 }]
+
+      fakeResult = fakeResult.filter(item => item.annee > Number(filter));
+
       return of(fakeResult);
     }
 }
@@ -30,7 +33,7 @@ const fakeStatsService: GetAllStats = {
   useValue: fakeStatsService
 })
 export class StatsInfra implements GetAllStats {
-  getAll(): Observable<Stats> {
+  getAll(filter: string): Observable<Stats> {
     throw new Error("Method not implemented.");
   }
 

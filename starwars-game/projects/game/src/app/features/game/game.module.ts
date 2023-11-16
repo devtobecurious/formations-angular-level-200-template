@@ -16,6 +16,10 @@ const routes: Routes = [
   {
     path: '',
     component: GameListComponent
+  },
+  {
+    path: 'new-game',
+    component: NewOneComponent
   }
 ];
 @NgModule({

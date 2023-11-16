@@ -15,8 +15,8 @@ export class StatsApp {
   getAll(): Observable<Stats> {
     if (typeof this.monObs$ === 'undefined') {
       this.monObs$ = this.searchStore.asObservable.pipe(
-        distinctUntilChanged(),
-        concatMap(search => this.infra.getAll()),
+        // distinctUntilChanged(),
+        concatMap(search => this.infra.getAll(search.value)),
         shareReplay() // memoization
       )
     }
