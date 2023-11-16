@@ -42,8 +42,8 @@ export class NewOneComponent implements OnInit {
     obs$.subscribe(tick => console.info(tick));
 
 
-    // this.tileService.loadAll()
-    // .subscribe(tiles => this.tiles = tiles);
+    this.tileService.loadAll()
+    .subscribe(tiles => this.tiles = tiles);
   }
 
 }
