@@ -15,6 +15,10 @@ export class GameListComponent {
   searchItem = '';
   private sub = new Subscription();
 
+  afficher(): void {
+    console.info('******  ====> afficher');
+  }
+
   //private readonly gameService = inject(GameService);
   // games$ = this.gameService.getAll(3);
   // Façon 03 => pipe async
