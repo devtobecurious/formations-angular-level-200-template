@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, NgZone, inject } from '@angular/core';
 
 @Component({
   selector: 'game-root',
@@ -7,4 +7,18 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+  zone = inject(NgZone);
+
+  ngOnInit(): void {
+    this.zone.runOutsideAngular(() => {
+      setTimeout(() => {
+        this.title = 'Vive Star wars !';
+        this.title = 'Vive Star wars !!';
+
+        this.zone.run(() => {
+          this.title  = 'Youpi !';
+        });
+      }, 1500);
+    });
+  }
 }

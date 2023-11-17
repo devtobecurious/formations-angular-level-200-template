@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { GameListComponent } from './game-list.component';
+import { GameInfra } from '../services/game.infra';
 
 describe('GameListComponent', () => {
   let component: GameListComponent;
@@ -8,7 +9,10 @@ describe('GameListComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GameListComponent ]
+      declarations: [ GameListComponent ],
+      providers: [
+        { provide: GameInfra, useValue:  {}}
+      ]
     })
     .compileComponents();
   });

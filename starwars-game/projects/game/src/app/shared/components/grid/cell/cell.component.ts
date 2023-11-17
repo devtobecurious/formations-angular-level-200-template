@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation, inject } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
 
 @Component({
@@ -9,12 +9,12 @@ import { changeStateCell, TileCell } from '../models';
   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit {
+  cdr = inject(ChangeDetectorRef);
 
   @Input() item !: TileCell;
 
   ngOnInit(): void {
-
-
+    // this.cdr.detach();
   }
 
   logView() {

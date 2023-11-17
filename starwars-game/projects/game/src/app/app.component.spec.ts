@@ -8,6 +8,9 @@ describe('AppComponent', () => {
       imports: [
         RouterTestingModule
       ],
+      providers: [
+        // { provide: SearchStore, useValue: {} }
+      ],
       declarations: [
         AppComponent
       ],
@@ -20,16 +23,26 @@ describe('AppComponent', () => {
     expect(app).toBeTruthy();
   });
 
+  // Red / Green / Refactor
+
   it(`should have as title 'game'`, () => {
+    // Arrange
     const fixture = TestBed.createComponent(AppComponent);
+
+    // Act
+    fixture.autoDetectChanges(true);
+
     const app = fixture.componentInstance;
+
+    // Assert
     expect(app.title).toEqual('game');
   });
 
   it('should render title', () => {
     const fixture = TestBed.createComponent(AppComponent);
-    fixture.detectChanges();
+    fixture.detectChanges(); // Attention, c'est un cycle de vie, et donc il faut l'activer à plusieurs reprises
     const compiled = fixture.nativeElement;
+
     expect(compiled.querySelector('.content span').textContent).toContain('game app is running!');
   });
 });

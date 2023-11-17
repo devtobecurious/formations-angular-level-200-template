@@ -1,4 +1,4 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ApplicationRef, ChangeDetectorRef, Component, ElementRef, OnInit, ViewChild, inject } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 import { concatMap, fromEvent, interval, map, mergeMap, switchMap, take } from 'rxjs';
@@ -9,15 +9,24 @@ import { concatMap, fromEvent, interval, map, mergeMap, switchMap, take } from '
   styleUrls: ['./new-one.component.css']
 })
 export class NewOneComponent implements OnInit {
+  application = inject(ApplicationRef);
+  changeDetector = inject(ChangeDetectorRef);
 
   tiles: Tile[] = [];
-  @ViewChild('start', {static: true}) button !: ElementRef<HTMLButtonElement>;
+  // @ViewChild('start', {static: true}) button !: ElementRef<HTMLButtonElement>;
 
-  constructor(private tileService: TileService) { }
+  constructor(private tileService: TileService) {
+  }
+
+  detectLesChangements(): void {
+    this.changeDetector.detectChanges();
+  }
 
   ngOnInit(): void {
-    let parent$ = fromEvent(this.button.nativeElement, 'click');
-    const enfant$ = interval(1000).pipe(take(100));
+     this.changeDetector.detach();
+
+    // let parent$ = fromEvent(this.button.nativeElement, 'click');
+    // const enfant$ = interval(1000).pipe(take(100));
 
     // parent$.subscribe(ev => {
     //   enfant$.subscribe(item => console.info(item)); // Le nested subscribe est interdit !!!
@@ -31,19 +40,22 @@ export class NewOneComponent implements OnInit {
     // })
 
     // n'attend pas le complete de l'enfant
-    const obs$ = parent$.pipe(
-      mergeMap(ev => enfant$) // subscribe sur l'enfant et next => même comportement de subscribe de subscribe
-    );
+    // const obs$ = parent$.pipe(
+    //   mergeMap(ev => enfant$) // subscribe sur l'enfant et next => même comportement de subscribe de subscribe
+    // );
 
     // const obs$ = parent$.pipe(
     //   concatMap(ev => enfant$) // subscribe sur l'enfant et next => même comportement de subscribe de subscribe
     // );
 
-    obs$.subscribe(tick => console.info(tick));
+    // obs$.subscribe(tick => console.info(tick));
 
 
     this.tileService.loadAll()
-    .subscribe(tiles => this.tiles = tiles);
+    .subscribe(tiles => {
+      this.tiles = tiles;
+      // this.changeDetector.reattach();
+    });
   }
 
 }
