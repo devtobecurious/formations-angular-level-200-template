@@ -1,0 +1,5 @@
+<button (click)="load()">Load</button>
+
+<div *ngFor="let item of stats$ | async as stats">
+  {{ item.annee}} {{ item.mois}} {{ item.nbPartiesGagnees}} {{ item.nbPartiesPerdues}}
+</div>
