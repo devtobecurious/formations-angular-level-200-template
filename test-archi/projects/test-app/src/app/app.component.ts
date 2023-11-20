@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'app-root',
@@ -6,5 +6,13 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'test-app';
+  // title = 'test-app';
+  title = signal<string>('test-app');
+
+  
+
+  changeTitle(): void {
+    //this.title = 'Nouveau titre';
+    this.title.set('Nouveau titre');
+  }
 }

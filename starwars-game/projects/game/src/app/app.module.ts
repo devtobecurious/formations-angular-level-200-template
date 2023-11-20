@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { ObsVsPromiseComponent } from './learnings/obs-vs-promise/obs-vs-promise.component';
+import { ProvideParentComponent } from './shared/components/provide-parent/provide-parent.component';
 
 
 @NgModule({
@@ -20,7 +21,8 @@ import { ObsVsPromiseComponent } from './learnings/obs-vs-promise/obs-vs-promise
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    ObsVsPromiseComponent
+    ObsVsPromiseComponent,
+    ProvideParentComponent
     // GameModule
   ],
   providers: [],
