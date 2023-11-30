@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 
 @Component({
   selector: 'game-header',
@@ -11,5 +11,14 @@ export class HeaderComponent implements OnInit {
 
   ngOnInit(): void {
   }
-
 }
+
+@NgModule({
+  declarations: [
+    HeaderComponent
+  ],
+  exports: [
+    HeaderComponent
+  ]
+})
+export class HeaderModule {}
