@@ -1,7 +1,8 @@
 import { Component, inject, signal } from '@angular/core';
 import { CommonModule } from '@angular/common';
-import { BehaviorSubject } from 'rxjs';
+import { BehaviorSubject, Subject, takeUntil } from 'rxjs';
 import { GamesService } from '../services';
+import {SearchStore} from 'search';
 
 @Component({
   selector: 'app-list-game',
@@ -11,12 +12,23 @@ import { GamesService } from '../services';
   styleUrl: './list-game.component.css'
 })
 export class ListGameComponent {
-   // bs = new BehaviorSubject<string>('');
-    private readonly service = inject(GamesService);
-    store = this.service.userStore;
+  private readonly searchStore = inject(SearchStore);
+  private toKill = new Subject<boolean>();
 
+  ngOnInit(): void {
+    this.searchStore.asObservable.pipe(
+      takeUntil(this.toKill)
+    ).subscribe(item => {
+      console.info('recherche', item);
+    })
+  }
+
+  ngOnDestroy(): void {
+    this.toKill.next(true);
+    this.toKill.unsubscribe();
+  }
 
    update(): void {
-    this.service.updatePrenom('Leia');
+
    }
 }

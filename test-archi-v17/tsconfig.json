@@ -10,8 +10,17 @@
     "noImplicitReturns": true,
     "noFallthroughCasesInSwitch": true,
     "paths": {
+      "malibamoi": [
+        "./dist/test"
+      ],
+      "mframe": [
+        "./dist/my-framework"
+      ],
       "panier-ui": [
         "./dist/ma-lib"
+      ],
+      "search": [
+        "./dist/search"
       ]
     },
     "allowSyntheticDefaultImports": true,

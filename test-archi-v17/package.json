@@ -6,20 +6,25 @@
   },
   "scripts": {
     "ng": "ng",
+    "tsc": "tsc",
+    "prestart": "npm run build:libs",
     "start": "ng serve",
 
     "preessai": "echo 'optic 2000'",
-    "essai": "echo 'ohh yeah'",
+    "prepare": "echo 'ohh yeah'",
     "postessai": "echo 'ah que coucou'",
 
+    "prejohny": "echo 'jjj oh yeah'",
     "johny": "npm run essai",
 
-    "build:lib:prod": "ng build ma-lib",
+    "build:libs:my-framework": "ng build my-framework",
+    "build:lib:prod": "ng build ma-lib && npm run build:libs:my-framework",
     "build:libs": "npm run build:lib:prod",
 
     "prebuild": "npm run build:libs",
     "build": "ng build mon-appli",
 
+    "watch:libs:my-framework": "ng build --project my-framework --watch --configuration development",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
