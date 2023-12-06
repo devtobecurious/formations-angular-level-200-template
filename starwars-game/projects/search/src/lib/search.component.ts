@@ -1,6 +1,7 @@
-import { Component, NgModule } from '@angular/core';
+import { Component, NgModule, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { SearchState } from './models';
+import { SearchBusService } from './search.service';
 
 @Component({
   selector: 'lib-search',
@@ -22,10 +23,11 @@ import { SearchState } from './models';
   ]
 })
 export class SearchComponent {
-  state = new SearchState();
+  state: SearchState = { value: ''};
+  private store = inject(SearchBusService);
 
   search(): void {
-
+    this.store.update(this.state);
   }
 }
 
