@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core";
 import { SearchBusService } from "search";
 import { GameService } from "./game.service";
-import { Observable } from "rxjs";
+import { Observable, catchError } from "rxjs";
 import { GameDto } from "../../../core/models/game.dto";
 
 @Injectable({
