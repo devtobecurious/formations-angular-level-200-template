@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { NewOneComponent } from './new-one/new-one.component';
 import { GameRoutingModule } from './game-routing.module';
+import { GameApplication } from './services/game.application';
 
 
 
@@ -28,9 +29,10 @@ import { GameRoutingModule } from './game-routing.module';
     GridModule,
     GameRoutingModule
   ],
-  // providers: [
-  //   GameService
-  // ],
+  providers: [
+    GameApplication,
+    GameService
+  ],
   exports: [
     GameListComponent
   ]

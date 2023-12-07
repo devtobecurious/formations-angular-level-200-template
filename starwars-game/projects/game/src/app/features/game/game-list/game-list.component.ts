@@ -8,7 +8,8 @@ import { GameApplication } from '../services/game.application';
 @Component({
   selector: 'game-game-list',
   templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.css']
+  styleUrls: ['./game-list.component.css'],
+  providers: [] // transient / scoped
 })
 export class GameListComponent implements OnInit {
   // games: GameDto[] = [];
