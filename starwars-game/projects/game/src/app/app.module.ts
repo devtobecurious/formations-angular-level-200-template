@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { PromiseVsObservablesComponent } from './learnings/promise-vs-observables/promise-vs-observables.component';
 
 
 @NgModule({
@@ -20,6 +21,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
+    PromiseVsObservablesComponent
     // GameModule
   ],
   providers: [],

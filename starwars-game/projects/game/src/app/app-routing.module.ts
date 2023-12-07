@@ -43,7 +43,7 @@ export class CustomLazyLoadingStrategy implements PreloadingStrategy {
 
 @NgModule({
   imports: [RouterModule.forRoot(routes, {
-                                            enableTracing: ! environment.production,
+                                            enableTracing: environment.production,
                                             preloadingStrategy: CustomLazyLoadingStrategy
                                           })],
   providers: [CustomLazyLoadingStrategy],
