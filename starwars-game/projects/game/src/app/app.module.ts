@@ -20,7 +20,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    GameModule
+    // GameModule
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

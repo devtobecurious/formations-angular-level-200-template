@@ -4,7 +4,9 @@ import { api } from 'projects/game/src/environments/api';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class GameService {
 
   constructor(private httpClient: HttpClient) { }
