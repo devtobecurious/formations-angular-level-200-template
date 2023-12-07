@@ -3,9 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+
+    "build:libs:stats": "ng build statistics",
+    "build:libs": "npm run build:libs:stats",
+
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
+
+    "prestart": "npm run build:libs",
     "start": "ng serve",
+    
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"

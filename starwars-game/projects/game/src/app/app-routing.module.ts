@@ -10,7 +10,16 @@ const routes: Routes = [{
 {
   path: 'new-game',
   component: NewOneComponent
-}];
+},
+{
+  path: 'stats',
+  loadChildren: () => import('statistics').then(item => item.statisticsRoutes)
+}
+// {
+//   path: 'stats',
+//   loadComponent: () => import('statistics').then(item => item.ListStatisticsComponent)
+// }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],

@@ -1,7 +1,7 @@
 import { Injectable, inject } from "@angular/core";
 import { Observable, of } from "rxjs";
 import { Statistics } from "../models";
-import { environment } from "projects/game/src/environments/environment";
+// import { environment } from "projects/game/src/environments/environment";
 
 export function createInfra() {
   return {
@@ -11,14 +11,17 @@ export function createInfra() {
 
 const fakeService: StatisticsInfra = {
   getAll() {
-    return of([])
+    const result: Statistics = [
+      { annee: 2023, mois: 12, nbGagnees: 500, nbPerdues: 0 }
+    ];
+    return of(result);
   }
 }
 
 @Injectable({
   providedIn: 'root',
   //useValue: fakeService
-  useFactory: () => environment.production ? new StatisticsInfra() : fakeService
+  useFactory: () => fakeService
 })
 export class StatisticsInfra {
   getAll(): Observable<Statistics> {
