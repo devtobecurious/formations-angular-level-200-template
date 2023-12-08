@@ -1,7 +1,7 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { ChangeDetectorRef, Component, ElementRef, NgZone, OnInit, ViewChild, inject } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
-import { concatMap, fromEvent, interval, map, mergeMap, switchMap, take } from 'rxjs';
+import { concatMap, finalize, fromEvent, interval, map, mergeMap, switchMap, take } from 'rxjs';
 
 @Component({
   selector: 'game-new-one',
@@ -13,10 +13,17 @@ export class NewOneComponent implements OnInit {
   @ViewChild('btnSearch', {static: true}) //static: permet de ne pas attendre le afterviewinit
   private btnSearch !: ElementRef<HTMLButtonElement>;
 
+  private readonly maZone = inject(NgZone);
+  private readonly detectorChangesRef = inject(ChangeDetectorRef);
+
   constructor(private tileService: TileService) { }
 
   ngOnInit(): void {
+    // this.detectorChangesRef.detach();
+
     const parent$ = fromEvent(this.btnSearch.nativeElement, 'click');
+
+    //parent$.pipe(finalize(() => this.detectorChangesRef.reattach()));
     // parent$.subscribe(ev => { // subscribe de subscribe à bannir => doom pyramid !
     //   interval(1000).subscribe(item => {
     //     console.info('tick', item);
@@ -67,8 +74,8 @@ export class NewOneComponent implements OnInit {
       console.info('tick', tick);
     });
 
-    // this.tileService.loadAll()
-    // .subscribe(tiles => this.tiles = tiles);
+    this.tileService.loadAll()
+    .subscribe(tiles => this.tiles = tiles);
   }
 
 }
