@@ -3,15 +3,11 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-
     "build:libs:stats": "ng build statistics",
     "build:libs": "npm run build:libs:stats",
-
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-
     "prestart": "npm run build:libs",
     "start": "ng serve",
-    
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -26,6 +22,7 @@
     "@angular/platform-browser": "^15.1.4",
     "@angular/platform-browser-dynamic": "^15.1.4",
     "@angular/router": "^15.1.4",
+    "@ngrx/store": "^15.4.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.11.4"

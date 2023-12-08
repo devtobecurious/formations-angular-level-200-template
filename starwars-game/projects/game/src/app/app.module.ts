@@ -8,6 +8,8 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { PromiseVsObservablesComponent } from './learnings/promise-vs-observables/promise-vs-observables.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import { PromiseVsObservablesComponent } from './learnings/promise-vs-observable
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    PromiseVsObservablesComponent
+    PromiseVsObservablesComponent,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
     // GameModule
   ],
   providers: [],
