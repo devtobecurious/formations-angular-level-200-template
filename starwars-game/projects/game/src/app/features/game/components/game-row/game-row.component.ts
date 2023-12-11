@@ -1,5 +1,5 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { GameDto } from '../../../core/models/game.dto';
+import { GameDto } from '../../models';
 
 @Component({
   selector: 'game-game-row',

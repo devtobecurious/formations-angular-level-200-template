@@ -1,11 +1,11 @@
 import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core';
-import { GameDto } from '../../../core/models/game.dto';
+import { GameDto } from '../../models';
 
 @Component({
   selector: 'game-table',
   templateUrl: './game-table.component.html',
   styleUrls: ['./game-table.component.css'],
-//   changeDetection: ChangeDetectionStrategy.OnPush
+  //   changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class GameTableComponent implements OnInit {
   @Input() games: GameDto[] = [];

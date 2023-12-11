@@ -3,3 +3,6 @@ export interface GameDto {
   title: number;
   success: boolean;
 }
+
+
+export type Games = GameDto[];
