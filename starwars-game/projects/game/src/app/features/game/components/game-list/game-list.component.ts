@@ -2,6 +2,7 @@ import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameService } from '../../services/game.service';
 import { SearchStore, ValueOrUndefined } from 'search';
+import { GameApplication } from '../../services/game.application';
 
 @Component({
   selector: 'game-game-list',
@@ -9,6 +10,9 @@ import { SearchStore, ValueOrUndefined } from 'search';
   styleUrls: ['./game-list.component.css']
 })
 export class GameListComponent implements OnInit {
+  private readonly gameApplication = inject(GameApplication);
+  games$ = this.gameApplication.getAll();
+
 
   // games: GameDto[] = [];
   // searchItem: ValueOrUndefined<string> = '';
