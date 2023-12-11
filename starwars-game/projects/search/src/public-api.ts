@@ -4,4 +4,4 @@
 
 export * from './lib/search.store';
 export * from './lib/search.component';
-export * from './lib/search.module';
+export * from './lib/models';
