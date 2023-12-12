@@ -1,6 +1,6 @@
 export interface GameDto {
   id: number;
-  title: number;
+  title: string;
   success: boolean;
 }
 

@@ -1,6 +1,6 @@
 import { Component, OnInit, inject } from '@angular/core';
 import { Observable } from 'rxjs';
-import { GameService } from '../../services/game.service';
+import { GetAllGameService } from '../../services/game.service';
 import { SearchStore, ValueOrUndefined } from 'search';
 import { GameApplication } from '../../services/game.application';
 
@@ -13,6 +13,7 @@ export class GameListComponent implements OnInit {
   private readonly gameApplication = inject(GameApplication);
   games$ = this.gameApplication.getAll();
 
+  searchStore = inject(SearchStore);
 
   // games: GameDto[] = [];
   // searchItem: ValueOrUndefined<string> = '';
@@ -20,6 +21,7 @@ export class GameListComponent implements OnInit {
   //constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+
     //this.searchStore.asObservable.subscribe(item => this.searchItem = item.value);
 
     //this.gameService.getAll(this.searchItem, 3).subscribe(items => this.games = items);
