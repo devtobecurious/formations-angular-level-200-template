@@ -22,14 +22,20 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <ng-container *ngIf="games$ | async as games">
+              <!-- <ng-container *ngIf="games$ | async as games">
                 <game-table [games]="games"></game-table>
-              </ng-container>
+              </ng-container> -->
 
+              @if( games$ | async; as games ) {
+              <game-table [games]="games"></game-table>
+              }
+              @else {
+              <div class="alert alert-info" role="alert">
+                Aucune partie terminée
+              </div>
+              }
             </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
-</div>

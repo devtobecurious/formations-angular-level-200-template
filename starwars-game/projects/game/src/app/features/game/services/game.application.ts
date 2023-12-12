@@ -2,7 +2,7 @@ import { inject } from "@angular/core";
 import { SearchStore } from "search";
 import { GameService } from "./game.service";
 import { Observable } from "rxjs";
-import { GameDto } from "../../../core/models/game.dto";
+import { Games } from "../models";
 
 export function getContainerServices() {
   return {
@@ -14,7 +14,7 @@ export function getContainerServices() {
 export class GameApplication {
   private readonly container = getContainerServices();
 
-  getAll(): Observable<GameDto[]> {
+  getAll(): Observable<Games> {
     return this.container.gameService.getAll('', 3);
   }
 }
