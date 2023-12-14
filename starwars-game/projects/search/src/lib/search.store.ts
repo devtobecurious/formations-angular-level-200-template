@@ -9,7 +9,7 @@ export class SearchStore {
   private readonly store$ = new BehaviorSubject<SearchState>(initialState);
 
   dispatch(value: string): void {
-    const newState: SearchState = {
+    const newState: SearchState = { // immutabilité
       value
     };
     this.store$.next(newState);

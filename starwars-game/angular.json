@@ -52,7 +52,6 @@
                   "replace": "projects/game/src/environments/environment.ts",
                   "with": "projects/game/src/environments/environment.prod.ts"
                 },
-
                 {
                   "replace": "projects/game/src/environments/api.ts",
                   "with": "projects/game/src/environments/api.prod.ts"
@@ -113,7 +112,7 @@
       "projectType": "library",
       "root": "projects/search",
       "sourceRoot": "projects/search/src",
-      "prefix": "lib",
+      "prefix": "malibquejaime",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
