@@ -1,5 +1,5 @@
 import { Injectable, inject } from "@angular/core";
-import { Observable, filter, map, of, switchMap, tap } from "rxjs";
+import { Observable, combineLatest, filter, map, of, switchMap, tap } from "rxjs";
 import { Cities } from "../models";
 import { CitiesStore } from "./cities.store";
 import { CitiesInfrastructure } from "./cities.infrastructure";
@@ -24,5 +24,12 @@ export class CitiesBusiness {
       filter(country => country !== null),
       switchMap(country => this.getAllWithCountryCode(country!))
     );
+
+    // return combineLatest({
+    //   city: this.store.store,
+    //   country: this.oneCountryStore.selectedOne
+    // }).pipe()
+
+
   }
 }
