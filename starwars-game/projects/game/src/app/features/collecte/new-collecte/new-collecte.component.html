@@ -1,0 +1,19 @@
+{{ collectForm.value | json }}
+
+<form [formGroup]="collectForm" (ngSubmit)="save()">
+  <ng-container formGroupName="user">
+
+    <input type="text" formControlName="surname" placeholder="Prénom de la personne">
+
+    @if(!surnameIsValid) {
+    <p>Le prénom est requis et doit contenir au moins 3 caractères</p>
+    }
+
+    <input type="email" formControlName="email" placeholder="Email de la personne">
+    @if(!emailIsValid) {
+    <p>L'email est requis</p>
+    }
+  </ng-container>
+
+  <button [disabled]="! collectForm.valid">Sauvegarder</button>
+</form>
