@@ -1,0 +1,7 @@
+<div>
+  <select (change)="selectCity($event.target)">
+    @for (item of cities$ | async; track $index) {
+    <option value="{{item.name}}">{{item.name}}</option>
+    }
+  </select>
+</div>

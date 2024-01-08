@@ -1,0 +1,7 @@
+<div>
+  <select (change)="selectCountry($event.target)">
+    @for (item of countries$ | async; track item.code) {
+    <option value="{{item.code}}">{{item.name}}</option>
+    }
+  </select>
+</div>
