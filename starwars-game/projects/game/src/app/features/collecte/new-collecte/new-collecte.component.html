@@ -1,5 +1,89 @@
 {{ collectForm.value | json }}
 
+<div class="example-action-buttons">
+  <button mat-button (click)="accordion.openAll()">Expand All</button>
+  <button mat-button (click)="accordion.closeAll()">Collapse All</button>
+</div>
+<form [formGroup]="collectForm">
+  <mat-accordion class="example-headers-align" multi>
+    <mat-expansion-panel (opened)="setStep(0)" [expanded]="step === 0" formGroupName="user">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Personal data
+        </mat-panel-title>
+        <mat-panel-description>
+          Type your name and email
+          <mat-icon>account_circle</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-label>Prénom</mat-label>
+        <input matInput formControlName="surname">
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput type="email" formControlName="email">
+      </mat-form-field>
+
+      <mat-action-row>
+        <button [disabled]="! userGroupIsValid" mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)="setStep(1)" [expanded]="step === 1" formGroupName="game">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Jeu-vidéo
+        </mat-panel-title>
+        <mat-panel-description>
+          Choisis le jeu-vidéo auquel tu as joué
+          <mat-icon>map</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <mat-form-field>
+        <mat-label>Jeu-vidéo : {{ titreGame() }}</mat-label>
+        <mat-select formControlName="id" [(value)]="selected">
+          <mat-option>--</mat-option>
+          @for (item of videoGames$ | async; track item.id) {
+          <mat-option value="{{item.id}}">{{item.label}}</mat-option>
+          }
+        </mat-select>
+        @if (! gameIdIsValid) {
+        <mat-error>Choisis un jeu-vidéo</mat-error>
+        }
+      </mat-form-field>
+
+      <mat-action-row>
+        <button mat-button color="warn" (click)="prevStep()">Previous</button>
+        <button [disabled]="! gameIdIsValid" mat-button color="primary" (click)="nextStep()">Next</button>
+      </mat-action-row>
+    </mat-expansion-panel>
+
+    <mat-expansion-panel (opened)=" setStep(2)" [expanded]="step === 2" formGroupName="consoles">
+      <mat-expansion-panel-header>
+        <mat-panel-title>
+          Consoles
+        </mat-panel-title>
+        <mat-panel-description>
+          <mat-icon>date_range</mat-icon>
+        </mat-panel-description>
+      </mat-expansion-panel-header>
+
+      <ng-container formArrayName="list">
+        @for (item of consoles$ | async; track item.id; let i = $index) {
+        <div [formGroupName]="i">
+          <mat-checkbox formControlName="isSelected">{{item.label}} // {{item.version}}</mat-checkbox>
+        </div>
+        }
+      </ng-container>
+
+    </mat-expansion-panel>
+  </mat-accordion>
+</form>
+<!--
 <form [formGroup]="collectForm" (ngSubmit)="save()">
   <ng-container formGroupName="user">
 
@@ -16,4 +100,4 @@
   </ng-container>
 
   <button [disabled]="! collectForm.valid">Sauvegarder</button>
-</form>
+</form> -->

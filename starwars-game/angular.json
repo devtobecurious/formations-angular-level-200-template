@@ -29,6 +29,7 @@
               "projects/game/src/assets/vendor"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/game/src/styles.css"
             ],
             "scripts": []
@@ -102,6 +103,7 @@
               "projects/game/src/assets"
             ],
             "styles": [
+              "@angular/material/prebuilt-themes/deeppurple-amber.css",
               "projects/game/src/styles.css"
             ],
             "scripts": []

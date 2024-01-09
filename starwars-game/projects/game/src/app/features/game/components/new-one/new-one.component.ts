@@ -57,8 +57,8 @@ export class NewOneComponent implements OnInit {
     });
 
 
-    // this.tileService.loadAll()
-    //   .subscribe(tiles => this.tiles = tiles);
+    this.tileService.loadAll()
+      .subscribe(tiles => this.tiles = tiles);
   }
 
 }

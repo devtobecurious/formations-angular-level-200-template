@@ -7,6 +7,9 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -19,7 +22,11 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    GameModule
+    GameModule,
+    BrowserAnimationsModule,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
