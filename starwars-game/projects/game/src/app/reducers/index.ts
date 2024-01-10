@@ -6,14 +6,18 @@ import {
   createSelector,
   MetaReducer
 } from '@ngrx/store';
+import { gamesReducer, GamesState } from '../features/game/store';
+import { statisticsReducer, StatisticsState } from '../features/stats/store';
 
-export interface State {
-
+export interface ApplicationState {
+  games: GamesState,
+  stats: StatisticsState
 }
 
-export const reducers: ActionReducerMap<State> = {
-
+export const reducers: ActionReducerMap<ApplicationState> = {
+  games: gamesReducer,
+  stats: statisticsReducer
 };
 
 
-export const metaReducers: MetaReducer<State>[] = isDevMode() ? [] : [];
+export const metaReducers: MetaReducer<ApplicationState>[] = isDevMode() ? [] : [];

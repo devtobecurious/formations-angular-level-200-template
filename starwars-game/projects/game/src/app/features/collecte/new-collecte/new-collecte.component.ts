@@ -13,6 +13,7 @@ import { Observable, distinctUntilChanged, of, pairwise } from 'rxjs';
 import { VideoGames } from '../models';
 import { VideoGamesApplication } from '../services/video-games.business';
 import { MatCheckboxModule } from '@angular/material/checkbox';
+import { TitreService } from '../services/titre.service';
 
 @Component({
   selector: 'game-new-collecte',
@@ -47,7 +48,9 @@ export class NewCollecteComponent {
     { id: 4, label: 'PS1', version: 4 }
   ]);
 
-  titreGame = signal<string>('');
+  // titreGame = signal<string>('');
+
+  titreGame = inject(TitreService).titre;
 
   set selected(value: string) {
     console.log(value);

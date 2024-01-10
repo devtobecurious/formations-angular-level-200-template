@@ -13,6 +13,10 @@ const routes: Routes = [{
   component: NewOneComponent
 },
 {
+  path: 'stats',
+  loadChildren: () => import('./features/stats/stats.routes').then(m => m.statsRoutes)
+},
+{
   path: 'collect',
   loadChildren: () => import('./features/collecte/collecte.routes').then(m => m.collectRoutes)
 }];

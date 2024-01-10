@@ -3,6 +3,9 @@ import { SearchStore } from "search";
 import { GetAllGameService } from "./game.service";
 import { Observable, catchError, concatMap, concatWith, distinctUntilChanged, filter, of, switchMap } from "rxjs";
 import { Games } from "../models";
+import { Store } from "@ngrx/store";
+import { ApplicationState } from "../../../reducers";
+import { requestToLoadGames } from "../store/games.actions";
 
 export function getContainerServices() {
   return {
@@ -14,6 +17,11 @@ export function getContainerServices() {
 @Injectable({ providedIn: 'root' })
 export class GameApplication {
   private readonly container = getContainerServices();
+  private readonly store = inject(Store<ApplicationState>);
+
+  queryToLoad(): void {
+    this.store.dispatch(requestToLoadGames());
+  }
 
   getAll(): Observable<Games> {
     const parent$ = this.container.searchStore.asObservable;

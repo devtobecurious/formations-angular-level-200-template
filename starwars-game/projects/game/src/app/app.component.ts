@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+import { StatsBusiness } from './features/stats/services/stats.business';
 
 @Component({
   selector: 'game-root',
@@ -7,9 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+  private readonly business = inject(StatsBusiness);
 
   ngOnInit(): void {
-
-
+    this.business.initialize();
   }
 }

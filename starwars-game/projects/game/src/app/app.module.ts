@@ -10,6 +10,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { GamesEffect } from './features/game/store/games.effects';
 
 
 @NgModule({
@@ -26,7 +28,10 @@ import { reducers, metaReducers } from './reducers';
     BrowserAnimationsModule,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    EffectsModule.forRoot([
+      GamesEffect
+    ])
   ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]

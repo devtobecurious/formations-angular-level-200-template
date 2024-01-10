@@ -44,7 +44,7 @@
       </mat-expansion-panel-header>
 
       <mat-form-field>
-        <mat-label>Jeu-vidéo : {{ titreGame() }}</mat-label>
+        <mat-label>Jeu-vidéo : {{ titreGame() }} {{ titreGame() }}</mat-label>
         <mat-select formControlName="id" [(value)]="selected">
           <mat-option>--</mat-option>
           @for (item of videoGames$ | async; track item.id) {
