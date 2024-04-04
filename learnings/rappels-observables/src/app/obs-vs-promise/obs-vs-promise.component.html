@@ -1,1 +1,8 @@
-<p>obs-vs-promise works!</p>
+<ng-container *ngIf="titreChangeant$ | async as titre">
+  <h1>{{ titre}}</h1>
+</ng-container>
+
+<ng-container *ngIf="titreChangeant$ | async as titre">
+  <h2>{{ titre}}</h2>
+</ng-container>
+

@@ -1,15 +1,28 @@
-import { Component } from '@angular/core';
-import { Observable, Subscription } from 'rxjs';
+import { AsyncPipe, NgIf } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { Observable, shareReplay, Subscription } from 'rxjs';
+import { TitreService } from './services/titre.service';
 
 @Component({
   selector: 'app-obs-vs-promise',
   standalone: true,
-  imports: [],
+  imports: [AsyncPipe, NgIf],
   templateUrl: './obs-vs-promise.component.html',
   styleUrl: './obs-vs-promise.component.css'
 })
 export class ObsVsPromiseComponent {
-  //titreChangeant$ = new Observable(observer => {})
+  titreChangeant$ = inject(TitreService).getTitre();
+
+  // titreChangeant$ = new Observable<string>(observer => {
+  //   console.info('=> Appel de mon observable');
+  //   observer.next('Il était une fois');
+  //   setTimeout(() => {
+  //     observer.next('Dans une lointaine galaxie');
+  //     observer.complete();
+  //   }, 1000);
+  // }).pipe(
+  //   shareReplay(2)
+  // );
 
   // hyperLong = 0;
   // private readonly subscription = new Subscription();
