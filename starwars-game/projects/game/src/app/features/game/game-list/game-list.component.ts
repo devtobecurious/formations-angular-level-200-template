@@ -1,8 +1,7 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { GameDto } from '../../../core/models/game.dto';
-import { GameService } from '../services/game.service';
+import { switchMap } from 'rxjs';
 import { SearchService } from 'search';
+import { GameService } from '../services/game.service';
 
 @Component({
   selector: 'game-game-list',
@@ -11,17 +10,37 @@ import { SearchService } from 'search';
 })
 export class GameListComponent implements OnInit {
   private readonly searchService = inject(SearchService)
-  games: GameDto[] = [];
+  private readonly gameService  = inject(GameService)
+
+  games$ = this.searchService.asObservable().pipe(
+      switchMap(searchResult => this.gameService.getAll(searchResult.value, 3))
+  );
+
+  //games: GameDto[] = [];
   searchItem = '';
 
-  constructor(private gameService: GameService) { }
+  // ETAPE 01
+  // constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.searchService.asObservable().subscribe(item => {
-      console.info(item.value);
-    })
+    const parent$ = this.searchService.asObservable();
+    //const enfant$ = this.gameService.getAll('', 3)
 
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    // ETAPE 01 de la refacto
+    // const resultatRecherche$ = parent$.pipe(
+    //   switchMap(searchResult => this.gameService.getAll(searchResult.value, 3))
+    // )
+
+    // resultatRecherche$.subscribe({
+    //   next: items => this.games = items
+    // })
+
+
+    // this.searchService.asObservable().subscribe(item => {
+    //   console.info(item.value);
+    // })
+
+    // this.gameService.getAll('', 3).subscribe(items => this.games = items);
   }
 
 }

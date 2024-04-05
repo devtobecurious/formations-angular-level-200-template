@@ -28,7 +28,7 @@ import { environment } from "projects/game/src/environments/environment";
   // }
 })
 export class StatisticsInfrastructure {
-  getAll(): Observable<Statistics> {
+  getAll(filter: string): Observable<Statistics> {
     throw new Error('Ta oublié de coder !')
   }
 
