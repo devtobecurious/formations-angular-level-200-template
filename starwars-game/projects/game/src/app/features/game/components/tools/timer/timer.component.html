@@ -1,1 +1,6 @@
+<div>
+  @if(timer$ | async; as tick) {
+    Temps écoulé : <b>{{ tick }}</b>
+  }
+</div>
 <button #btnStart>Start game</button>

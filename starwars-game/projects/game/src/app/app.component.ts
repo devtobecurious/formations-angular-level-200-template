@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, computed, inject, signal } from '@angular/core';
+import { TitreService } from './title.service';
 
 @Component({
   selector: 'game-root',
@@ -6,5 +7,14 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'game';
+  private readonly titreService = inject(TitreService)
+  title = this.titreService.title;
+  titleMajuscule = this.titreService.titleMajuscule
+
+  change(): void {
+    //this.title  = 'Star wars game'
+    this.title.set('Star wars game');
+
+    const valeur = this.title();
+  }
 }
