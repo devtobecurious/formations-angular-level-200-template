@@ -10,6 +10,7 @@ import { FormsModule } from '@angular/forms';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { NewOneComponent } from './new-one/new-one.component';
 import { SharedModule } from '../../shared/modules/shared.module';
+import { TimerComponent } from './components/tools/timer/timer.component';
 
 
 
@@ -26,7 +27,8 @@ import { SharedModule } from '../../shared/modules/shared.module';
     CommonModule,
     SharedModule,
     FormsModule,
-    GridModule
+    GridModule,
+    TimerComponent
   ],
   providers: [
     GameService
