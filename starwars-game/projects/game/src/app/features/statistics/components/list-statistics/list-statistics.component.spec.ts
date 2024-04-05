@@ -1,6 +1,16 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListStatisticsComponent } from './list-statistics.component';
+import { StatisticsInfrastructure } from '../../services/statistics.infrastructure';
+import { Observable, of } from 'rxjs';
+import { Statistics } from '../../models/statistics';
+
+const mockInfra = {
+  getAll(): Observable<Statistics> {
+    const table: Statistics = [{ year: 2023, month: 3, nbLost: 0, nbWin: 10 }, { year: 2023, month: 3, nbLost: 0, nbWin: 10 }, { year: 2023, month: 3, nbLost: 0, nbWin: 10 }]
+    return of(table)
+  }
+}
 
 fdescribe('ListStatisticsComponent', () => {
   let component: ListStatisticsComponent;
@@ -8,7 +18,10 @@ fdescribe('ListStatisticsComponent', () => {
 
   beforeEach(async () => { // prépare un module de testing, comme si c'était un module angular
     await TestBed.configureTestingModule({
-      imports: [ListStatisticsComponent]
+      imports: [ListStatisticsComponent],
+      providers: [
+        //{ provide: StatisticsInfrastructure, useValue: mockInfra }
+      ]
     })
     .compileComponents();
 

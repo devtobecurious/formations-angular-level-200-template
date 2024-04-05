@@ -1,13 +1,18 @@
-import { NgFor } from '@angular/common';
-import { Component } from '@angular/core';
+import { AsyncPipe, CommonModule, NgFor } from '@angular/common';
+import { Component, inject } from '@angular/core';
+import { GameService } from '../../../game/services/game.service';
+import { StatisticsApplication } from '../../services/statistics.application';
 
 @Component({
   selector: 'game-list-statistics',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, AsyncPipe],
   templateUrl: './list-statistics.component.html',
-  styleUrl: './list-statistics.component.css'
+  styleUrl: './list-statistics.component.css',
+  providers: [
+    GameService
+  ]
 })
 export class ListStatisticsComponent {
-  stats = [{ annee: 2024 }, {annee: 2023}, {annee: 2020}]
+  stats$ = inject(StatisticsApplication).getAll();
 }

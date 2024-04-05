@@ -11,7 +11,7 @@ export class TitreService {
       observer.complete();
     }, 1000);
   }).pipe(
-    shareReplay(2)
+    // shareReplay(2)
   );
 
   getTitre(): Observable<string>{
