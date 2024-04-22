@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
-import { RouterModule, Routes } from '@angular/router';
+import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
+import { CustomPreloadingStrategy } from './shared/tools/routes/custom-loading-routes';
 
 const routes: Routes = [
 //   {
@@ -12,12 +13,16 @@ const routes: Routes = [
 // }
 {
   path: 'games',
-  loadChildren: () => import('./features/game/game.module').then(item => item.GameModule), 
+  loadChildren: () => import('./features/game/game.module').then(item => item.GameModule),
+  data: {
+    isLoading: true
+  }
 }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadingStrategy })],
+  exports: [RouterModule],
+  providers: [CustomPreloadingStrategy]
 })
 export class AppRoutingModule { }
