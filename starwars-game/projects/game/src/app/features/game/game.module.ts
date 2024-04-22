@@ -9,8 +9,24 @@ import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { NewOneComponent } from './new-one/new-one.component';
+import { RouterModule, Routes } from '@angular/router';
 
+const routes: Routes= [
+    {
+  path: '',
+  component: GameListComponent
+},
+{
+  path: 'new',
+  component: NewOneComponent
+}
+]
 
+@NgModule({
+  imports: [RouterModule.forChild(routes)],
+  exports: [RouterModule]
+})
+export class GameRoutingModule { }
 
 @NgModule({
   declarations: [
@@ -24,7 +40,8 @@ import { NewOneComponent } from './new-one/new-one.component';
   imports: [
     CommonModule,
     FormsModule,
-    GridModule
+    GridModule,
+    GameRoutingModule
   ],
   providers: [
     GameService
@@ -34,3 +51,5 @@ import { NewOneComponent } from './new-one/new-one.component';
   ]
 })
 export class GameModule { }
+
+
