@@ -7,7 +7,7 @@ import { BoolToColorDirective } from '../../shared/directives/bool-to-color.dire
 import { GameTableComponent } from './game-table/game-table.component';
 import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
-import { GridModule } from '../../shared/components/grid/grid.module';
+
 import { NewOneComponent } from './new-one/new-one.component';
 import { RouterModule, Routes } from '@angular/router';
 
@@ -29,26 +29,23 @@ const routes: Routes= [
 export class GameRoutingModule { }
 
 @NgModule({
-  declarations: [
+    imports: [
+    CommonModule,
+    FormsModule,
+    GameRoutingModule,
     GameListComponent,
     BoolToTextPipe,
     BoolToColorDirective,
     GameTableComponent,
     GameRowComponent,
     NewOneComponent
-  ],
-  imports: [
-    CommonModule,
-    FormsModule,
-    GridModule,
-    GameRoutingModule
-  ],
-  providers: [
-    GameService
-  ],
-  exports: [
-    GameListComponent
-  ]
+],
+    providers: [
+        GameService
+    ],
+    exports: [
+        GameListComponent
+    ]
 })
 export class GameModule { }
 
