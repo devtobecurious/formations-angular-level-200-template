@@ -1,3 +1,7 @@
-export class SearchItem {
-  value = '';
+// export class SearchItem {
+//   value = '';
+// }
+
+export interface SearchItem {
+  value: string;
 }
