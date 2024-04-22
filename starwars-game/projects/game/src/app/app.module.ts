@@ -23,6 +23,6 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     HeaderModule
   ],
   providers: [],
-  bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
+  bootstrap: [AppComponent, HeaderComponent, SideBarComponent] // < angular 16
 })
 export class AppModule { }
