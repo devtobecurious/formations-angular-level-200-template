@@ -1,9 +1,7 @@
-{{ items.length }}
-
 <table>
   <tbody>
     <!-- <tr *ngFor="let item of items"><td>coucou</td></tr> -->
-    @for (item of items; track item) {
+    @for (item of items$ | async; track item) {
       <tr>
         <td>
            {{ item }}
