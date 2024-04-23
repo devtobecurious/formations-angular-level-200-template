@@ -2,11 +2,20 @@
   <tbody>
     <!-- <tr *ngFor="let item of items"><td>coucou</td></tr> -->
     @for (item of items$ | async; track item) {
-      <tr>
-        <td>
-           {{ item }}
-        </td>
-      </tr>
+    <tr>
+      <td>
+        {{ item.annee }}
+      </td>
+      <td>
+        {{ item.mois }}
+      </td>
+      <td>
+        {{ item.nbGagnees }}
+      </td>
+      <td>
+        {{ item.nbPerdues }}
+      </td>
+    </tr>
     }
   </tbody>
 </table>

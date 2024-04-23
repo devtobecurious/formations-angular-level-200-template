@@ -17,7 +17,7 @@ const mockService = {
 @Injectable({
   providedIn: 'root',
   // useValue: mockService
-  useFactory: () => environment.production ? new StatisticsInfrastructure() : mockService
+  // useFactory: () => environment.production ? new StatisticsInfrastructure() : mockService
 })
 export class StatisticsInfrastructure {
   getAll(): Observable<Statistics> {

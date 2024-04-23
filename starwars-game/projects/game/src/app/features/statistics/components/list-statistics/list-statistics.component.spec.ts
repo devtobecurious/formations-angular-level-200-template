@@ -1,6 +1,20 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ListStatisticsComponent } from './list-statistics.component';
+import { StatisticsInfrastructure } from '../../services/statistics.infrastructure';
+import { Observable, of } from 'rxjs';
+import { Statistics } from '../../models';
+
+const mockService = {
+  getAll(): Observable<Statistics> {
+    const table: Statistics = [
+      { annee: 2023, mois: 1, nbGagnees: 2, nbPerdues: 8 },
+      { annee: 2024, mois: 5, nbGagnees: 8, nbPerdues: 2 }
+    ];
+
+    return of(table);
+  }
+}
 
 fdescribe('ListStatisticsComponent', () => {
   let component: ListStatisticsComponent;
@@ -9,7 +23,9 @@ fdescribe('ListStatisticsComponent', () => {
   beforeEach(async () => {
     await TestBed.configureTestingModule({
       declarations: [],
-      providers: [],
+      providers: [
+        { provide: StatisticsInfrastructure, useValue: mockService }
+      ],
       imports: [ListStatisticsComponent]
     })
     .compileComponents();
@@ -27,7 +43,7 @@ fdescribe('ListStatisticsComponent', () => {
 
   it('should get a table with 2 rows', () => {
     // Arrange : je prépare les données input pour le test
-    component.items = ['', '', '']
+    // component.items = ['', '', '']
 
     // Act : je lance ce que je veux tester
     fixture.detectChanges();
@@ -37,6 +53,6 @@ fdescribe('ListStatisticsComponent', () => {
     expect(table).toBeTruthy();
 
     const rows = table.rows;
-    expect(rows.length).toBe(component.items.length);
+    expect(rows.length).toBe(2);
   });
 });
