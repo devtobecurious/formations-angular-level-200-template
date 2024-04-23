@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { GameTableComponent } from '../game-table/game-table.component';
@@ -21,11 +21,16 @@ export class GameListComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.searchStore.asObservable().subscribe(item => {
-      console.info(item.value); // a priori ...
-      this.gameService.getAll(item.value, 3).subscribe(items => this.games = items);
-    });
+    // this.searchStore.asObservable().subscribe(item => {
+    //   console.info(item.value); // a priori ...
+    //   this.gameService.getAll(item.value, 3).subscribe(items => this.games = items);
+    // });
 
+    this.searchStore.asObservable()
+    .pipe(
+      switchMap(item => this.gameService.getAll(item.value, 3))
+    )
+    .subscribe(items => this.games = items);
   }
 
 }
