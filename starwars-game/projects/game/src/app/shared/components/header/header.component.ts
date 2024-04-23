@@ -4,9 +4,7 @@ import { SearchComponent } from 'search';
 @Component({
     selector: 'game-header',
     templateUrl: './header.component.html',
-    styleUrls: ['./header.component.css'],
-    standalone: true,
-    imports: [SearchComponent]
+    styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
 
@@ -17,4 +15,10 @@ export class HeaderComponent implements OnInit {
 
 }
 
+@NgModule({
+  declarations: [HeaderComponent],
+  imports: [SearchComponent],
+  exports: [HeaderComponent]
+})
+export class HeaderModule { }
 

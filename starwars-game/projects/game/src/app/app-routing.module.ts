@@ -17,6 +17,10 @@ const routes: Routes = [
   data: {
     isLoading: true
   }
+},
+{
+  path: 'statistics',
+  loadChildren: () => import('./features/statistics/statistics.routes').then(item => item.statisticRoutes)
 }
 ];
 
