@@ -14,4 +14,8 @@ export class ListStatisticsComponent {
   private readonly application = inject(StatisticsApplication);
   items$ = this.application.getAll();
   // items: string[] = [];
+
+  ngOnInit(): void {
+    this.items$.subscribe();
+  }
 }

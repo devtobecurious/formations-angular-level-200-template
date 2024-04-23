@@ -1,9 +1,10 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { GameTableComponent } from '../game-table/game-table.component';
 import { FormsModule } from '@angular/forms';
+import { SearchStoreService } from 'search';
 
 @Component({
     selector: 'game-game-list',
@@ -13,13 +14,18 @@ import { FormsModule } from '@angular/forms';
     imports: [FormsModule, GameTableComponent]
 })
 export class GameListComponent implements OnInit {
+  private readonly searchStore = inject(SearchStoreService);
   games: GameDto[] = [];
   searchItem = '';
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    this.searchStore.asObservable().subscribe(item => {
+      console.info(item.value); // a priori ...
+      this.gameService.getAll(item.value, 3).subscribe(items => this.games = items);
+    });
+
   }
 
 }

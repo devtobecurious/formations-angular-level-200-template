@@ -1,7 +1,8 @@
-import { Injectable } from "@angular/core";
-import { Observable, of } from "rxjs";
+import { inject, Injectable } from "@angular/core";
+import { Observable, of, shareReplay } from "rxjs";
 import { Statistics } from "../models";
 import { environment } from "projects/game/src/environments/environment";
+import { HttpClient } from "@angular/common/http";
 
 const mockService = {
   getAll(): Observable<Statistics> {
@@ -17,10 +18,17 @@ const mockService = {
 @Injectable({
   providedIn: 'root',
   // useValue: mockService
-  // useFactory: () => environment.production ? new StatisticsInfrastructure() : mockService
+  useFactory: () => environment.production ? new StatisticsInfrastructure() : mockService
 })
 export class StatisticsInfrastructure {
+  private readonly http = inject(HttpClient);
+  private stats$: Observable<Statistics> | undefined;
+
   getAll(): Observable<Statistics> {
-    throw new Error('Not implemented');
+    if(! this.stats$) {
+      this.stats$ = this.http.get<Statistics>('url fictive').pipe(shareReplay(1));
+    }
+
+    return this.stats$;
   }
 }
