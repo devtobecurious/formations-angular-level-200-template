@@ -5,6 +5,9 @@ import { GameService } from '../services/game.service';
 import { GameTableComponent } from '../game-table/game-table.component';
 import { FormsModule } from '@angular/forms';
 import { SearchStoreService } from 'search';
+import { select, Store } from '@ngrx/store';
+import { ApplicationState } from '../../../reducers';
+import { selectAllGames, selectGamesAlreadyAdded } from '../../../reducers/games.selectors';
 
 @Component({
     selector: 'game-game-list',
@@ -15,22 +18,27 @@ import { SearchStoreService } from 'search';
 })
 export class GameListComponent implements OnInit {
   private readonly searchStore = inject(SearchStoreService);
+  private readonly store = inject(Store<ApplicationState>);
   games: GameDto[] = [];
   searchItem = '';
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.store.pipe(select(selectGamesAlreadyAdded))
+              .subscribe({
+                next : items => this.games = items
+              });
     // this.searchStore.asObservable().subscribe(item => {
     //   console.info(item.value); // a priori ...
     //   this.gameService.getAll(item.value, 3).subscribe(items => this.games = items);
     // });
 
-    this.searchStore.asObservable()
-    .pipe(
-      switchMap(item => this.gameService.getAll(item.value, 3))
-    )
-    .subscribe(items => this.games = items);
+    // this.searchStore.asObservable()
+    // .pipe(
+    //   switchMap(item => this.gameService.getAll(item.value, 3))
+    // )
+    // .subscribe(items => this.games = items);
   }
 
 }

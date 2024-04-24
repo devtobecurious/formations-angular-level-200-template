@@ -8,6 +8,8 @@ import { AppComponent } from './app.component';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { PromiseVsObservableComponent } from './learnings/promise-vs-observable/promise-vs-observable.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -21,7 +23,10 @@ import { PromiseVsObservableComponent } from './learnings/promise-vs-observable/
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    PromiseVsObservableComponent
+    PromiseVsObservableComponent,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
 ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent] // < angular 16
