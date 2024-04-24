@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ApplicationRef, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, Tile, TileCell } from './models';
 import { CellComponent } from './cell/cell.component';
 import { NgFor } from '@angular/common';
@@ -12,6 +12,8 @@ import { NgFor } from '@angular/common';
     imports: [NgFor, CellComponent]
 })
 export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
+  private readonly application = inject(ApplicationRef);
+
 
   @Input() set tiles(values: Tile[]) {
     this.cells = values.map(tile => {
@@ -43,6 +45,7 @@ export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
   }
 
   onClick() {
+    this.application.tick();
   }
 
   trackByFn(index: number, item: TileCell) {

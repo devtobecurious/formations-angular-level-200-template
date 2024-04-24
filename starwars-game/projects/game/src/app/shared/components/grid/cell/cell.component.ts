@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnChanges, OnInit, SimpleChanges, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
 import { NgClass } from '@angular/common';
 
@@ -8,15 +8,25 @@ import { NgClass } from '@angular/common';
     styleUrls: ['./cell.component.css'],
     encapsulation: ViewEncapsulation.None,
     standalone: true,
-    imports: [NgClass]
+    imports: [NgClass],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
-export class CellComponent implements OnInit {
+export class CellComponent implements OnInit, OnChanges {
+  private readonly cdr = inject(ChangeDetectorRef);
+
+  ngOnChanges(changes: SimpleChanges): void {
+    console.info(changes);
+  }
 
   @Input() item !: TileCell;
 
   ngOnInit(): void {
+    // this.cdr.detach();
+  }
 
-
+  change(): void {
+    // this.cdr.detectChanges();
+    //this.cdr.reattach();
   }
 
   logView() {
