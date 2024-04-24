@@ -5,7 +5,7 @@ import { GridComponent } from '../../../shared/components/grid/grid.component';
 import { concatMap, fromEvent, interval, map, mergeMap, Observable, switchMap, take } from 'rxjs';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '../../../reducers';
-import { addNewGameCommand } from '../../../reducers/games.actions';
+import { addNewGameCommand } from '../store/games.actions';
 import { GameDto } from '../../../core/models/game.dto';
 
 @Component({

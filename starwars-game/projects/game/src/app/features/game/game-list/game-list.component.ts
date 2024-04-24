@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { SearchStoreService } from 'search';
 import { select, Store } from '@ngrx/store';
 import { ApplicationState } from '../../../reducers';
-import { selectAllGames, selectGamesAlreadyAdded } from '../../../reducers/games.selectors';
+import { selectAllGames, selectGamesAlreadyAdded } from '../store/games.selectors';
 
 @Component({
     selector: 'game-game-list',

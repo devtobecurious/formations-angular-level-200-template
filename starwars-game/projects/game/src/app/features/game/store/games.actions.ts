@@ -1,5 +1,5 @@
 import { createAction, props } from "@ngrx/store";
-import { GameDto } from "../core/models/game.dto";
+import { GameDto } from "../../../core/models/game.dto";
 
 export type GameToAddType = {
   game: GameDto,

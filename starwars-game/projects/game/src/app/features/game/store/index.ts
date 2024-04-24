@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { GameDto } from "../../../core/models/game.dto";
-import { addNewGameCommand } from "../../../reducers/games.actions";
+import { addNewGameCommand } from "./games.actions";
 
 export interface GamesState {
   items: GameDto[],

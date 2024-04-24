@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { ApplicationState } from ".";
+import { ApplicationState } from "../../../reducers";
 
 //1. Une seule fois par fichier
 const selectState = (globalState: ApplicationState) => globalState.games;
