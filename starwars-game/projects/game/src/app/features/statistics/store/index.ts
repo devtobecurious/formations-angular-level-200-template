@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { Statistics } from "../models";
-import { addNewStatAction } from "./statistics.actions";
+import { addNewStatAction, updateStateFromApiStatsAction } from "./statistics.actions";
 
 export interface StatisticsState {
   items: Statistics
@@ -15,6 +15,14 @@ export const statisticsReducer = createReducer(
   on(addNewStatAction, (state, action) => {
     const newState: StatisticsState = {
       items: [...state.items, action.item]
+    }
+
+    return newState;
+  }),
+
+  on(updateStateFromApiStatsAction, (state, action) => {
+    const newState: StatisticsState = {
+      items: [...action.items]
     }
 
     return newState;

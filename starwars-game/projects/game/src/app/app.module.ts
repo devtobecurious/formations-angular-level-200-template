@@ -10,6 +10,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { PromiseVsObservableComponent } from './learnings/promise-vs-observable/promise-vs-observable.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { StatsEffectContainer } from './features/statistics/store/statistics.effects';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { reducers, metaReducers } from './reducers';
     PromiseVsObservableComponent,
     StoreModule.forRoot(reducers, {
       metaReducers
-    })
+    }),
+    EffectsModule.forRoot([StatsEffectContainer])
 ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent] // < angular 16
