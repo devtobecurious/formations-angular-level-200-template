@@ -7,13 +7,16 @@ import {
   MetaReducer
 } from '@ngrx/store';
 import { gamesReducer, GamesState } from '../features/game/store';
+import { statisticsReducer, StatisticsState } from '../features/statistics/store';
 
 export interface ApplicationState {
-  games: GamesState
+  games: GamesState,
+  statistics: StatisticsState
 }
 
 export const reducers: ActionReducerMap<ApplicationState> = {
-  games: gamesReducer
+  games: gamesReducer,
+  statistics: statisticsReducer
 };
 
 

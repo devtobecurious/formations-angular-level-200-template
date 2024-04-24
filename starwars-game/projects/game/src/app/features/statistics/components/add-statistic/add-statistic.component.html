@@ -1,0 +1,23 @@
+<form>
+  <div>
+    <label>Année</label>
+    <input name="annee" [(ngModel)]="item.annee">
+  </div>
+
+  <div>
+    <label>Mois</label>
+    <input name="annee" [(ngModel)]="item.mois">
+  </div>
+
+  <div>
+    <label>Nb G</label>
+    <input name="nbGagnees" [(ngModel)]="item.nbGagnees">
+  </div>
+
+  <div>
+    <label>NB P</label>
+    <input name="nbPerdues" [(ngModel)]="item.nbPerdues">
+  </div>
+
+  <button (click)="save()" >Save</button>
+</form>
