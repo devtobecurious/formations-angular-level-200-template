@@ -8,7 +8,8 @@ import { StatisticsApplication } from '../../services/statistics.application';
   //imports: [NgFor],
   imports: [AsyncPipe],
   templateUrl: './list-statistics.component.html',
-  styleUrl: './list-statistics.component.css'
+  styleUrl: './list-statistics.component.css',
+  // providers: [StatisticsApplication] // Scoped service
 })
 export class ListStatisticsComponent {
   private readonly application = inject(StatisticsApplication);
