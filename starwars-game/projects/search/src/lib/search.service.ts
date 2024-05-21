@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { computed, Injectable, Signal, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { SearchItem } from './models';
 
@@ -6,13 +6,28 @@ import { SearchItem } from './models';
   providedIn: 'root'
 })
 export class SearchStateService {
-  private readonly store = new BehaviorSubject<SearchItem>({ value: '' });
+  private store = signal<SearchItem>({ value: '' });
 
   update(item: SearchItem): void {
-    this.store.next({ ... item }); // Approche non mutable
+    this.store.set({ ... item }); // Approche non mutable
   }
 
-  get asObservable(): Observable<SearchItem> {
-    return this.store.asObservable();
+  get asValue(): Signal<string> {
+    return computed(() => this.store().value);
   }
+
+  // get asObservable(): Observable<SearchItem> {
+  //   return this.store.asObservable();
+  // }
 }
+// export class SearchStateService {
+//   private readonly store = new BehaviorSubject<SearchItem>({ value: '' });
+
+//   update(item: SearchItem): void {
+//     this.store.next({ ... item }); // Approche non mutable
+//   }
+
+//   get asObservable(): Observable<SearchItem> {
+//     return this.store.asObservable();
+//   }
+// }
