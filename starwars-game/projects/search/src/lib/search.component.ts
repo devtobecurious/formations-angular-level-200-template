@@ -23,7 +23,7 @@ import { SearchItem } from './models';
   styles: ``
 })
 export class SearchComponent {
-  item = new SearchItem();
+  item = { value: '' };
 
   search(): void {
 
