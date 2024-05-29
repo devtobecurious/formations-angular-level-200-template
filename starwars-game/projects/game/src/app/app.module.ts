@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { ObsPromiseComponent } from './learnings/obs-promise/obs-promise.component';
 
 
 @NgModule({
@@ -15,14 +16,14 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     // HeaderComponent,
     SideBarComponent
   ],
+  bootstrap: [AppComponent, HeaderComponent, SideBarComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
-    HttpClientModule,
     GameModule,
-    HeaderModule
+    HeaderModule,
+    ObsPromiseComponent
   ],
-  providers: [],
-  bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
+  providers: [provideHttpClient(withInterceptorsFromDi())]
 })
 export class AppModule { }

@@ -6,13 +6,14 @@ import { GameTableComponent } from '../game-table/game-table.component';
 import { FormsModule } from '@angular/forms';
 import { SearchStateService } from 'search';
 import { GameApplication } from '../services/game.application';
+import { AsyncPipe } from '@angular/common';
 
 @Component({
     selector: 'game-game-list',
     templateUrl: './game-list.component.html',
     styleUrls: ['./game-list.component.css'],
     standalone: true,
-    imports: [FormsModule, GameTableComponent],
+    imports: [FormsModule, GameTableComponent, AsyncPipe],
     // providers: [SearchStateService] // Scoped: Scoped / Transient
 })
 export class GameListComponent { //implements OnInit => on en a plus besoin

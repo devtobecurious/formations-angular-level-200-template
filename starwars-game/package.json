@@ -3,46 +3,39 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-
     "preavantjohny": "echo 'optic 2000'",
     "avantjohny": "echo 'oh marie ..'",
-
     "prejohny": "npm run avantjohny",
     "johny": "echo 'test'",
     "postjohny": "echo 'ah que que'",
-
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-
     "build:libs:search": "ng build search",
     "build:libs": "npm run build:libs:search",
-
     "prestart": "npm run build:libs",
     "start": "ng serve -o --port=4201",
-
     "prebuild": "npm run build:libs",
     "build": "ng build game",
-
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.3.9",
-    "@angular/common": "^17.3.9",
-    "@angular/compiler": "^17.3.9",
-    "@angular/core": "^17.3.9",
-    "@angular/forms": "^17.3.9",
-    "@angular/platform-browser": "^17.3.9",
-    "@angular/platform-browser-dynamic": "^17.3.9",
-    "@angular/router": "^17.3.9",
+    "@angular/animations": "^18.0.0",
+    "@angular/common": "^18.0.0",
+    "@angular/compiler": "^18.0.0",
+    "@angular/core": "^18.0.0",
+    "@angular/forms": "^18.0.0",
+    "@angular/platform-browser": "^18.0.0",
+    "@angular/platform-browser-dynamic": "^18.0.0",
+    "@angular/router": "^18.0.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.14.6"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.7",
-    "@angular/cli": "^17.3.7",
-    "@angular/compiler-cli": "^17.3.9",
+    "@angular-devkit/build-angular": "^18.0.1",
+    "@angular/cli": "^18.0.1",
+    "@angular/compiler-cli": "^18.0.0",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
@@ -51,7 +44,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^17.3.0",
+    "ng-packagr": "^18.0.0",
     "typescript": "~5.4.5"
   }
 }
