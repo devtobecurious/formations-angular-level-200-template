@@ -1,0 +1,14 @@
+<select>
+@for (item of persons$ | async; track item.surname) {
+  <option>{{item.surname}}</option>
+}
+@empty {
+  <i>En cours de chargement</i>
+}
+</select>
+
+
+<!-- subscribe sur des données mises en cache, grâce au shareReplay
+  @for (item of persons$ | async; track item.surname) {
+  <option>{{item.surname}}</option>
+} -->
