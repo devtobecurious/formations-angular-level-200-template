@@ -3,9 +3,19 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
-    "start": "ng serve",
+
+    "pregabriel": "echo '??'",
+    "gabriel": "echo 'gab'",
+    "prejohny": "npm run gabriel",
+    "johny": "echo 'ah que johny'",
+    "postjohny": "echo 'optic 2000'",
+
+    "build:libs:search": "ng build search",
+    "build:libs": "npm run build:libs:search",
+
+    "prestart": "npm run build:libs",
+    "start": "ng dev",
+
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -36,6 +46,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^18.0.0",
     "typescript": "~5.4.5"
   }
 }
