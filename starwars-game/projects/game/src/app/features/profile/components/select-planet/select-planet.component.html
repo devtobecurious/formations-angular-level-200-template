@@ -1,0 +1,9 @@
+<select>
+@for (item of planets$ | async; track item.id) {
+ <option>{{ item.libelle }}</option>
+}
+@empty {
+  <option>en attente de données</option>
+}
+</select>
+

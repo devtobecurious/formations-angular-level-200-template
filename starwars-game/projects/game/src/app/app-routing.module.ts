@@ -10,6 +10,10 @@ const routes: Routes = [{
 {
   path: 'new-game',
   component: NewOneComponent
+},
+{
+  path: 'profile',
+  loadChildren: () => import('./features/profile/profile.routes').then(item => item.profileRoutes)
 }];
 
 @NgModule({
