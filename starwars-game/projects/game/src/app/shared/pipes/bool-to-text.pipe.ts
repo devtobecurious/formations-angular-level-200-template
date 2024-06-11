@@ -1,7 +1,8 @@
 import { Pipe, PipeTransform } from '@angular/core';
 
 @Pipe({
-  name: 'boolToText'
+    name: 'boolToText',
+    standalone: true
 })
 export class BoolToTextPipe implements PipeTransform {
 
