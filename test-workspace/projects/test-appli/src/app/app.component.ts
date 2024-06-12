@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TestLibComponent } from 'ma-super-lib';
 
@@ -10,5 +10,10 @@ import { TestLibComponent } from 'ma-super-lib';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'test-appli';
+  title = signal('test-appli')
+  bigTitle = computed(() => this.title().toUpperCase()) // équivalent pipe
+
+  change(): void {
+    this.title.set('Ah que coucou')
+  }
 }
