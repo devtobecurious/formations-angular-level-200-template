@@ -1,6 +1,6 @@
 import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
-import { interval, map, Observable, Subscription, takeUntil } from 'rxjs';
+import { interval, map, Observable, shareReplay, Subscription, take, takeUntil } from 'rxjs';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 
 @Component({
@@ -12,10 +12,10 @@ import {takeUntilDestroyed} from '@angular/core/rxjs-interop'
 })
 export class ObsVsPromiseComponent {
   private readonly parentSubscription = new Subscription()
-  obsBis$ = interval(1000)
+  obsBis$ = interval(1000).pipe(take(1))
   obs$ = new Observable<string>(subscriber => { // LAZY
     const test = 'coucou'
-    console.info('OBSERVABLE') // SYNC
+    console.info('=>> OBSERVABLE') // SYNC
 
     subscriber.next('ETAPE 1') // SYNC !
 
@@ -28,6 +28,7 @@ export class ObsVsPromiseComponent {
     subscriber.next('ETAPE 2') // SYNC !
   }).pipe(
     map(item => item.toUpperCase()), //next
+    shareReplay(1),
     takeUntilDestroyed()
   )
 
