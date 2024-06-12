@@ -24,7 +24,7 @@ import { NewOneComponent } from './new-one/new-one.component';
     NewOneComponent
 ],
     providers: [
-        GameService
+        //{ provide: GameService, useValue: }
     ],
     exports: [
         GameListComponent

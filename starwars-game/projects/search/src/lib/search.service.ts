@@ -18,7 +18,7 @@ export class SearchService {
     this.store.next(value);
   }
 
-  get asObservable(): Observable<any> {
+  get asObservable(): Observable<SearchState> {
     return this.store.asObservable();
   }
 

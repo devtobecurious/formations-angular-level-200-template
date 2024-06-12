@@ -56,6 +56,10 @@ export class ObsVsPromiseComponent {
   //   }) // EAGER
   // )
 
+  this.obs$.subscribe({
+    next: item => console.info(item),
+    // complete: () => console.warn('complete')
+  })
 
   // this.parentSubscription.add(
   //   this.obs$.subscribe(item => console.info(item)) // EAGER une nouvelle souscription
