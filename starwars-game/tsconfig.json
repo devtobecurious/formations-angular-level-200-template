@@ -17,6 +17,12 @@
     "paths": {
       "search": [
         "./dist/search"
+      ],
+      "test-lib": [
+        "./dist/test-lib"
+      ],
+      "test-lib-avec-service": [
+        "./dist/test-lib-avec-service"
       ]
     },
     "target": "ES2022",
