@@ -1,0 +1,22 @@
+<span #papanier>Mon Panier</span>
+<button (click)="toDisplay()">Display ?</button>
+
+<!-- @defer(on interaction(papanier); prefetch on interaction(papanier)) { -->
+<!-- @defer(on hover(papanier); prefetch on interaction(papanier)) { -->
+<!-- @defer(on interaction; prefetch on interaction(papanier)) { -->
+
+@defer(when display$$(); on idle; prefetch when display$$()) {
+  @for (item of list; track item) {
+    <game-panier></game-panier>
+  }
+}
+@loading (minimum 1s; after 1ms) {
+<b>En cours de chargement</b>
+}
+@placeholder (minimum 500ms) {
+<b>Avant affichage</b>
+}
+@error {
+<b>OOps erreur de chargement</b>
+}
+

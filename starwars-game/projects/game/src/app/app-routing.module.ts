@@ -18,6 +18,10 @@ const routes: Routes = [{
   data: {
     isLoadedAfterMain: true
   }
+},
+{
+  path: 'defer',
+  loadComponent: () => import('./learnings/defer-learn/defer-learn.component').then(item => item.DeferLearnComponent)
 }];
 
 @NgModule({

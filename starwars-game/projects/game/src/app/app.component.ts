@@ -20,7 +20,7 @@ import { BaseComponent } from './shared/components/base.component';
 })
 export class AppComponent extends BaseComponent {
   title = 'game';
-  private readonly monInjecter = ceQueJinjectToutLeTemps
-  list$ = this.monInjecter.http.get('dffd');
-  list2$ = this.http.get('dfsd')
+  // private readonly monInjecter = ceQueJinjectToutLeTemps
+  // list$ = this.monInjecter.http.get('dffd');
+  // list2$ = this.http.get('dfsd')
 }
