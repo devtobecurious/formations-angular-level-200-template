@@ -3,19 +3,15 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-
     "pregabriel": "echo '??'",
     "gabriel": "echo 'gab'",
     "prejohny": "npm run gabriel",
     "johny": "echo 'ah que johny'",
     "postjohny": "echo 'optic 2000'",
-
     "build:libs:search": "ng build search",
     "build:libs": "npm run build:libs:search",
-
     "prestart": "npm run build:libs",
     "start": "ng dev",
-
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
@@ -30,6 +26,8 @@
     "@angular/platform-browser": "^18.0.2",
     "@angular/platform-browser-dynamic": "^18.0.2",
     "@angular/router": "^18.0.2",
+    "@ngrx/effects": "^18.0.0",
+    "@ngrx/store": "^18.0.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.14.7"
