@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, signal } from '@angular/core';
 
 @Component({
   selector: 'game-root',
@@ -6,5 +6,9 @@ import { Component } from '@angular/core';
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = 'game';
+  title = signal('game'); // gestionnaire d'état par component
+
+  updateTitle(): void  {
+    this.title.set('Star wars game')
+  }
 }

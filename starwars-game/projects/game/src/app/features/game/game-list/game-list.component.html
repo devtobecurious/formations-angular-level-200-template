@@ -22,7 +22,11 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <game-table [games]="games"></game-table>
+              <!-- @if(games$ | async; as games) {
+                <game-table [games]="games"></game-table>
+              } -->
+                <game-table [games]="games$$()"></game-table>
+              
             </div>
           </div>
         </div>
