@@ -17,7 +17,7 @@
             </div>
             <div class="col-sm-12 col-md-6">
               <div id="dataTable_filter" class="dataTables_filter"><label>Recherche:<input type="search"
-                    class="form-control form-control-sm" placeholder="" aria-controls="dataTable" [(ngModel)]="searchItem"></label></div>
+                    class="form-control form-control-sm" placeholder="" aria-controls="dataTable" ></label></div>
             </div>
           </div>
           <div class="row">
@@ -26,7 +26,7 @@
                 <game-table [games]="games"></game-table>
               } -->
                 <game-table [games]="games$$()"></game-table>
-              
+
             </div>
           </div>
         </div>

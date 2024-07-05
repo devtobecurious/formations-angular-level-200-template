@@ -1,0 +1,7 @@
+<button (click)="initData()">Init data</button>
+
+@if(data$ | async; as data) {
+  @defer (on idle; prefetch on immediate) {
+    <game-table-statistics [items]="data"></game-table-statistics>
+  }
+}

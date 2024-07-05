@@ -11,6 +11,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { GamesEffects } from './features/game/store/games.effects';
+import { StatisticsEffects } from './features/statistics/store/statistics.effects';
 
 
 @NgModule({ declarations: [
@@ -20,7 +21,7 @@ import { GamesEffects } from './features/game/store/games.effects';
     bootstrap: [AppComponent, HeaderComponent, SideBarComponent],
     imports: [BrowserModule, AppRoutingModule, GameModule, HeaderModule, StoreModule.forRoot(reducers, {
       metaReducers
-    }), EffectsModule.forRoot([GamesEffects])],
+    }), EffectsModule.forRoot([GamesEffects, StatisticsEffects])],
     providers: [
       provideHttpClient(withInterceptorsFromDi())
     ]

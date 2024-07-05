@@ -3,19 +3,19 @@ import { GameDto } from "../../../core/models/game.dto";
 import { addItemsFromApiAction, addNewGameAction, errorWhenGetDataFromApiAction } from "./games.actions";
 
 //#region Pour rappel / apprentissage ts
-function display(item: any): void {
-  console.info(item.toUpperCase());
-}
-display('hello');
-display(123); // ça plante
+// function display(item: any): void {
+//   console.info(item.toUpperCase());
+// }
+// display('hello');
+// display(123); // ça plante
 
-function display2(item: unknown): void {
-  if(typeof(item) === 'string') { // narrowing
-    console.info(item.toUpperCase());
-  }
-}
-display2('hello');
-display2(1);
+// function display2(item: unknown): void {
+//   if(typeof(item) === 'string') { // narrowing
+//     console.info(item.toUpperCase());
+//   }
+// }
+// display2('hello');
+// display2(1);
 //#endregion
 
 export interface ItemsState<T> {
