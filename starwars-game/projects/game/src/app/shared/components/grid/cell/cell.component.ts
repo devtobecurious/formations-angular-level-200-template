@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
 import { NgClass } from '@angular/common';
 
@@ -8,15 +8,16 @@ import { NgClass } from '@angular/common';
     styleUrls: ['./cell.component.css'],
     encapsulation: ViewEncapsulation.None,
     standalone: true,
-    imports: [NgClass]
+    imports: [NgClass],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit {
 
   @Input() item !: TileCell;
 
   ngOnInit(): void {
-
-
+    // this.cd.markForCheck();
+    //this.cd.detectChanges();
   }
 
   logView() {
@@ -26,6 +27,7 @@ export class CellComponent implements OnInit {
   clickTile(item: TileCell, cell: HTMLDivElement) {
     changeStateCell(item, ! item.isRevealed, true);
     this.appearValueOnCell(item, cell);
+
   }
 
   private appearValueOnCell(cell: TileCell, div: HTMLDivElement) {

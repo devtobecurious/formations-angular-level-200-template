@@ -11,6 +11,12 @@ import { toSignal } from '@angular/core/rxjs-interop';
 export class HeaderComponent {
   private readonly business = inject(StatisticsBusiness);
   nbItems$$ = toSignal(this.business.getNbItems());
+
+  test(): void {
+    setTimeout(() => {
+      console.info('coucou')
+    }, 1000);
+  }
 }
 
 // SCAM

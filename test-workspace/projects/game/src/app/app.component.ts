@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { PlayerComponent } from 'monplayer';
+
 
 @Component({
   selector: 'app-root',
@@ -10,5 +11,9 @@ import { PlayerComponent } from 'monplayer';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'game';
+  title = signal('game');
+
+  toUpperSelector = ()=> this.title().toUpperCase();
+
+  titleMaj = computed(this.toUpperSelector);
 }
