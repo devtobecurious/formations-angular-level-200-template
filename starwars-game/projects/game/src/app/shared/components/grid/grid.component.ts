@@ -1,11 +1,15 @@
 import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, Tile, TileCell } from './models';
+import { CellComponent } from './cell/cell.component';
+import { NgFor } from '@angular/common';
 
 @Component({
-  selector: 'game-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'game-grid',
+    templateUrl: './grid.component.html',
+    styleUrls: ['./grid.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: true,
+    imports: [NgFor, CellComponent]
 })
 export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 

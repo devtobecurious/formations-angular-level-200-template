@@ -6,17 +6,14 @@ import { CellComponent } from './cell/cell.component';
 
 
 @NgModule({
-  declarations: [
-    GridComponent,
-    CellComponent
-  ],
-  imports: [
-    CommonModule
-  ],
-  exports: [
-    GridComponent
-  ],
-  providers: [
-  ]
+    imports: [
+        CommonModule,
+        GridComponent,
+        CellComponent
+    ],
+    exports: [
+        GridComponent
+    ],
+    providers: []
 })
 export class GridModule { }
