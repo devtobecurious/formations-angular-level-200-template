@@ -19,5 +19,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     imports: [BrowserModule,
         AppRoutingModule,
         HeaderModule,
-        GameModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        GameModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())]
+})
 export class AppModule { }

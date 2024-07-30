@@ -5,6 +5,7 @@ import { GetAllGameInfrastructure } from '../services/game.service';
 import { GameTableComponent } from '../game-table/game-table.component';
 import { FormsModule } from '@angular/forms';
 import { GameBusiness } from '../services/game.business';
+import { CommonModule } from '@angular/common';
 
 @Component({
     selector: 'game-game-list',

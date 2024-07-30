@@ -1,20 +1,18 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
-import { GameListComponent } from './game-list.component';
+import { SelectPeopleComponent } from './select-people.component';
 
-describe('GameListComponent', () => {
-  let component: GameListComponent;
-  let fixture: ComponentFixture<GameListComponent>;
+describe('SelectPeopleComponent', () => {
+  let component: SelectPeopleComponent;
+  let fixture: ComponentFixture<SelectPeopleComponent>;
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-    imports: [GameListComponent]
-  })
+      imports: [SelectPeopleComponent]
+    })
     .compileComponents();
-  });
 
-  beforeEach(() => {
-    fixture = TestBed.createComponent(GameListComponent);
+    fixture = TestBed.createComponent(SelectPeopleComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();
   });
@@ -22,6 +20,4 @@ describe('GameListComponent', () => {
   it('should create', () => {
     expect(component).toBeTruthy();
   });
-
-
 });

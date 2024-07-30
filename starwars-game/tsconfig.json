@@ -17,6 +17,12 @@
     "paths": {
       "search": [
         "./dist/search-lib"
+      ],
+      "select-people": [
+        "./dist/select-people"
+      ],
+      "statistics": [
+        "./dist/statistics"
       ]
     },
     "target": "ES2022",
