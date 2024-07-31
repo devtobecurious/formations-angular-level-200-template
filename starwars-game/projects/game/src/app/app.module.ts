@@ -1,5 +1,5 @@
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { NgModule } from '@angular/core';
+import { APP_INITIALIZER, NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
@@ -12,6 +12,9 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { GamesEffects } from './features/game/store/games.effects';
+import { initializeApp } from './core/initializers';
+import { AppInitService } from './core/initializers/services/app-init.service';
+import { GameBusiness } from './features/game/services/game.business';
 
 
 @NgModule({
@@ -30,6 +33,10 @@ import { GamesEffects } from './features/game/store/games.effects';
       metaReducers
     }),
         EffectsModule.forRoot([GamesEffects])],
-    providers: [provideHttpClient(withInterceptorsFromDi())]
+    providers: [
+      AppInitService,
+      { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [AppInitService, GameBusiness], multi: true},
+      provideHttpClient(withInterceptorsFromDi())
+    ]
 })
 export class AppModule { }
