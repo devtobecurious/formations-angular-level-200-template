@@ -6,13 +6,11 @@
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run build:libs",
     "start": "ng serve",
-
     "build:libs:statistics": "ng build statistics",
     "build:libs:search-lib": "ng build search-lib",
     "build:libs": "npm run build:libs:search-lib && npm run build:libs:statistics",
     "prebuild": "npm run build:libs",
     "build": "ng build game",
-
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -26,6 +24,8 @@
     "@angular/platform-browser": "^18.1.2",
     "@angular/platform-browser-dynamic": "^18.1.2",
     "@angular/router": "^18.1.2",
+    "@ngrx/effects": "^18.0.1",
+    "@ngrx/store": "^18.0.1",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.14.8"

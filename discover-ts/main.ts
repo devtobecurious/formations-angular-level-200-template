@@ -21,3 +21,12 @@ function afficherWookiee(wookiee: TWookiee): void {
 
 afficherWookiee(new Wookiee())
 afficherWookiee({ name: 'Chewiee' })
+
+
+function displayValue(value: unknown): void {
+    if(typeof(value) == 'string') { // typeguard
+        console.info(value.toUpperCase())
+    }
+}
+displayValue('ah que johny')
+displayValue(1) // ça plante : ce n'est pas un string !!!
