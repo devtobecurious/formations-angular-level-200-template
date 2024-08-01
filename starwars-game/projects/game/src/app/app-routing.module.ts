@@ -19,11 +19,16 @@ const routes: Routes = [
     loadChildren: () => import('statistics').then(item => item.statisticsRoutes),
     data: { loading: true }
     //children: statisticsRoutes
+  },
+  {
+    path: 'friends',
+    loadChildren: () => import('./features/friends/friends.routes').then(item => item.friendsRoutes),
+    data: { loading: true }
   }
 ];
 
 @NgModule({
-  imports: [RouterModule.forRoot(routes, { preloadingStrategy: PreloadAllModules })],
+  imports: [RouterModule.forRoot(routes, { preloadingStrategy: CustomPreloadModules })],
   exports: [RouterModule],
   providers: [CustomPreloadModules]
 })

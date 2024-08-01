@@ -7,4 +7,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  down(): void {
+    // setTimeout(() => {
+    // }, 0);
+    console.info('down')
+  }
 }

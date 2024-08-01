@@ -1,0 +1,18 @@
+@if (store.isLoading()) {
+  <i>Loading ....</i>
+}
+
+@if(store.isInError()) {
+  <i>Error !</i>
+}
+
+<table>
+  <tbody>
+    @for (item of store.items(); track item.name) {
+      <tr>
+
+      </tr>
+    }
+
+  </tbody>
+</table>

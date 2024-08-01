@@ -1,4 +1,4 @@
-import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, Tile, TileCell } from './models';
 import { CellComponent } from './cell/cell.component';
 import { NgFor } from '@angular/common';
@@ -12,8 +12,12 @@ import { NgFor } from '@angular/common';
     imports: [NgFor, CellComponent]
 })
 export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
+  private readonly changeDetector = inject(ChangeDetectorRef)
+
 
   @Input() set tiles(values: Tile[]) {
+    this.changeDetector.detach();
+
     this.cells = values.map(tile => {
       const cell = { ... tile, css: '' };
 
@@ -21,6 +25,7 @@ export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 
       return cell;
     });
+    this.changeDetector.reattach();
   };
   cells: TileCell[] = [];
 

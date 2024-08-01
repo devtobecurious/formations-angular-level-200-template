@@ -18,8 +18,8 @@ const fakeService: GetAllGame = {
 
 @Injectable({
   providedIn: 'root',
-  //useValue: fakeService
-  useFactory: () => environment.production ? new GetAllGameInfrastructure() : fakeService
+  useValue: fakeService
+  //useFactory: () => environment.production ? new GetAllGameInfrastructure() : fakeService
 })
 export class GetAllGameInfrastructure implements GetAllGame {
   private readonly httpClient = inject(HttpClient);

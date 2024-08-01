@@ -1,20 +1,17 @@
 import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
-import { APP_INITIALIZER, NgModule } from '@angular/core';
+import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
+import { EffectsModule } from '@ngrx/effects';
+import { StoreModule } from '@ngrx/store';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
+import { GamesEffects } from './features/game/store/games.effects';
+import { DiscoverSignalComponent } from './learnings/discover-signal/discover-signal.component';
+import { metaReducers, reducers } from './reducers';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
-import { FightPromObsComponent } from './learnings/fight-prom-obs/fight-prom-obs.component';
-import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
-import { EffectsModule } from '@ngrx/effects';
-import { GamesEffects } from './features/game/store/games.effects';
-import { initializeApp } from './core/initializers';
-import { AppInitService } from './core/initializers/services/app-init.service';
-import { GameBusiness } from './features/game/services/game.business';
 
 
 @NgModule({
@@ -27,15 +24,16 @@ import { GameBusiness } from './features/game/services/game.business';
     imports: [BrowserModule,
         AppRoutingModule,
         HeaderModule,
-        FightPromObsComponent,
+        // FightPromObsComponent,
         GameModule,
+        DiscoverSignalComponent,
         StoreModule.forRoot(reducers, {
       metaReducers
     }),
         EffectsModule.forRoot([GamesEffects])],
     providers: [
-      AppInitService,
-      { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [AppInitService, GameBusiness], multi: true},
+      // AppInitService,
+      // { provide: APP_INITIALIZER, useFactory: initializeApp, deps: [AppInitService], multi: true},
       provideHttpClient(withInterceptorsFromDi())
     ]
 })
