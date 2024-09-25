@@ -3,31 +3,43 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+
+    "preoptic2000": "echo 'ah que johny'",
+    "optic2000": "echo 'optic !!",
+    "prejohny": "npm run optic2000",
+    "johny": "echo 'oh yeah'",
+    "postjohny": "echo 'fini ?'",
+
+    "build:libs:search": "ng build search",
+    "build:libs": "npm run build:libs:search",
+    "prebuild": "npm run build:libs",
+    "build": "ng build game",
+
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
+    "prestart": "npm run build:libs",
     "start": "ng serve",
-    "build": "ng build",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
   "private": true,
   "dependencies": {
-    "@angular/animations": "^17.3.12",
-    "@angular/common": "^17.3.12",
-    "@angular/compiler": "^17.3.12",
-    "@angular/core": "^17.3.12",
-    "@angular/forms": "^17.3.12",
-    "@angular/platform-browser": "^17.3.12",
-    "@angular/platform-browser-dynamic": "^17.3.12",
-    "@angular/router": "^17.3.12",
+    "@angular/animations": "^18.2.5",
+    "@angular/common": "^18.2.5",
+    "@angular/compiler": "^18.2.5",
+    "@angular/core": "^18.2.5",
+    "@angular/forms": "^18.2.5",
+    "@angular/platform-browser": "^18.2.5",
+    "@angular/platform-browser-dynamic": "^18.2.5",
+    "@angular/router": "^18.2.5",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.14.10"
   },
   "devDependencies": {
-    "@angular-devkit/build-angular": "^17.3.9",
-    "@angular/cli": "^17.3.9",
-    "@angular/compiler-cli": "^17.3.12",
+    "@angular-devkit/build-angular": "^18.2.5",
+    "@angular/cli": "^18.2.5",
+    "@angular/compiler-cli": "^18.2.5",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
     "jasmine-core": "~3.7.0",
@@ -36,7 +48,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "ng-packagr": "^17.3.0",
+    "ng-packagr": "^18.2.1",
     "typescript": "~5.4.5"
   }
 }
