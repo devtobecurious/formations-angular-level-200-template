@@ -1,10 +1,15 @@
 import { inject, Injectable } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, of } from 'rxjs';
 import { Statistics } from '../models';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'projects/game/src/environments/environment';
+import { fakeService } from './mocks';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
+  //useValue:
+  useFactory: () => environment.production ? new GetAllStatisticsInfrastructure()
+                                           : fakeService
 })
 export class GetAllStatisticsInfrastructure {
   private readonly http = inject(HttpClient);

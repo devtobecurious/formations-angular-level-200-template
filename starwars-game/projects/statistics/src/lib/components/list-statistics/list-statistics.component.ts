@@ -10,6 +10,7 @@ import { AsyncPipe } from '@angular/common';
   styleUrl: './list-statistics.component.css'
 })
 export class ListStatisticsComponent {
-  private readonly business = inject(GetAllStatisticsBusiness);
-  stats$ = this.business.getAll('');
+  // private readonly business = inject(GetAllStatisticsBusiness);
+  // stats$ = this.business.getAll('');
+  stats$ = inject(GetAllStatisticsBusiness).getAll('');
 }
