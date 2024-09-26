@@ -1,5 +1,27 @@
+@let stats = stats$ | async;
+
 <table>
-  @for (stat of stats$ | async; track stat.id) {
+  @for (stat of stats; track stat.id) {
+    <tr>
+      <td>
+        {{ stat.year}}
+      </td>
+      <td>
+        {{ stat.month}}
+      </td>
+      <td>
+        {{ stat.nbSucess}}
+      </td>
+      <td>
+        {{ stat.nbFailed}}
+      </td>
+    </tr>
+  }
+
+</table>
+
+<table>
+  @for (stat of stats; track stat.id) {
     <tr>
       <td>
         {{ stat.year}}
