@@ -15,6 +15,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "people-select": [
+        "./dist/people-select"
+      ],
       "search": [
         "dist/search"
       ],
