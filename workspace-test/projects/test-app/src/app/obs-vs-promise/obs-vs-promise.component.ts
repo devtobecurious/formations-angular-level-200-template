@@ -37,8 +37,10 @@ export class ObsVsPromiseComponent {
 
       const value = Math.random().toString()
       setTimeout(() => {
+        observer.complete();
         observer.next(value); // ASYNC
         observer.next('OBSERVABLE - RETOUR 1'); // ASYNC
+
       }, 0);
 
       console.info('OBSERVABLE - 1');
@@ -46,12 +48,13 @@ export class ObsVsPromiseComponent {
       tap(item => console.info('==> afficher sans modifier', item)),
       tap(item => console.info('==> afficher sans modifier 2', item)),
       map(item => item + ' suffixe'),
-      filter(item => item.endsWith('test')),
+      // filter(item => item.endsWith('test')),
       map(item => item.toLocaleLowerCase())
     );
 
     obs$.subscribe({
-      next: item => console.info(item)
+      next: item => console.info(item),
+      complete: () => console.info('capri c\'est fini')
     });
     // obs$.subscribe({
     //   next: item => console.info(item)
