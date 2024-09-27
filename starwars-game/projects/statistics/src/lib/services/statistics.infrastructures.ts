@@ -1,14 +1,13 @@
-import { inject, Injectable } from '@angular/core';
+import { inject, Injectable, isDevMode } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { Statistics } from '../models';
 import { HttpClient } from '@angular/common/http';
-import { environment } from 'projects/game/src/environments/environment';
 import { fakeService } from './mocks';
 
 @Injectable({
   providedIn: 'root',
   //useValue:
-  useFactory: () => environment.production ? new GetAllStatisticsInfrastructure()
+  useFactory: () => isDevMode() ? new GetAllStatisticsInfrastructure()
                                            : fakeService
 })
 export class GetAllStatisticsInfrastructure {

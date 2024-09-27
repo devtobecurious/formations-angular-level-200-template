@@ -12,7 +12,7 @@ import { AsyncPipe } from '@angular/common';
 export class ListStatisticsComponent implements OnInit {
   // private readonly business = inject(GetAllStatisticsBusiness);
   // stats$ = this.business.getAll('');
-  stats$ = inject(GetAllStatisticsBusiness).getAll('');
+  stats$ = inject(GetAllStatisticsBusiness).getAll();
 
   ngOnInit(): void {
     this.stats$.subscribe(); // Un appel à l'api
