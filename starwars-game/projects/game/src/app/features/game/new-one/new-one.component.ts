@@ -2,6 +2,10 @@ import { Component, DoCheck, ElementRef, inject, NgZone, OnDestroy, OnInit, view
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 import { concatMap, fromEvent, interval, mergeMap, Observable, Subscription, switchMap, take, tap } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '../../../reducers';
+import { GameDto } from '../../../core/models/game.dto';
+import { addNewOneInStateAction } from '../store/games.actions';
 
 @Component({
   selector: 'game-new-one',
@@ -15,6 +19,7 @@ export class NewOneComponent implements OnInit, DoCheck, OnDestroy {
   timer = '';
   btnStart = viewChild<ElementRef<HTMLButtonElement>>('btnStart');
   private subscription = new Subscription();
+  private readonly store = inject(Store<ApplicationState>);
 
   constructor(private tileService: TileService) { }
 
@@ -24,6 +29,15 @@ export class NewOneComponent implements OnInit, DoCheck, OnDestroy {
 
   ngDoCheck(): void {
 
+  }
+
+  start(): void {
+    const game: GameDto = {
+      id: 0,
+      success: false,
+      title: `${new Date()} - Partie lancée`
+    };
+    this.store.dispatch(addNewOneInStateAction({ item: game }));
   }
 
   ngOnInit(): void {

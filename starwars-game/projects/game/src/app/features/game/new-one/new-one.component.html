@@ -1,5 +1,5 @@
 {{ title }}
 
-<button #btnStart>[Start]</button> {{ timer }}
+<button #btnStart (click)="start()">[Start]</button> {{ timer }}
 
 <game-grid [tiles]="tiles"></game-grid>

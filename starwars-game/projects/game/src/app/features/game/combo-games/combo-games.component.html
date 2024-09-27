@@ -1,0 +1,10 @@
+
+<select name="" id="">
+  @for (item of games$$(); track item.id) {
+    <option>{{ item.title }}</option>
+  }
+  @empty {
+    <i>Aucune donnée récupérée</i>
+  }
+
+</select>
