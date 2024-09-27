@@ -25,7 +25,7 @@ export const planetsReducer = createReducer(
 
     action.items.forEach(item => {
       newState.items.push({...item});
-    })
+    });
 
     return newState;
   })
