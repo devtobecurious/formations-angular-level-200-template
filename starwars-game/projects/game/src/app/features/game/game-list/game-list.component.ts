@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { concatMap, map, mergeMap, Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchService } from 'search';
@@ -17,11 +17,19 @@ export class GameListComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.searchService.asObservable.subscribe({
-      next: item => console.info(item)
+    const parent$ = this.searchService.asObservable;
+
+    parent$.pipe(
+      // concatMap(item => this.gameService.getAll(item.value, 3))
+      // mergeMap(item => this.gameService.getAll(item.value, 3))
+      switchMap(item => this.gameService.getAll(item.value, 3))
+    ).subscribe({
+      next: items => {
+        this.games = items
+      }
     })
 
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+//    this.gameService.getAll(3).subscribe(items => this.games = items);
   }
 
 }
