@@ -13,14 +13,14 @@ import { GameTableComponent } from '../game-table/game-table.component';
     imports: [FormsModule, GameTableComponent]
 })
 export class GameListComponent implements OnInit {
-  
+
   games: GameDto[] = [];
   searchItem = '';
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    this.gameService.getAll('', 3).subscribe(items => this.games = items);
   }
 
 }
