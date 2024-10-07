@@ -6,7 +6,8 @@
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
     "start": "ng serve",
-    "build": "ng build",
+    "prebuild": "ng build search",
+    "build": "ng build game",
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -36,6 +37,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^18.2.0",
     "typescript": "~5.4.5"
   }
 }

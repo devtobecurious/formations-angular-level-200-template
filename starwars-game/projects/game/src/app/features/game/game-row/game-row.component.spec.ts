@@ -8,8 +8,8 @@ describe('GameRowComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      declarations: [ GameRowComponent ]
-    })
+    imports: [GameRowComponent]
+})
     .compileComponents();
   });
 
