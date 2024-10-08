@@ -1,12 +1,13 @@
 import { Component, inject, OnInit } from '@angular/core';
 import { Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
-import { GameService } from '../services/game.service';
+import { GetAllGameInfrastructure } from '../services/game.infrastructure';
 import { FormsModule } from '@angular/forms';
 import { GameTableComponent } from '../game-table/game-table.component';
 import { SearchService } from 'search-lib';
 import { AsyncPipe } from '@angular/common';
 import { DisplayNumberPipe } from '../../../shared/tools/display-number.pipe';
+import { GameBusiness } from '../services/game.business';
 
 @Component({
     selector: 'game-game-list',
@@ -16,15 +17,15 @@ import { DisplayNumberPipe } from '../../../shared/tools/display-number.pipe';
     imports: [FormsModule, GameTableComponent, AsyncPipe, DisplayNumberPipe],
     providers: [DisplayNumberPipe]
 })
-export class GameListComponent {
+export class GameListComponent implements OnInit {
   private readonly number = inject(DisplayNumberPipe)
-  private readonly gameService = inject(GameService)
+  private readonly gameService = inject(GetAllGameInfrastructure)
   // private readonly searchStore = inject(SearchService)
 
-
-  games$ = (inject(SearchService)).asObservable.pipe(
-              switchMap(state => this.gameService.getAll(state.item, 10))
-            )
+  // games$ = (inject(SearchService)).asObservable.pipe(
+  //             switchMap(state => this.gameService.getAll(state.item, 10))
+  //           )
+  games$ = (inject(GameBusiness)).getAll()
   searchItem = ''
 
   ngOnInit(): void {
