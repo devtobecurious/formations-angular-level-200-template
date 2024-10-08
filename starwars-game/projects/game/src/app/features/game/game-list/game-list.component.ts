@@ -8,6 +8,7 @@ import { SearchService } from 'search-lib';
 import { AsyncPipe } from '@angular/common';
 import { DisplayNumberPipe } from '../../../shared/tools/display-number.pipe';
 import { GameBusiness } from '../services/game.business';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
     selector: 'game-game-list',
@@ -18,6 +19,8 @@ import { GameBusiness } from '../services/game.business';
     providers: [DisplayNumberPipe]
 })
 export class GameListComponent implements OnInit {
+  // private readonly route = inject(ActivatedRoute).data
+
   private readonly number = inject(DisplayNumberPipe)
   private readonly gameService = inject(GetAllGameInfrastructure)
   // private readonly searchStore = inject(SearchService)

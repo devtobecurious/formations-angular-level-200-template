@@ -4,3 +4,4 @@
 
 export * from './lib/models/index'
 export * from './lib/components/statistics.component'
+export * from './lib/statistics.routes'
