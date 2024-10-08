@@ -15,8 +15,14 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "logger": [
+        "./dist/logger"
+      ],
       "search-lib": [
         "./dist/search"
+      ],
+      "statistics": [
+        "./dist/statistics"
       ]
     },
     "target": "ES2022",
