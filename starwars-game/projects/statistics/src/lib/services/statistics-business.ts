@@ -5,15 +5,16 @@ import { SearchService } from "search-lib";
 import { toSignal } from "@angular/core/rxjs-interop";
 import { select, Store } from "@ngrx/store";
 import { addStatListAction } from "../store/stats.actions";
-import { selectAllStats } from "../store/stats.selectors";
+import { StatisticsInfrastructure } from "./statistics-infrastructure";
+// import { selectAllStats } from "../store/stats.selectors";
 
 @Injectable({providedIn: 'root'})
 export class StatisticsBusiness {
-  // private readonly infra = inject(StatisticsInfrastructure)
+   private readonly infra = inject(StatisticsInfrastructure)
   private readonly search = inject(SearchService)
   private readonly store = inject(Store)
-  // private readonly getAll$ = this.infra.getAll() // pas d'appel api ici ;)
-  private readonly getAll$ = this.store.pipe(select(selectAllStats))
+  private readonly getAll$ = this.infra.getAll() // pas d'appel api ici ;)
+  // private readonly getAll$ = this.store.pipe(select(selectAllStats))
   private getAll$$ = toSignal(this.getAll())
 
   initialize(): void {

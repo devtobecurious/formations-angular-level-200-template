@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { GameDto } from "../../../core/models/game.dto";
-import { addGameAction, startGameAction } from "./games.actions";
+import { addGameAction, startGameAction, updateStateActionWithGamesFromApi } from "./games.actions";
 
 // 1. state
 export interface GamesState {
@@ -15,6 +15,15 @@ const initialState: GamesState = {
 // 3. création du reducer
 export const gamesReducer = createReducer(
   initialState,
+
+  on(updateStateActionWithGamesFromApi, (state, action) => {
+    const newState = {...state}
+
+    newState.items = [...action.items]
+
+    return newState
+  }),
+
   on(startGameAction, (state, action) => {
     // Créer une nouvelle version de l'état récupéré !
     let game: GameDto = {

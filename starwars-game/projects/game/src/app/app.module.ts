@@ -10,6 +10,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { ObsVsPromiseComponent } from './learnings/obs-vs-promise/obs-vs-promise.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { GamesEffect } from './features/game/store/games.effects';
 
 
 @NgModule({
@@ -26,7 +28,8 @@ import { reducers, metaReducers } from './reducers';
       ObsVsPromiseComponent,
       StoreModule.forRoot(reducers, {
         metaReducers
-      })
+      }),
+      EffectsModule.forRoot([GamesEffect])
     ],
     providers: [
       provideHttpClient(withInterceptorsFromDi())
