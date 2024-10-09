@@ -1,5 +1,5 @@
 @let timer = this.timer$ | async;
 
-<button #btnStart>Start</button> {{ timer }}
+<button #btnStart (click)="startGame()">Start</button> {{ timer }}
 
 <game-grid [tiles]="tiles"></game-grid>

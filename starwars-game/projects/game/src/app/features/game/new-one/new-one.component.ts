@@ -4,6 +4,10 @@ import { TileService } from '../services/tile.service';
 import { GridComponent } from '../../../shared/components/grid/grid.component';
 import { concatMap, fromEvent, interval, mergeMap, Observable, switchMap, take, tap } from 'rxjs';
 import { AsyncPipe } from '@angular/common';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '../../../reducers';
+import { addGameAction, startGameAction } from '../store/games.actions';
+import { GameDto } from '../../../core/models/game.dto';
 
 @Component({
     selector: 'game-new-one',
@@ -13,6 +17,7 @@ import { AsyncPipe } from '@angular/common';
     imports: [GridComponent, AsyncPipe]
 })
 export class NewOneComponent implements OnInit {
+  private readonly store = inject(Store<ApplicationState>)
   private readonly zone = inject(NgZone)
   btnStart = viewChild<ElementRef<HTMLButtonElement>>('btnStart')
   timer$: Observable<number> | undefined
@@ -32,16 +37,27 @@ computeLet(): number {
   return this.mySignal();
 }
 
+startGame(): void {
+  // this.store.dispatch(startGameAction())
+
+  const game: GameDto = {
+    id: 0,
+    success: false,
+    title: 'youpi'
+  }
+  this.store.dispatch(addGameAction({ item: game }))
+}
+
   ngOnInit(): void {
-    this.zone.runOutsideAngular(() => {
-      this.timer$ = fromEvent(this.btnStart()!.nativeElement, 'click').pipe(
-        tap(evt => console.info(evt)),
-        tap(() => this.mySignal.update(nb => nb + 1)),
-        // mergeMap(() => this.child$) // quel est le comportement d'un merge map
-        // concatMap(() => this.child$)
-        switchMap(() => this.child$)
-      )
-   });
+  //   this.zone.runOutsideAngular(() => {
+  //     this.timer$ = fromEvent(this.btnStart()!.nativeElement, 'click').pipe(
+  //       tap(evt => console.info(evt)),
+  //       tap(() => this.mySignal.update(nb => nb + 1)),
+  //       // mergeMap(() => this.child$) // quel est le comportement d'un merge map
+  //       // concatMap(() => this.child$)
+  //       switchMap(() => this.child$)
+  //     )
+  //  });
 
     this.tileService.loadAll()
     .subscribe(tiles => this.tiles = tiles);

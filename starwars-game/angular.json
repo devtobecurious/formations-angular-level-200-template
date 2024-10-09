@@ -52,7 +52,6 @@
                   "replace": "projects/game/src/environments/environment.ts",
                   "with": "projects/game/src/environments/environment.prod.ts"
                 },
-
                 {
                   "replace": "projects/game/src/environments/api.ts",
                   "with": "projects/game/src/environments/api.prod.ts"
@@ -208,5 +207,10 @@
         }
       }
     }
+  },
+  "cli": {
+    "schematicCollections": [
+      "@ngrx/schematics"
+    ]
   }
 }

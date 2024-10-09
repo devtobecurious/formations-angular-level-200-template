@@ -9,6 +9,9 @@ import { AsyncPipe } from '@angular/common';
 import { DisplayNumberPipe } from '../../../shared/tools/display-number.pipe';
 import { GameBusiness } from '../services/game.business';
 import { ActivatedRoute } from '@angular/router';
+import { ApplicationState } from '../../../reducers';
+import { select, Store } from '@ngrx/store';
+import { selectAllGames, selectAllSuccesGames } from '../store/games.selectors';
 
 @Component({
     selector: 'game-game-list',
@@ -28,7 +31,10 @@ export class GameListComponent implements OnInit {
   // games$ = (inject(SearchService)).asObservable.pipe(
   //             switchMap(state => this.gameService.getAll(state.item, 10))
   //           )
-  games$ = (inject(GameBusiness)).getAll()
+  // games$ = (inject(GameBusiness)).getAll()
+  private readonly store = inject(Store<ApplicationState>)
+  games$ = this.store.pipe(select(selectAllSuccesGames))
+
   searchItem = ''
 
   ngOnInit(): void {
