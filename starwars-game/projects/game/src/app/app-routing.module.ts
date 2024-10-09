@@ -13,20 +13,20 @@ const routes: Routes = [
     path: 'new-game',
     component: NewOneComponent
   },
-  {
-    path: 'statistics',
-    loadChildren: () => import('statistics').then(item => item.statisticsRoutes),
-    data: {
-      toLoad: true
-    }
-  },
-  {
-    path: 'statistics-2',
-    loadChildren: () => import('statistics').then(item => item.statisticsRoutes),
-    data: {
-      toLoad: false
-    }
-  }
+  // {
+  //   path: 'statistics',
+  //   loadChildren: () => import('statistics').then(item => item.statisticsRoutes),
+  //   data: {
+  //     toLoad: true
+  //   }
+  // },
+  // {
+  //   path: 'statistics-2',
+  //   loadChildren: () => import('statistics').then(item => item.statisticsRoutes),
+  //   data: {
+  //     toLoad: false
+  //   }
+  // }
 ];
 
 @NgModule({

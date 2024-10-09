@@ -12,6 +12,7 @@ import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { GamesEffect } from './features/game/store/games.effects';
+import { DiscoverMarkForCheckComponent } from './learnings/discover-mark-for-check/discover-mark-for-check.component';
 
 
 @NgModule({
@@ -26,6 +27,7 @@ import { GamesEffect } from './features/game/store/games.effects';
       GameModule,
       HeaderModule,
       ObsVsPromiseComponent,
+      DiscoverMarkForCheckComponent,
       StoreModule.forRoot(reducers, {
         metaReducers
       }),

@@ -8,7 +8,8 @@ import { NgClass } from '@angular/common';
     styleUrls: ['./cell.component.css'],
     encapsulation: ViewEncapsulation.None,
     standalone: true,
-    imports: [NgClass]
+    imports: [NgClass],
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit {
 
