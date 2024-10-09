@@ -3,5 +3,6 @@
  */
 
 export * from './lib/models/index'
-export * from './lib/components/statistics.component'
+export * from './lib/services/statistics-business'
+// export * from './lib/components/statistics.component'
 export * from './lib/statistics.routes'

@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
+// import { StatisticsBusiness } from 'statistics';
 
 @Component({
   selector: 'game-root',
@@ -7,4 +8,9 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+  // private readonly statsBusiness = inject(StatisticsBusiness)
+
+  initialize(): void {
+    // this.statsBusiness.initialize()
+  }
 }
