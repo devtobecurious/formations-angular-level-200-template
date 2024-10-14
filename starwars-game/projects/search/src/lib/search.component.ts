@@ -1,6 +1,7 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { initialValue } from './models';
+import { SearchStore } from './search.store';
 
 @Component({
   selector: 'lib-search',
@@ -22,10 +23,11 @@ import { initialValue } from './models';
   `,
   styles: ``
 })
-export class SearchComponent {
+export class SearchComponent { // Thin component
   item = initialValue
+  private readonly store = inject(SearchStore)
 
   search(): void  {
-
+    this.store.dispatch(this.item)
   }
 }
