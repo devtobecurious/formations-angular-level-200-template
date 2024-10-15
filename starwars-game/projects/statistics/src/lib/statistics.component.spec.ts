@@ -1,6 +1,7 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { StatisticsComponent } from './statistics.component';
+import { StatisticsInfra } from './statistics.infrastructure';
 
 describe('StatisticsComponent', () => {
   let component: StatisticsComponent;
@@ -8,7 +9,10 @@ describe('StatisticsComponent', () => {
 
   beforeEach(async () => {
     await TestBed.configureTestingModule({
-      imports: [StatisticsComponent]
+      imports: [StatisticsComponent],
+      providers: [
+        { provide: StatisticsInfra, useValue: { }}
+      ]
     })
     .compileComponents();
 

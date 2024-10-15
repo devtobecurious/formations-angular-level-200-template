@@ -1,5 +1,7 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { of } from 'rxjs';
+import { Statistics } from './models';
+import { StatisticsBusiness } from './statistics.business';
 
 @Component({
   selector: 'lib-statistics',
@@ -18,13 +20,13 @@ import { of } from 'rxjs';
   `,
   styles: ``
 })
-export class StatisticsComponent implements OnInit {
-  private fake = [{month: 5, year: 2024, nbSuccess: 0, nbFailed: 50}]
-  statistics$ = of(this.fake)
-  statistics: {month: number, year: number, nbSuccess: number, nbFailed: number}[] = [];
+export class StatisticsComponent implements OnInit { // Thin component
+  statistics$ = (inject(StatisticsBusiness)).getAll() // Lazy
+  statistics: Statistics = [];
 
   ngOnInit(): void {
     this.statistics$.subscribe(items => this.statistics = items)
+
 
   }
 }
