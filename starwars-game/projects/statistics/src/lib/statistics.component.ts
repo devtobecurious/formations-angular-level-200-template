@@ -22,13 +22,13 @@ import { LogsService } from 'logs';
   styles: ``
 })
 export class StatisticsComponent implements OnInit { // Thin component
-  private readonly logger = inject(LogsService)
+//   private readonly logger = inject(LogsService)
   statistics$ = (inject(StatisticsBusiness)).getAll() // Lazy
   statistics: Statistics = [];
 
   ngOnInit(): void {
     this.statistics$.subscribe(items => this.statistics = items)
-    this.logger.log('ngOnInit stats')
+    // this.logger.log('ngOnInit stats')
 
   }
 }
