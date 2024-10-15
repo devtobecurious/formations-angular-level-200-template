@@ -28,6 +28,7 @@ export class SearchComponent { // Thin component
   private readonly store = inject(SearchStore)
 
   search(): void  {
+    console.info(this.item)
     this.store.dispatch(this.item)
   }
 }

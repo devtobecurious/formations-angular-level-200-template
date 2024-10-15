@@ -17,9 +17,12 @@ export class GameListComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+    console.info('ngnininit')
+
     this.searchStore.asObservable.subscribe(item => {
-      this.gameService.getAll(3).subscribe(items => this.games = items);
       console.info('item', item)
+      //this.gameService.getAll(3).subscribe(items => this.games = items);
+
     })
 
   }
