@@ -7,4 +7,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  logView(): void {
+    console.info('log app !')
+  }
 }

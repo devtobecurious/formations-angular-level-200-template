@@ -17,7 +17,6 @@
             "index": "projects/tets-app/src/index.html",
             "browser": "projects/tets-app/src/main.ts",
             "polyfills": [
-              "zone.js"
             ],
             "tsConfig": "projects/tets-app/tsconfig.app.json",
             "assets": [
