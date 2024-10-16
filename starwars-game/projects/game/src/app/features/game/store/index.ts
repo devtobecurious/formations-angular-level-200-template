@@ -4,7 +4,8 @@ import { addNewGameAction } from "./games.actions";
 
 // Je déclare la structure de mon état
 export interface GamesState {
-  items: GameDto[]
+  items: GameDto[],
+  itemsDraft?: GameDto[]
 }
 
 // J'initialise mon état
