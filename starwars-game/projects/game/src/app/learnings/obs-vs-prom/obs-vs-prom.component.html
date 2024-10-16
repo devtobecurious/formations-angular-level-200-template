@@ -1,1 +1,11 @@
 <p>obs-vs-prom works!</p>
+
+@let result = obs$ | async;
+
+@if(result)  {
+  {{ result }}
+  {{ result }}
+}
+
+@let result2 = obs$ | async;
+<h2>=> {{ result2 }}</h2>

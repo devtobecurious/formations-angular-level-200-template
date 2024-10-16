@@ -11,7 +11,7 @@ interface GetAllStats {
 const fakeService: GetAllStats = {
   getAll(): Observable<Statistics> {
     const table: Statistics = []
-    return of(table)
+    return of(table) // SYNC
   }
 }
 
@@ -24,7 +24,7 @@ export class StatisticsInfra implements GetAllStats {
   private readonly http = inject(HttpClient)
 
   getAll(): Observable<Statistics> {
-    return this.http.get<Statistics>('/api/stats').pipe(
+    return this.http.get<Statistics>('/api/stats').pipe( // il fait un next et tout de suite après un complete
       retry(2),
       tap(stats => this.logger.log(stats.length.toString())),
       catchError(err => {

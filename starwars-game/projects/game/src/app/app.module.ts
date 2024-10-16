@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { ObsVsPromComponent } from './learnings/obs-vs-prom/obs-vs-prom.component';
 
 
 @NgModule({ declarations: [
@@ -18,6 +19,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     imports: [BrowserModule,
         AppRoutingModule,
         HeaderModule,
-        GameModule],
+        GameModule,
+        ObsVsPromComponent
+      ],
     providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
