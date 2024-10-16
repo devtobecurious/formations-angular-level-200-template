@@ -1,13 +1,15 @@
 import { computed, inject, Injectable } from '@angular/core';
 import { Statistics } from './models';
 import { StatisticsInfra } from './statistics.infrastructure';
-import { filter, map, Observable, shareReplay } from 'rxjs';
+import { filter, map, Observable, shareReplay, switchMap } from 'rxjs';
 import { toSignal } from '@angular/core/rxjs-interop';
+import { SearchState, SearchStore } from 'search';
 
 @Injectable({
   providedIn: 'root'
 })
 export class StatisticsBusiness {
+  private readonly searchStore = inject(SearchStore)
   private readonly infra = inject(StatisticsInfra)
   private readonly stats$$ = toSignal(this.infra.getAll())
   private getAll$ = this.getAll().pipe(
@@ -28,12 +30,15 @@ export class StatisticsBusiness {
   }
 
   getAll(): Observable<Statistics> {
-    return this.infra.getAll().pipe(
+    const child$ = (search: SearchState) =>  this.infra.getAll().pipe(
       filter(items => items.length > 0), // le component ne recevra aucun tableau vide !
       map(items => {
         const result = items.filter(item => item.year == (new Date()).getFullYear())
         return result
-      })
-    )
+      }))
+
+      return this.searchStore.asObservable.pipe(
+        switchMap(search => child$(search))
+      )
   }
 }

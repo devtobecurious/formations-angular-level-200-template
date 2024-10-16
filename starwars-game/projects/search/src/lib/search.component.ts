@@ -11,7 +11,7 @@ import { SearchStore } from './search.store';
   <form
       class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
       <div class="input-group">
-          <input name="value" type="text" class="form-control bg-light border-0 small" placeholder="Recherche..."
+          <input name="value" (change)="search()" type="text" class="form-control bg-light border-0 small" placeholder="Recherche..."
               aria-label="Search" aria-describedby="basic-addon2" [(ngModel)]="item.value">
           <div class="input-group-append">
               <button (click)="search()" class="btn btn-primary" type="button" >

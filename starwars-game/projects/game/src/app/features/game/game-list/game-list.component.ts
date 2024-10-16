@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { concatMap, debounceTime, filter, Observable, pipe, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchStore } from 'search';
@@ -21,10 +21,21 @@ export class GameListComponent implements OnInit {
   ngOnInit(): void {
     console.info('ngnininit')
 
-    this.searchStore.asObservable.subscribe(item => {
-      this.logger.log('item', item)
-      //this.gameService.getAll(3).subscribe(items => this.games = items);
+    // this.searchStore.asObservable.subscribe(item => {
+    //   this.logger.log('item', item)
+    //   this.gameService.getAll(3).subscribe(items => this.games = items);
 
+    // })
+
+    this.searchStore.asObservable.
+    pipe
+    (
+      debounceTime(350),
+      filter(search => search.value !== ''),
+      switchMap(search => this.gameService.getAll(search.value, 10))
+    )
+    .subscribe(items => {
+      this.games = items
     })
 
   }
