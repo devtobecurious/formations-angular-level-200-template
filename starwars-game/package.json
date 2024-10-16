@@ -6,7 +6,7 @@
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "build:libs:search": "ng build search",
     "build:libs:statistics": "ng build statistics",
-    "build:libs:logs": "ng build logs",
+    "build:libs:logs": "ng build loggers",
     "build:libs": "npm run build:libs:logs && npm run build:libs:search && npm run build:libs:statistics",
     "prestart": "npm run build:libs",
     "start": "ng serve",

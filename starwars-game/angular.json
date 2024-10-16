@@ -177,23 +177,23 @@
         }
       }
     },
-    "logs": {
+    "loggers": {
       "projectType": "library",
-      "root": "projects/logs",
-      "sourceRoot": "projects/logs/src",
+      "root": "projects/loggers",
+      "sourceRoot": "projects/loggers/src",
       "prefix": "lib",
       "architect": {
         "build": {
           "builder": "@angular-devkit/build-angular:ng-packagr",
           "options": {
-            "project": "projects/logs/ng-package.json"
+            "project": "projects/loggers/ng-package.json"
           },
           "configurations": {
             "production": {
-              "tsConfig": "projects/logs/tsconfig.lib.prod.json"
+              "tsConfig": "projects/loggers/tsconfig.lib.prod.json"
             },
             "development": {
-              "tsConfig": "projects/logs/tsconfig.lib.json"
+              "tsConfig": "projects/loggers/tsconfig.lib.json"
             }
           },
           "defaultConfiguration": "production"
@@ -201,7 +201,7 @@
         "test": {
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
-            "tsConfig": "projects/logs/tsconfig.spec.json",
+            "tsConfig": "projects/loggers/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"
