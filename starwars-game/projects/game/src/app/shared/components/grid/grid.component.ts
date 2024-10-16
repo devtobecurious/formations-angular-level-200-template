@@ -5,7 +5,8 @@ import { changeStateCell, Tile, TileCell } from './models';
   selector: 'game-grid',
   templateUrl: './grid.component.html',
   styleUrls: ['./grid.component.css'],
-  encapsulation: ViewEncapsulation.None
+  encapsulation: ViewEncapsulation.None,
+  changeDetection:ChangeDetectionStrategy.OnPush
 })
 export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 
