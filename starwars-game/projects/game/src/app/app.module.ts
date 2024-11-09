@@ -10,6 +10,7 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { ObsVsPromComponent } from './learnings/obs-vs-prom/obs-vs-prom.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { ParentComponent } from './learnings/defers/parent/parent.component';
 
 
 @NgModule({ declarations: [
@@ -23,6 +24,7 @@ import { reducers, metaReducers } from './reducers';
         HeaderModule,
         GameModule,
         ObsVsPromComponent,
+        ParentComponent,
         StoreModule.forRoot(reducers, {
           metaReducers
         })
