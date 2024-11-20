@@ -1,11 +1,12 @@
 import { Component, inject } from '@angular/core';
 import { StatisticsBusiness } from '../services/statistics.business';
 import { AsyncPipe, NgFor } from '@angular/common';
+import { LogersService } from 'logers';
 
 @Component({
   selector: 'lib-statistics',
   standalone: true,
-  imports: [AsyncPipe, NgFor],
+  imports: [AsyncPipe],
   providers: [
   ],
   template: `
@@ -31,5 +32,10 @@ export class StatisticsComponent {
   // private readonly business = inject(StatisticsBusiness)
   // stats$ = this.business.getAll()
   //private readonly business = inject(StatisticsBusiness)
+  private readonly logger = inject(LogersService)
   stats$ = inject(StatisticsBusiness).getAll()
+
+  ngOnInit(): void {
+    this.logger.log('info', 'StatisticsComponent:Init')
+  }
 }

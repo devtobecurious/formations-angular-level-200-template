@@ -39,7 +39,7 @@
                 {
                   "type": "initial",
                   "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumError": "2mb"
                 },
                 {
                   "type": "anyComponentStyle",
@@ -167,6 +167,72 @@
           "builder": "@angular-devkit/build-angular:karma",
           "options": {
             "tsConfig": "projects/statistics/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "logs": {
+      "projectType": "library",
+      "root": "projects/logs",
+      "sourceRoot": "projects/logs/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/logs/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logs/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/logs/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/logs/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
+          }
+        }
+      }
+    },
+    "logers": {
+      "projectType": "library",
+      "root": "projects/logers",
+      "sourceRoot": "projects/logers/src",
+      "prefix": "lib",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/logers/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/logers/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/logers/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/logers/tsconfig.spec.json",
             "polyfills": [
               "zone.js",
               "zone.js/testing"

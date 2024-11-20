@@ -15,6 +15,12 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "logers": [
+        "./dist/logers"
+      ],
+      "logs": [
+        "./dist/logs"
+      ],
       "search": [
         "./dist/search"
       ],
