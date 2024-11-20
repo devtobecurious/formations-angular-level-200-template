@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { TestDeferComponent } from "./discovers/test-defer/test-defer.component";
 
 
 @NgModule({
@@ -20,8 +21,9 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
     AppRoutingModule,
     HttpClientModule,
     HeaderModule,
-    GameModule
-  ],
+    GameModule,
+    TestDeferComponent
+],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
 })

@@ -1,0 +1,14 @@
+<h1>Eager</h1>
+<game-eager-child-test-defer></game-eager-child-test-defer>
+
+<h1>Defer</h1>
+<div #toClick>Click me !!</div>
+@defer (on interaction(toClick); prefetch when monBooleen) {
+  <game-child-test-defer></game-child-test-defer>
+}
+@placeholder {
+  <b>bloc</b>
+}
+@loading {
+  <i>Loading</i>
+}
