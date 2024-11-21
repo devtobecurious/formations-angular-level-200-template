@@ -22,10 +22,15 @@ export class NewOneComponent implements OnInit {
 
   constructor(private tileService: TileService) { }
 
+  oops(): void {
+    console.info('oopps')
+    // setTimeout(() => {})
+  }
+
   ngOnInit(): void {
     const btn = this.btnStart()?.nativeElement
     const enfants$ = interval(1000).pipe(
-                          take(10),
+                          take(10), // au bout de 10 next, ça complete
                           finalize(() => {
                             if(this.currentGame) {
                               this.store.dispatch(endGameAction({ id: this.currentGame.id }))
