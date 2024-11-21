@@ -24,7 +24,7 @@ import { NewOneComponent } from './new-one/new-one.component';
   imports: [
     CommonModule,
     FormsModule,
-    GridModule
+    GridModule,
   ],
   providers: [
     GameService

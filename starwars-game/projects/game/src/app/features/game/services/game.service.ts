@@ -7,7 +7,7 @@ import { GameDto } from '../../../core/models/game.dto';
 @Injectable()
 export class GameService {
 
-  constructor(private httpClient: HttpClient) { }
+  constructor(private readonly httpClient: HttpClient) { }
 
   getAll(nbItems: number = 100): Observable<GameDto[]> {
     return this.httpClient.get<GameDto[]>(api.games.url + '?max=' + nbItems);
