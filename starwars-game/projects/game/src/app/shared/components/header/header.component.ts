@@ -1,5 +1,9 @@
-import { Component, NgModule, OnInit } from '@angular/core';
+import { AsyncPipe } from '@angular/common';
+import { Component, inject, NgModule, OnInit } from '@angular/core';
+import { select, Store } from '@ngrx/store';
 import { SearchComponent } from 'search';
+import { ApplicationState } from '../../../reducers';
+import { selectAllGames, selectAllSuccessGames } from '../../../features/game/store/games.selectors';
 
 @Component({
   standalone: false,
@@ -8,6 +12,9 @@ import { SearchComponent } from 'search';
   styleUrls: ['./header.component.css']
 })
 export class HeaderComponent implements OnInit {
+  private readonly store = inject(Store<ApplicationState>)
+  nbSuccessGames$ = this.store.pipe(select(selectAllSuccessGames))
+  nbAllGames$ = this.store.pipe(select(selectAllGames))
 
   constructor() { }
 
@@ -18,7 +25,7 @@ export class HeaderComponent implements OnInit {
 
 @NgModule({
   declarations: [HeaderComponent],
-  imports: [SearchComponent],
+  imports: [SearchComponent, AsyncPipe],
   exports: [HeaderComponent]
 })
 export class HeaderModule { }

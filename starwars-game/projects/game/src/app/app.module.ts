@@ -9,6 +9,8 @@ import { HeaderComponent, HeaderModule } from './shared/components/header/header
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { TestDeferComponent } from "./discovers/test-defer/test-defer.component";
 import { ObsVsPromiseComponent } from './discovers/obs-vs-promise/obs-vs-promise.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({
@@ -24,7 +26,10 @@ import { ObsVsPromiseComponent } from './discovers/obs-vs-promise/obs-vs-promise
     HeaderModule,
     GameModule,
     TestDeferComponent,
-    ObsVsPromiseComponent
+    ObsVsPromiseComponent,
+    StoreModule.forRoot(reducers, {
+      metaReducers
+    })
 ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
