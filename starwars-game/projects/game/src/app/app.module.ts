@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { TestDeferComponent } from "./discovers/test-defer/test-defer.component";
+import { ObsVsPromiseComponent } from './discovers/obs-vs-promise/obs-vs-promise.component';
 
 
 @NgModule({
@@ -22,7 +23,8 @@ import { TestDeferComponent } from "./discovers/test-defer/test-defer.component"
     HttpClientModule,
     HeaderModule,
     GameModule,
-    TestDeferComponent
+    TestDeferComponent,
+    ObsVsPromiseComponent
 ],
   providers: [],
   bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
