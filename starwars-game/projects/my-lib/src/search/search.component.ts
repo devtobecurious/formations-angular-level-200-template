@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, EventEmitter, Output} from '@angular/core';
 
 @Component({
   selector: 'lib-search',
@@ -8,5 +8,13 @@ import { Component } from '@angular/core';
   styleUrl: './search.component.css'
 })
 export class SearchComponent {
+  @Output() searchValue = new EventEmitter();
+
+  search(): void
+  {
+    const searchInputValue: string = (<HTMLInputElement>document.getElementById("searchInput")).value;
+
+    this.searchValue.emit(searchInputValue);
+  }
 
 }
