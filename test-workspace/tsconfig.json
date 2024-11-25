@@ -8,7 +8,7 @@
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
     "paths": {
-      "ma-lib": [
+      "maLib": [
         "./dist/ma-lib"
       ]
     },
