@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { MyLibComponent } from 'myLib';
 
 @Component({
   selector: 'game-header',
