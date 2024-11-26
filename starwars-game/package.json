@@ -3,10 +3,23 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
+
+    "pregabriel": "echo 'lalalala'",
+    "gabriel": "echo 'ô Gabriel'",
+    "prejohny": "npm run gabriel",
+    "johny": "echo 'ah que que'",
+    "postjohny": "echo 'optic 2000'",
+
+    "build:libs:search": "ng build search",
+    "build:libs:statistics": "ng build statistics",
+    "build:libs": "npm run build:libs:search && npm run build:libs:statistics",
+
+    "prestart": "npm run build:libs",
     "start": "ng serve",
-    "build": "ng build",
+
+    "prebuild": "npm run build:libs",
+    "build": "ng build game",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
