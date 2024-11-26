@@ -8,6 +8,7 @@ import { AsyncPipe } from '@angular/common';
   imports: [AsyncPipe],
   template: `
     @let stats = stats$ | async;
+    <!-- @let stats2 = stats$ | async; -->
 
     <table>
         <tbody>

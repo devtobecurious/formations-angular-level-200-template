@@ -15,6 +15,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "people": [
+        "./dist/people"
+      ],
       "search": [
         "./dist/search"
       ],
