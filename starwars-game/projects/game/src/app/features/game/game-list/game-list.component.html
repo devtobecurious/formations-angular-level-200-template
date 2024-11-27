@@ -1,4 +1,9 @@
+@let species = species$$();
+
 <h1 class="h3 mb-2 text-gray-800">Tes parties</h1>
+
+<button (click)="loadSpecies()">Charger les espèces</button>
+
 <div class="card shadow mb-4">
   <div class="card-header py-3">
     <h6 class="m-0 font-weight-bold text-primary">Terminées</h6>
@@ -18,6 +23,15 @@
             <div class="col-sm-12 col-md-6">
               <div id="dataTable_filter" class="dataTables_filter"><label>Recherche:<input type="search"
                     class="form-control form-control-sm" placeholder="" aria-controls="dataTable" [(ngModel)]="searchItem"></label></div>
+            </div>
+            <div class="col-sm-12 col-md-6">
+              <div id="dataTable_filter" class="dataTables_filter">
+                <select>
+                @for (specie of species; track specie) {
+                  <option>{{specie.label}}</option>
+                }
+              </select>
+              </div>
             </div>
           </div>
           <div class="row">
