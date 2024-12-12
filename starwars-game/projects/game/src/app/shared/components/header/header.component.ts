@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { SearchComponent } from 'search';
 
 @Component({
     selector: 'game-header',
@@ -6,11 +7,14 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./header.component.css'],
     standalone: false
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
-
+export class HeaderComponent {
 }
+
+@NgModule({
+  declarations: [HeaderComponent],
+  imports: [
+    SearchComponent
+  ],
+  exports: [HeaderComponent]
+})
+export class HeaderModule { } // SCAM
