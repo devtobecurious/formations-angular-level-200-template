@@ -3,10 +3,17 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
-    "start": "ng serve",
-    "build": "ng build",
+
+    "build:libs:search": "ng build search",
+    "build:libs": "npm run build:libs:search",
+
+    "prestart": "npm run build:libs",
+    "start": "ng dev",
+
+    "prebuild": "npm run build:libs",
+    "build": "ng build game",
+    "postbuild": "echo 'tout sest bien passé ! laalal'",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

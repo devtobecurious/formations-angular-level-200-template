@@ -9,7 +9,8 @@ const routes: Routes = [{
 },
 {
   path: 'new-game',
-  component: NewOneComponent
+  component: NewOneComponent,
+//   providers: []
 }];
 
 @NgModule({
