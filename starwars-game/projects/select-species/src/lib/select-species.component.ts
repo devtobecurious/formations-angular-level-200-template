@@ -12,7 +12,9 @@ import { toSignal } from '@angular/core/rxjs-interop';
     <table>
       <tbody>
         @for (item of list; track item) {
-          <tr></tr>
+          <tr>
+            <td>{{ item }}</td>
+          </tr>
         }
       </tbody>
     </table>
@@ -24,6 +26,11 @@ export class SelectSpeciesComponent {
   // items = signal<Species>([])
   private readonly items$$ = toSignal(this.service.getAll())
   labels$$ = computed(() => this.items$$()?.map(item => item.label.toUpperCase()))
+
+  test$$ = computed(() => ({
+    old: this.items$$(),
+    id: signal(1)
+  }))
   // labelss = this.items$$()?.map(item => item.label.toUpperCase())
 
   // ngOnInit(): void {
