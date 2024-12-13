@@ -17,6 +17,9 @@
     "paths": {
       "search": [
         "./dist/search"
+      ],
+      "select-species": [
+        "./dist/select-species"
       ]
     },
     "target": "ES2022",
