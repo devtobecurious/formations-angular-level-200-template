@@ -1,0 +1,30 @@
+@let isLoading = isLoading$ | async;
+@let stats = stats$ | async;
+
+@if(isLoading) {
+<i>Chargement des statistics ...</i>
+}
+
+<button (click)="fake()">Fake data</button>
+<button (click)="init()">Init</button>
+
+<table>
+  <tbody>
+    @for (item of stats; track item) {
+      <tr>
+        <td>
+          {{ item.year }}
+        </td>
+        <td>
+          {{ item.month }}
+        </td>
+        <td>
+          {{ item.nbSuccess }}
+        </td>
+        <td>
+          {{ item.nbFailed }}
+        </td>
+      </tr>
+    }
+  </tbody>
+</table>

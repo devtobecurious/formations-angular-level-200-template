@@ -1,4 +1,4 @@
-import { Component, inject, OnInit } from '@angular/core';
+import { ChangeDetectorRef, Component, inject, OnInit } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 import { GameDto } from '../../../core/models/game.dto';
@@ -14,13 +14,19 @@ import { addNewGameAction } from '../store/games.actions';
 })
 export class NewOneComponent implements OnInit {
   private readonly store = inject(Store<ApplicationState>)
+  private readonly cd = inject(ChangeDetectorRef)
   tiles: Tile[] = [];
 
   constructor(private tileService: TileService) { }
 
   ngOnInit(): void {
+    this.cd.detach()
+
     this.tileService.loadAll()
-    .subscribe(tiles => this.tiles = tiles);
+    .subscribe(tiles => {
+      this.tiles = tiles
+      this.cd.reattach()
+    });
   }
 
   startGame(): void {
