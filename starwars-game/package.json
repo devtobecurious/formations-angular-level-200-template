@@ -3,17 +3,13 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-
     "build:libs:search": "ng build search",
     "build:libs": "npm run build:libs:search",
-
     "prestart": "npm run build:libs",
     "start": "ng dev",
-
     "prebuild": "npm run build:libs",
     "build": "ng build game",
     "postbuild": "echo 'tout sest bien passé ! laalal'",
-
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -27,6 +23,7 @@
     "@angular/platform-browser": "^19.0.3",
     "@angular/platform-browser-dynamic": "^19.0.3",
     "@angular/router": "^19.0.3",
+    "@ngrx/store": "^18.1.1",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.15.0"
