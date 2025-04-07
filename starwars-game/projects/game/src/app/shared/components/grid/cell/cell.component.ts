@@ -2,10 +2,11 @@ import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, V
 import { changeStateCell, TileCell } from '../models';
 
 @Component({
-  selector: 'game-cell',
-  templateUrl: './cell.component.html',
-  styleUrls: ['./cell.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'game-cell',
+    templateUrl: './cell.component.html',
+    styleUrls: ['./cell.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class CellComponent implements OnInit {
 

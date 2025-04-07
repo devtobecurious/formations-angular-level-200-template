@@ -2,10 +2,11 @@ import { AfterContentInit, AfterViewInit, ChangeDetectionStrategy, ChangeDetecto
 import { changeStateCell, Tile, TileCell } from './models';
 
 @Component({
-  selector: 'game-grid',
-  templateUrl: './grid.component.html',
-  styleUrls: ['./grid.component.css'],
-  encapsulation: ViewEncapsulation.None
+    selector: 'game-grid',
+    templateUrl: './grid.component.html',
+    styleUrls: ['./grid.component.css'],
+    encapsulation: ViewEncapsulation.None,
+    standalone: false
 })
 export class GridComponent implements OnInit, AfterViewInit, AfterContentInit {
 

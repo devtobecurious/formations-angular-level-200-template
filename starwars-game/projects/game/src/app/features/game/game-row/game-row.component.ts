@@ -2,10 +2,10 @@ import { ChangeDetectionStrategy, Component, Input, OnInit } from '@angular/core
 import { GameDto } from '../../../core/models/game.dto';
 
 @Component({
-  selector: 'game-game-row',
-  templateUrl: './game-row.component.html',
-  styleUrls: ['./game-row.component.css'],
-  // changeDetection: ChangeDetectionStrategy.OnPush
+    selector: 'game-game-row',
+    templateUrl: './game-row.component.html',
+    styleUrls: ['./game-row.component.css'],
+    standalone: false
 })
 export class GameRowComponent implements OnInit {
   @Input() item!: GameDto;
