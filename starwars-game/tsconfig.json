@@ -19,7 +19,7 @@
         "./dist/search"
       ]
     },
-    "target": "ES2018",
+    "target": "es2022",
     "module": "es2020",
     "lib": [
       "es2018",

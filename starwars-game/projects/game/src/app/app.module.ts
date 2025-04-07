@@ -14,10 +14,11 @@ import { SearchComponent } from 'my-search';
         AppComponent,
         SideBarComponent
     ],
-    bootstrap: [AppComponent, HeaderComponent, SideBarComponent, HeaderModule],
+    bootstrap: [AppComponent, HeaderComponent, SideBarComponent],
     imports: [BrowserModule,
         AppRoutingModule,
-        SearchComponent,
-        GameModule],
+        GameModule,
+        HeaderModule
+      ],
     providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
