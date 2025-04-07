@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
+import { SearchComponent } from 'my-search';
 
 @Component({
     selector: 'game-header',
@@ -8,4 +9,12 @@ import { Component, OnInit } from '@angular/core';
 })
 export class HeaderComponent  {
 
+}
+
+@NgModule({
+    declarations: [HeaderComponent],
+    imports: [SearchComponent],
+    exports: [HeaderComponent]
+})
+export class HeaderModule {
 }
