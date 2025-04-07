@@ -3,3 +3,6 @@ export interface Wookiee {
     age : number;
     isJedi: boolean;
 }
+
+export type ItemList<T> =  T[];
+export type WookieeList = ItemList<Wookiee>;

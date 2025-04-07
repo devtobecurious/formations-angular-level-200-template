@@ -3,10 +3,24 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+
+    "prerock": "echo 'optic 2000'",
+    "rock": "echo 'rocks'",
+    "prejohny": "npm run rock",
+    "johny": "echo 'ah que coucou'",
+    "postjohny": "echo 'gabriel'",
+
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
+
+    "build:libs:search": "ng build search --configuration production",
+    "build:libs": "npm run build:libs:search",
+
+    "prestart": "npm run build:libs",
     "start": "ng serve",
-    "build": "ng build",
+
+    "prebuild": "npm run build:libs",
+    "build": "ng build game",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },

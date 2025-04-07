@@ -1,7 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
+import { SearchStore } from 'my-search';
 
 @Component({
     selector: 'game-game-list',
@@ -10,12 +11,17 @@ import { GameService } from '../services/game.service';
     standalone: false
 })
 export class GameListComponent implements OnInit {
+  private readonly searchStore = inject(SearchStore)
   games: GameDto[] = [];
   searchItem = '';
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
+    this.searchStore.asObservable.subscribe((search) => {
+      console.info(search)
+    });
+
     this.gameService.getAll(3).subscribe(items => this.games = items);
   }
 
