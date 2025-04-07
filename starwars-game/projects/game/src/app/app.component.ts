@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import d3 from 'd3';
 
 @Component({
     selector: 'game-root',
@@ -8,4 +9,8 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  generate(): void {
+    //d3.geoPath()
+  }
 }
