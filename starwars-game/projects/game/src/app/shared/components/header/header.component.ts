@@ -6,11 +6,6 @@ import { Component, OnInit } from '@angular/core';
     styleUrls: ['./header.component.css'],
     standalone: false
 })
-export class HeaderComponent implements OnInit {
-
-  constructor() { }
-
-  ngOnInit(): void {
-  }
+export class HeaderComponent  {
 
 }

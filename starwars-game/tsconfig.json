@@ -15,7 +15,7 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
-      "search": [
+      "my-search": [
         "./dist/search"
       ]
     },

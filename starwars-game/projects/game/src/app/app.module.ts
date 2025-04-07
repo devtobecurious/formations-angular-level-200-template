@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { SearchComponent } from 'my-search';
 
 
 @NgModule({ declarations: [
@@ -14,7 +15,10 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
         HeaderComponent,
         SideBarComponent
     ],
-    bootstrap: [AppComponent, HeaderComponent, SideBarComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent, HeaderComponent, SideBarComponent],
+    imports: [BrowserModule,
         AppRoutingModule,
-        GameModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        SearchComponent,
+        GameModule],
+    providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
