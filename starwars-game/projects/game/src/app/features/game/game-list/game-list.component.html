@@ -22,7 +22,10 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <game-table [games]="games"></game-table>
+              @let items = games();
+              @if(items) {
+                <game-table [games]="items"></game-table>
+              }
             </div>
           </div>
         </div>

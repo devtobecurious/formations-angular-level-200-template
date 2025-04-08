@@ -3,24 +3,18 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-
     "prerock": "echo 'optic 2000'",
     "rock": "echo 'rocks'",
     "prejohny": "npm run rock",
     "johny": "echo 'ah que coucou'",
     "postjohny": "echo 'gabriel'",
-
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-
     "build:libs:search": "ng build search --configuration production",
     "build:libs": "npm run build:libs:search",
-
     "prestart": "npm run build:libs",
     "start": "ng serve",
-
     "prebuild": "npm run build:libs",
     "build": "ng build game",
-
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
@@ -34,7 +28,9 @@
     "@angular/platform-browser": "^19.2.5",
     "@angular/platform-browser-dynamic": "^19.2.5",
     "@angular/router": "^19.2.5",
+    "chart.js": "^4.3.0",
     "d3": "^7.9.0",
+    "ng2-charts": "^8.0.0",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.15.0"
