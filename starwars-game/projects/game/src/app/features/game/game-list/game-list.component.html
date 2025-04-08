@@ -22,9 +22,11 @@
           </div>
           <div class="row">
             <div class="col-sm-12">
-              @let items = games();
-              @if(items) {
-                <game-table [games]="items"></game-table>
+              @let items = gamesComputed() | async;
+              @let itemsBis = games$ | async;
+
+              @if(itemsBis) {
+                <game-table [games]="itemsBis"></game-table>
               }
             </div>
           </div>

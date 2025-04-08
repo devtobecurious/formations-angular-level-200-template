@@ -1,6 +1,6 @@
 import { Component, computed, effect, inject, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
-import { toSignal } from '@angular/core/rxjs-interop'
+import { filter, Observable, switchMap } from 'rxjs';
+import { toSignal, toObservable } from '@angular/core/rxjs-interop'
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchStore } from 'my-search';
@@ -17,7 +17,17 @@ export class GameListComponent implements OnInit {
   private itemsSignal = toSignal(this.gameService.getAll(3)) // take(1)
   games = computed(() => this.itemsSignal()?.filter(item => item.title.startsWith(this.query() ?? '')))
 
-  // rapide demo sur construction appel api et query
+  // 0. technique avec rxjs et toSignal et toObservable
+  games$ = toObservable(this.query).pipe(
+    switchMap(filter => this.gameService.getAll()),
+    filter(items => items.length > 0)
+  )
+
+  // 1. technique signal
+  gamesComputed = computed(() => {
+    const queryResult = this.query()
+    return this.gameService.getAll()
+  })
 
   updateDomByQuery = effect(() => {
       const queryResult = this.query()
