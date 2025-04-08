@@ -9,6 +9,7 @@ export class GameService {
 
   constructor(private httpClient: HttpClient) { }
 
+  // stateless => pas de propriété dans le service
   getAll(nbItems: number = 100): Observable<GameDto[]> {
     return this.httpClient.get<GameDto[]>(api.games.url + '?max=' + nbItems);
   }

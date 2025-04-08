@@ -12,7 +12,7 @@ import { SearchStore } from 'my-search';
 })
 export class GameListComponent implements OnInit {
   private readonly searchStore = inject(SearchStore)
-  games: GameDto[] = [];
+  games: GameDto[] = []; // statefull
   searchItem = '';
 
   constructor(private gameService: GameService) { }
