@@ -4,6 +4,9 @@ import { toSignal, toObservable } from '@angular/core/rxjs-interop'
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchStore } from 'my-search';
+import { ApplicationState } from '../../../reducers';
+import { select, Store } from '@ngrx/store';
+import { selectAllGamesSelector } from '../../../reducers/games.selectors';
 
 @Component({
     selector: 'game-game-list',
@@ -36,6 +39,10 @@ export class GameListComponent implements OnInit {
 
   // games: GameDto[] = []; // statefull
   searchItem = '';
+
+
+  private readonly store = inject(Store<ApplicationState>)
+  gamesNgrx$ = this.store.pipe(select(selectAllGamesSelector))
 
   constructor(private gameService: GameService) { }
 

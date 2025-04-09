@@ -1,6 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '../../../reducers';
+import { addNewGameAction, addNewGameFromUIAction } from '../../../reducers/games.actions';
 
 @Component({
     selector: 'game-new-one',
@@ -10,6 +13,7 @@ import { TileService } from '../services/tile.service';
 })
 export class NewOneComponent implements OnInit {
   tiles: Tile[] = [];
+  private readonly store = inject(Store<ApplicationState>)
 
   constructor(private tileService: TileService) { }
 
@@ -18,4 +22,13 @@ export class NewOneComponent implements OnInit {
     .subscribe(tiles => this.tiles = tiles);
   }
 
+  addNewGame(): void {
+    // this.store.dispatch(addNewGameAction())
+    this.store.dispatch(addNewGameFromUIAction({
+      item: {
+        success: true,
+        title: 'Abe'
+      }
+    }))
+  }
 }

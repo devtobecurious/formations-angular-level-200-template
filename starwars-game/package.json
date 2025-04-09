@@ -9,11 +9,9 @@
     "johny": "echo 'ah que coucou'",
     "postjohny": "echo 'gabriel'",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-
     "build:libs:search": "ng build search --configuration production",
     "build:libs:stats": "ng build stats --configuration production",
     "build:libs": "npm run build:libs:search && npm run build:libs:stats",
-
     "prestart": "npm run build:libs",
     "start": "ng serve",
     "prebuild": "npm run build:libs",
@@ -31,6 +29,7 @@
     "@angular/platform-browser": "^19.2.5",
     "@angular/platform-browser-dynamic": "^19.2.5",
     "@angular/router": "^19.2.5",
+    "@ngrx/store": "^19.1.0",
     "chart.js": "^4.3.0",
     "d3": "^7.9.0",
     "ng2-charts": "^8.0.0",

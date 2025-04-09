@@ -9,6 +9,8 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { StatsComponent } from 'stats';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -20,7 +22,10 @@ import { StatsComponent } from 'stats';
         AppRoutingModule,
         GameModule,
         HeaderModule,
-        SideBarComponent
+        SideBarComponent,
+        StoreModule.forRoot(reducers, {
+          metaReducers
+        })
       ]
 })
 export class AppModule { }
