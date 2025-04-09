@@ -3,7 +3,7 @@ import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 import { Store } from '@ngrx/store';
 import { ApplicationState } from '../../../reducers';
-import { addNewGameAction, addNewGameFromUIAction } from '../../../reducers/games.actions';
+import { addNewGameAction, addNewGameFromUIAction } from '../store/games.actions';
 
 @Component({
     selector: 'game-new-one',

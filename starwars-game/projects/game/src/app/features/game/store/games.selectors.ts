@@ -1,5 +1,5 @@
 import { createSelector } from "@ngrx/store";
-import { ApplicationState } from ".";
+import { ApplicationState } from "../../../reducers";
 
 // 1. je choisis l'état
 const selectChildState = (state: ApplicationState) => state.games

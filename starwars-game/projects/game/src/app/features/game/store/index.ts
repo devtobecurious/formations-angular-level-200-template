@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { GameDto } from "../../../core/models/game.dto";
-import { addNewGameAction, addNewGameFromUIAction } from "../../../reducers/games.actions";
+import { addNewGameAction, addNewGameFromUIAction, setGamesListAction } from "./games.actions";
 
 //#region Dans un autre fichier
 export interface State<T> {
@@ -10,7 +10,7 @@ export interface State<T> {
 }
 //#endregion
 
-export interface GamesState extends State<GameDto> {    
+export interface GamesState extends State<GameDto> {
 }
 
 export const initialState: GamesState = {
@@ -20,7 +20,14 @@ export const initialState: GamesState = {
 
 export const gamesReducer = createReducer(
     initialState,
-    
+
+    on(setGamesListAction, (state, action) => {
+        return {
+            ...state,
+            items: action.items
+        }
+    }),
+
     on(addNewGameFromUIAction, (state, action) => {
         const gameFictif: GameDto = {
             ...action.item,

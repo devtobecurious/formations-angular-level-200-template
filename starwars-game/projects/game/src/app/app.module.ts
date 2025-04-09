@@ -11,6 +11,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { StatsComponent } from 'stats';
 import { StoreModule } from '@ngrx/store';
 import { reducers, metaReducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { GamesEffectContainer } from './features/game/store/games.effects';
 
 @NgModule({ declarations: [
         AppComponent,
@@ -25,7 +27,10 @@ import { reducers, metaReducers } from './reducers';
         SideBarComponent,
         StoreModule.forRoot(reducers, {
           metaReducers
-        })
+        }),
+        EffectsModule.forRoot([
+          GamesEffectContainer
+        ])
       ]
 })
 export class AppModule { }

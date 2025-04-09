@@ -6,7 +6,7 @@ import { GameService } from '../services/game.service';
 import { SearchStore } from 'my-search';
 import { ApplicationState } from '../../../reducers';
 import { select, Store } from '@ngrx/store';
-import { selectAllGamesSelector } from '../../../reducers/games.selectors';
+import { selectAllGamesSelector } from '../store/games.selectors';
 
 @Component({
     selector: 'game-game-list',
