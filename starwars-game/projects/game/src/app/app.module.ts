@@ -19,7 +19,8 @@ import { StatsComponent } from 'stats';
     imports: [BrowserModule,
         AppRoutingModule,
         GameModule,
-        HeaderModule
+        HeaderModule,
+        SideBarComponent
       ]
 })
 export class AppModule { }

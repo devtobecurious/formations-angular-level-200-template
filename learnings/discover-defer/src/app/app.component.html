@@ -1,0 +1,19 @@
+<div #test>Click me !</div>
+<button (click)="">Click signal</button>
+
+@defer(on interaction(test); prefetch on idle) {
+  <h1>hello</h1>
+  <app-sidebar></app-sidebar>
+
+}
+
+@defer(on interaction(test); prefetch when dataIsLoaded()) {
+  <h1>hello</h1>
+  <app-sidebar></app-sidebar>
+}
+@loading(minimum 250ms) {
+  <i>Loading ...</i>
+}
+@placeholder(minimum 500ms) {
+  <p>avant side bar et avant prefetch</p>
+}

@@ -3,4 +3,10 @@
 
 <button (click)="generate()">Gen</button>
 
+<div #greeting>Hello!</div>
+@defer (on interaction(greeting)) {
+    <game-sidebar></game-sidebar>
+}
+
+
 <router-outlet></router-outlet>
