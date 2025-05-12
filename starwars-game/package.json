@@ -8,8 +8,16 @@
     "postjohny": "echo 'gabriel'",
     "johny": "echo 'Hello, Johny!'",
 
+    "build:libs:search": "ng build search",
+    "build:libs:logs": "ng build logs",
+    "build:libs": "npm run build:libs:logs && npm run build:libs:search",
+
+    "prestart": "npm run build:libs",
     "start": "ng serve",
+
+    "prebuild": "npm run build:libs",
     "build": "ng build",
+
     "watch": "ng build --watch --configuration development",
     "test": "ng test"
   },
