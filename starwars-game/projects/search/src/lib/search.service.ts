@@ -11,6 +11,8 @@ export class SearchService {
   dispatch(query: string): void {
     const newState = { ... this.store.value, item: { value: query } }
 
+    console.info(newState)
+
     this.store.next(newState);
   }
 
