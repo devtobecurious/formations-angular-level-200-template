@@ -1,17 +1,20 @@
 import { Injectable } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
+import { initialValue, SearchState } from './store';
 
 @Injectable({
   providedIn: 'root'
 })
 export class SearchService {
-  private readonly store = new BehaviorSubject<string>('');
+  private readonly store = new BehaviorSubject<SearchState>(initialValue);
 
-  search(query: string): void {
-    this.store.next(query);
+  dispatch(query: string): void {
+    const newState = { ... this.store.value, item: { value: query } }
+
+    this.store.next(newState);
   }
 
-  get asObservable(): Observable<string> {
+  get asObservable(): Observable<SearchState> {
     return this.store.asObservable();
   }
 }
