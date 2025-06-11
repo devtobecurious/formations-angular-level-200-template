@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, inject, OnInit } from '@angular/core';
 import { map, Observable, tap } from 'rxjs';
+import { BusinessService } from '../business.service';
 
 @Component({
   selector: 'game-remind-obs',
@@ -10,31 +11,14 @@ export class RemindObsComponent  {
   // protected chat = new Promise(revolve => {
   //   console.info('miaou')
   // })
-
-  // COLD Observable
-  protected chat$ = new Observable<string>(subscriber => {
-    //console.info('miaou')
-    subscriber.next('miaou')
-
-    setTimeout(() => {
-      //console.info('maowww')
-      subscriber.next('maowww')
-      subscriber.complete()
-    }, 1000)
-  })
+  obs$ = inject(BusinessService).getOne()
 
   counter = 0
 
   ngOnInit(): void {
     console.info('-----------')
 
-    const chatMape$ = this.chat$
-    .pipe(
-      tap(item => console.info(item)), // s'exécute lors du next
-      map(item => item.toUpperCase()), // s'exécute lors du next
-    )
-
-    chatMape$.subscribe({
+    this.obs$.subscribe({
       next: item => console.info(item),
       complete: () => console.info('FIN : dodo')
     })
