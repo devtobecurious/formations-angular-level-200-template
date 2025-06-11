@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { SearchComponent } from './tools/ui/search/search.component';
+import { RemindObsComponent } from './learnings/remind-obs/remind-obs.component';
 
 
 @NgModule({
@@ -15,7 +16,8 @@ import { SearchComponent } from './tools/ui/search/search.component';
     AppComponent,
     //HeaderComponent,
     SideBarComponent,
-    SearchComponent
+    SearchComponent,
+    RemindObsComponent
   ],
   imports: [
     BrowserModule,

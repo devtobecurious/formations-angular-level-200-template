@@ -8,9 +8,16 @@ import { TileService } from '../services/tile.service';
   styleUrls: ['./new-one.component.css']
 })
 export class NewOneComponent implements OnInit {
+  protected counter = 0
   tiles: Tile[] = [];
 
   constructor(private tileService: TileService) { }
+
+  start(): void {
+    setInterval(() => {
+      this.counter ++
+    }, 1000);
+  }
 
   ngOnInit(): void {
     this.tileService.loadAll()
