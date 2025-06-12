@@ -75,11 +75,11 @@
           "builder": "@angular-devkit/build-angular:dev-server",
           "configurations": {
             "production": {
-              "browserTarget": "game:build:production"
+              "buildTarget": "game:build:production"
             },
             "development": {
-              "browserTarget": "game:build:development",
-              "proxyConfig": "projects/game/src/proxies/proxy.conf.json"
+              "proxyConfig": "projects/game/src/proxies/proxy.conf.json",
+              "buildTarget": "game:build:development"
             }
           },
           "defaultConfiguration": "development"
@@ -87,7 +87,7 @@
         "extract-i18n": {
           "builder": "@angular-devkit/build-angular:extract-i18n",
           "options": {
-            "browserTarget": "game:build"
+            "buildTarget": "game:build"
           }
         },
         "test": {
