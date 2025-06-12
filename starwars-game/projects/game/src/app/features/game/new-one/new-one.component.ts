@@ -24,7 +24,6 @@ export class NewOneComponent implements OnInit {
     this.store.dispatch(addOneGame({ item: {id: 1, success: true, title: 'FF 16'} }))
   }
 
-
   ngOnInit(): void {
     const emitClickFromButton = fromEvent(this.btnStart.nativeElement, 'click')
     emitClickFromButton.pipe(
