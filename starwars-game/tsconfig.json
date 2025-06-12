@@ -17,6 +17,9 @@
     "paths": {
       "search": [
         "dist/search"
+      ],
+      "statistics": [
+        "./dist/statistics"
       ]
     },
     "target": "ES2022",
@@ -32,5 +35,13 @@
     "strictInjectionParameters": true,
     "strictInputAccessModifiers": true,
     "strictTemplates": true
-  }
+  },
+  "references": [
+    {
+      "path": "./projects/statistics/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/statistics/tsconfig.spec.json"
+    }
+  ]
 }
