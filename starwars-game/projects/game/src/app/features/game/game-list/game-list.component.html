@@ -8,23 +8,23 @@
           <div class="row">
             <div class="col-sm-12 col-md-6">
               <div class="dataTables_length" id="dataTable_length"><label>Items <select name="dataTable_length"
-                    aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
-                    <option value="10">10</option>
-                    <option value="25">25</option>
-                    <option value="50">50</option>
-                    <option value="100">100</option>
-                  </select> parties</label></div>
+                aria-controls="dataTable" class="custom-select custom-select-sm form-control form-control-sm">
+                <option value="10">10</option>
+                <option value="25">25</option>
+                <option value="50">50</option>
+                <option value="100">100</option>
+              </select> parties</label></div>
             </div>
             <div class="col-sm-12 col-md-6">
               <div id="dataTable_filter" class="dataTables_filter"><label>Recherche:<input type="search"
-                    class="form-control form-control-sm" placeholder="" aria-controls="dataTable" [(ngModel)]="searchItem"></label></div>
+              class="form-control form-control-sm" placeholder="" aria-controls="dataTable" [(ngModel)]="searchItem"></label></div>
             </div>
           </div>
           <div class="row">
             <div class="col-sm-12">
-              <ng-container *ngIf="games$ | async as games">
+              @if (games$ | async; as games) {
                 <game-table [games]="games"></game-table>
-              </ng-container>
+              }
 
             </div>
           </div>
