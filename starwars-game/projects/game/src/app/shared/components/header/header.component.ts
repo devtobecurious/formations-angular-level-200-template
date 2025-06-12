@@ -2,9 +2,10 @@ import { Component, NgModule, OnInit } from '@angular/core';
 import { SearchModule } from 'search';
 
 @Component({
-  selector: 'game-header',
-  templateUrl: './header.component.html',
-  styleUrls: ['./header.component.css']
+    selector: 'game-header',
+    templateUrl: './header.component.html',
+    styleUrls: ['./header.component.css'],
+    standalone: false
 })
 export class HeaderComponent implements OnInit {
 

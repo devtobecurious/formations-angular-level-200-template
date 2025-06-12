@@ -4,9 +4,10 @@ import { TileService } from '../services/tile.service';
 import { concatMap, fromEvent, interval, mergeMap, Observable, switchMap, take } from 'rxjs';
 
 @Component({
-  selector: 'game-new-one',
-  templateUrl: './new-one.component.html',
-  styleUrls: ['./new-one.component.css']
+    selector: 'game-new-one',
+    templateUrl: './new-one.component.html',
+    styleUrls: ['./new-one.component.css'],
+    standalone: false
 })
 export class NewOneComponent implements OnInit {
   protected counter = 0

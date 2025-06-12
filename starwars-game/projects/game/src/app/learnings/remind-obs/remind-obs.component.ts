@@ -3,9 +3,10 @@ import { map, Observable, tap } from 'rxjs';
 import { BusinessService } from '../business.service';
 
 @Component({
-  selector: 'game-remind-obs',
-  templateUrl: './remind-obs.component.html',
-  styleUrls: ['./remind-obs.component.css']
+    selector: 'game-remind-obs',
+    templateUrl: './remind-obs.component.html',
+    styleUrls: ['./remind-obs.component.css'],
+    standalone: false
 })
 export class RemindObsComponent  {
   // protected chat = new Promise(revolve => {

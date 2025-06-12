@@ -5,9 +5,10 @@ import { GameService } from '../services/game.service';
 import { SearchService } from 'search';
 
 @Component({
-  selector: 'game-game-list',
-  templateUrl: './game-list.component.html',
-  styleUrls: ['./game-list.component.css']
+    selector: 'game-game-list',
+    templateUrl: './game-list.component.html',
+    styleUrls: ['./game-list.component.css'],
+    standalone: false
 })
 export class GameListComponent implements OnInit {
   private readonly searchService = inject(SearchService)

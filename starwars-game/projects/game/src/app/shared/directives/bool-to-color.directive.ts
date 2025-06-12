@@ -1,7 +1,8 @@
 import { Directive, ElementRef, Input } from '@angular/core';
 
 @Directive({
-  selector: '[gameBoolToColor]'
+    selector: '[gameBoolToColor]',
+    standalone: false
 })
 export class BoolToColorDirective {
   private _success = false;
