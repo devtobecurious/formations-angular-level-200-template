@@ -1,0 +1,5 @@
+<button (click)="init()">Init with fake</button>
+
+@for (item of  items$ | async; track $index) {
+  <b>{{item.firstName}}</b>
+}
