@@ -28,8 +28,8 @@ import { GetListService } from './services/get-list.service';
 })
 export class Statistics implements OnInit {
   private readonly service = inject(GetListService)
-  list = this.service.store
-  statsWithSuccess = this.service.statsWithSuccess
+  protected list = this.service.store
+  protected statsWithSuccess = this.service.statsWithSuccess
 
   ngOnInit(): void {
     this.service.addAll({ year: 2023, month: 1, nbSuccess: 10, nbFailed: 5 }, { year: 2023, month: 2, nbSuccess: 8, nbFailed: 7 })
