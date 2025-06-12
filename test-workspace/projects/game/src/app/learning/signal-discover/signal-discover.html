@@ -1,0 +1,12 @@
+@let person = employee();
+
+<p>Bonjour {{ firstName() }} </p>
+
+@if(person) {
+  <div>
+    <div class="">{{ person.firstName }}</div>
+    <div class="">{{ person.lastName }}</div>
+  </div>
+}
+
+<button (click)="getOne()">Get one</button>
