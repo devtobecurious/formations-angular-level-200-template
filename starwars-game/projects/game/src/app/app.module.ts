@@ -1,4 +1,4 @@
-import { HttpClientModule } from '@angular/common/http';
+import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 
@@ -11,22 +11,15 @@ import { SearchComponent } from './tools/ui/search/search.component';
 import { RemindObsComponent } from './learnings/remind-obs/remind-obs.component';
 
 
-@NgModule({
-  declarations: [
-    AppComponent,
-    //HeaderComponent,
-    SideBarComponent,
-    SearchComponent,
-    RemindObsComponent
-  ],
-  imports: [
-    BrowserModule,
-    AppRoutingModule,
-    HttpClientModule,
-    HeaderModule,
-    GameModule
-  ],
-  providers: [],
-  bootstrap: [AppComponent, HeaderComponent, SideBarComponent]
-})
+@NgModule({ declarations: [
+        AppComponent,
+        //HeaderComponent,
+        SideBarComponent,
+        SearchComponent,
+        RemindObsComponent
+    ],
+    bootstrap: [AppComponent, HeaderComponent, SideBarComponent], imports: [BrowserModule,
+        AppRoutingModule,
+        HeaderModule,
+        GameModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
