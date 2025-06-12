@@ -9,6 +9,8 @@ import { HeaderComponent, HeaderModule } from './shared/components/header/header
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { SearchComponent } from './tools/ui/search/search.component';
 import { RemindObsComponent } from './learnings/remind-obs/remind-obs.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers, metaReducers } from './reducers';
 
 
 @NgModule({ declarations: [
@@ -21,5 +23,8 @@ import { RemindObsComponent } from './learnings/remind-obs/remind-obs.component'
     bootstrap: [AppComponent, HeaderComponent, SideBarComponent], imports: [BrowserModule,
         AppRoutingModule,
         HeaderModule,
-        GameModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        GameModule,
+        StoreModule.forRoot(reducers, {
+      metaReducers
+    })], providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

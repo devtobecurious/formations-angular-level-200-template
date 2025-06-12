@@ -1,7 +1,10 @@
-import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Component, ElementRef, inject, OnInit, ViewChild } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 import { concatMap, fromEvent, interval, mergeMap, Observable, switchMap, take } from 'rxjs';
+import { Store } from '@ngrx/store';
+import { ApplicationState } from '../../../reducers';
+import { addOneGame } from '../store/games.actions';
 
 @Component({
     selector: 'game-new-one',
@@ -10,11 +13,16 @@ import { concatMap, fromEvent, interval, mergeMap, Observable, switchMap, take }
     standalone: false
 })
 export class NewOneComponent implements OnInit {
+  private readonly store = inject(Store<ApplicationState>)
   protected counter = 0
   tiles: Tile[] = [];
   @ViewChild('btnStart', {static: true}) btnStart !: ElementRef<HTMLButtonElement>;
 
   constructor(private tileService: TileService) { }
+
+  startOne(): void {
+    this.store.dispatch(addOneGame({ item: {id: 1, success: true, title: 'FF 16'} }))
+  }
 
 
   ngOnInit(): void {
