@@ -96,7 +96,7 @@
           "builder": "@angular/build:karma",
           "options": {
             "main": "projects/game/src/test.ts",
-            "polyfills": "projects/game/src/polyfills.ts",
+            "polyfills": ["projects/game/src/polyfills.ts"],
             "tsConfig": "projects/game/tsconfig.spec.json",
             "karmaConfig": "projects/game/karma.conf.js",
             "assets": [
