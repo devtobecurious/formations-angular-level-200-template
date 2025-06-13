@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, inject, OnInit, signal } from '@angular/core';
+import { GetListMessagesService } from '../../services/get-list-messages.service';
 
 @Component({
   selector: 'game-conversation',
@@ -6,6 +7,16 @@ import { Component } from '@angular/core';
   templateUrl: './conversation.component.html',
   styleUrl: './conversation.component.css'
 })
-export class ConversationComponent {
-  items = ['bla', 'bla bla']
+export class ConversationComponent implements OnInit {
+  private readonly service = inject(GetListMessagesService)
+  items = signal<string[]>([])
+
+  ngOnInit(): void {
+    this.service.getAll().subscribe({
+      next: (res) => {
+        this.items.set(res)
+        console.info('==> RETOUR')
+      }
+    })
+  }
 }
