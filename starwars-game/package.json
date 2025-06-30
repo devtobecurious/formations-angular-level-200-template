@@ -1,14 +1,30 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
+
+
   "scripts": {
     "tsc": "tsc",
     "ng": "ng",
-    "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
-    "prestart": "npm run start:api",
-    "start": "ng serve",
+
+    "pregabriel": "echo 'oh marie'",
+    "gabriel": "echo 'gabriel'",
+    "prejohny": "npm run gabriel",
+    "johny": "echo 'ah que que'",
+    "postjohny": "echo 'oh yeah'",
+
+    "builds:libs:search": "ng build search",
+    "builds:libs": "npm run builds:libs:search",
+
+    "prestart": "npm run build:libs",
+    "start": "ng dev -o --port=4202",
+
+    "prebuild": "npm run build:libs",
     "build": "ng build",
+
     "watch": "ng build --watch --configuration development",
+
+    "pretest": "npm run build:libs",
     "test": "ng test"
   },
   "private": true,
