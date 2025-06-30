@@ -2,6 +2,7 @@
   "name": "starwars-game",
   "version": "0.0.0",
   "scripts": {
+    "tsc": "tsc",
     "ng": "ng",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
@@ -36,6 +37,7 @@
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "ng-packagr": "^19.2.0",
     "typescript": "~5.8.3"
   }
 }
