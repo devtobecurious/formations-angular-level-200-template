@@ -3,9 +3,10 @@ import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 
 @Component({
-  selector: 'game-new-one',
-  templateUrl: './new-one.component.html',
-  styleUrls: ['./new-one.component.css']
+    selector: 'game-new-one',
+    templateUrl: './new-one.component.html',
+    styleUrls: ['./new-one.component.css'],
+    standalone: false
 })
 export class NewOneComponent implements OnInit {
   tiles: Tile[] = [];
