@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TestSearchComponent } from 'my-search';
 
@@ -9,11 +9,14 @@ import { TestSearchComponent } from 'my-search';
   styleUrl: './app.component.css'
 })
 export class AppComponent {
-  title = 'appli';
+  title = signal('appli')
+  counter = signal(0)
+  titleMaj = computed(() => this.title().toUpperCase() + '/' + this.counter())
+  titleShort = computed(() => this.titleMaj().charAt(0))
 
   ngOnInit(): void {
     setTimeout(() => {
-      this.title = 'Plouf'
+      this.title.set('Plouf')
     }, 1500);
 
   }
