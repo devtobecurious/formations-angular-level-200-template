@@ -1,4 +1,5 @@
 import { Component, NgModule, OnInit, ViewEncapsulation } from '@angular/core';
+import { RouterLink } from '@angular/router';
 import { SearchComponent } from 'search';
 
 @Component({
