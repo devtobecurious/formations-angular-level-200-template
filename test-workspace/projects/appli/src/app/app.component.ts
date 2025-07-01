@@ -10,4 +10,11 @@ import { TestSearchComponent } from 'my-search';
 })
 export class AppComponent {
   title = 'appli';
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.title = 'Plouf'
+    }, 1500);
+
+  }
 }
