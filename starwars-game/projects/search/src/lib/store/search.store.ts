@@ -1,4 +1,4 @@
-import { Injectable } from '@angular/core';
+import { computed, Injectable, signal } from '@angular/core';
 import { BehaviorSubject, Observable } from 'rxjs';
 import { initialValue, SearchState } from '.';
 
@@ -6,14 +6,14 @@ import { initialValue, SearchState } from '.';
   providedIn: 'root'
 })
 export class SearchStore {
-  private readonly store = new BehaviorSubject<SearchState>(initialValue)
+  private readonly store = signal<SearchState>(initialValue)
 
   dispatch(item: string): void {
-    this.store.next({item})
+    this.store.set({item})
   }
 
-  get asObservable(): Observable<SearchState> {
-    return this.store.asObservable()
+  get format() {
+    return computed(() => this.store().item?.toUpperCase())
   }
 
 }

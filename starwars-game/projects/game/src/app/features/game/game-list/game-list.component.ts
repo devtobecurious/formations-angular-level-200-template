@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Component, inject, OnInit } from '@angular/core';
+import { debounceTime, distinctUntilChanged, Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
+import { SearchStore } from 'search';
+import {toObservable} from '@angular/core/rxjs-interop'
 
 @Component({
     selector: 'game-game-list',
@@ -11,12 +13,19 @@ import { GameService } from '../services/game.service';
 })
 export class GameListComponent implements OnInit {
   games: GameDto[] = [];
+  private readonly searchStore = inject(SearchStore)
+  protected search$ = toObservable(this.searchStore.format)
   searchItem = '';
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    this.search$.pipe(
+      debounceTime(200),
+      distinctUntilChanged(),
+      switchMap(state => this.gameService.getAll(state!, 3))
+    ).subscribe(items => this.games = items)
+
   }
 
 }
