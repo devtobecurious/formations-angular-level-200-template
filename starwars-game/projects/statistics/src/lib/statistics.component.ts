@@ -19,4 +19,9 @@ import { AsyncPipe } from '@angular/common';
 export class StatisticsComponent {
   private readonly store = inject(StatisticsStore)
   items$ = this.store.asObservable
+
+  ngOnInit(): void {
+
+
+  }
 }
