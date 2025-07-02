@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  killAngular() {
+    setTimeout(() => {
+      console.info('coucou ??')
+    }, 0);
+  }
 }
