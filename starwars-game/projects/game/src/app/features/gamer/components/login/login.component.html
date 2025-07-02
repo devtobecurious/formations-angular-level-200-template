@@ -1,0 +1,5 @@
+@let isAuth = isAuthenticated();
+
+@if(! isAuth) {
+  <button (click)="login()">Login</button>
+}
