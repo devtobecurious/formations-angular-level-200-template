@@ -10,6 +10,8 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
 import { ObsPromComponent } from './learnings/obs-prom/obs-prom.component';
 import { StoreModule } from '@ngrx/store';
 import { reducers } from './reducers';
+import { EffectsModule } from '@ngrx/effects';
+import { GamesEffect } from './features/game/store/games.effects';
 
 
 @NgModule({
@@ -24,7 +26,8 @@ import { reducers } from './reducers';
         HeaderModule,
         GameModule,
         ObsPromComponent,
-        StoreModule.forRoot(reducers)
+        StoreModule.forRoot(reducers),
+        EffectsModule.forRoot([GamesEffect])
       ],
     providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

@@ -3,6 +3,7 @@ import { select, Store } from '@ngrx/store';
 import { ApplicationState } from 'projects/game/src/app/reducers';
 import { isAuthenticated, selectProfilGamer } from '../../store/user.selectors';
 import { authGamer } from '../../store/user.actions';
+import { requestToGetListOfGamesAction } from '../../../game/store/games.actions';
 
 @Component({
   selector: 'game-login',
@@ -17,5 +18,6 @@ export class LoginComponent {
 
   login(): void {
     this.store.dispatch(authGamer())
+    this.store.dispatch(requestToGetListOfGamesAction())
   }
 }

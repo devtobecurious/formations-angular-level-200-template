@@ -1,6 +1,6 @@
 import { createReducer, on } from "@ngrx/store";
 import { GameDto } from "../../../core/models/game.dto";
-import { addNewGameAction } from "./games.actions";
+import { addNewGameAction, setListGamesAction } from "./games.actions";
 
 export interface GamesState {
   items : GameDto[]
@@ -21,5 +21,11 @@ export const gamesReducer = createReducer(
     }
 
     return newVersionOfState
+  }),
+
+  on(setListGamesAction, (state, action) => {
+    return {
+      items: [...action.items]
+    }
   })
 )
