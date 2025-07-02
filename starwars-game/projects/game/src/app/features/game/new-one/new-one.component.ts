@@ -20,6 +20,10 @@ export class NewOneComponent implements OnInit {
 
   constructor(private tileService: TileService) { }
 
+  test(): number {
+   return 1
+  }
+
   ngOnInit(): void {
     // const element = this.startButton()?.nativeElement
     // if(element) {

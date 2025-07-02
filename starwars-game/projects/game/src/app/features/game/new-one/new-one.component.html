@@ -1,4 +1,6 @@
 @let counter = timer$ | async;
 
+{{ test() }}
+
 <button #btnStart (click)="startNewOne()">Start</button> {{counter}}
 <game-grid [tiles]="tiles"></game-grid>
