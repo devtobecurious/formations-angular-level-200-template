@@ -1,10 +1,11 @@
 import { Component, computed, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { TestSearchComponent } from 'my-search';
+import { ChildComponent } from '../child/child.component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, TestSearchComponent],
+  imports: [RouterOutlet, TestSearchComponent, ChildComponent],
   templateUrl: './app.component.html',
   styleUrl: './app.component.css'
 })
