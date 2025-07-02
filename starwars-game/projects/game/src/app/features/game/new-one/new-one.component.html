@@ -1,4 +1,4 @@
 @let counter = timer$ | async;
 
-<button #btnStart>Start</button> {{counter}}
+<button #btnStart (click)="startNewOne()">Start</button> {{counter}}
 <game-grid [tiles]="tiles"></game-grid>

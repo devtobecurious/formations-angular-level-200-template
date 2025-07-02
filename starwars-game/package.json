@@ -1,29 +1,21 @@
 {
   "name": "starwars-game",
   "version": "0.0.0",
-
-
   "scripts": {
     "tsc": "tsc",
     "ng": "ng",
-
     "pregabriel": "echo 'oh marie'",
     "gabriel": "echo 'gabriel'",
     "prejohny": "npm run gabriel",
     "johny": "echo 'ah que que'",
     "postjohny": "echo 'oh yeah'",
-
     "builds:libs:search": "ng build search",
     "builds:libs": "npm run builds:libs:search",
-
     "prestart": "npm run build:libs",
     "start": "ng dev -o --port=4202",
-
     "prebuild": "npm run build:libs",
     "build": "ng build",
-
     "watch": "ng build --watch --configuration development",
-
     "pretest": "npm run build:libs",
     "test": "ng test"
   },
@@ -37,6 +29,7 @@
     "@angular/platform-browser": "^19.2.14",
     "@angular/platform-browser-dynamic": "^19.2.14",
     "@angular/router": "^19.2.14",
+    "@ngrx/store": "^19.2.1",
     "rxjs": "^7.8.0",
     "tslib": "^2.1.0",
     "zone.js": "~0.15.1"

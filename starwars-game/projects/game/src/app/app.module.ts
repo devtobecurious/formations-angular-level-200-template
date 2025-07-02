@@ -8,6 +8,8 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent, HeaderModule } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { ObsPromComponent } from './learnings/obs-prom/obs-prom.component';
+import { StoreModule } from '@ngrx/store';
+import { reducers } from './reducers';
 
 
 @NgModule({
@@ -21,7 +23,8 @@ import { ObsPromComponent } from './learnings/obs-prom/obs-prom.component';
         AppRoutingModule,
         HeaderModule,
         GameModule,
-        ObsPromComponent
+        ObsPromComponent,
+        StoreModule.forRoot(reducers)
       ],
     providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }
