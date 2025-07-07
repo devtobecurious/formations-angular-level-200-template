@@ -1,6 +1,6 @@
 import { Component, inject } from '@angular/core';
 import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
-import { SearchStoreService } from './services/search-store.service';
+import { SearchStoreService } from '../services/search-store.service';
 
 @Component({
   selector: 'game-search-bar',

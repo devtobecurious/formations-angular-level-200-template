@@ -1,5 +1,5 @@
 import { Component, NgModule, OnInit } from '@angular/core';
-import { SearchBarComponent } from '../../libs/uis/search-bar/search-bar.component';
+import { SearchBarComponent } from 'search';
 
 @Component({
     selector: 'game-header',
