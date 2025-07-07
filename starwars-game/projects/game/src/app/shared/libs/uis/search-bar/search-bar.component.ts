@@ -1,16 +1,21 @@
-import { Component } from '@angular/core';
-import { FormsModule } from '@angular/forms';
+import { Component, inject } from '@angular/core';
+import { FormBuilder, FormsModule, ReactiveFormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'game-search-bar',
-  imports: [FormsModule],
+  imports: [ReactiveFormsModule],
   templateUrl: './search-bar.component.html',
   styleUrl: './search-bar.component.css'
 })
 export class SearchBarComponent {
-  value = '<nouvelle valeur>'
+  //value = '<nouvelle valeur>'
+  private readonly formBuilder = inject(FormBuilder)
+
+  protected readonly frmSearch = this.formBuilder.group({
+    search: ['', Validators.required]
+  })
 
   search(): void {
-    console.log(this.value);
+    console.log(this.frmSearch.value.search);
   }
 }
