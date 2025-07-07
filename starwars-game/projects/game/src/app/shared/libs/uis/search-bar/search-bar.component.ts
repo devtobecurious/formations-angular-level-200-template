@@ -11,11 +11,13 @@ export class SearchBarComponent {
   //value = '<nouvelle valeur>'
   private readonly formBuilder = inject(FormBuilder)
 
-  protected readonly frmSearch = this.formBuilder.group({
-    search: ['', Validators.required]
+  protected readonly frmSearch = this.formBuilder.nonNullable.group({
+    search: ['', [Validators.required,  Validators.minLength(3)]],
   })
 
   search(): void {
-    console.log(this.frmSearch.value.search);
+    if(this.frmSearch.valid) {
+      console.log(this.frmSearch.value.search);
+    }
   }
 }
