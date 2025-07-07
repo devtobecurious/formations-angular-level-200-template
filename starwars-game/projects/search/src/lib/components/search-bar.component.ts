@@ -19,7 +19,7 @@ export class SearchBarComponent {
 
   search(): void {
     if(this.frmSearch.valid) {
-      this.searchStore.dispatch(this.frmSearch.value.search!);
+      this.searchStore.dispatch({ item: this.frmSearch.value.search!});
     }
   }
 }

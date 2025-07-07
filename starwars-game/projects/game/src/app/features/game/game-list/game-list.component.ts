@@ -2,7 +2,7 @@ import { Component, inject, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
-import { SearchStoreService } from '../../../shared/libs/uis/search-bar/services/search-store.service';
+import { SearchStoreService } from 'search';
 
 @Component({
     selector: 'game-game-list',
@@ -21,7 +21,7 @@ export class GameListComponent implements OnInit {
     this.gameService.getAll(3).subscribe(items => this.games = items);
 
     this.searchStore.asObservable.subscribe({
-      next: (value) => console.log(value)
+      next: (state) => console.log(state?.item)
     })
   }
 
