@@ -1,19 +1,34 @@
 "use strict";
-class Wookiee {
-    constructor(unicMoment) {
-        this.name = '';
-        this.name = unicMoment;
-    }
-    scream() { }
-}
-const wookiee = new Wookiee('Chewbacca');
-function displayName(item) {
-    console.log(item.name);
-}
-const wookiee2 = {
-    name: 'Han Solo'
-};
-const wookiee3 = {
-    name: 'C3PO'
-};
-displayName(wookiee3);
+Object.defineProperty(exports, "__esModule", { value: true });
+//  const wookiee = new Wookiee('Chewbacca');
+// // wookiee.name = 'Chewbacca';
+// // type WithName = {
+// //     name: string;
+// // }
+// interface WithName {
+//     name: string;    
+// }
+// class Jedi implements WithName { 
+//     name: string;
+//     constructor(name: string) {
+//         this.name = name;
+//     }
+// }
+// type WithSurname = {
+//     surname: string;
+// }
+// type Person = WithName & WithSurname | undefined;
+// const myPerson: Person = {
+//     name: 'John',
+//     surname: 'Doe'
+// }
+// function displayName(item: WithName) {
+//     console.log(item.name);
+// }
+// const wookiee2: WithName = {
+//     name: 'Han Solo'
+// }
+// const wookiee3 = {
+//     name: 'C3PO'
+// }
+// displayName(wookiee3);

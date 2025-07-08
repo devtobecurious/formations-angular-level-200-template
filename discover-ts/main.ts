@@ -1,52 +1,45 @@
- class Wookiee {
-     constructor(unicMoment: string) {
-        this.name = unicMoment;
-     }
-     name = ''
+import { Wookiee } from './wookiee';
 
-     scream() {}
- }
+//  const wookiee = new Wookiee('Chewbacca');
+// // wookiee.name = 'Chewbacca';
 
- const wookiee = new Wookiee('Chewbacca');
-// wookiee.name = 'Chewbacca';
+// // type WithName = {
+// //     name: string;
+// // }
 
-// type WithName = {
-//     name: string;
+// interface WithName {
+//     name: string;    
 // }
 
-interface WithName {
-    name: string;    
-}
+// class Jedi implements WithName { 
+//     name: string;
+//     constructor(name: string) {
+//         this.name = name;
+//     }
+// }
 
-class Jedi implements WithName { 
-    name: string;
-    constructor(name: string) {
-        this.name = name;
-    }
-}
+// type WithSurname = {
+//     surname: string;
+// }
+// type Person = WithName & WithSurname | undefined;
+// const myPerson: Person = {
+//     name: 'John',
+//     surname: 'Doe'
+// }
 
-type WithSurname = {
-    surname: string;
-}
-type Person = WithName & WithSurname | undefined;
-const myPerson: Person = {
-    name: 'John',
-    surname: 'Doe'
-}
+// function displayName(item: WithName) {
+//     console.log(item.name);
+// }
 
-function displayName(item: WithName) {
-    console.log(item.name);
-}
+// const wookiee2: WithName = {
+//     name: 'Han Solo'
+// }
 
-const wookiee2: WithName = {
-    name: 'Han Solo'
-}
+// const wookiee3 = {
+//     name: 'C3PO'
+// }
 
-const wookiee3 = {
-    name: 'C3PO'
-}
-
-displayName(wookiee3);
+// displayName(wookiee3);
 
 
 
