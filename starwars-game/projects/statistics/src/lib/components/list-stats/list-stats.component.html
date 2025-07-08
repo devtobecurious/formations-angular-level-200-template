@@ -1,0 +1,12 @@
+@let items = items$ | async;
+
+@if (items) {
+  <ul>
+    @for (item of items; track item) {
+      <li>{{ item.year }} - {{ item.month }} - {{ item.nbSuccess }} - {{ item.nbFailures }}</li>
+    }
+    @empty {
+      <li>No items</li>
+    }
+  </ul>
+}
