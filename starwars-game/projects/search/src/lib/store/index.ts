@@ -1,8 +1,8 @@
-export interface SearchState {
-  item: string,
-  error ?: unknown
-}
+import { State } from "core-libs";
 
-export const initialState: SearchState = {
-  item: ''
-}
+ export interface SearchState extends State<string> {
+ }
+
+ export const initialState: SearchState = {
+   item: ''
+ }

@@ -15,6 +15,9 @@
     "moduleResolution": "node",
     "importHelpers": true,
     "paths": {
+      "core-libs": [
+        "./dist/core-libs"
+      ],
       "search": [
         "./dist/search"
       ]

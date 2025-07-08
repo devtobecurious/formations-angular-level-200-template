@@ -8,8 +8,9 @@
     "johny": "echo 'johny'",
     "postjohny": "echo 'ah que que'",
 
+    "build:libs:core-libs": "ng build core-libs",
     "build:libs:search": "ng build search",
-    "build:libs": "npm run build:libs:search",
+    "build:libs": "npm run build:libs:core-libs && npm run build:libs:search",
 
     "prestart": "npm run build:libs",
     "start": "ng serve",
