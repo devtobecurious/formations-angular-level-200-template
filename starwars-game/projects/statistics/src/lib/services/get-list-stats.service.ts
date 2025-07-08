@@ -4,7 +4,7 @@ import { delay, Observable, of } from 'rxjs';
 import { StatisticList } from '../models/statistic';
 
 @Injectable({
-  providedIn: ListStatsComponent
+  providedIn: null
 })
 export class GetListStatsService {
   getAll(): Observable<StatisticList> {
