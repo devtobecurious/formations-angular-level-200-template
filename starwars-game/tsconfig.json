@@ -23,6 +23,9 @@
       ],
       "statistics": [
         "./dist/statistics"
+      ],
+      "tools": [
+        "./dist/tools"
       ]
     },
     "target": "ES2022",

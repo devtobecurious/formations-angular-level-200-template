@@ -3,6 +3,7 @@ import { GetListStatsService } from '../../services/get-list-stats.service';
 import { AsyncPipe } from '@angular/common';
 import { StatisticList } from '../../models/statistic';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
+import { Logger } from 'tools';
 
 @Component({
   selector: 'lib-list-stats',
@@ -12,6 +13,7 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 //  providers: [GetListStatsService]
 })
 export class ListStatsComponent implements OnInit {
+  private readonly logger = inject(Logger)
   private readonly getListStatsService = inject(GetListStatsService)
   private readonly items$ = this.getListStatsService.getAll()
   protected items: StatisticList | undefined
@@ -24,6 +26,7 @@ export class ListStatsComponent implements OnInit {
     .subscribe({
       next: itemsFromService => {
         this.items = itemsFromService
+        this.logger.log({message: 'Items fetched', level: 'info', timestamp: new Date()})
       }
     })
   }

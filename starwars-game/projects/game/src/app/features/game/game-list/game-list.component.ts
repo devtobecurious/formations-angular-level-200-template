@@ -3,6 +3,7 @@ import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchStoreService } from 'search';
+import { Logger } from 'tools';
 
 @Component({
     selector: 'game-game-list',
@@ -14,11 +15,14 @@ export class GameListComponent implements OnInit {
   games: GameDto[] = [];
   searchItem = '';
   private readonly searchStore = inject(SearchStoreService)
+  private readonly logger = inject(Logger)
 
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
     this.gameService.getAll(3).subscribe(items => this.games = items);
+
+    this.logger.log({message: 'Games fetched', level: 'info', timestamp: new Date()})
 
     this.searchStore.asObservable.subscribe({
       next: (state) => console.log(state?.item)
