@@ -6,6 +6,7 @@ import { changeStateCell, TileCell } from '../models';
     templateUrl: './cell.component.html',
     styleUrls: ['./cell.component.css'],
     encapsulation: ViewEncapsulation.None,
+    changeDetection: ChangeDetectionStrategy.OnPush,
     standalone: false
 })
 export class CellComponent implements OnInit {
