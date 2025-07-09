@@ -32,6 +32,7 @@ export class ObsPromiseComponent {
      //filter(item => item % 2 === 0),
      map(item => item * 2),
      map(item => item * 10),
+     map(item => item.toString()),
    shareReplay(1),
     takeUntilDestroyed()
   )

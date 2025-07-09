@@ -9,7 +9,7 @@ export class GameService {
 
   constructor(private httpClient: HttpClient) { }
 
-  getAll(nbItems: number = 100): Observable<GameDto[]> {
+  getAll(filter = '', nbItems: number = 100): Observable<GameDto[]> {
     return this.httpClient.get<GameDto[]>(api.games.url + '?max=' + nbItems);
   }
 }

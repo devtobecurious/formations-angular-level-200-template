@@ -1,5 +1,5 @@
 import { Component, inject, OnInit } from '@angular/core';
-import { debounceTime, distinctUntilChanged, filter, Observable } from 'rxjs';
+import { debounceTime, distinctUntilChanged, filter, map, Observable, switchMap } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
 import { SearchStoreService } from 'search';
@@ -20,28 +20,33 @@ export class GameListComponent implements OnInit {
   constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    const obs = this.gameService.getAll(3)
+    const parent$ = this.searchStore.asObservable
 
-    obs.subscribe(items => this.games = items);
+    parent$.pipe(
+      switchMap(state => this.gameService.getAll(state?.item, 3)),
+      // map(items => items.map(item => item.title)),
+      // filter(items => items.length > 0)
+    ).subscribe(items => this.games = items);
+
+    //obs.subscribe(items => this.games = items);
 
     this.logger.log({message: 'Games fetched', level: 'info', timestamp: new Date()})
 
-    this.searchStore.asObservable
-    .pipe(
-      filter(state => {
-        let isOk = false
+    // .pipe(
+    //   filter(state => {
+    //     let isOk = false
 
-        if(state && state.item) {
-          isOk = state.item.trim().length > 0
-        }
+    //     if(state && state.item) {
+    //       isOk = state.item.trim().length > 0
+    //     }
 
-        return isOk
-      }),
-      distinctUntilChanged((a, b) => a?.item === b?.item)
-    )
-    .subscribe({
-      next: (state) => console.log(state?.item)
-    })
+    //     return isOk
+    //   }),
+    //   distinctUntilChanged((a, b) => a?.item === b?.item)
+    // )
+    // .subscribe({
+    //   next: (state) => console.log(state?.item)
+    // })
   }
 
 }
