@@ -1,7 +1,7 @@
 import { AsyncPipe } from '@angular/common';
 import { Component } from '@angular/core';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { filter, map, Observable } from 'rxjs';
+import { filter, map, Observable, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'game-obs-promise',
@@ -11,23 +11,28 @@ import { filter, map, Observable } from 'rxjs';
 })
 export class ObsPromiseComponent {
 
-  private readonly list = [1, 2, 3, 4, 5, 6, 7, 8, 9, 10]
+  private readonly list = [1, 2, 3]
   protected readonly numbers$ = new Observable<number>(observer => {
     // for (let i = 0; i < 10; i++) {
     //   observer.next(i)
     // }
+    console.info('0. OBS')
+
     let counter = 1
-    this.list.forEach(item => {
-      setTimeout(() => {
-        observer.next(item)
-        //observer.complete()
-      }, counter++ * 1000)
-    })
-    // observer.next(10)
+
+    observer.next(1)
+    observer.next(2)
+    observer.next(3)
+    observer.next(4)
+    observer.next(5)
+    observer.next(6)
+    observer.next(7)
+    observer.next(8)
   }).pipe(
-    filter(item => item % 2 === 0),
-    map(item => item * 2),
-    map(item => item * 10),
+     //filter(item => item % 2 === 0),
+     map(item => item * 2),
+     map(item => item * 10),
+   shareReplay(1),
     takeUntilDestroyed()
   )
 
@@ -38,6 +43,16 @@ export class ObsPromiseComponent {
        next: (item) => console.info('O, retour:', item),
        complete: () => console.info('O, complete')
      })
+
+     this.numbers$.subscribe({
+      next: (item) => console.info('1, retour:', item),
+       complete: () => console.info('2, complete')
+     })
+
+    //  this.numbers$.subscribe({
+    //   next: (item) => console.info('O, retour:', item),
+    //   complete: () => console.info('O, complete')
+    // })
 
 
     // console.info('SYNC')
