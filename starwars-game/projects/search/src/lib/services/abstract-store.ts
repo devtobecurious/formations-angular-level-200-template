@@ -1,4 +1,4 @@
-import { BehaviorSubject } from "rxjs";
+import { BehaviorSubject, debounceTime, filter } from "rxjs";
 
 export abstract class AbstractStoreService<T> {
   private readonly store$ = new BehaviorSubject<T | undefined>(undefined);
@@ -8,6 +8,9 @@ export abstract class AbstractStoreService<T> {
   }
 
   get asObservable() {
-    return this.store$.asObservable();
+    return this.store$.asObservable()
+    .pipe(
+      debounceTime(200)
+    )
   }
 }

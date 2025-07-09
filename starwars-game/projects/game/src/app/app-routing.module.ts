@@ -3,6 +3,7 @@ import { NoPreloading, PreloadAllModules, RouterModule, Routes } from '@angular/
 import { GameListComponent } from './features/game/game-list/game-list.component';
 import { NewOneComponent } from './features/game/new-one/new-one.component';
 import { CustomPreloadingStrategy } from './custom-preloading-modules';
+import { ObsPromiseComponent } from './learnings/obs-promise/obs-promise.component';
 
 const routes: Routes = [{
   path: 'games',
@@ -11,6 +12,10 @@ const routes: Routes = [{
 {
   path: 'new-game',
   component: NewOneComponent
+},
+{
+  path: 'obs-promise',
+  component: ObsPromiseComponent
 },
 {
   path: 'statistics',
