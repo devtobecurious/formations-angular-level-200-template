@@ -1,0 +1,17 @@
+@let gamer = gamerSignal();
+@let notPlayedvideoGames = notPlayedvideoGamesSignal();
+
+<h1>{{ gamer.name }}</h1>
+
+@if(pegi13()) {
+  <p>Vous êtes majeur, vous pouvez jouer à {{ notPlayedvideoGames }} jeux</p>
+} @else {
+  <p>Vous êtes mineur, vous ne pouvez jouer à aucun jeu</p>
+}
+
+<ul>
+  @for (game of notPlayedvideoGames; track game.title) {
+    <li>{{ game.title }}</li>
+  }
+</ul>
+
