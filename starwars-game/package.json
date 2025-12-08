@@ -3,11 +3,16 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
+    "prejohny": "echo 'Preparing to greet Johny...'",
+    "johny": "echo 'Hello Johny! Welcome to the Star Wars Game!'",
+    "postjohny": "echo 'Greeted Johny successfully.'",
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
     "prestart": "npm run start:api",
-    "start": "ng serve",
+    "start": "ng serve --port=4201 -o",
+    "prebuild": "npm run test",
     "build": "ng build",
     "watch": "ng build --watch --configuration development",
+    "pretest": "npm run lint",
     "test": "ng test"
   },
   "private": true,
