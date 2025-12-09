@@ -56,7 +56,6 @@
                   "replace": "projects/game/src/environments/environment.ts",
                   "with": "projects/game/src/environments/environment.prod.ts"
                 },
-
                 {
                   "replace": "projects/game/src/environments/api.ts",
                   "with": "projects/game/src/environments/api.prod.ts"
@@ -107,6 +106,39 @@
               "projects/game/src/styles.css"
             ],
             "scripts": []
+          }
+        }
+      }
+    },
+    "search-bar": {
+      "projectType": "library",
+      "root": "projects/search-bar",
+      "sourceRoot": "projects/search-bar/src",
+      "prefix": "pfd",
+      "architect": {
+        "build": {
+          "builder": "@angular-devkit/build-angular:ng-packagr",
+          "options": {
+            "project": "projects/search-bar/ng-package.json"
+          },
+          "configurations": {
+            "production": {
+              "tsConfig": "projects/search-bar/tsconfig.lib.prod.json"
+            },
+            "development": {
+              "tsConfig": "projects/search-bar/tsconfig.lib.json"
+            }
+          },
+          "defaultConfiguration": "production"
+        },
+        "test": {
+          "builder": "@angular-devkit/build-angular:karma",
+          "options": {
+            "tsConfig": "projects/search-bar/tsconfig.spec.json",
+            "polyfills": [
+              "zone.js",
+              "zone.js/testing"
+            ]
           }
         }
       }
