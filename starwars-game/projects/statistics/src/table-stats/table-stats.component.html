@@ -1,0 +1,17 @@
+@let stats = statsList();
+
+@if(stats && stats.length > 0) {
+<h1>Statistics</h1>
+
+
+@for (item of stats; track item) {
+<div>
+  <strong>{{ item.month }}/{{ item.year }} :</strong>
+  <span>Success: {{ item.nbSuccess }}</span> |
+  <span>Fail: {{ item.nbFail }}</span>
+</div>
+}
+@empty {
+<i> Aucune donnée trouvée</i>
+}
+}

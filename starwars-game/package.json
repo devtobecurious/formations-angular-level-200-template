@@ -3,7 +3,7 @@
   "version": "0.0.0",
   "scripts": {
     "ng": "ng",
-    "build:libs": "ng build search-bar",
+    "build:libs": "ng build search-bar && ng build statistics",
     "prejohny": "echo 'Preparing to greet Johny...'",
     "johny": "echo 'Hello Johny! Welcome to the Star Wars Game!'",
     "postjohny": "echo 'Greeted Johny successfully.'",
