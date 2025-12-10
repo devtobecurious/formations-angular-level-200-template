@@ -1,0 +1,7 @@
+@let videoGames = videoGamesSignal();
+
+<select>
+  @for(videoGame of videoGames; track videoGame.fakeId) {
+  <option value="{{ videoGame.fakeId }}">{{ videoGame.title }}</option>
+  }
+</select>
