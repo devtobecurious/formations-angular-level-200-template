@@ -6,3 +6,4 @@ export type ProfileContainer = {
 }
 
 export const createProfileAction = createAction('[UI] -> create a profile with api', props<ProfileContainer>());
+export const createProfileConfirmedAction = createAction('[EFFECT-API] -> create a profile with api', props<ProfileContainer>());

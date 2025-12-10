@@ -1,0 +1,8 @@
+@let isLoading = isLoadingSignal();
+@let profile = writableSignal();
+
+@if(isLoading) {
+<p>Loading profile...</p>
+} @else {
+<input type="text" value="{{ profile?.name }}" />
+}
