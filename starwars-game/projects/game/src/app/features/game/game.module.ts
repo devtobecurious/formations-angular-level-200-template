@@ -15,10 +15,9 @@ import { NewOneComponent } from './new-one/new-one.component';
 @NgModule({
   declarations: [
     //GameListComponent,
-    BoolToTextPipe,
-    BoolToColorDirective,
+
     //GameTableComponent,
-    GameRowComponent,
+    //GameRowComponent,
     NewOneComponent
   ],
   imports: [

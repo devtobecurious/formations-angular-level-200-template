@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, shareReplay } from 'rxjs';
 
 @Component({
   selector: 'game-obs-promise',
@@ -9,7 +9,7 @@ import { Observable } from 'rxjs';
 })
 export class ObsPromiseComponent {
     private readonly obs$ = new Observable(observer => {
-      observer.next('Hello');
+      observer.next('Hello' + Math.random() * 100);
       // setTimeout(() => {
       //   observer.next('Ca va ?');
       //   observer.complete();
@@ -19,12 +19,21 @@ export class ObsPromiseComponent {
       //   observer.next('Ca va ?');
       // }, 1000);
 
-      observer.next('Et toi ?');
+      //observer.next('Et toi ?');
 
       console.info('Observable completed', Math.random() * 100);
-    });
+    }).pipe(
+      shareReplay(1)
+    );
 
   ngOnInit(): void {
+    this.obs$.subscribe({
+      next: value => console.log('1. Value from observable', value),
+    });
+     this.obs$.subscribe({
+      next: value => console.log('2. Value2 from observable', value),
+    });
+
     console.info('-----------');
 
     setTimeout(() => {
@@ -39,9 +48,7 @@ export class ObsPromiseComponent {
    // promise.then (value => console.info('Promise then', value));
 
 
-    this.obs$.subscribe({
-      next: value => console.log('Value from observable', value),
-    });
+
     // obs$.subscribe();
 
 

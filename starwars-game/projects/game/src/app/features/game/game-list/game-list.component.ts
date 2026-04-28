@@ -5,6 +5,9 @@ import { GameService } from '../services/game.service';
 import { SearchBarStore, SearchItemState } from 'search-bar';
 import { CommonModule } from '@angular/common';
 import { GameTableComponent } from '../game-table/game-table.component';
+import { GameRowComponent } from '../game-row/game-row.component';
+import { BoolToColorDirective } from '../../../shared/directives/bool-to-color.directive';
+import { BoolToTextPipe } from '../../../shared/pipes/bool-to-text.pipe';
 
 @Component({
     selector: 'game-game-list',
@@ -32,7 +35,10 @@ export class GameListComponent {// implements OnInit {
 @NgModule({
   declarations: [
     GameListComponent,
-    GameTableComponent
+    GameTableComponent,
+    GameRowComponent,
+    BoolToTextPipe,
+    BoolToColorDirective,
   ],
   imports: [
     CommonModule
