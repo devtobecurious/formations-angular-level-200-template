@@ -1,6 +1,6 @@
 import { TestBed } from '@angular/core/testing';
 
-import { SearchBarService } from './search-bar.service';
+import { SearchBarService } from './search-bar.store';
 
 describe('SearchBarService', () => {
   let service: SearchBarService;
