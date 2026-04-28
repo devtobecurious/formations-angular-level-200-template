@@ -11,7 +11,7 @@
     "start:api": "pm2 restart ../api/long-api/game-api/bin/www",
 
     "prestart": "npm run build:libs",
-    "start": "ng serve -o --port=4201",
+    "start": "ng serve game -o --port=4201",
 
     "build:libs:search-bar": "ng build search-bar",
     "build:libs": "npm run build:libs:search-bar",

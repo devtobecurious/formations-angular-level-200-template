@@ -8,6 +8,7 @@ import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
 import { DesignSystemComponent } from 'design-system';
+import { ObsPromiseComponent } from './learnings/obs-promise/obs-promise.component';
 
 
 @NgModule({
@@ -21,6 +22,7 @@ import { DesignSystemComponent } from 'design-system';
     BrowserModule,
     AppRoutingModule,
     GameModule,
+    ObsPromiseComponent,
     DesignSystemComponent
   ],
   providers: [provideHttpClient(withInterceptorsFromDi())]
