@@ -11,6 +11,7 @@ const routes: Routes = [
 },
 {
   path: 'new-game',
+  canActivate: [],
   loadComponent: () => import('./features/game/new-one/new-one.component').then(m => m.NewOneComponent)
 },
 {
