@@ -1,0 +1,9 @@
+@let dataLoading =  data$ | async;
+
+@if(dataLoading && dataLoading.loading) {
+  <p>Loading...</p>
+}
+
+@if(dataLoading && dataLoading.error) {
+  <p>Error: {{dataLoading.error}}</p>
+}

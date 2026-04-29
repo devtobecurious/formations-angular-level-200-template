@@ -13,8 +13,9 @@
     "prestart": "npm run build:libs",
     "start": "ng serve game -o --port=4201",
 
+    "build:libs:stats": "ng build statistics",
     "build:libs:search-bar": "ng build search-bar",
-    "build:libs": "npm run build:libs:search-bar",
+    "build:libs": "npm run build:libs:search-bar && npm run build:libs:stats",
 
     "prebuild": "npm run build:libs",
     "build": "ng build game",

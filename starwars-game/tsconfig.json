@@ -10,6 +10,9 @@
       ],
       "search-bar": [
         "./dist/search-bar"
+      ],
+      "statistics": [
+        "./dist/statistics"
       ]
     },
     "forceConsistentCasingInFileNames": true,
