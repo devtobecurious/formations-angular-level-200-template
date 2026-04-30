@@ -3,6 +3,7 @@ import { PreloadAllModules, RouterModule, Routes } from '@angular/router';
 import { GameListComponent } from './features/game/game-list/game-list.component';
 import { NewOneComponent } from './features/game/new-one/new-one.component';
 import { CustomPreloadRouting } from './shared/core/routing/custom-preload-routing';
+import { usersRoutes } from './features/backoffice/users/users.routes';
 
 const routes: Routes = [
   {
@@ -21,6 +22,10 @@ const routes: Routes = [
   data: {
     preload: true
   }
+},
+{
+  path: 'users',
+  children: usersRoutes
 }
 ];
 

@@ -1,0 +1,18 @@
+@let loading = userListResource.isLoading();
+@let errors = userListResource.error();
+@let users = userListResource.value();
+
+@if(loading) {
+  <p>Loading...</p>
+}
+
+<button (click)="userListResource.reload()">Reload</button>
+<button (click)="filter()">Filter</button>
+
+@if(users) {
+  <ul>
+    @for(user of users.results; track user) {
+      <li>{{ user.name }}</li>
+    }
+  </ul>
+}
