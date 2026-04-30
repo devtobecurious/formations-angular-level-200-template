@@ -8,11 +8,12 @@ import { GetListUserFromApiService } from '../../services/get-list-user-from-api
   styleUrl: './display-list-user.component.css'
 })
 export class DisplayListUserComponent {
+  private page = 2;
   private readonly getListUserFromApiService = inject(GetListUserFromApiService);
   protected readonly userListResource = this.getListUserFromApiService.usersResource;
 
   filter() {
     // this.userListResource.reload();
-    this.getListUserFromApiService.filter.set('new filter value');
+    this.getListUserFromApiService.filter.set(this.page++);
   }
 }
