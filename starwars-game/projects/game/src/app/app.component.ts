@@ -8,4 +8,10 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'game';
+
+  getSubTitle(item: string): string {
+
+    console.info('getSubTitle called');
+    return 'A simple game built with Angular' + item;
+  }
 }
