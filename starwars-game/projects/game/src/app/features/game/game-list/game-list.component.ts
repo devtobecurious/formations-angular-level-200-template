@@ -1,4 +1,4 @@
-import { Component, inject, NgModule, OnInit } from '@angular/core';
+import { Component, computed, inject, NgModule, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
@@ -18,7 +18,15 @@ import { BoolToTextPipe } from '../../../shared/pipes/bool-to-text.pipe';
 export class GameListComponent {// implements OnInit {
   private readonly searchStore = inject(SearchBarStore);
   private readonly gameService = inject(GameService);
-  protected readonly games$ = this.gameService.getAll(10);
+  private readonly gamesAsSignal = this.gameService.getAllSignal();
+
+  protected readonly gamesFilteredAsSignal = computed(() => {
+    const searchItem = this.searchStore.item();
+    const games = this.gamesAsSignal();
+
+    return games?.filter(g => g.title.startsWith(searchItem.value));
+  });
+
   protected readonly searchItem$: Observable<SearchItemState> = this.searchStore.asObservable;
 
   //games: GameDto[] = [];
