@@ -1,0 +1,14 @@
+[
+  {
+  "month": 0,
+  "year": 0,
+  "nbSuccess": 0,
+  "nbFailures": 0
+},
+{
+  "month": 10,
+  "year": 2026,
+  "nbSuccess": 10,
+  "nbFailures": 100
+}
+]

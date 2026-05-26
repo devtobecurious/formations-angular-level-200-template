@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, NgModule, OnInit } from '@angular/core';
 import { Tile } from '../../../shared/components/grid/models';
 import { TileService } from '../services/tile.service';
 
@@ -18,4 +18,11 @@ export class NewOneComponent implements OnInit {
     .subscribe(tiles => this.tiles = tiles);
   }
 
+}
+
+@NgModule({
+  declarations: [NewOneComponent],
+  exports: [NewOneComponent]
+})
+export class NewOneModule {
 }
