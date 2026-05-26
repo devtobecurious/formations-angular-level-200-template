@@ -3,6 +3,7 @@ export interface Stat {
   year: number;
   nbSuccess: number;
   nbFailures: number;
+  money: number;
 }
 
 export type ArrayOf<T extends {id: number} | {}> = T[];

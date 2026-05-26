@@ -1,19 +1,29 @@
-<table>
-@for (item of stats(); track item) {
-  <tr>
-    <td>{{ item.year }}</td>
-    <td>{{ item.month }}</td>
-    <td>{{ item.nbSuccess }}</td>
-    <td>{{ item.nbFailures }}</td>
-  </tr>
+@let items = stats$ | async;
+@let itemsBis = statsOfYear();
+
+@if(items) {
+  <table>
+  @for (item of itemsBis; track item) {
+    <tr>
+      <td>{{ item.year }}</td>
+      <td>{{ item.month }}</td>
+      <td>{{ item.nbSuccess }}</td>
+      <td>{{ item.nbFailures }}</td>
+      <td>{{ item.money | currency: 'en-US' }}</td>
+    </tr>
+  }
+  @empty {
+    <tr>
+      <td colspan="4">
+        No data
+      </td>
+    </tr>
+  }
+  </table>
+} @else {
+ <i>Nada</i>
 }
-@empty {
-  <tr>
-    <td colspan="4">
-      No data
-    </td>
-  </tr>
-}
-</table>
 
 <game-stats-list-dummy />
+
+
