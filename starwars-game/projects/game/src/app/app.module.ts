@@ -7,6 +7,7 @@ import { AppComponent } from './app.component';
 import { GameModule } from './features/game/game.module';
 import { HeaderComponent } from './shared/components/header/header.component';
 import { SideBarComponent } from './shared/components/side-bar/side-bar.component';
+import { ToUpperCustomPipe } from './shared/ui/to-upper-custom.pipe';
 
 
 @NgModule({ declarations: [
@@ -14,7 +15,11 @@ import { SideBarComponent } from './shared/components/side-bar/side-bar.componen
         HeaderComponent,
         SideBarComponent
     ],
-    bootstrap: [AppComponent, HeaderComponent, SideBarComponent], imports: [BrowserModule,
+    bootstrap: [AppComponent, HeaderComponent, SideBarComponent], 
+    imports: [BrowserModule,
         AppRoutingModule,
-        GameModule], providers: [provideHttpClient(withInterceptorsFromDi())] })
+        GameModule,
+        ToUpperCustomPipe
+    ], 
+    providers: [provideHttpClient(withInterceptorsFromDi())] })
 export class AppModule { }

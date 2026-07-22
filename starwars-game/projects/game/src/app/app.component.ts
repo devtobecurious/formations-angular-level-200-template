@@ -7,5 +7,16 @@ import { Component } from '@angular/core';
     standalone: false
 })
 export class AppComponent {
-  title = 'game';
+  title = 'ICI GAME';
+
+  toUpperTitle(title: string): string {
+    console.info('toUpperTitle');
+    return title.toUpperCase();
+  }
+
+  ngOnInit(): void {
+    setTimeout(() => {
+      this.title = '>> Star wars game ';
+    }, 1000);
+  }
 }
