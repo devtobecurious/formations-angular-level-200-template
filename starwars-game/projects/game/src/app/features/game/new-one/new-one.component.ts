@@ -14,8 +14,16 @@ export class NewOneComponent implements OnInit {
   constructor(private tileService: TileService) { }
 
   ngOnInit(): void {
+    
+  }
+
+  startGame(): void {
     this.tileService.loadAll()
     .subscribe(tiles => this.tiles = tiles);
+  }
+
+  restartGame(): void {
+    this.tiles = [];
   }
 
 }
