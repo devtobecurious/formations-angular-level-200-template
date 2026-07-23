@@ -1,0 +1,5 @@
+@let items = stat$ | async;
+
+@for (item of items; track $index) {
+    <lib-display-one-stat-resume [item]="item" />
+}

@@ -17,6 +17,9 @@
     "paths": {
       "search-bar": [
         "./dist/search-bar"
+      ],
+      "statistics": [
+        "./dist/statistics"
       ]
     },
     "target": "ES2022",
