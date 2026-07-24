@@ -4,6 +4,11 @@
     <th class="sorting sorting_asc" tabindex="1" aria-controls="dataTable" rowspan="1" colspan="1" aria-sort="ascending" aria-label="success: activate to sort column descending" style="width: 271px;">Succes ?</th>
   </thead>
   <tbody>
-    <game-game-row *ngFor="let item of games" [item]="item"></game-game-row>
+    @for (game of games; track $index) {
+      <game-game-row [item]="game"></game-game-row>
+    }
+    @empty {
+      
+    }
   </tbody>
 </table>

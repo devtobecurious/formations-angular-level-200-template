@@ -1,6 +1,7 @@
 import { Component, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { computed } from '@angular/core';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-root',
@@ -21,6 +22,19 @@ export class App {
   // });
 
   ngOnInit() {
+    // const obs$ = new Observable((observer) => {
+    //   console.info('Observable created');
+    // });
+    // obs$.subscribe();
+
+    const promise = new Promise((resolve) => {
+      console.info('Promise created');
+      resolve('Promise resolved');
+    });
+    promise.then((value) => {
+      console.info(value);
+    });
+
     console.log('App component initialized');
     setTimeout(() => {
       //this.title.set('Star Wars : The Force Awakens');
