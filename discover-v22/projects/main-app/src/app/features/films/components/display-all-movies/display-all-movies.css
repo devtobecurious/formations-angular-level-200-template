@@ -1,0 +1,66 @@
+:host {
+	display: block;
+}
+
+.movies-status,
+.movies-empty,
+.movies-count {
+	margin: 0;
+	text-transform: uppercase;
+	letter-spacing: 0.08rem;
+	font-size: 0.72rem;
+}
+
+.movies-status {
+	color: #9af4ff;
+}
+
+.movies-count {
+	margin-bottom: 0.7rem;
+	color: #ffe88a;
+}
+
+.movies-empty {
+	padding: 0.8rem;
+	border: 1px solid rgba(255, 120, 99, 0.45);
+	border-radius: 8px;
+	color: #ffaf95;
+	background: rgba(73, 19, 16, 0.42);
+}
+
+.movies-grid {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+	display: grid;
+	gap: 0.6rem;
+}
+
+.movie-card {
+	padding: 0.75rem 0.85rem;
+	border-radius: 9px;
+	border: 1px solid rgba(122, 242, 255, 0.3);
+	background: linear-gradient(155deg, rgba(10, 28, 50, 0.9), rgba(8, 17, 35, 0.95));
+	box-shadow: 0 0 0 1px rgba(255, 232, 138, 0.08) inset;
+}
+
+.movie-card h3 {
+	margin: 0.2rem 0;
+	color: #ffe270;
+	letter-spacing: 0.08rem;
+	text-transform: uppercase;
+	font-size: clamp(0.9rem, 2.3vw, 1.05rem);
+}
+
+.movie-episode,
+.movie-meta {
+	margin: 0;
+	color: #9feeff;
+	text-transform: uppercase;
+	letter-spacing: 0.07rem;
+	font-size: 0.68rem;
+}
+
+.movie-meta {
+	color: #bff8ff;
+}

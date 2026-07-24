@@ -1,0 +1,26 @@
+@let result = service.value();
+@let loading = service.loading();
+
+@if(loading) {
+    <p class="characters-status">Synchronisation des profils equipage...</p>
+}
+
+@if(result) {
+    <div class="characters-filter">
+        <label class="characters-label" for="character-selector">Filtrer par personnage</label>
+
+        <div class="characters-row">
+            <select id="character-selector" name="character-selector" (change)="selectId($event)">
+                <option value="" selected>Tous les personnages</option>
+
+                @for (item of result.results; track item.id) {
+                    <option value="{{item.id}}">{{ item.name }}</option>
+                }
+            </select>
+
+            <span class="characters-count" aria-live="polite">
+                {{ result.results.length }} profils
+            </span>
+        </div>
+    </div>
+}

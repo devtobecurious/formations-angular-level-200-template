@@ -1,0 +1,24 @@
+@let films = fromApiValue()?.results;
+
+@if(isLoading()) {
+    <p class="movies-status">Reception des donnees cinematographiques...</p>
+}
+
+@if(films?.length) {
+    <p class="movies-count">{{ films.length }} films recuperes</p>
+
+    <ul class="movies-grid" aria-label="films star wars">
+        @for (item of films; track item.episode_id) {
+            <li>
+                <article class="movie-card">
+                    <p class="movie-episode">Episode {{ item.episode_id }}</p>
+                    <h3>{{ item.title }}</h3>
+                    <p class="movie-meta">{{ item.characters.length }} personnages references</p>
+                </article>
+            </li>
+        }
+    </ul>
+}
+@else if (!isLoading()) {
+    <p class="movies-empty">Aucun film disponible pour cette selection.</p>
+}
