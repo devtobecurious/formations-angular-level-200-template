@@ -1,3 +1,24 @@
 @let titleValue = titleMaj();
 
-{{ titleValue }} // {{ titleValue }}
+<main class="retro-space">
+	<div class="starfield" aria-hidden="true"></div>
+	<div class="starfield starfield-layer-2" aria-hidden="true"></div>
+	<div class="scanlines" aria-hidden="true"></div>
+
+	<section class="holo-frame">
+		<p class="episode-label">EPISODE CCXX</p>
+		<h1 class="title-glow">{{ titleValue }}</h1>
+		<p class="subtitle">GALACTIC WEATHER RELAY // SECTOR EARTH</p>
+
+		<div class="crawl-window" aria-hidden="true">
+			<div class="crawl-text">
+				LA FEDERATION METEO TRANSMET LES DONNEES ATMOSPHERIQUES EN TEMPS REEL.
+				CONSULTE LES CONDITIONS ACTUELLES ET PREPARE TON VOYAGE INTERSTELLAIRE.
+			</div>
+		</div>
+
+		<div class="weather-panel">
+			<app-display-current-weather />
+		</div>
+	</section>
+</main>

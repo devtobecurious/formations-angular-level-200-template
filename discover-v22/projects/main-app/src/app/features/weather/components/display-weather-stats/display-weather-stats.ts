@@ -7,6 +7,7 @@ import { GetWeatherStats } from '../../services/get-weather-stats';
   imports: [],
   templateUrl: './display-weather-stats.html',
   styleUrl: './display-weather-stats.css',
+  providers: [GetWeatherStats]
 })
 export class DisplayWeatherStats {
   private readonly service = inject(GetWeatherStats);

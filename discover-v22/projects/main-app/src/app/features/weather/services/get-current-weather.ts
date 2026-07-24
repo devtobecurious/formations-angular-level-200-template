@@ -1,4 +1,4 @@
-import { inject, ResourceRef, Service } from '@angular/core';
+import { inject, ResourceRef, Service, signal } from '@angular/core';
 import { Observable, map, switchMap, timer } from 'rxjs';
 import type { Weather, WeatherResponse } from '../models/weather';
 import { HttpClient, httpResource, HttpResourceRef } from '@angular/common/http';
@@ -6,7 +6,8 @@ import { rxResource } from '@angular/core/rxjs-interop';
 
 @Service({autoProvided: false})
 export class GetCurrentWeather {
-    private readonly weatherResource = httpResource<WeatherResponse>(() => 'https://api.open-meteo.com/v1/forecast?latitude=47.218&longitude=-1.5528&current_weather=true');
+    private readonly coordinates = signal<{lat: number, long: number}>({ lat: 0, long: 0});
+    private readonly weatherResource = httpResource<WeatherResponse>(() => `https://api.open-meteo.com/v1/forecast?latitude=${this.coordinates().lat}&longitude=${this.coordinates().long}&current_weather=true`);
 
     private readonly http = inject(HttpClient);  
     private readonly weather$ = this.http.get<WeatherResponse>('https://api.open-meteo.com/v1/forecast?latitude=47.218&longitude=-1.5528&current_weather=true')
@@ -22,8 +23,16 @@ export class GetCurrentWeather {
     );
 
     private readonly rxWeatherResource = rxResource({
-        stream: () => this.weatherByTime$
+        params: () => this.coordinates(),
+        stream: (params) => this.weatherByTime$
     })
+
+    changeCoordinate(long: number, lat: number): void {
+        this.coordinates.set({
+            lat, 
+            long
+        })
+    }
 
     getOne(): Observable<Weather> {
         return this.weatherByTime$; 

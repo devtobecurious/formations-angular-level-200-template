@@ -1,0 +1,188 @@
+@import url("https://fonts.googleapis.com/css2?family=Orbitron:wght@400;600;800&display=swap");
+
+:host {
+	--space-black: #040509;
+	--space-blue: #0a1f44;
+	--star-yellow: #ffe270;
+	--neon-cyan: #4be6ff;
+	--neon-cyan-soft: #7af2ff;
+	--hud-line: #1c6d96;
+	--panel-bg: rgba(8, 17, 38, 0.82);
+
+	display: block;
+	min-height: 100vh;
+	color: var(--star-yellow);
+	font-family: "Orbitron", "Trebuchet MS", "Lucida Sans Unicode", sans-serif;
+}
+
+.retro-space {
+	position: relative;
+	min-height: 100vh;
+	padding: 2rem 1rem;
+	overflow: hidden;
+	background:
+		radial-gradient(circle at 20% 15%, rgba(48, 83, 149, 0.35), transparent 40%),
+		radial-gradient(circle at 80% 5%, rgba(73, 26, 121, 0.22), transparent 35%),
+		linear-gradient(180deg, #0a0f1f 0%, var(--space-black) 48%, #03040b 100%);
+}
+
+.starfield,
+.starfield-layer-2 {
+	position: absolute;
+	inset: -20%;
+	pointer-events: none;
+	background-image:
+		radial-gradient(circle, rgba(255, 255, 255, 0.9) 0 1px, transparent 1.1px),
+		radial-gradient(circle, rgba(116, 235, 255, 0.75) 0 0.8px, transparent 0.9px);
+	background-size: 130px 130px, 190px 190px;
+	background-position: 0 0, 65px 30px;
+	animation: drift 55s linear infinite;
+	opacity: 0.62;
+}
+
+.starfield-layer-2 {
+	opacity: 0.35;
+	transform: scale(1.2);
+	animation-duration: 85s;
+	filter: blur(0.3px);
+}
+
+.scanlines {
+	position: absolute;
+	inset: 0;
+	pointer-events: none;
+	background: repeating-linear-gradient(
+		to bottom,
+		rgba(255, 255, 255, 0.06) 0,
+		rgba(255, 255, 255, 0.06) 1px,
+		transparent 2px,
+		transparent 4px
+	);
+	mix-blend-mode: soft-light;
+	opacity: 0.26;
+}
+
+.holo-frame {
+	position: relative;
+	z-index: 1;
+	max-width: 960px;
+	margin: 0 auto;
+	padding: 2rem clamp(1rem, 2.2vw, 2.2rem) 2.4rem;
+	border: 2px solid var(--hud-line);
+	border-radius: 12px;
+	background: linear-gradient(135deg, rgba(6, 16, 39, 0.92), var(--panel-bg));
+	box-shadow:
+		0 0 0 1px rgba(75, 230, 255, 0.4) inset,
+		0 0 24px rgba(75, 230, 255, 0.35),
+		0 25px 55px rgba(0, 0, 0, 0.55);
+	backdrop-filter: blur(2px);
+}
+
+.episode-label {
+	margin: 0;
+	text-align: center;
+	color: var(--neon-cyan-soft);
+	letter-spacing: 0.5rem;
+	font-size: 0.78rem;
+	text-transform: uppercase;
+}
+
+.title-glow {
+	margin: 0.6rem 0;
+	text-align: center;
+	text-transform: uppercase;
+	line-height: 1;
+	letter-spacing: 0.22rem;
+	font-size: clamp(2rem, 7vw, 4.5rem);
+	color: var(--star-yellow);
+	text-shadow:
+		0 0 8px rgba(255, 226, 112, 0.95),
+		0 0 24px rgba(255, 226, 112, 0.55),
+		2px 2px 0 rgba(18, 47, 89, 0.9);
+}
+
+.subtitle {
+	margin: 0;
+	text-align: center;
+	color: #96ecff;
+	letter-spacing: 0.18rem;
+	text-transform: uppercase;
+	font-size: clamp(0.72rem, 2vw, 0.92rem);
+}
+
+.crawl-window {
+	height: 135px;
+	margin: 1.6rem auto 1.8rem;
+	max-width: 740px;
+	perspective: 380px;
+	overflow: hidden;
+	border-top: 1px solid rgba(255, 226, 112, 0.65);
+}
+
+.crawl-text {
+	color: #f5d46e;
+	text-transform: uppercase;
+	text-align: center;
+	letter-spacing: 0.11rem;
+	font-size: clamp(0.8rem, 1.8vw, 1rem);
+	line-height: 1.45;
+	transform-origin: center top;
+	animation: crawl 12s linear infinite;
+}
+
+.weather-panel {
+	padding: 1rem;
+	border-radius: 10px;
+	border: 1px solid rgba(75, 230, 255, 0.4);
+	background: linear-gradient(180deg, rgba(8, 20, 43, 0.74), rgba(10, 13, 31, 0.9));
+	box-shadow: 0 0 0 1px rgba(255, 226, 112, 0.16) inset;
+}
+
+@keyframes crawl {
+	0% {
+		transform: rotateX(27deg) translateY(105px) translateZ(0);
+		opacity: 0;
+	}
+
+	12% {
+		opacity: 1;
+	}
+
+	100% {
+		transform: rotateX(27deg) translateY(-175px) translateZ(-80px);
+		opacity: 0;
+	}
+}
+
+@keyframes drift {
+	from {
+		transform: translateY(0) translateX(0);
+	}
+
+	to {
+		transform: translateY(70px) translateX(35px);
+	}
+}
+
+@media (max-width: 768px) {
+	.retro-space {
+		padding: 1rem 0.6rem;
+	}
+
+	.holo-frame {
+		padding: 1.2rem 0.85rem 1.3rem;
+	}
+
+	.episode-label {
+		letter-spacing: 0.32rem;
+	}
+
+	.crawl-window {
+		height: 105px;
+		margin-top: 1rem;
+	}
+
+	.weather-panel {
+		padding: 0.75rem;
+	}
+}

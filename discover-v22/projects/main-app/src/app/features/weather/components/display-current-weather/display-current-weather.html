@@ -1,16 +1,61 @@
 @let weather = valueWithUrl();
 @let loading = resource.isLoading();
 @let error = resource.error();
+@let telemetryData = telemetry();
 
 @if(loading) {
-    <i>Chargement en cours</i>
+    <section class="cockpit-status cockpit-status-loading">
+        Initialisation du tableau de bord du chasseur...
+    </section>
 }
 
 @if(error) {
-    <b>Erreur de récup : {{ error.message }}</b>
+    <section class="cockpit-status cockpit-status-error">
+        Echec de liaison holo: {{ error.message }}
+    </section>
 }
 
 @if(weather) {
-    <div>{{ weather.temp }}</div>
-    <img [src]="weather.imgUrl">
+    <section class="xwing-cockpit">
+        <header class="hud-header">
+            <p class="hud-label">XW-RED-5 // CONSOLE METEO</p>
+            <p class="hud-code">WX-CODE {{ weather.code }}</p>
+        </header>
+
+        <div class="hud-grid">
+            <article class="hud-core-readout">
+                <p class="readout-title">Temperature Exterieure</p>
+                <p class="readout-value">{{ weather.temp }}<span class="unit">degC</span></p>
+                <p class="readout-subtitle">Atmosphere: {{ telemetryData?.atmosphere }}</p>
+            </article>
+
+            <article class="hud-icon-panel">
+                <img [src]="weather.imgUrl" alt="icone meteo" class="weather-icon">
+                <span class="target-reticle" aria-hidden="true"></span>
+            </article>
+        </div>
+
+        <div class="hud-meters" aria-label="jauges systeme">
+            <div class="meter">
+                <p>BOUCLIERS CLIMATIQUES</p>
+                <div class="meter-track">
+                    <div class="meter-fill" [style.width.%]="telemetryData?.shieldLevel"></div>
+                </div>
+                <span>{{ telemetryData?.shieldLevel }}%</span>
+            </div>
+
+            <div class="meter">
+                <p>CHARGE REACTEUR</p>
+                <div class="meter-track">
+                    <div class="meter-fill meter-fill-warning" [style.width.%]="telemetryData?.engineLoad"></div>
+                </div>
+                <span>{{ telemetryData?.engineLoad }}%</span>
+            </div>
+        </div>
+
+        <section class="hud-telemetry">
+            <p class="telemetry-title">Journal de bord meteo</p>
+            <app-display-weather-stats />
+        </section>
+    </section>
 }

@@ -2,10 +2,11 @@ import { Component, effect, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { computed } from '@angular/core';
 import { Observable } from 'rxjs';
+import { DisplayCurrentWeather } from './features/weather/components/display-current-weather/display-current-weather';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [RouterOutlet, DisplayCurrentWeather],
   templateUrl: './app.html',
   styleUrl: './app.css',
 })

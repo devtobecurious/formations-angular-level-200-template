@@ -1,7 +1,28 @@
-<table> 
+<table class="telemetry-table"> 
+    <thead>
+        <tr>
+            <th>Cycle</th>
+            <th>Secteur</th>
+            <th>Temp Moy.</th>
+            <th>Indice</th>
+        </tr>
+    </thead>
     <tbody>
         @for (item of items(); track $index) {
-            <tr></tr>
+            <tr>
+                <td>{{ item.year }}</td>
+                <td>M-{{ item.month }}</td>
+                <td>{{ item.averageTemp }} degC</td>
+                <td>
+                    <span
+                        class="temp-chip"
+                        [class.temp-chip-cold]="item.averageTemp < 8"
+                        [class.temp-chip-hot]="item.averageTemp >= 15"
+                    >
+                        {{ item.averageTemp < 8 ? 'FROID' : item.averageTemp >= 15 ? 'CHAUD' : 'NORM' }}
+                    </span>
+                </td>
+            </tr>
         }
     </tbody>
 </table>
