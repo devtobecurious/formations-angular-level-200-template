@@ -1,0 +1,16 @@
+@let weather = valueWithUrl();
+@let loading = resource.isLoading();
+@let error = resource.error();
+
+@if(loading) {
+    <i>Chargement en cours</i>
+}
+
+@if(error) {
+    <b>Erreur de récup : {{ error.message }}</b>
+}
+
+@if(weather) {
+    <div>{{ weather.temp }}</div>
+    <img [src]="weather.imgUrl">
+}
