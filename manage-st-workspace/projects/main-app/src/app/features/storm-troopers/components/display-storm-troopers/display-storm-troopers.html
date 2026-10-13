@@ -1,0 +1,9 @@
+@let items = list();
+
+@if(items) {
+    @for (item of items; track item.id) {
+        <div id="{{ item.matricule }}">
+            Matricule : {{ item.matricule }}
+        </div>
+    }
+}
