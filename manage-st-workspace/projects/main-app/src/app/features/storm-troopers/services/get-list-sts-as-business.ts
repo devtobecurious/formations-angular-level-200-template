@@ -8,6 +8,10 @@ export class GetListStsAsBusiness {
     private readonly listAsSignal = toSignal(this.service.getAll());
 
     getList() {
-        return computed(() => this.listAsSignal());
+        return this.listAsSignal;
     }
+
+    // getList() {
+    //     return computed(() => this.listAsSignal());
+    // }
 }

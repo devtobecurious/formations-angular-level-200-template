@@ -8,6 +8,8 @@ import { GetListStsAsBusiness } from '../../services/get-list-sts-as-business';
   templateUrl: './display-storm-troopers.html',
 })
 export class DisplayStormTroopers {
-  private readonly service = inject(GetListStsAsBusiness);
-  protected readonly list = this.service.getList();
+  // private readonly service = inject(GetListStsAsBusiness);
+  // protected readonly list = this.service.getList();
+  
+  protected readonly list = (inject(GetListStsAsBusiness)).getList();
 }
