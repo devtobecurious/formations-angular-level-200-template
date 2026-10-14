@@ -1,11 +1,14 @@
-import { computed, inject, Injectable, Signal } from '@angular/core';
+import { computed, effect, inject, Injectable, Signal } from '@angular/core';
 import { GetListStatsService } from './get-list-stats.service';
 import { toSignal } from '@angular/core/rxjs-interop';
 import { SearchBarService } from 'search-bar';
 import { Statistics } from '../models/statistic';
+import { delay, Observable, of } from 'rxjs';
+
+
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: null// 'root'
 })
 export class GetListStatsBusinessService {
   private readonly service = inject(GetListStatsService);
@@ -22,6 +25,11 @@ export class GetListStatsBusinessService {
     }
 
     return items;
+  })
+
+  private readonly searchEffect = effect(() => {
+    const searchValue = this.searchService.stateAsReadonly();
+    console.log('searchEffect', searchValue);
   })
 
   getList(): Signal<Statistics> {
