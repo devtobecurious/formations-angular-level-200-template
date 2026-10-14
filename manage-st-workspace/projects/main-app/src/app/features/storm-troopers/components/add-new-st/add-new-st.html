@@ -1,0 +1,26 @@
+<form class="st-form" [formRoot]="stForm" (submit)="save()">
+    <header class="form-header">
+        <p class="eyebrow">DIVISION 501</p>
+        <h2>Enrôlement</h2>
+        <p class="intro">Enregistre un nouveau soldat dans les rangs de l'Empire.</p>
+    </header>
+
+    <div class="field">
+        <label for="matricule">Matricule</label>
+        <input id="matricule" type="text" autocomplete="off" placeholder="TK-421"
+               [formField]="stForm.matricule"
+               [attr.aria-invalid]="! stForm.matricule().valid()" />
+
+        @if(! stForm.matricule().valid()) {
+            @let errors = stForm.matricule().errorSummary();
+
+            <ul class="errors" role="alert">
+                @for (item of errors; track $index) {
+                    <li>{{item.message}}</li>
+                }
+            </ul>
+        }
+    </div>
+
+    <button class="submit" type="submit" [disabled]="! stForm().valid()">Ajouter</button>
+</form>
