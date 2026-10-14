@@ -24,6 +24,6 @@ export class SearchBarComponent {
   private readonly service = inject(SearchBarService);
 
   search(): void {
-    this.service.dispatch('');
+    this.service.dispatch('2026');
   }
 }

@@ -1,4 +1,4 @@
-import { Component, computed, OnInit, signal } from '@angular/core';
+import { Component, computed, effect, OnInit, signal } from '@angular/core';
 import { RouterOutlet } from '@angular/router';
 import { DesignSystem } from 'design-system';
 import { ToUpperPipe } from './examples/sum-pipe';
@@ -13,6 +13,17 @@ export class App implements OnInit {
   //protected title = 'test'
   private readonly title = signal('test');
 
+  // private listenTitle = effect(() => {
+  //   const title = this.title();
+  //   console.info('1. title ???', title)
+  // })
+
+  // private listenTitleB = effect(() => {
+  //   const title = this.title();
+  //   console.info('2. title ???', title)
+  // })
+
+
   protected readonly titleAsMaj = computed(() => {
     console.info('INSIDE COMPUTED');
     return this.title().toUpperCase();
@@ -20,6 +31,7 @@ export class App implements OnInit {
 
   sum(a: number, b: number): number {
     console.info('sum');
+    
     return a+b;
   }
 

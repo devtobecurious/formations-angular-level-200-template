@@ -1,4 +1,4 @@
-import { Component, computed, inject, OnInit, untracked } from '@angular/core';
+import { Component, computed, effect, inject, OnInit, untracked } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
@@ -16,6 +16,11 @@ export class GameListComponent implements OnInit {
   private readonly searchService = inject(SearchBarService);
 
   private readonly itemsFromApi = toSignal(this.gameService.getAll(1000));
+
+  private readonly testSearch = effect(() => {
+    const value = this.searchService.stateAsReadonly();
+    console.info('value', value);
+  })
 
   protected readonly displayItems = computed(() => {
     const searchValue = this.searchService.stateAsReadonly();

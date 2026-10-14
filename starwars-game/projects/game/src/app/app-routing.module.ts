@@ -10,7 +10,12 @@ const routes: Routes = [{
 {
   path: 'new-game',
   component: NewOneComponent
-}];
+},
+  {
+    path: 'statistics',
+    loadChildren: () => import('../app/features/stats/stats.routes').then(item => item.statsRoutes)
+  }
+];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
