@@ -1,0 +1,42 @@
+@let stats = items();
+
+<section class="stats-dashboard" aria-labelledby="stats-title">
+    <header class="stats-header">
+        <div>
+            <p class="eyebrow">ARCHIVES DE LA RÉPUBLIQUE</p>
+            <h2 id="stats-title">Rapport de mission</h2>
+            <p class="intro">Analyse des performances de la flotte, secteur par secteur.</p>
+        </div>
+        <span class="status-light" aria-label="Système opérationnel">SYSTÈME OK</span>
+    </header>
+
+    <ul class="stats-grid">
+        @for (item of stats; track item) {
+            <li class="stat-card">
+                <div class="card-topline">
+                    <span class="period">CYCLE {{ item.month }}/{{ item.year }}</span>
+                    <span class="radar-mark" aria-hidden="true"></span>
+                </div>
+
+                <div class="metric metric-success">
+                    <span class="metric-icon" aria-hidden="true">+</span>
+                    <div>
+                        <span class="metric-label">MISSIONS RÉUSSIES</span>
+                        <strong>{{ item.nbSuccess }}</strong>
+                    </div>
+                </div>
+
+                <div class="metric metric-failure">
+                    <span class="metric-icon" aria-hidden="true">×</span>
+                    <div>
+                        <span class="metric-label">MISSIONS ÉCHOUÉES</span>
+                        <strong>{{ item.nbFailure }}</strong>
+                    </div>
+                </div>
+            </li>
+        }
+        @empty {
+            <li class="empty-state">AUCUNE DONNÉE DANS LES ARCHIVES</li>
+        }
+    </ul>
+</section>

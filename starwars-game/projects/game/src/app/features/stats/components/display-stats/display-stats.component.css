@@ -1,0 +1,220 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Space+Mono:wght@400;700&display=swap');
+
+:host {
+    --space: #070b18;
+    --panel: #0d1428;
+    --panel-light: #131d38;
+    --blue: #55d8ff;
+    --yellow: #ffe66d;
+    --red: #ff5577;
+    --muted: #8290b5;
+    display: block;
+    min-height: 100%;
+    color: #f5f7ff;
+    font-family: 'Space Mono', 'Courier New', monospace;
+}
+
+.stats-dashboard {
+    position: relative;
+    isolation: isolate;
+    max-width: 960px;
+    margin: 2rem auto;
+    padding: clamp(1.25rem, 4vw, 3rem);
+    overflow: hidden;
+    border: 4px solid var(--blue);
+    background:
+        linear-gradient(rgba(85, 216, 255, .06) 1px, transparent 1px),
+        linear-gradient(90deg, rgba(85, 216, 255, .06) 1px, transparent 1px),
+        var(--space);
+    background-size: 24px 24px;
+    box-shadow: 8px 8px 0 #02040b, 0 0 32px rgba(85, 216, 255, .2);
+}
+
+.stats-dashboard::before,
+.stats-dashboard::after {
+    position: absolute;
+    z-index: -1;
+    width: 180px;
+    height: 180px;
+    content: '';
+    border: 1px solid rgba(85, 216, 255, .18);
+    transform: rotate(45deg);
+}
+
+.stats-dashboard::before {
+    top: -120px;
+    right: -70px;
+}
+
+.stats-dashboard::after {
+    bottom: -130px;
+    left: -70px;
+}
+
+.stats-header {
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+    gap: 1.5rem;
+    padding-bottom: 1.75rem;
+    border-bottom: 2px solid rgba(85, 216, 255, .35);
+}
+
+.eyebrow,
+.metric-label,
+.period,
+.status-light {
+    font-size: .65rem;
+    letter-spacing: .12em;
+}
+
+.eyebrow {
+    margin: 0 0 .75rem;
+    color: var(--yellow);
+}
+
+h2 {
+    margin: 0;
+    color: var(--blue);
+    font-family: 'Press Start 2P', monospace;
+    font-size: clamp(1.05rem, 3vw, 1.7rem);
+    line-height: 1.7;
+    text-shadow: 3px 3px 0 #173b62;
+}
+
+.intro {
+    margin: .75rem 0 0;
+    color: var(--muted);
+    font-size: .8rem;
+}
+
+.status-light {
+    flex-shrink: 0;
+    padding: .6rem .7rem;
+    color: var(--space);
+    background: var(--yellow);
+    box-shadow: 4px 4px 0 #9d841f;
+    font-weight: 700;
+}
+
+.status-light::before {
+    display: inline-block;
+    width: .45rem;
+    height: .45rem;
+    margin-right: .45rem;
+    content: '';
+    border-radius: 50%;
+    background: #1cbd73;
+    box-shadow: 0 0 8px #1cbd73;
+}
+
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin: 1.75rem 0 0;
+    padding: 0;
+    list-style: none;
+}
+
+.stat-card {
+    padding: 1.2rem;
+    border: 2px solid #273a66;
+    background: linear-gradient(135deg, var(--panel-light), var(--panel));
+    box-shadow: 5px 5px 0 #02040b;
+    transition: transform .2s ease, border-color .2s ease;
+}
+
+.stat-card:hover {
+    border-color: var(--blue);
+    transform: translate(-2px, -2px);
+}
+
+.card-topline {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-bottom: .9rem;
+    border-bottom: 1px dashed #38517f;
+}
+
+.period {
+    color: var(--yellow);
+}
+
+.radar-mark {
+    width: 12px;
+    height: 12px;
+    border: 2px solid var(--blue);
+    box-shadow: inset 0 0 0 2px var(--panel), 0 0 0 2px var(--blue);
+}
+
+.metric {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 1.15rem;
+}
+
+.metric-icon {
+    display: grid;
+    width: 38px;
+    height: 38px;
+    place-items: center;
+    border: 2px solid currentColor;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1rem;
+}
+
+.metric-success {
+    color: var(--blue);
+}
+
+.metric-failure {
+    color: var(--red);
+}
+
+.metric-label {
+    display: block;
+    margin-bottom: .35rem;
+    color: var(--muted);
+}
+
+.metric strong {
+    display: block;
+    color: #fff;
+    font-family: 'Press Start 2P', monospace;
+    font-size: 1.35rem;
+    line-height: 1.4;
+}
+
+.empty-state {
+    grid-column: 1 / -1;
+    padding: 2rem;
+    border: 2px dashed var(--muted);
+    color: var(--muted);
+    font-size: .75rem;
+    text-align: center;
+}
+
+@media (max-width: 520px) {
+    .stats-dashboard {
+        margin: 1rem;
+        box-shadow: 5px 5px 0 #02040b;
+    }
+
+    .stats-header {
+        display: block;
+    }
+
+    .status-light {
+        display: inline-block;
+        margin-top: 1rem;
+    }
+}
+
+@media (prefers-reduced-motion: reduce) {
+    .stat-card {
+        transition: none;
+    }
+}
