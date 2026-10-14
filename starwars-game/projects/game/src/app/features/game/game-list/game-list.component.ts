@@ -1,7 +1,9 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, computed, inject, OnInit, untracked } from '@angular/core';
 import { Observable } from 'rxjs';
 import { GameDto } from '../../../core/models/game.dto';
 import { GameService } from '../services/game.service';
+import { SearchBarService } from 'search-bar';
+import { toSignal } from '@angular/core/rxjs-interop';
 
 @Component({
     selector: 'game-game-list',
@@ -10,13 +12,30 @@ import { GameService } from '../services/game.service';
     standalone: false
 })
 export class GameListComponent implements OnInit {
-  games: GameDto[] = [];
+  private readonly gameService = inject(GameService);
+  private readonly searchService = inject(SearchBarService);
+
+  private readonly itemsFromApi = toSignal(this.gameService.getAll(1000));
+
+  protected readonly displayItems = computed(() => {
+    const searchValue = this.searchService.stateAsReadonly();
+    let items = untracked(this.itemsFromApi);
+
+    if(searchValue && items) {
+      let aa = 1
+      items = items.filter(item => item.title.startsWith(searchValue));
+    }
+
+    return items;
+  });
+
+  //games: GameDto[] = [];
   searchItem = '';
 
-  constructor(private gameService: GameService) { }
+  // constructor(private gameService: GameService) { }
 
   ngOnInit(): void {
-    this.gameService.getAll(3).subscribe(items => this.games = items);
+    //this.gameService.getAll(3).subscribe(items => this.games = items);
   }
 
 }
