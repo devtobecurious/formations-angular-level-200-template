@@ -1,5 +1,6 @@
 import { apply, applyEach, applyWhen, min, required, schema, validate } from "@angular/forms/signals"
 
+
 export interface Satellite {
     id: number
     name: string
@@ -17,6 +18,10 @@ export interface Planet {
     withStormTroopers: boolean,
     satellite: Satellite,
     cities: City[]
+}
+
+export type PlanetsFromApiResult = {
+    results: Planet[]
 }
 
 export interface City {

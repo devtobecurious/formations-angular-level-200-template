@@ -1,7 +1,18 @@
-@let items = planets();
+<!-- @let item = resource.value();
+
+@if(resource.isLoading()) {
+    <i>Chargement en cours ....</i>
+} -->
+<!-- 
+@let errorResult = resource.error();
+@if(errorResult) {
+    {{ errorResult.message }}
+} -->
 
 <a routerLink="./add">Ajouter</a>
 
+@let items = planets();
+@if(items) {
 <section class="planets-panel" aria-labelledby="planets-title">
     <header class="panel-header">
         <div class="header-copy">
@@ -41,3 +52,4 @@
         <p class="empty-state">Aucune planète enregistrée pour le moment.</p>
     }
 </section>
+}

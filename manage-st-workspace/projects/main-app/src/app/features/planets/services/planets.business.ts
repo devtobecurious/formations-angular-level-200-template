@@ -1,14 +1,16 @@
 import { inject, Service, Signal } from '@angular/core';
 import { CreatePlanet, Planet } from '../models/planet';
 import { PlanetsStore } from './planets.store';
+import { GetListPlanetsFromApi } from './get-list-planets-from-api';
 
 @Service()
 export class PlanetsBusiness {
-    private readonly store = inject(PlanetsStore);
+    // private readonly store = inject(PlanetsStore);
+    private readonly fromApiService = inject(GetListPlanetsFromApi);
 
     add(planet: CreatePlanet): void {
-        this.store.dispatch({
-            id: this.store.state().length + 1,
+        this.fromApiService.add({
+            id: 1,
             length: planet.length,
             name: planet.name,
             population: planet.population,
@@ -18,7 +20,7 @@ export class PlanetsBusiness {
         });
     }
 
-    getList(): Signal<Planet[]> {
-        return this.store.state;
+    getList(): Signal<Planet[] | undefined> {
+        return this.fromApiService.getList();
     }
 }
