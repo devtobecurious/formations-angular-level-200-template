@@ -50,7 +50,10 @@
                 "input": "projects/main-app/public"
               }
             ],
-            "styles": ["projects/main-app/src/styles.css"]
+            "styles": [
+              "projects/main-app/src/material-theme.scss",
+              "projects/main-app/src/styles.css"
+            ]
           },
           "configurations": {
             "production": {
