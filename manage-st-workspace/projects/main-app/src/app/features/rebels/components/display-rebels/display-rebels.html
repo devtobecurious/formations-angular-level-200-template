@@ -9,3 +9,14 @@
         <a routerLink="./edit/{{item.id}}">{{ item.name }}</a>
     }
 }
+
+@defer(on hover) {
+    <app-footer-rebel />
+}
+@placeholder(minimum 200ms) {
+    <div>Fake footer</div>
+}
+@loading(minimum 200ms) {
+    <p>Footer is loading</p>
+}
+

@@ -2,9 +2,10 @@ import { Component, inject } from '@angular/core';
 import {MatProgressSpinnerModule} from '@angular/material/progress-spinner';
 import { RebelBusiness } from '../../services/rebel.business';
 import { RouterLink } from '@angular/router';
+import { FooterRebel } from '../footer-rebel/footer-rebel';
 
 @Component({
-  imports: [MatProgressSpinnerModule, RouterLink],
+  imports: [MatProgressSpinnerModule, RouterLink, FooterRebel],
   selector: 'app-display-rebels',
   styleUrl: './display-rebels.css',
   templateUrl: './display-rebels.html',
