@@ -1,0 +1,60 @@
+<form class="planet-form" [formRoot]="planetForm" (submit)="saveOne()">
+    <header class="form-header">
+        <p class="eyebrow">ARCHIVES GALACTIQUES</p>
+        <h2>Nouvelle planète</h2>
+        <p class="intro">Ajoute un monde au registre de la galaxie.</p>
+    </header>
+
+    <div class="field">
+        <label for="planet-name">Nom</label>
+        <input id="planet-name" type="text" autocomplete="off" placeholder="Tatooine"
+               [formField]="planetForm.name"
+               [attr.aria-invalid]="! planetForm.name().valid()" />
+
+        @if(! planetForm.name().valid()) {
+            @let errors = planetForm.name().errorSummary();
+
+            <ul class="errors" role="alert">
+                @for (item of errors; track $index) {
+                    <li>{{item.message}}</li>
+                }
+            </ul>
+        }
+    </div>
+
+    <div class="field">
+        <label for="planet-population">Population</label>
+        <input id="planet-population" type="number" placeholder="200000"
+               [formField]="planetForm.population"
+               [attr.aria-invalid]="! planetForm.population().valid()" />
+
+        @if(! planetForm.population().valid()) {
+            @let errors = planetForm.population().errorSummary();
+
+            <ul class="errors" role="alert">
+                @for (item of errors; track $index) {
+                    <li>{{item.message}}</li>
+                }
+            </ul>
+        }
+    </div>
+
+    <div class="field">
+        <label for="planet-length">Taille de la planète</label>
+        <input id="planet-length" type="number" placeholder="24"
+               [formField]="planetForm.length" />
+    </div>
+
+    <div class="field">
+        <label for="satelitte-name">Nom du satelitte</label>
+        <input id="satelitte-name" type="string" placeholder="Luna"
+               [formField]="planetForm.satellite.name" />
+    </div>
+
+    <label class="checkbox-field" for="with-stormtroopers">
+        <input id="with-stormtroopers" type="checkbox" [formField]="planetForm.withStormTroopers">
+        <span>Présence de stormtroopers</span>
+    </label>
+
+    <button class="submit" type="submit" [disabled]="! planetForm().valid()">Ajouter la planète</button>
+</form>

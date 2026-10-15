@@ -1,0 +1,43 @@
+@let items = planets();
+
+<a routerLink="./add">Ajouter</a>
+
+<section class="planets-panel" aria-labelledby="planets-title">
+    <header class="panel-header">
+        <div class="header-copy">
+            <p class="eyebrow">CARTE STELLAIRE</p>
+            <h2 id="planets-title">Planètes répertoriées</h2>
+            <p class="intro">Les mondes actuellement connus dans la galaxie.</p>
+        </div>
+        <a class="planet-add" routerLink="add">Ajouter une planète</a>
+    </header>
+
+    @if(items.length > 0) {
+        <ul class="planet-list">
+            @for (item of items; track item.id) {
+                <li class="planet-card">
+                    <div class="planet-heading">
+                        <span class="planet-orbit" aria-hidden="true"></span>
+                        <h3>{{item.name}}</h3>
+                    </div>
+                    <dl class="planet-details">
+                        <div>
+                            <dt>Population</dt>
+                            <dd>{{item.population}}</dd>
+                        </div>
+                        <div>
+                            <dt>Durée du jour</dt>
+                            <dd>{{item.length}} h</dd>
+                        </div>
+                        <div>
+                            <dt>Stormtroopers</dt>
+                            <dd>{{item.withStormTroopers ? 'Présents' : 'Aucun'}}</dd>
+                        </div>
+                    </dl>
+                </li>
+            }
+        </ul>
+    } @else {
+        <p class="empty-state">Aucune planète enregistrée pour le moment.</p>
+    }
+</section>
