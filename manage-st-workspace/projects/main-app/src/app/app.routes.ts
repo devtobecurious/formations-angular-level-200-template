@@ -9,5 +9,9 @@ export const routes: Routes = [
     {
         path: 'planets',
         loadChildren: () => import('./features/planets/planets.routes')
+    },
+    {
+        path: 'rebels',
+        loadChildren: () => import('./features/rebels/rebels.routes')
     }
 ];

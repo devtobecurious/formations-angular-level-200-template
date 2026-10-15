@@ -1,0 +1,11 @@
+@if(isLoading()) {
+    <mat-spinner />
+}
+
+@let rebels = items();
+
+@if(rebels) {
+    @for (item of rebels; track item.id) {
+        <a routerLink="./edit/{{item.id}}">{{ item.name }}</a>
+    }
+}
