@@ -10,7 +10,7 @@ import { FormsModule } from '@angular/forms';
 })
 export class SearchBarComponent {
   private readonly service = inject(SearchStore);
-  protected value = '12';
+  protected value = '';
 
   update(): void {
     console.info('this.Value', this.value);

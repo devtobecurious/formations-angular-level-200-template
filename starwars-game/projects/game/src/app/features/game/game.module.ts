@@ -1,7 +1,7 @@
-import { NgModule } from '@angular/core';
+import { isDevMode, NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GameListComponent } from './game-list/game-list.component';
-import { GameService } from './services/game.service';
+import { GameService, GetAllGames } from './services/game.service';
 import { BoolToTextPipe } from '../../shared/pipes/bool-to-text.pipe';
 import { BoolToColorDirective } from '../../shared/directives/bool-to-color.directive';
 import { GameTableComponent } from './game-table/game-table.component';
@@ -9,8 +9,13 @@ import { GameRowComponent } from './game-row/game-row.component';
 import { FormsModule } from '@angular/forms';
 import { GridModule } from '../../shared/components/grid/grid.module';
 import { NewOneComponent } from './new-one/new-one.component';
+import { delay, of } from 'rxjs';
 
-
+const mockGameService: GetAllGames = {
+  getAll(nbItems) {
+    return of([]).pipe(delay(1000))
+  },
+}
 
 @NgModule({
   declarations: [
@@ -27,7 +32,8 @@ import { NewOneComponent } from './new-one/new-one.component';
     GridModule
   ],
   providers: [
-    GameService
+    //{ provide: GameService, useValue: mockGameService }
+    { provide: GameService, useFactory: () => isDevMode() ? mockGameService : new GameService() }
   ],
   exports: [
     GameListComponent
