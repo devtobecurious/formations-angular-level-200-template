@@ -1,4 +1,4 @@
-import { computed, inject, Injectable, Signal } from '@angular/core';
+import { computed, effect, inject, Injectable, Signal } from '@angular/core';
 import { SearchStore } from 'design-system';
 import { GameService } from './game.service';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -13,6 +13,12 @@ export class GameBusinessService {
   protected readonly searchState = this.searchStore.asReadonly;
   private readonly games$ = this.gameService.getAll(300);
   private readonly gamesAsSignal = toSignal(this.games$);
+
+  // private readonly myEffect = effect(() => {
+  //   const value = this.searchState();
+
+  //   return {}
+  // })
 
   private readonly gameItems = computed(() => {
     const searchValue = this.searchState();

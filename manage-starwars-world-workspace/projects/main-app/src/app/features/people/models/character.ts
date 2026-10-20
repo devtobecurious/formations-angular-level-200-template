@@ -8,6 +8,7 @@ export type CharacterWIthId = Character & { id: number };
 
 export type CharacterWithoutUrl = Omit<CharacterWIthId, 'url'>;
 
+
 export type ItemsApiResult<T extends {}> = {
   results: T[]
 }

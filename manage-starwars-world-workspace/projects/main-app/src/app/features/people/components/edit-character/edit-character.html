@@ -1,0 +1,13 @@
+<form [formRoot]="editForm">
+  <label>Name : </label>
+  <input type="text" [formField]="editForm.name" />
+
+  @let errors = editForm.name().errorSummary();
+  @if(errors) {
+    @for (item of errors; track item) {
+      <i>{{item.message}}</i>
+    }
+  }
+
+  <button [disabled]="editForm().invalid()">Save</button>
+</form>
