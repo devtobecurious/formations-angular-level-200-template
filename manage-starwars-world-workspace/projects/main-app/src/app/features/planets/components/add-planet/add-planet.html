@@ -1,0 +1,53 @@
+<section class="entry-panel" aria-labelledby="entry-title">
+	<p class="entry-kicker">Mission control · 02</p>
+	<h2 id="entry-title">Register a world</h2>
+	<form [formRoot]="planetForm" (submit)="save()">
+		<div class="form-field">
+			<label for="planet-name">Planet name</label>
+			<input id="planet-name" type="text" autocomplete="off" aria-required="true" aria-describedby="planet-name-errors" [attr.aria-invalid]="planetForm.name().invalid() ? 'true' : null" [formField]="planetForm.name" />
+			@let nameErrors = planetForm.name().errorSummary();
+			<ul class="field-errors" id="planet-name-errors" aria-live="polite">
+				@if (nameErrors) {
+					@for (error of nameErrors; track error) {
+						<li>{{ error.message }}</li>
+					}
+				}
+			</ul>
+		</div>
+
+		<div class="form-field">
+			<label for="planet-diameter">Diameter (km)</label>
+			<input id="planet-diameter" type="number" inputmode="numeric" aria-describedby="planet-diameter-hint planet-diameter-errors" [attr.aria-invalid]="planetForm.diameter().invalid() ? 'true' : null" [formField]="planetForm.diameter" />
+			<p class="field-hint" id="planet-diameter-hint">Minimum: 1,000 km</p>
+			@let diameterErrors = planetForm.diameter().errorSummary();
+			<ul class="field-errors" id="planet-diameter-errors" aria-live="polite">
+				@if (diameterErrors) {
+					@for (error of diameterErrors; track error) {
+						<li>{{ error.message }}</li>
+					}
+				}
+			</ul>
+		</div>
+
+		<div class="form-field">
+			<label for="planet-climate">Climate</label>
+			<input id="planet-climate" type="text" aria-required="true" aria-describedby="planet-climate-errors" [attr.aria-invalid]="planetForm.climate().invalid() ? 'true' : null" [formField]="planetForm.climate" />
+			@let climateErrors = planetForm.climate().errorSummary();
+			<ul class="field-errors" id="planet-climate-errors" aria-live="polite">
+				@if (climateErrors) {
+					@for (error of climateErrors; track error) {
+						<li>{{ error.message }}</li>
+					}
+				}
+			</ul>
+		</div>
+
+		<button class="save-button" type="submit" [disabled]="planetForm().invalid()" aria-describedby="submit-hint">
+			<span aria-hidden="true">▣</span> Save planet
+		</button>
+  </form>
+	<p class="submit-hint" id="submit-hint">Complete all valid fields to enable saving.</p>
+	<p class="entry-note" role="status">Saved records are added to the current planetary list.</p>
+
+
+</section>

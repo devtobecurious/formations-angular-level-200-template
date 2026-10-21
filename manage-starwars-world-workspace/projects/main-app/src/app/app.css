@@ -1,0 +1,94 @@
+:host {
+	display: block;
+	min-height: 100vh;
+	color: #fff1c2;
+	background: #070b12;
+	font-family: "Courier New", monospace;
+}
+
+.skip-link {
+	position: fixed;
+	top: 0.75rem;
+	left: 0.75rem;
+	z-index: 20;
+	padding: 0.75rem 1rem;
+	transform: translateY(-160%);
+	border: 2px solid #f4cc59;
+	background: #101923;
+	color: #fff1c2;
+}
+
+.skip-link:focus {
+	transform: translateY(0);
+}
+
+.site-header {
+	position: relative;
+	z-index: 5;
+	display: flex;
+	min-height: 4.5rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0.75rem clamp(1rem, 4vw, 3.5rem);
+	border-bottom: 2px solid #465a4a;
+	background: #0a1115;
+	box-shadow: 0 4px 0 #030609;
+}
+
+.site-brand {
+	display: inline-flex;
+	align-items: center;
+	gap: 0.7rem;
+	color: #fff1c2;
+	font-size: 0.7rem;
+	font-weight: 700;
+	line-height: 1.25;
+	text-decoration: none;
+}
+
+.brand-mark {
+	color: #f4cc59;
+	font-size: 1.4rem;
+}
+
+.site-header nav {
+	display: flex;
+	align-items: center;
+	gap: clamp(0.75rem, 3vw, 2rem);
+}
+
+.site-header nav a {
+	padding: 0.55rem 0.35rem;
+	border-bottom: 2px solid transparent;
+	color: #c3cfbd;
+	font-size: 0.75rem;
+	font-weight: 700;
+	text-decoration: none;
+	text-transform: uppercase;
+}
+
+.site-header nav a:hover,
+.site-header nav a.is-active {
+	border-bottom-color: #f4cc59;
+	color: #fff1c2;
+}
+
+.site-header a:focus-visible {
+	outline: 2px solid #f4cc59;
+	outline-offset: 4px;
+}
+
+@media (max-width: 28rem) {
+	.site-header {
+		min-height: 4rem;
+	}
+
+	.site-header nav {
+		gap: 0.5rem;
+	}
+
+	.site-header nav a {
+		font-size: 0.65rem;
+	}
+}

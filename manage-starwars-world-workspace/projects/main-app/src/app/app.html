@@ -1,2 +1,16 @@
-{{ title() }}
+<a class="skip-link" href="#main-content">Skip to content</a>
 
+<header class="site-header">
+	<a class="site-brand" routerLink="/" aria-label="Galactic archive home">
+		<span class="brand-mark" aria-hidden="true">✦</span>
+		<span>GALACTIC<br />ARCHIVE</span>
+	</a>
+	<nav aria-label="Main navigation">
+		<a routerLink="/planets" routerLinkActive="is-active" ariaCurrentWhenActive="page">Planets</a>
+		<a routerLink="/people" routerLinkActive="is-active" ariaCurrentWhenActive="page">Characters</a>
+	</nav>
+</header>
+
+<div id="main-content">
+	<router-outlet></router-outlet>
+</div>

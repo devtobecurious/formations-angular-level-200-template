@@ -1,0 +1,97 @@
+:host {
+	display: block;
+	min-height: 100%;
+	color: #fff1c2;
+	background: #070b12;
+	font-family: "Courier New", monospace;
+}
+
+.planet-console {
+	width: min(100%, 96rem);
+	margin-inline: auto;
+	padding: 1.25rem clamp(1rem, 3vw, 2.5rem) 3rem;
+}
+
+.console-heading {
+	display: flex;
+	min-height: 2.75rem;
+	align-items: center;
+	justify-content: space-between;
+	gap: 1rem;
+	padding: 0 0.25rem 0.8rem;
+	border-bottom: 1px solid #465a4a;
+}
+
+.console-eyebrow,
+.console-coordinate {
+	margin: 0;
+	font-size: 0.7rem;
+	font-weight: 700;
+	letter-spacing: 0.06em;
+}
+
+.console-eyebrow {
+	display: flex;
+	align-items: center;
+	gap: 0.6rem;
+	color: #e6c45a;
+}
+
+.console-eyebrow span {
+	width: 0.5rem;
+	height: 0.5rem;
+	background: #e6c45a;
+	box-shadow: 2px 2px 0 #715b29;
+}
+
+.console-coordinate {
+	color: #bdc8b8;
+	text-align: right;
+}
+
+.console-coordinate span {
+	padding-inline: 0.35rem;
+	color: #e6c45a;
+}
+
+.console-layout {
+	display: grid;
+	grid-template-columns: minmax(0, 1fr) minmax(15rem, 19rem);
+	align-items: start;
+	gap: clamp(1rem, 2vw, 2rem);
+	margin-top: 1.5rem;
+}
+
+.atlas-region,
+.entry-region {
+	min-width: 0;
+}
+
+.entry-region {
+	position: sticky;
+	top: 1.5rem;
+	margin-top: 6.25rem;
+}
+
+@media (max-width: 58rem) {
+	.console-layout {
+		grid-template-columns: minmax(0, 1fr);
+	}
+
+	.entry-region {
+		position: static;
+		margin-top: 0;
+	}
+}
+
+@media (max-width: 34rem) {
+	.console-heading {
+		align-items: flex-start;
+		flex-direction: column;
+		gap: 0.45rem;
+	}
+
+	.console-coordinate {
+		text-align: left;
+	}
+}

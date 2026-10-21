@@ -1,0 +1,145 @@
+:host {
+	display: block;
+	color: #fff1c2;
+	font-family: "Courier New", monospace;
+}
+
+.entry-panel {
+	padding: 1.35rem;
+	border: 2px solid #627653;
+	border-top: 4px solid #f4cc59;
+	background: #101923;
+	box-shadow: 5px 5px 0 #030705, inset 0 0 0 2px #0b140e;
+}
+
+.entry-kicker {
+	margin: 0 0 0.8rem;
+	color: #f4cc59;
+	font-size: 0.68rem;
+	font-weight: 700;
+	letter-spacing: 0.05em;
+	text-transform: uppercase;
+}
+
+.entry-panel h2 {
+	margin: 0 0 1rem;
+	font-size: 1.25rem;
+}
+
+.entry-panel form {
+	display: grid;
+	gap: 0.9rem;
+}
+
+.form-field {
+	display: grid;
+	gap: 0.45rem;
+}
+
+.entry-panel label {
+	margin-top: 0.35rem;
+	color: #bdc8b8;
+	font-size: 0.75rem;
+	font-weight: 700;
+}
+
+.entry-panel input {
+	width: 100%;
+	min-height: 2.75rem;
+	padding: 0.65rem 0.75rem;
+	border: 2px solid #53675a;
+	border-radius: 0;
+	background: #0b1315;
+	color: #fff1c2;
+	font: inherit;
+}
+
+.entry-panel input:focus-visible {
+	border-color: #f4cc59;
+	outline: 2px solid #f4cc59;
+	outline-offset: 2px;
+}
+
+.entry-panel input[aria-invalid="true"] {
+	border-color: #f08a72;
+}
+
+.field-hint,
+.field-errors {
+	margin: 0;
+	font-size: 0.72rem;
+	line-height: 1.45;
+}
+
+.field-hint {
+	color: #bdc8b8;
+}
+
+.field-errors {
+	padding-left: 1rem;
+	color: #ffad98;
+}
+
+.field-errors:empty {
+	display: none;
+}
+
+.save-button {
+	display: inline-flex;
+	min-height: 2.9rem;
+	align-items: center;
+	justify-content: center;
+	gap: 0.55rem;
+	margin-top: 0.35rem;
+	padding: 0.7rem 1rem;
+	border: 2px solid #f4cc59;
+	border-radius: 0;
+	background: #53693e;
+	color: #fff1c2;
+	font: inherit;
+	font-size: 0.78rem;
+	font-weight: 700;
+	text-transform: uppercase;
+	box-shadow: 4px 4px 0 #030705;
+	cursor: pointer;
+	transition: transform 120ms steps(2, end), box-shadow 120ms steps(2, end), opacity 120ms steps(2, end);
+}
+
+.save-button:hover:not(:disabled) {
+	transform: translate(-2px, -2px);
+	box-shadow: 6px 6px 0 #030705;
+}
+
+.save-button:focus-visible {
+	outline: 3px solid #fff1c2;
+	outline-offset: 3px;
+}
+
+.save-button:disabled {
+	border-color: #536157;
+	background: #303b39;
+	color: #aab5aa;
+	box-shadow: 2px 2px 0 #030705;
+	cursor: not-allowed;
+	opacity: 0.78;
+}
+
+.submit-hint {
+	margin: 0.7rem 0 0;
+	color: #bdc8b8;
+	font-size: 0.7rem;
+	line-height: 1.5;
+}
+
+.entry-note {
+	margin: 0;
+	font-size: 0.85rem;
+	line-height: 1.55;
+}
+
+.entry-note {
+	margin-top: 0.85rem;
+	padding-left: 0.75rem;
+	border-left: 2px solid #e6c45a;
+	color: #bdc8b8;
+}

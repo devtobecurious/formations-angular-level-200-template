@@ -1,0 +1,398 @@
+:host {
+	--space: #070b12;
+	--panel: #101923;
+	--panel-highlight: #18251f;
+	--text: #fff1c2;
+	--muted: #c3cfbd;
+	--signal: #f4cc59;
+	--line: #627653;
+
+	display: block;
+	min-height: 100%;
+	position: relative;
+	isolation: isolate;
+	color: var(--text);
+	background-color: var(--space);
+	font-family: "Courier New", monospace;
+	image-rendering: pixelated;
+}
+
+:host::before {
+	position: absolute;
+	inset: 0;
+	z-index: -1;
+	background-image:
+		repeating-linear-gradient(0deg, rgb(0 0 0 / 10%) 0 1px, transparent 1px 4px),
+		radial-gradient(ellipse at 50% 0, #253a2c 0, transparent 58%);
+	content: "";
+	pointer-events: none;
+}
+
+.planet-atlas {
+	position: relative;
+	width: min(100% - 3rem, 70rem);
+	margin-inline: auto;
+	padding-block: clamp(3.5rem, 9vw, 7rem) 5rem;
+}
+
+.corner-figures {
+	position: fixed;
+	inset: 0;
+	z-index: 0;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.flight-effects {
+	position: absolute;
+	inset: 0;
+	z-index: 2;
+	overflow: hidden;
+	pointer-events: none;
+}
+
+.pixel-star {
+	position: absolute;
+	width: 0.55rem;
+	height: 0.55rem;
+	background: #fff2b5;
+	clip-path: polygon(38% 0, 62% 0, 62% 38%, 100% 38%, 100% 62%, 62% 62%, 62% 100%, 38% 100%, 38% 62%, 0 62%, 0 38%, 38% 38%);
+	filter: drop-shadow(0 0 4px #f4cc59);
+	animation: star-sparkle 2.8s steps(2, end) infinite;
+}
+
+.pixel-star--one { top: 8%; left: 16%; animation-delay: -0.4s; }
+.pixel-star--two { top: 19%; left: 71%; width: 0.35rem; height: 0.35rem; animation-delay: -1.7s; }
+.pixel-star--three { top: 38%; left: 90%; animation-delay: -0.9s; }
+.pixel-star--four { top: 56%; left: 8%; width: 0.35rem; height: 0.35rem; animation-delay: -2.2s; }
+.pixel-star--five { top: 76%; left: 82%; animation-delay: -1.2s; }
+.pixel-star--six { top: 91%; left: 35%; width: 0.35rem; height: 0.35rem; animation-delay: -0.2s; }
+
+.death-star {
+	position: absolute;
+	top: 1rem;
+	right: 1rem;
+	width: 6rem;
+	height: 6rem;
+	border: 2px solid #87918a;
+	background:
+		linear-gradient(165deg, transparent 43%, #10171d 44% 49%, transparent 50%),
+		radial-gradient(ellipse at 70% 28%, #46504e 0 9%, #293238 10% 18%, transparent 19%),
+		linear-gradient(90deg, transparent 48%, rgb(170 174 153 / 22%) 49% 51%, transparent 52%),
+		#202a31;
+	clip-path: polygon(25% 0, 75% 0, 75% 6%, 87% 6%, 87% 18%, 94% 18%, 94% 31%, 100% 31%, 100% 69%, 94% 69%, 94% 82%, 87% 82%, 87% 94%, 75% 94%, 75% 100%, 25% 100%, 25% 94%, 13% 94%, 13% 82%, 6% 82%, 6% 69%, 0 69%, 0 31%, 6% 31%, 6% 18%, 13% 18%, 13% 6%, 25% 6%);
+	filter: drop-shadow(5px 6px 0 #020407) drop-shadow(0 0 12px rgb(156 177 153 / 36%));
+	opacity: 0.92;
+}
+
+.death-star::before {
+	position: absolute;
+	top: 22%;
+	left: 58%;
+	width: 24%;
+	height: 24%;
+	border: 3px solid #828d84;
+	border-radius: 50%;
+	background: #11191e;
+	box-shadow: inset 2px 2px 0 #45504e, 0 0 8px rgb(190 80 65 / 45%);
+	content: "";
+}
+
+.death-star::after {
+	position: absolute;
+	top: 60%;
+	left: 12%;
+	width: 76%;
+	height: 3px;
+	background: #87918a;
+	box-shadow: 0 4px 0 rgb(9 14 19 / 80%);
+	content: "";
+}
+
+.emperor-portrait {
+	position: absolute;
+	top: 1rem;
+	left: 1.5rem;
+	width: 4.5rem;
+	height: 5.5rem;
+	background: #3b3038;
+	clip-path: polygon(25% 0, 75% 0, 75% 8%, 88% 8%, 88% 25%, 100% 25%, 100% 72%, 88% 72%, 88% 83%, 75% 83%, 75% 100%, 25% 100%, 25% 83%, 12% 83%, 12% 72%, 0 72%, 0 25%, 12% 25%, 12% 8%, 25% 8%);
+	filter: drop-shadow(4px 5px 0 #020407) drop-shadow(0 0 10px rgb(176 68 63 / 30%));
+}
+
+.emperor-face {
+	position: absolute;
+	top: 24%;
+	left: 31%;
+	width: 38%;
+	height: 45%;
+	background: #b9aa9d;
+	clip-path: polygon(25% 0, 75% 0, 75% 12%, 100% 12%, 100% 75%, 75% 75%, 75% 100%, 25% 100%, 25% 75%, 0 75%, 0 12%, 25% 12%);
+}
+
+.emperor-face::before {
+	position: absolute;
+	top: 44%;
+	left: 12%;
+	width: 22%;
+	height: 8%;
+	background: #741f29;
+	box-shadow: 0.65rem 0 #741f29, 0 0.65rem 0 -1px #665751, 0.3rem 0.9rem 0 -1px #665751;
+	content: "";
+}
+
+.pixel-ship {
+	position: absolute;
+	top: 35%;
+	left: -2rem;
+	width: 0.375rem;
+	height: 0.375rem;
+	background: #f4cc59;
+	filter: drop-shadow(0 0 4px currentColor);
+	opacity: 0;
+}
+
+.pixel-ship--imperial {
+	color: #f4cc59;
+	box-shadow: -0.75rem -0.375rem 0 -0.125rem #bdc5b3, -0.75rem 0 0 -0.125rem #bdc5b3, -0.75rem 0.375rem 0 -0.125rem #bdc5b3, -0.375rem 0 #bdc5b3, 0.375rem 0 #bdc5b3, 0.75rem -0.375rem 0 -0.125rem #bdc5b3, 0.75rem 0 0 -0.125rem #bdc5b3, 0.75rem 0.375rem 0 -0.125rem #bdc5b3;
+	animation: flyby-east 28s steps(70, end) 2s infinite;
+}
+
+.pixel-ship--rebel {
+	top: 67%;
+	left: auto;
+	right: -2rem;
+	color: #e78951;
+	background: #e78951;
+	box-shadow: -0.5rem -0.375rem 0 #e78951, 0 -0.375rem 0 #e78951, 0.5rem -0.375rem 0 #e78951, -0.75rem 0 0 #e78951, -0.375rem 0 0 #f4cc59, 0.375rem 0 0 #f4cc59, 0.75rem 0 0 #e78951, -0.5rem 0.375rem 0 #e78951, 0 0.375rem 0 #e78951, 0.5rem 0.375rem 0 #e78951;
+	animation: flyby-west 34s steps(85, end) 11s infinite;
+}
+
+.atlas-header {
+	position: relative;
+	z-index: 1;
+	max-width: 42rem;
+	margin-bottom: clamp(2.5rem, 6vw, 4.5rem);
+	padding: 7.25rem 1.5rem 1.5rem;
+	border: 3px solid var(--signal);
+	background: #0a1115;
+	box-shadow: 6px 6px 0 #050809, inset 0 0 0 3px #34442e;
+}
+
+.atlas-kicker {
+	display: flex;
+	align-items: center;
+	gap: 0.7rem;
+	margin: 0 0 1.1rem;
+	color: var(--signal);
+	font-family: "Courier New", monospace;
+	font-size: 0.8rem;
+	font-weight: 700;
+	letter-spacing: 0.08em;
+	text-transform: uppercase;
+}
+
+.atlas-kicker span {
+	font-size: 1.1rem;
+}
+
+.atlas-header h1 {
+	margin: 0;
+	font-family: "Courier New", monospace;
+	font-size: clamp(2rem, 6vw, 3.25rem);
+	font-weight: 700;
+	line-height: 1.08;
+	text-transform: uppercase;
+	text-shadow: 3px 3px 0 #41603c, 6px 6px 0 #101923;
+}
+
+.atlas-intro {
+	margin: 1.1rem 0 0;
+	color: var(--muted);
+	font-size: 1rem;
+	line-height: 1.6;
+}
+
+.planet-list {
+	position: relative;
+	z-index: 1;
+	display: grid;
+	grid-template-columns: repeat(auto-fit, minmax(min(100%, 19rem), 1fr));
+	gap: 1rem;
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+.planet-entry {
+	min-width: 0;
+}
+
+.planet-card {
+	height: 100%;
+	padding: clamp(1.25rem, 3vw, 1.75rem);
+	border: 3px solid var(--line);
+	border-top: 5px solid var(--signal);
+	background-color: var(--panel);
+	box-shadow: 5px 5px 0 #030705, inset 0 0 0 3px #0b140e;
+	transition: border-color 160ms steps(2, end), transform 160ms steps(2, end), box-shadow 160ms steps(2, end);
+}
+
+.planet-card:hover {
+	transform: translate(-2px, -2px);
+	border-color: var(--signal);
+	box-shadow: 7px 7px 0 #030705, inset 0 0 0 3px #0b140e;
+}
+
+.planet-card:focus-within {
+	outline: 2px solid var(--signal);
+	outline-offset: 3px;
+}
+
+.planet-card-heading {
+	display: flex;
+	min-height: 2.5rem;
+	align-items: center;
+	gap: 0.85rem;
+	padding-bottom: 1.1rem;
+	border-bottom: 2px solid var(--line);
+}
+
+.planet-index {
+	color: var(--signal);
+	font-family: "Courier New", monospace;
+	font-size: 0.85rem;
+}
+
+.planet-card h2 {
+	min-width: 0;
+	margin: 0;
+	overflow-wrap: anywhere;
+	font-family: "Courier New", monospace;
+	font-size: 1.3rem;
+	font-weight: 700;
+}
+
+.planet-mark {
+	width: 0.65rem;
+	height: 0.65rem;
+	flex: 0 0 auto;
+	margin-left: auto;
+	border: 2px solid var(--signal);
+	background: var(--signal);
+	box-shadow: 3px 3px 0 #694f1f;
+}
+
+.planet-facts {
+	display: grid;
+	grid-template-columns: minmax(0, 0.8fr) minmax(0, 1.2fr);
+	gap: 1.25rem;
+	margin: 1.25rem 0 0;
+}
+
+.planet-fact {
+	min-width: 0;
+}
+
+.planet-fact dt {
+	margin-bottom: 0.45rem;
+	color: var(--muted);
+	font-family: "Courier New", monospace;
+	font-size: 0.73rem;
+	letter-spacing: 0.04em;
+	text-transform: uppercase;
+}
+
+.planet-fact dd {
+	margin: 0;
+	overflow-wrap: anywhere;
+	font-size: 1rem;
+	line-height: 1.45;
+}
+
+.planet-fact dd span {
+	color: var(--muted);
+	font-size: 0.8rem;
+}
+
+.empty-state {
+	margin: 0;
+	padding: 1.5rem;
+	border: 2px dashed var(--line);
+	border-left: 5px solid var(--signal);
+	background-color: var(--panel);
+	color: var(--text);
+	line-height: 1.6;
+}
+
+@media (max-width: 30rem) {
+	.planet-atlas {
+		width: min(100% - 2rem, 70rem);
+	}
+
+	.atlas-header h1 {
+		font-size: 1.9rem;
+	}
+
+	.atlas-header {
+		padding: 1.15rem;
+	}
+
+	.death-star {
+		top: 1.15rem;
+		right: 1rem;
+		width: 4.5rem;
+		height: 4.5rem;
+	}
+
+	.emperor-portrait {
+		top: 1.15rem;
+		left: 1rem;
+		width: 3.5rem;
+		height: 4.5rem;
+	}
+
+	.atlas-header {
+		padding-top: 6rem;
+	}
+
+	.planet-facts {
+		grid-template-columns: 1fr;
+		gap: 1rem;
+	}
+
+}
+
+@media (prefers-reduced-motion: reduce) {
+	.planet-card {
+		transition: none;
+	}
+
+	.pixel-star,
+	.pixel-ship {
+		animation: none;
+	}
+
+	.pixel-ship {
+		display: none;
+	}
+}
+
+@keyframes star-sparkle {
+	0%, 100% { opacity: 0.42; transform: scale(0.7); }
+	50% { opacity: 1; transform: scale(1.35); }
+}
+
+@keyframes flyby-east {
+	0%, 64% { opacity: 0; transform: translateX(0); }
+	67% { opacity: 0.92; }
+	88% { opacity: 0.92; transform: translateX(calc(100vw + 5rem)); }
+	90%, 100% { opacity: 0; transform: translateX(calc(100vw + 5rem)); }
+}
+
+@keyframes flyby-west {
+	0%, 64% { opacity: 0; transform: translateX(0); }
+	67% { opacity: 0.92; }
+	88% { opacity: 0.92; transform: translateX(calc(-100vw - 5rem)); }
+	90%, 100% { opacity: 0; transform: translateX(calc(-100vw - 5rem)); }
+}

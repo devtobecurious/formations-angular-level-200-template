@@ -1,0 +1,56 @@
+@let planets = data();
+
+<section class="planet-atlas" aria-labelledby="atlas-title">
+  <div class="corner-figures" aria-hidden="true">
+    <span class="death-star"></span>
+    <span class="emperor-portrait"><span class="emperor-face"></span></span>
+  </div>
+
+  <div class="flight-effects" aria-hidden="true">
+    <span class="pixel-star pixel-star--one"></span>
+    <span class="pixel-star pixel-star--two"></span>
+    <span class="pixel-star pixel-star--three"></span>
+    <span class="pixel-star pixel-star--four"></span>
+    <span class="pixel-star pixel-star--five"></span>
+    <span class="pixel-star pixel-star--six"></span>
+    <span class="pixel-ship pixel-ship--imperial"></span>
+    <span class="pixel-ship pixel-ship--rebel"></span>
+  </div>
+
+  <header class="atlas-header">
+    <p class="atlas-kicker"><span aria-hidden="true">✦</span> Return of the Jedi · Endor system</p>
+    <h1 id="atlas-title">Planetary atlas</h1>
+    <p class="atlas-intro">PRESS START <span aria-hidden="true">▸</span> Explore worlds across the galaxy</p>
+  </header>
+
+  @if (planets?.length) {
+    <ul class="planet-list" aria-label="Planets in the galactic atlas">
+      @for (item of planets; track item.name; let index = $index) {
+        <li class="planet-entry">
+          <article class="planet-card" [attr.aria-labelledby]="'planet-' + index">
+            <div class="planet-card-heading">
+              <span class="planet-index" aria-hidden="true">{{ (index + 1).toString().padStart(2, '0') }}</span>
+              <h2 [id]="'planet-' + index">{{ item.name }}</h2>
+              <span class="planet-mark" aria-hidden="true"></span>
+            </div>
+            <dl class="planet-facts">
+              <div class="planet-fact">
+                <dt>Diameter</dt>
+                <dd>{{ item.diameter }} <span>km</span></dd>
+              </div>
+              <div class="planet-fact">
+                <dt>Climate</dt>
+                <dd>{{ item.climate }}</dd>
+              </div>
+            </dl>
+          </article>
+        </li>
+      }
+      @empty() {
+        <p class="empty-state" role="status">No planetary records are available.</p>
+      }
+    </ul>
+  } @else {
+    <p class="empty-state" role="status">No planetary records are available.</p>
+  }
+</section>
