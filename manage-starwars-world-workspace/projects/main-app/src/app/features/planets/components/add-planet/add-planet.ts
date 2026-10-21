@@ -13,7 +13,7 @@ import { planetSchema } from '../../models/planet.schemas';
 export class AddPlanet {
   private readonly business =  inject(GetAllPlanetsBusiness)
 
-  private readonly planet = signal<Planet>({climate: '', diameter: 0, name: ''})
+  private readonly planet = signal<Planet>({climate: '', diameter: 0, name: '', cities: [], coordinate: {x:0, y:0, z:0}})
   protected readonly planetForm = form(this.planet, planetSchema)
 
 

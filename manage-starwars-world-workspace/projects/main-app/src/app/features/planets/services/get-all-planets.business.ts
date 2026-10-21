@@ -1,4 +1,4 @@
-import { inject, linkedSignal, Service, signal, Signal, WritableSignal } from '@angular/core';
+import { computed, inject, linkedSignal, Service, signal, Signal, WritableSignal } from '@angular/core';
 import { Planet, Planets } from '../models/planet';
 import { GetAllPlanetsInfra } from './get-all-planets.infra';
 import { toSignal } from '@angular/core/rxjs-interop';
@@ -9,8 +9,17 @@ export class GetAllPlanetsBusiness {
   private readonly planetsAsSignal = toSignal(this.infra.getAll())
   private readonly planetsUpdatable = linkedSignal(this.planetsAsSignal)
 
-  getAll(): WritableSignal<Planets>{
-    return this.planetsUpdatable;
+private readonly planetsSorted = computed(() => {
+  const planets = this.planetsUpdatable();
+  return planets
+    ? [...planets].sort((a, b) =>
+        a.name.localeCompare(b.name, 'fr', { sensitivity: 'base' })
+      )
+    : planets;
+});
+
+  getAll(): Signal<Planets>{
+    return this.planetsSorted;
   }
 
   addOne(planet: Planet): void {
