@@ -1,4 +1,4 @@
-import { ChangeDetectionStrategy, ChangeDetectorRef, Component, Input, OnInit, ViewEncapsulation } from '@angular/core';
+import { ChangeDetectionStrategy, ChangeDetectorRef, Component, inject, Input, OnInit, ViewEncapsulation } from '@angular/core';
 import { changeStateCell, TileCell } from '../models';
 
 @Component({
@@ -6,14 +6,17 @@ import { changeStateCell, TileCell } from '../models';
     templateUrl: './cell.component.html',
     styleUrls: ['./cell.component.css'],
     encapsulation: ViewEncapsulation.None,
-    standalone: false
+    standalone: false,
+    changeDetection: ChangeDetectionStrategy.OnPush
 })
 export class CellComponent implements OnInit {
+  private readonly cdr = inject(ChangeDetectorRef)
 
   @Input() item !: TileCell;
 
   ngOnInit(): void {
-
+   // this.cdr.detach();
+    //this.cdr.reattach();
 
   }
 
@@ -24,6 +27,7 @@ export class CellComponent implements OnInit {
   clickTile(item: TileCell, cell: HTMLDivElement) {
     changeStateCell(item, ! item.isRevealed, true);
     this.appearValueOnCell(item, cell);
+    this.cdr.markForCheck();
   }
 
   private appearValueOnCell(cell: TileCell, div: HTMLDivElement) {

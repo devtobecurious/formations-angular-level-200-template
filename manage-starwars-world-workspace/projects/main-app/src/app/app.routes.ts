@@ -20,5 +20,12 @@ export const routes: Routes = [
     data: {
         isPreloading: true
     }
+  },
+  {
+    path: 'starships',
+    loadComponent: () => import('./features/startships/pages/all-starships.page/all-starships.page').then(page => page.AllStarshipsPage),
+    data: {
+        isPreloading: true
+    }
   }
 ];

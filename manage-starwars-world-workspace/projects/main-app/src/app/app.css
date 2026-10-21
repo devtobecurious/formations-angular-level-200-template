@@ -79,6 +79,28 @@
 	outline-offset: 4px;
 }
 
+@media (min-width: 56.01rem) {
+	.site-header lib-design-system {
+		width: min(30vw, 24rem);
+		flex: 0 1 24rem;
+	}
+}
+
+@media (max-width: 56rem) {
+	.site-header {
+		flex-wrap: wrap;
+	}
+
+	.site-header nav {
+		margin-left: auto;
+	}
+
+	.site-header lib-design-system {
+		order: 3;
+		width: 100%;
+	}
+}
+
 @media (max-width: 28rem) {
 	.site-header {
 		min-height: 4rem;

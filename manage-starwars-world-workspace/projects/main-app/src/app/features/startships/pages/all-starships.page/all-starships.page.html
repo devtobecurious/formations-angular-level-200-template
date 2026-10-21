@@ -1,0 +1,93 @@
+@let loading = shipResource.isLoading();
+@let items = filtersInMemoryItems();
+@let error = shipResource.error();
+
+<main class="hangar" aria-labelledby="hangar-title">
+  <header class="hangar-header">
+    <div>
+      <lib-design-system />
+    </div>
+    <div>
+      <p class="hangar-kicker"><span aria-hidden="true">✦</span> Alliance flight records · Sector 06</p>
+      <h1 id="hangar-title">Fleet hangar</h1>
+      <p class="hangar-intro">A closer look at the ships that changed the course of the galaxy.</p>
+    </div>
+    @if (!loading && !error) {
+      <p class="fleet-count"><strong>{{ items.length.toString().padStart(2, '0') }}</strong><span>ships<br />logged</span></p>
+    }
+  </header>
+
+  @if (loading) {
+    <p class="hangar-state" role="status"><span class="loading-indicator" aria-hidden="true"></span> Receiving fleet transmission...</p>
+  } @else if (error) {
+    <p class="hangar-state hangar-state--error" role="alert">Fleet records could not be retrieved. Check the connection and try again.</p>
+  } @else if (items.length === 0) {
+    <p class="hangar-state" role="status">No ships are registered in this sector.</p>
+  } @else {
+    <ul class="ship-grid" aria-label="Starships in the fleet hangar">
+      @for (item of items; track item.name; let index = $index) {
+        <li class="ship-entry" [class.ship-entry--featured]="index === 0">
+          <article class="ship-card" [attr.aria-labelledby]="'ship-name-' + index">
+            <div class="ship-stage" [class]="'ship-stage ship-stage--' + (item.name.toLowerCase().includes('death star') ? 'death-star' : item.name.toLowerCase().includes('millennium falcon') ? 'falcon' : item.name.toLowerCase().includes('tie') ? 'tie' : item.name.toLowerCase().includes('x-wing') || item.name.toLowerCase().includes('y-wing') ? 'xwing' : item.name.toLowerCase().includes('star destroyer') || item.name.toLowerCase().includes('executor') ? 'destroyer' : index % 4)">
+              <span class="stage-star stage-star--a" aria-hidden="true"></span>
+              <span class="stage-star stage-star--b" aria-hidden="true"></span>
+              <span class="stage-grid" aria-hidden="true"></span>
+              <svg class="ship-illustration" viewBox="0 0 240 120" aria-hidden="true" focusable="false" shape-rendering="crispEdges">
+                <g class="ship-art ship-art--tie">
+                  <path class="wing-frame" d="M18 16h48v88H18zm156 0h48v88h-48z" />
+                  <path class="wing-panel" d="M24 22h36v76H24zm156 0h36v76h-36z" />
+                  <path class="ship-metal" d="M66 53h18v-9h18v-8h36v8h18v9h18v14h-18v9h-18v8h-36v-8H84v-9H66z" />
+                  <path class="ship-glow" d="M104 48h32v24h-32z" />
+                  <path class="cockpit-glass" d="M112 52h16v16h-16z" />
+                  <path class="ship-line" d="M66 60h18m72 0h18M42 16v88m156-88v88" />
+                </g>
+                <g class="ship-art ship-art--xwing">
+                  <path class="wing-red" d="M46 12h18l40 42h-18zm0 96h18l40-42H86zM176 12h18l-40 42h-18zm0 96h18l-40-42h-18z" />
+                  <path class="ship-metal" d="M62 55h42l18-12 18 12h40v10h-40l-18 12-18-12H62z" />
+                  <path class="ship-glow" d="M180 56h18v8h-18z" />
+                  <path class="cockpit-glass" d="M136 56h20v8h-20z" />
+                  <path class="ship-line" d="M52 22l48 38m-48 38 48-38m42 0 48-38m-48 38 48 38" />
+                </g>
+                <g class="ship-art ship-art--falcon">
+                  <path class="ship-metal" d="M24 60c0-27 22-48 51-48h58l20 15h47l19 14v12h-54l-12 7h-29v8h29l12 7h54v12l-19 14h-47l-20 15H75c-29 0-51-21-51-48z" />
+                  <path class="falcon-rim" d="M29 60c0-24 20-43 46-43h56l19 15h48l14 10v5h-49l-16 9h-35v8h35l16 9h49v5l-14 10h-48l-19 15H75c-26 0-46-19-46-43z" />
+                  <path class="ship-line" d="M38 42h27m-27 36h27m-7-49 13 15v32L58 91m43-77v28m0 36v28m0-48h35m-35 8h35m-9-31 12 12v18l-12 12m24-33h18m-18 41h18" />
+                  <circle class="falcon-dish" cx="86" cy="60" r="21" />
+                  <path class="falcon-dish-detail" d="m86 42 5 13 13 5-13 5-5 13-5-13-13-5 13-5z" />
+                  <path class="falcon-cockpit" d="M154 30h34l17 12-6 7h-38l-13-7z" />
+                  <path class="cockpit-glass" d="M164 34h22l10 7h-27z" />
+                  <path class="ship-glow" d="M25 49h5v22h-5z" />
+                </g>
+                <g class="ship-art ship-art--destroyer">
+                  <path class="ship-metal" d="M18 60 210 18l-35 42 35 42z" />
+                  <path class="ship-line" d="m42 60 150-32M42 60l150 32m-116-39 5 14-5 14m22-33 5 19-5 19m22-43 5 24-5 24" />
+                  <path class="bridge" d="M80 50h32v-15h28v25H80zm0 20h32v15h28V60H80z" />
+                  <path class="cockpit-glass" d="M96 43h12v8H96zm0 26h12v8H96z" />
+                  <path class="engine-glow" d="M20 48h12v24H20z" />
+                </g>
+                <g class="ship-art ship-art--death-star">
+                  <circle class="death-star-body" cx="120" cy="60" r="48" />
+                  <path class="death-star-panel" d="M86 17q-17 9-25 25l11 5q8-15 22-22zm68 2-9 10q15 12 19 28l13-3q-5-21-23-35zM63 73q6 19 22 31l9-11Q81 84 76 70z" />
+                  <path class="death-star-trench" d="M74 52q46 15 92 0v13q-46 14-92 0z" />
+                  <path class="death-star-trench-line" d="M78 58h84m-78 5h72" />
+                  <circle class="superlaser-ring" cx="151" cy="37" r="13" />
+                  <circle class="superlaser-core" cx="151" cy="37" r="7" />
+                  <path class="superlaser-glint" d="m151 24 2 10 10 3-10 2-2 11-2-11-10-2 10-3z" />
+                  <path class="death-star-detail" d="M111 20v17m-8-13v12m-24 51 10-8m53 34-6-14m25-39 13 1" />
+                </g>
+              </svg>
+              <span class="stage-index" aria-hidden="true">FLIGHT {{ (index + 1).toString().padStart(2, '0') }}</span>
+            </div>
+            <div class="ship-info">
+              <p class="ship-class">Fleet record {{ (index + 1).toString().padStart(3, '0') }}</p>
+              <h2 [id]="'ship-name-' + index">{{ item.name }}</h2>
+              <p class="ship-model"><span>MODEL</span>{{ item.model }}</p>
+            </div>
+          </article>
+        </li>
+      }
+    </ul>
+  }
+</main>
+
+
